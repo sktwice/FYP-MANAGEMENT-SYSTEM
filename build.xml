@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="FYP_Management_System_Dummy" default="default" basedir=".">
-    <description>Builds, tests, and runs the project FYP_Management_System_Dummy.</description>
+<project name="FYP_Management_System" default="default" basedir=".">
+    <description>Builds, tests, and runs the project FYP_Management_System.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

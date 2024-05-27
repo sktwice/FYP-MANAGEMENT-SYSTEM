@@ -15,7 +15,7 @@ public class DBconnect {
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             // Establishing a connection
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fyp", "root", "faris161102");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fyp", "root", "");
             
             // Creating a statement
             statement = connection.createStatement();
