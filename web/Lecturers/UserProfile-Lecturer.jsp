@@ -1,5 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en" style="height:100%;">
+<html lang="en" style="height: 100%;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,121 +26,107 @@
         }
     </style>
 </head>
-<body>
-<a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-</a>
-<div class="p-2 navbar-menu is-mobile-visible" id="navMenu" style="">
-            <nav class="navbar" role="navigation" aria-label="dropdown navigation">
-                <div class="navbar-item has-dropdown is-active">
-                <a class="">
-                    uitm
-                  <img src="">
-                </a>
-
+<body style="height:100%;">
+    <div class="is-flex is-justify-content-space-between is-mobile-visible">
+        <div class=" is-mobile-visible p-2">
+            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+        </div>
+        <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+    </div>
+    <div class="p-2 navbar-menu is-mobile-visible" id="navMenu" style="">
+        <nav class="navbar" role="navigation" aria-label="dropdown navigation">
+            <div class="navbar-item has-dropdown">
                 <div class="navbar-dropdown">
-                    <a class="box has-text-black navbar-item p-4 m-0 is-size-7" style="background-color: #a0e4d1;;">
+                    <a class="box has-text-black navbar-item p-4 m-0" style="background-color: #a0e4d1;">
                         <span class="fas fa-home pr-2"></span>
                         <span class="is-size-7" >Dashboard</span>
                     </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-user pr-4"></span>
-                        <span class="has-text-white is-size-7" >Profile</span>
+                    <a class="navbar-item p-4" href="../Lecturers/UserProfile-Lecturer.jsp">
+                        <span class="fas fa-user pr-4"></span>
+                        <span class="is-size-7" >Profile</span>
                     </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-inbox pr-4"></span>
-                        <span class="has-text-white is-size-7" >Reports</span>
+                    <a class="navbar-item p-4" href="../Lecturers/Report-Lecturer.jsp">
+                        <span class="fas fa-inbox pr-4 is-size-7"></span>
+                        <span class="is-size-7" >Reports</span>
                     </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-file-pen pr-4"></span>
-                        <span class="has-text-white" >Form</span>
+                    <a class="navbar-item p-4" href="../Lecturers/Form-Lecturer.jsp">
+                        <span class="fas fa-book pr-4 is-size-7"></span>
+                        <span class="is-size-7" >Form</span>
                     </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-circle-info pr-4"></span>
-                        <span class="has-text-white" >Guideline</span>
+                    <a class="navbar-item p-4" href="../Lecturers/Scope-Lecturer.jsp">
+                        <span class="fas fa-book pr-4 is-size-7"></span>
+                        <span class="is-size-7" >Scope</span>
                     </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-book pr-4"></span>
-                        <span class="has-text-white" >Scope</span>
+                    <a class="navbar-item p-4" href="../Lecturers/StudentList-Supervision.jsp">
+                        <span class="fas fa-circle-plus pr-4 is-size-7"></span>
+                        <span class="is-size-7" >Supervision</span>
                     </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-circle-plus pr-4"></span>
-                        <span class="has-text-white" >Supervision</span>
+                    <a class="navbar-item p-4">
+                        <span class="fas fa-arrow-right-from-bracket pr-4"></span>
+                        <span class=" is-size-7" >Sign-out</span>
                     </a>
-                    <hr class="navbar-divider">
-                    <div class="navbar-item p-4">
-                        <a class="is-size-7">
-                            <span class="has-text-white fas fa-arrow-right-from-bracket pr-4"></span>
-                            <span class="has-text-white" >Sign-out</span>
-                        </a>
-                    </div>
                 </div>
-              </div>
-            </nav>
-        </div>
-<div class="columns m-0 p-0">
-    <div class="p-2 column is-2 d-none">
+            </div>
+        </nav>
+    </div>
+<div class="columns m-0 p-0 h-100">
+    <div class="p-2 column is-2 is-desktop-visible">
         <aside class="menu">
-          <p class="menu-label">
-              <img src="">
+          <p class="menu-label p-1 m-0">
+              <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
           </p>
           <ul class="menu-list">
-              <li>
-                  <a class="box has-text-black navbar-item p-4 m-0 is-size-7" style="background-color: #a0e4d1;;">
-                    <span class="fas fa-home pr-2"></span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4" href="../Lecturers/Dashboard-Lecturer.jsp">
+                    <span class="fas fa-home pr-2 is-size-7"></span>
                     <span class="is-size-7" >Dashboard</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                    <span class="has-text-white fas fa-user pr-4"></span>
-                    <span class="has-text-white is-size-7" >Profile</span>
+              <li class="py-1">
+                  <a class="box has-text-black navbar-item p-4 m-0" style="background-color: #a0e4d1;">
+                    <span class="fas fa-user pr-4 is-size-7"></span>
+                    <span class="is-size-7" >Profile</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                    <span class="has-text-white fas fa-inbox pr-4"></span>
-                    <span class="has-text-white is-size-7" >Reports</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4" href="../Lecturers/Report-Lecturer.jsp">
+                    <span class="fas fa-inbox pr-4 is-size-7"></span>
+                    <span class="is-size-7" >Reports</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-file-pen pr-4"></span>
-                        <span class="has-text-white" >Form</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4" href="../Lecturers/Form-Lecturer.jsp">
+                      <span class="fas fa-file-pen pr-4 is-size-7"></span>
+                        <span class="is-size-7">Form</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                      <span class="has-text-white fas fa-circle-info pr-4"></span>
-                      <span class="has-text-white" >Guideline</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4 m-0" href="../Lecturers/Scope-Lecturer.jsp">
+                      <span class="fas fa-book pr-4"></span>
+                      <span class="is-size-7" >Scope</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                      <span class="has-text-white fas fa-book pr-4"></span>
-                      <span class="has-text-white" >Scope</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4" href="../Lecturers/StudentList-Supervision.jsp">
+                      <span class="fas fa-circle-plus pr-4 is-size-7"></span>
+                      <span class="is-size-7">Supervision</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                      <span class="has-text-white fas fa-circle-plus pr-4"></span>
-                      <span class="has-text-white" >Supervision</span>
-                  </a>
-              </li>
-              <hr class="navbar-divider">
-              <li>
-                  <a class="is-size-7">
-                      <span class="has-text-white fas fa-arrow-right-from-bracket pr-4"></span>
-                      <span class="has-text-white" >Sign-out</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4">
+                      <span class="fas fa-arrow-right-from-bracket pr-4 is-size-7"></span>
+                      <span class="is-size-7" >Sign-out</span>
                   </a>
               </li>
           </ul>
         </aside>
     </div>
-    <div class="column" style="background-color:#FFFFFF;">
+    <div class="column px-6 py-3" style="background-color:#FFFFFF;">
         <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
             User Profile
         </div>
@@ -169,13 +156,7 @@
             <div class="column is-full">
                 <label class="has-text-weight-semibold has-text-grey">Name</label>
                 <div class="py-2">
-                    <input class="px-4 py-2" type="text" placeholder="First Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                </div>
-            </div>
-            <div class="column is-half">
-                <label class="has-text-weight-semibold has-text-grey">Last Name</label>
-                <div class="py-2">
-                    <input class="px-4 py-2" type="text" placeholder="Last Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    <input class="px-4 py-2" type="text" placeholder="Full Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                 </div>
             </div>
             <div class="column is-full">

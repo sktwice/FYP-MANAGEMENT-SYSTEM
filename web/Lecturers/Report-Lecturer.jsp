@@ -1,345 +1,142 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
     <style>
-        /* Assign full width inputs*/
-        input[type=text],
-        input[type=password] {
-            width: 100%;
-            padding: 12px 40px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        .fontpassword {
-            position: relative;
-        }
-
-        .fontpassword i{
-            position: absolute;
-            left: 15px;
-            top: 40px;
-            color: gray;
-        }
-        @media screen and (max-width: 1024px) {
-            .desktop-only{
-               display: none;
-            }
-        }
-        .box {
-            background-color: #fff;
-            border-radius: 6px;
-            box-shadow: 0 .5em 1em -0.125em rgba(10,10,10,.1),0 0px 0 1px rgba(10,10,10,.02);
-            color: #4a4a4a;
-            display: block;
-            padding: 1.25rem;
-            border-width: 10px;
-        }
-        .custom-border{
-            background-color: #fff;
-            border-radius: 6px;
-            color: #4a4a4a;
-            display: inline-block;
-            border: 1px solid #dbdbdb;
-            box-shadow: 0 .5em 1em -0.125em rgba(10,10,10,.1),0 0px 0 1px rgba(10,10,10,.02);
-            width: 100%;
-        }
-        .custom-bg{
-            background: rgb(211,217,220);
-            background: linear-gradient(0deg, rgba(211,217,220,1) 0%, rgba(216,104,176,1) 100%);
-        }
-        .custom-bg2{
-            background: rgb(221,158,97);
-            background: linear-gradient(0deg, rgba(221,158,97,1) 0%, rgba(174,180,250,1) 100%);
-        }
-        .custom-bg3{
-            background: rgb(221,158,97);
-            background: linear-gradient(0deg, rgba(221,158,97,1) 0%, rgba(226,158,159,1) 100%);
-        }
-        .custom-bg4{
-            background: rgb(235,188,160);
-            background: linear-gradient(0deg, rgba(235,188,160,1) 0%, rgba(208,166,253,1) 100%);
-        }
-        .w-100{
-            width:100%;
-        }
-        .h-100{
-            height:100%;
-        }
-        table {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          table-layout: fixed;
-        }
-
-        table caption {
-          font-size: 1.5em;
-          margin: .5em 0 .75em;
-        }
-
-        table tr {
-          border-bottom: 1px solid #ddd;
-          padding: .35em;
-        }
-
-        table th,
-        table td {
-          padding: .625em;
-        }
-
-        table th {
-          font-size: .85em;
-          letter-spacing: .1em;
-        }
-
-        @media screen and (max-width: 768px) {
-        .width-mobile{
-            width:100%;
-        }
-          table {
-            border: 2;
-          }
-
-          table caption {
-            font-size: 1.3em;
-          }
-
-          table thead {
-            border: none;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
-            width: 1px;
-          }
-
-          table tr {
-            border-bottom: 2px solid #ddd;
-            display: block;
-            margin-bottom: .625em;
-          }
-          table td {
-            border-bottom: 1px solid #ddd;
-            display: block;
-            font-size: .8em;
-            text-align: right;
-          }
-          table td::before {
-            /*
-            * aria-label has no advantage, it won't be read inside a table
-            content: attr(aria-label);
-            */
-            content: attr(data-label);
-            float: left;
-            font-weight: 500 !important;
-          }
-
-          table td:last-child {
-            border-bottom: 0;
-          }
-        }
-        @media screen and (max-width: 1024px) {
-          .d-none{
-            display: none;
-          }
-        }
-        @media screen and (min-width: 1024px) {
-          .is-mobile-visible{
-            display: none;
-          }
-        }
-        .button.is-delete {
-            background-color: #f14668;
+        .button.is-nav {
+            background-color: #14161a;
             border-color: #fff;
-            color: #fff
+            color: #fff;
         }
-        .button.is-delete.is-outlined:hover,.button.is-delete.is-outlined.is-hovered,.button.is-delete.is-outlined:focus,.button.is-delete.is-outlined.is-focused {
-            background-color: #fff;
-            border-color: #f14668;
-            color: #f14668
+        .button.is-nav:hover,.button.nav.is-hovered {
+            background-color: #a0e4d1;
+            border-color: #14161a;
+            color: #090a0c
         }
-        .button.is-custom {
-            background-color: #414E6A;
-            border-color: #fff;
-            color: #fff
-        }
-        .button.is-custom:hover,.button.custom.is-hovered {
-            background-color: #ffff;
-            border-color: #414E6A;
-            color: #414E6A
-        }
-        .button.is-custom.is-outlined:hover,.button.is-custom.is-outlined.is-hovered,.button.is-custom.is-outlined:focus,.button.is-custom.is-outlined.is-focused {
+        .button.is-nav.is-outlined:hover,.button.is-nav.is-outlined.is-hovered,.button.is-custom.is-outlined:focus,.button.is-nav.is-outlined.is-focused {
             background-color: #fff;
             border-color: #fff;
-            color: #414E6A
-        }
-        .button.is-custom2 {
-            background-color: #7A97A9;
-            border-color: #fff;
-        color: #fff
-        }
-        .button.is-custom2:hover,.button.custom2.is-hovered {
-            background-color: #fff;
-            border-color: #7A97A9;
-            color: #7A97A9
-        }
-        .button.is-custom2.is-outlined:hover,.button.is-custom2.is-outlined.is-hovered,.button.is-custom2.is-outlined:focus,.button.is-custom2.is-outlined.is-focused {
-            background-color: #fff;
-            border-color: #fff;
-            color: #7A97A9
-        }
-        .button.is-custom3 {
-            background-color: #3e8ed0;
-            border-color: #fff;
-            color: #fff
-        }
-        .button.is-custom3:hover,.button.custom2.is-hovered {
-            background-color: #fff;
-            border-color: #3e8ed0;
-            color: #3e8ed0
-        }
-        .button.is-custom3.is-outlined:hover,.button.is-custom3.is-outlined.is-hovered,.button.is-custom3.is-outlined:focus,.button.is-custom3.is-outlined.is-focused {
-            background-color: #fff;
-            border-color: #fff;
-            color: #3e8ed0
+            color: #090a0c
         }
     </style>
 </head>
-<body>
-<a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-</a>
-<div class="p-2 navbar-menu is-mobile-visible" id="navMenu" style="">
-            <nav class="navbar" role="navigation" aria-label="dropdown navigation">
-                <div class="navbar-item has-dropdown is-active">
-                <a class="">
-                    uitm
-                  <img src="">
-                </a>
-
-                <div class="navbar-dropdown">
-                    <a class="box has-text-black navbar-item p-4 m-0 is-size-7" style="background-color: #a0e4d1;;">
-                        <span class="fas fa-home pr-2"></span>
-                        <span class="is-size-7" >Dashboard</span>
-                    </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-user pr-4"></span>
-                        <span class="has-text-white is-size-7" >Profile</span>
-                    </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-inbox pr-4"></span>
-                        <span class="has-text-white is-size-7" >Reports</span>
-                    </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-file-pen pr-4"></span>
-                        <span class="has-text-white" >Form</span>
-                    </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-circle-info pr-4"></span>
-                        <span class="has-text-white" >Guideline</span>
-                    </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-book pr-4"></span>
-                        <span class="has-text-white" >Scope</span>
-                    </a>
-                    <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-circle-plus pr-4"></span>
-                        <span class="has-text-white" >Supervision</span>
-                    </a>
-                    <hr class="navbar-divider">
-                    <div class="navbar-item p-4">
-                        <a class="is-size-7">
-                            <span class="has-text-white fas fa-arrow-right-from-bracket pr-4"></span>
-                            <span class="has-text-white" >Sign-out</span>
-                        </a>
-                    </div>
-                </div>
-              </div>
-            </nav>
+<body style="height:100%;">
+    <div class="is-flex is-justify-content-space-between is-mobile-visible">
+        <div class=" is-mobile-visible p-2">
+            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
         </div>
-<div class="columns m-0 p-0" style=" height:726px;">
-    <div class="p-2 column is-2 d-none">
+        <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+    </div>
+    <div class="p-2 navbar-menu is-mobile-visible" id="navMenu" style="">
+        <nav class="navbar" role="navigation" aria-label="dropdown navigation">
+            <div class="navbar-item has-dropdown">
+                <div class="navbar-dropdown">
+                    <a class="box has-text-black navbar-item p-4 m-0" style="background-color: #a0e4d1;">
+                        <span class="fas fa-home pr-2"></span>
+                        <span class="is-size-7">Dashboard</span>
+                    </a>
+                    <a class="navbar-item p-4" href="../Lecturers/UserProfile-Lecturer.jsp">
+                        <span class="fas fa-user pr-4"></span>
+                        <span class="is-size-7">Profile</span>
+                    </a>
+                    <a class="navbar-item p-4" href="../Lecturers/Report-Lecturer.jsp">
+                        <span class="fas fa-inbox pr-4 is-size-7"></span>
+                        <span class="is-size-7">Reports</span>
+                    </a>
+                    <a class="navbar-item p-4" href="../Lecturers/Form-Lecturer.jsp">
+                        <span class="fas fa-book pr-4 is-size-7"></span>
+                        <span class="is-size-7">Form</span>
+                    </a>
+                    <a class="navbar-item p-4" href="../Lecturers/Scope-Lecturer.jsp">
+                        <span class="fas fa-book pr-4 is-size-7"></span>
+                        <span class="is-size-7">Scope</span>
+                    </a>
+                    <a class="navbar-item p-4" href="../Lecturers/StudentList-Supervision.jsp">
+                        <span class="fas fa-circle-plus pr-4 is-size-7"></span>
+                        <span class="is-size-7">Supervision</span>
+                    </a>
+                    <a class="navbar-item p-4">
+                        <span class="fas fa-arrow-right-from-bracket pr-4"></span>
+                        <span class=" is-size-7" >Sign-out</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+<div class="columns m-0 p-0 h-100">
+    <div class="p-2 column is-2 is-desktop-visible">
         <aside class="menu">
-          <p class="menu-label">
-              <img src="">
+          <p class="menu-label p-1 m-0">
+              <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
           </p>
           <ul class="menu-list">
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                    <span class="has-text-white fas fa-home pr-2"></span>
-                    <span class="has-text-white is-size-7" >Dashboard</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4" href="../Lecturers/Dashboard-Lecturer.jsp">
+                    <span class="fas fa-home pr-2 is-size-7"></span>
+                    <span class="is-size-7">Dashboard</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                    <span class="has-text-white fas fa-user pr-4"></span>
-                    <span class="has-text-white is-size-7" >Profile</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4" href="../Lecturers/UserProfile-Lecturer.jsp">
+                    <span class="fas fa-user pr-4 is-size-7"></span>
+                    <span class="is-size-7">Profile</span>
                   </a>
               </li>
-              <li>
-                  <a class="box has-text-black navbar-item p-4 m-0 is-size-7" style="background-color: #a0e4d1;">
-                    <span class="fas fa-inbox pr-4"></span>
-                    <span class="is-size-7" >Reports</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4" href="../Lecturers/Report-Lecturer.jsp">
+                    <span class="fas fa-inbox pr-4 is-size-7"></span>
+                    <span class="is-size-7">Reports</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                        <span class="has-text-white fas fa-file-pen pr-4"></span>
-                        <span class="has-text-white" >Form</span>
+              <li class="py-1">
+                  <a class="box has-text-black navbar-item p-4" style="background-color: #a0e4d1;">
+                      <span class="fas fa-file-pen pr-4 is-size-7"></span>
+                        <span class="is-size-7">Form</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                      <span class="has-text-white fas fa-circle-info pr-4"></span>
-                      <span class="has-text-white" >Guideline</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4" href="../Lecturers/Scope-Lecturer.jsp">
+                      <span class="fas fa-book pr-4"></span>
+                      <span class="is-size-7">Scope</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                      <span class="has-text-white fas fa-book pr-4"></span>
-                      <span class="has-text-white" >Scope</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4" href="../Lecturers/StudentList-Supervision.jsp">
+                      <span class="fas fa-circle-plus pr-4 is-size-7"></span>
+                      <span class="is-size-7">Supervision</span>
                   </a>
               </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7">
-                      <span class="has-text-white fas fa-circle-plus pr-4"></span>
-                      <span class="has-text-white" >Supervision</span>
-                  </a>
-              </li>
-              <hr class="navbar-divider">
-              <li>
-                  <a class="is-size-7">
-                      <span class="has-text-white fas fa-arrow-right-from-bracket pr-4"></span>
-                      <span class="has-text-white" >Sign-out</span>
+              <li class="py-1">
+                  <a class="button is-nav navbar-item p-4">
+                      <span class="fas fa-arrow-right-from-bracket pr-4 is-size-7"></span>
+                      <span class="is-size-7">Sign-out</span>
                   </a>
               </li>
           </ul>
         </aside>
     </div>
-    <div class="column" style="background-color:#FFFFFF; height:726px;">
-        <div class="py-1 px-5 is-flex is-justify-content-end is-align-items-center">
-            <input class="px-4 m-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+    <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
+        <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
+            <input class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
             <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
                 <img src="">
             </span>
         </div>
-        <div class="custom-border p-4 w-100">
-            <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
+        <div class="custom-border p-6 w-100">
+            <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                 <div>
-                    <label class="has-text-weight-semibold has-text-grey-dark is-size-5">Past Reports</label>
+                    <label class="has-text-weight-bold has-text-grey is-size-5">Past Reports</label>
                     <p class="has-text-grey-light is-size-7">More than 400+ students' reports</p>
                 </div>
                 <button class="button is-custom" style="height:2rem;">
@@ -360,11 +157,11 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Student">Badrul</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Matric ID">12345678</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Semester">23/24</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Topic">Android App Dev</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student">Badrul</td>
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345678</td>
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">Android App Dev</td>
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
                                     <div class=" is-flex is-justify-content-center">
                                         <button class="button is-custom is-small">View</button>
                                         <button class="button is-custom3 is-small">Download</button>
@@ -372,11 +169,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Student">Hisham</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Matric ID">12345679</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Semester">23/24</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Topic">Android App Dev</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student">Hisham</td>
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345679</td>
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">Android App Dev</td>
+                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
                                     <div class=" is-flex is-justify-content-center">
                                         <button class="button is-custom is-small">View</button>
                                         <button class="button is-custom3 is-small">Download</button>

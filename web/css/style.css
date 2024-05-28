@@ -333,6 +333,7 @@ a.dropdown-item:hover,button.dropdown-item:hover {
 }
  /* Assign full width inputs*/
         input[type=text],
+        input[type=date],
         input[type=password] {
             width: 100%;
             padding: 12px 40px;

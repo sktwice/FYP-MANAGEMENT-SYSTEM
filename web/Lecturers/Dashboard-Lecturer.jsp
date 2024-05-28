@@ -125,9 +125,9 @@
           </ul>
         </aside>
     </div>
-    <div class="column" style="background-color:#FFFFFF;">
+    <div class="column px-6 py-2" style="background-color:#FFFFFF;">
         <div class="py-1 px-5 is-flex is-justify-content-end is-align-items-center">
-            <input class="px-4 py-2 m-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+            <input class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
             <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
                 <img src="">
             </span>

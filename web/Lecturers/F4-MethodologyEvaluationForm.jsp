@@ -1,3 +1,9 @@
+<%-- 
+    Document   : F4-MethodologyEvaluationForm
+    Created on : 28 May 2024, 3:57:48 pm
+    Author     : sarahyasmin
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html style="height:100%;">
@@ -25,12 +31,12 @@
                 color: #090a0c
             }
         </style>
-        <title>F2 Page</title>
+        <title>F4 Page</title>
     </head>
     <body style="height:100%;">
         <div class="is-flex is-justify-content-space-between is-mobile-visible">
             <div class=" is-mobile-visible p-2">
-                <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+                <img src="..s/assets/uitm-logo.png" style="height:30px; width:60px;">
             </div>
             <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
@@ -55,7 +61,7 @@
                             <span class="fas fa-inbox pr-4 is-size-7"></span>
                             <span class="is-size-7" >Reports</span>
                         </a>
-                        <a class="navbar-item p-4" href="../Lecturers/Form-Lecturer.jsp">
+                        <a class="navbar-item p-4" href="../FYP-MANAGEMENT-SYSTEM/Lecturers/Form-Lecturer.jsp">
                             <span class="fas fa-book pr-4 is-size-7"></span>
                             <span class="is-size-7" >Form</span>
                         </a>
@@ -127,9 +133,9 @@
                   </ul>
                 </aside>
             </div>
-            <div class="column p-6" style="background-color:#FFFFFF; overflow-y: scroll;">
+            <div class="column px-6 py-4" style="background-color:#FFFFFF; overflow-y: scroll;">
                 <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
-                    F2 - PROJECT MOTIVATION EVALUATION FORM
+                    F4 - METHODOLOGY EVALUATION FORM
                 </div>
                 <div class="columns is-multiline m-0 p-0">
                     <div class="column is-2" style="align-content: center">
@@ -173,22 +179,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-4">
-                    <div class="is-flex is-justify-content-space-between pb-4">
+                <div class="p-3">
+                    <div class="is-flex is-justify-content-space-between py-4">
                         <table class="">
                             <thead>
                             <tr>
-                                <th class="has-text-grey has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Assessment Criteria</th>
-                                <th class="has-text-grey has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Weight (W)</th>
-                                <th class="has-text-grey has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Score (s) [1-10] (refer to F7 rubric)</th>
-                                <th class="has-text-grey has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Marks (W*S)</th>
+                                <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Assessment Criteria</th>
+                                <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Weight (W)</th>
+                                <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Score (s) [1-10] (refer to F7 rubric)</th>
+                                <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Marks (W*S)</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                    <p class="has-text-weight-semibold is-size-7 has-text-grey">1. Problem identification</p>
-                                    <p class="is-size-7 has-text-grey"> (Identify problems/ issues/ opportunities)</p>
+                                    <p class="has-text-weight-semibold is-size-7 has-text-grey-dark">1. Design of the methodology</p>
+                                    <p class="is-size-7 has-text-grey-dark"> (Appropriate and comprehensible design of the methodology)</p>
                                 </td>
                                 <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;">3</td>
                                 <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
@@ -221,10 +227,10 @@
                             </tr>
                             <tr>
                                 <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                    <p class="has-text-weight-semibold is-size-7 has-text-grey">2. Evidences</p>
-                                    <p class="is-size-7 has-text-grey">(Evidences to support problems/ issues/ opportunities identified.)</p>
+                                    <p class="has-text-weight-semibold is-size-7 has-text-grey-dark">2. Description</p>
+                                    <p class="is-size-7 has-text-grey-dark">(Comprehensible and detailed description of each component in methodology)</p>
                                 </td>
-                                <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;">5</td>
+                                <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;">3</td>
                                 <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
                                     <div class="dropdown is-hoverable">
                                         <div class="dropdown-trigger">
@@ -255,10 +261,10 @@
                             </tr>
                             <tr>
                                 <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                    <p class="has-text-weight-semibold is-size-7 has-text-grey">3. Solutions</p>
-                                    <p class="is-size-7 has-text-grey">(Propose solutions.)</p>
+                                    <p class="has-text-weight-semibold is-size-7 has-text-grey-dark">1. Writing</p>
+                                    <p class="is-size-7 has-text-grey-dark">(Summary based on references)</p>
                                 </td>
-                                <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;">2</td>
+                                <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;">4</td>
                                 <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
                                     <div class="dropdown is-hoverable">
                                         <div class="dropdown-trigger">
@@ -289,7 +295,7 @@
                             </tr>
                             <tr>
                                 <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                    <p class="has-text-weight-bold has-text-grey is-size-7">Total</p>
+                                    <p class="has-text-weight-bold has-text-grey-dark is-size-7">Total</p>
                                     <p class="is-size-7"></p>
                                 </td>
                                 <td class="has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;"> </td>
@@ -301,8 +307,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="is-size-5 has-text-weight-bold has-text-grey pt-2 pb-4">F2 - PROJECT MOTIVATION EVALUATION RUBRIC</div>
-                    <table class="">
+                    <!-- Start Rubric Jangan Usik!! -->
+                    <div class="is-size-5 has-text-weight-bold has-text-grey pt-2 pb-4">F4 - METHODOLOGY EVALUATION RUBRIC</div>
+                    <table class="mb-4">
                         <thead>
                         <tr class="has-background-grey" style="border-bottom: 2px solid #ddd;">
                             <th class="has-text-white is-size-7 has-text-centered">No</th>
@@ -311,52 +318,102 @@
                             <th class="has-text-white is-size-7 has-text-centered">Good (6-7)</th>
                             <th class="has-text-white is-size-7 has-text-centered">Satisfactory (5)</th>
                             <th class="has-text-white is-size-7 has-text-centered">Poor (1-4)</th>
+                            <th class="has-text-white is-size-7 has-text-centered">0</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <td class="has-text-centered is-size-7 has-text-right-mobile has-text-grey" data-label="No">1</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Assessment Criteria">Problem identification</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Excellent (8-10)">&bull; Well-defined problem statement.</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Good (6-7)">&bull; Clear problem statement.</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Satisfactory (5)">&bull; Adequate problem statement.</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Poor (1-4)">&bull; Unclear problem statement.</td>
-                        </tr>
-                        <tr>
-                            <td class="has-text-centered is-size-7 has-text-right-mobile has-text-grey" data-label="No">2</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Assessment Criteria">Evidences</td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Assessment Criteria">
+                                Design of the methodology
+                            </td>
                             <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Excellent (8-10)">
                                 <ul>
-                                    <li>&bull; Provides well-supported evidences for project.</li>
-                                    <li>&bull; Very-clear statement of why project is needed.</li>
+                                    <li>&bull; The design is correct and complete</li>
+                                    <li>&bull; Additional appropriate ideas and components are presented</li>
                                 </ul>
                             </td>
                             <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Good (6-7)">
                                 <ul>
-                                    <li>&bull; Provides appropriate evidences for project.</li>
-                                    <li>&bull; Clear statement of why project is needed</li>
+                                    <li>&bull; The design is reasonable and complete</li>
+                                    <li>&bull; Some of the component presented but not appropriate</li>
                                 </ul>
                             </td>
                             <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Satisfactory (5)">
                                 <ul>
-                                    <li>&bull; Provides some evidences for project.</li>
-                                    <li>&bull; Adequate statement of why project is needed.</li>
+                                    <li>&bull; The design goes in the right direction</li>
+                                    <li>&bull; Some of the components are not complete</li>
                                 </ul>
                             </td>
                             <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Poor (1-4)">
                                 <ul>
-                                    <li>&bull; Poor or no evidence for project.</li>
-                                    <li>&bull; Not-clear statement of why project is needed.</li>
+                                    <li>&bull; The design component is missing or not appropriate</li>
                                 </ul>
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey has-text-centered" data-label="0">
+                                No Evidence
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="has-text-centered is-size-7 has-text-right-mobile has-text-grey" data-label="No">2</td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Assessment Criteria">
+                                Description
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Excellent (8-10)">
+                                <ul>
+                                    <li>&bull; Description of the components is detailed</li>
+                                    <li>&bull; Every component description is presented in correct and appropriate relation</li>
+                                </ul>
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Good (6-7)">
+                                <ul>
+                                    <li>&bull; Description of the components is reasonable and complete</li>
+                                    <li>&bull; Some of the components’ description are presented but not appropriate</li>
+                                </ul>
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Satisfactory (5)">
+                                <ul>
+                                    <li>&bull; Part of the components’ description are reasonable</li>
+                                    <li>&bull; Some of the components’ description are not complete</li>
+                                </ul>
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Poor (1-4)">
+                                <ul>
+                                    <li>&bull; Description of the components are missing, not understandable, or not relevant</li>
+                                </ul>
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey has-text-centered" data-label="0">
+                                No Evidence
                             </td>
                         </tr>
                         <tr>
                             <td class="has-text-centered is-size-7 has-text-right-mobile has-text-grey" data-label="No">3</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Assessment Criteria">Solutions</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Excellent (8-10)">&bull; Well documented, reasoned and appropriate solutions.</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Good (6-7)">&bull; Appropriate solutions.</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Satisfactory (5)">&bull; Reasonable solutions.</td>
-                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Poor (1-4)">&bull; Inappropriate or no solutions.</td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Assessment Criteria">
+                                Model/Technique/Method
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Excellent (8-10)">
+                                <ul>
+                                    <li>&bull; Model/technique/ method employed is clear, complete, precise and follows logical order</li>
+                                </ul>
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Good (6-7)">
+                                <ul>
+                                    <li>&bull; Model/technique/ method employed appears complete but is either unclear, imprecise or fails to follow a logical order</li>
+                                </ul>
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Satisfactory (5)">
+                                <ul>
+                                    <li>&bull; Model/technique/ method employed appears not complete with either unclear, imprecise or fails to follow a logical order</li>
+                                </ul>
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey" data-label="Poor (1-4)">
+                                <ul>
+                                    <li>&bull; Model/technique/ method employed is unclear, incomplete, imprecise and fails to follow a logical order</li>
+                                </ul>
+                            </td>
+                            <td class="is-size-7 has-text-right-mobile has-text-grey has-text-centered" data-label="0">
+                                No Evidence
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -365,3 +422,4 @@
         </div>
     </body>
 </html>
+
