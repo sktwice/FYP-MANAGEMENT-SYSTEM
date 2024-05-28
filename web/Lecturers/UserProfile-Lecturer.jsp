@@ -6,113 +6,140 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .button.is-nav {
+            background-color: #14161a;
+            border-color: #fff;
+            color: #fff;
+        }
+        .button.is-nav:hover,.button.nav.is-hovered {
+            background-color: #a0e4d1;
+            border-color: #14161a;
+            color: #090a0c
+        }
+        .button.is-nav.is-outlined:hover,.button.is-nav.is-outlined.is-hovered,.button.is-custom.is-outlined:focus,.button.is-nav.is-outlined.is-focused {
+            background-color: #fff;
+            border-color: #fff;
+            color: #090a0c
+        }
+    </style>
 </head>
-<body style="height:100%;">
-    <div class="is-flex is-justify-content-space-between is-mobile-visible">
-        <div class=" is-mobile-visible p-2">
-            <img src="assets/uitm-logo.png" style="height:30px; width:60px;">
-        </div>
-        <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </button>
-    </div>
+<body>
+<a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+</a>
 <div class="p-2 navbar-menu is-mobile-visible" id="navMenu" style="">
-    <nav class="navbar" role="navigation" aria-label="dropdown navigation">
-        <div class="navbar-item has-dropdown">
-            <div class="navbar-dropdown">
-                <a class="navbar-item p-4 is-size-7" href="Lecturers/Dashboard-Lecturer.jsp">
-                    <span class="has-text-white fas fa-home pr-2"></span>
-                    <span class="has-text-white is-size-7" >Dashboard</span>
+            <nav class="navbar" role="navigation" aria-label="dropdown navigation">
+                <div class="navbar-item has-dropdown is-active">
+                <a class="">
+                    uitm
+                  <img src="">
                 </a>
-                <a class="navbar-item p-4 is-size-7" href="Lecturers/UserProfile-Lecturer.jsp">
-                    <span class="has-text-white fas fa-user pr-4"></span>
-                    <span class="has-text-white is-size-7" >Profile</span>
-                </a>
-                <a class="navbar-item p-4 is-size-7" href="Lecturers/Report-Lecturer.jsp">
-                    <span class="has-text-white fas fa-inbox pr-4"></span>
-                    <span class="has-text-white is-size-7" >Reports</span>
-                </a>
-                <a class="navbar-item p-4 is-size-7" href="Lecturers/Form-Lecturer.jsp">
-                    <span class="has-text-white fas fa-inbox pr-4"></span>
-                    <span class="has-text-white is-size-7" >Form</span>
-                </a>
-                <a class="navbar-item p-4 is-size-7" href="Lecturer/Guidline-Lecturer.jsp">
-                    <span class="has-text-white fas fa-circle-info pr-4"></span>
-                    <span class="has-text-white" >Guideline</span>
-                </a>
-                <a class="navbar-item p-4 is-size-7" href="Admin/Scope-Admin.jsp">
-                    <span class="has-text-white fas fa-book pr-4"></span>
-                    <span class="has-text-white is-size-7" >Scope</span>
-                </a>
-                <a class="navbar-item p-4 is-size-7">
-                    <span class="has-text-white fas fa-circle-plus pr-4"></span>
-                    <span class="has-text-white is-size-7" >Supervision</span>
-                </a>
-                <a class="navbar-item is-size-7 p-4">
-                    <span class="has-text-white fas fa-arrow-right-from-bracket pr-4"></span>
-                    <span class="has-text-white" >Sign-out</span>
-                </a>
-            </div>
+
+                <div class="navbar-dropdown">
+                    <a class="box has-text-black navbar-item p-4 m-0 is-size-7" style="background-color: #a0e4d1;;">
+                        <span class="fas fa-home pr-2"></span>
+                        <span class="is-size-7" >Dashboard</span>
+                    </a>
+                    <a class="navbar-item p-4 is-size-7">
+                        <span class="has-text-white fas fa-user pr-4"></span>
+                        <span class="has-text-white is-size-7" >Profile</span>
+                    </a>
+                    <a class="navbar-item p-4 is-size-7">
+                        <span class="has-text-white fas fa-inbox pr-4"></span>
+                        <span class="has-text-white is-size-7" >Reports</span>
+                    </a>
+                    <a class="navbar-item p-4 is-size-7">
+                        <span class="has-text-white fas fa-file-pen pr-4"></span>
+                        <span class="has-text-white" >Form</span>
+                    </a>
+                    <a class="navbar-item p-4 is-size-7">
+                        <span class="has-text-white fas fa-circle-info pr-4"></span>
+                        <span class="has-text-white" >Guideline</span>
+                    </a>
+                    <a class="navbar-item p-4 is-size-7">
+                        <span class="has-text-white fas fa-book pr-4"></span>
+                        <span class="has-text-white" >Scope</span>
+                    </a>
+                    <a class="navbar-item p-4 is-size-7">
+                        <span class="has-text-white fas fa-circle-plus pr-4"></span>
+                        <span class="has-text-white" >Supervision</span>
+                    </a>
+                    <hr class="navbar-divider">
+                    <div class="navbar-item p-4">
+                        <a class="is-size-7">
+                            <span class="has-text-white fas fa-arrow-right-from-bracket pr-4"></span>
+                            <span class="has-text-white" >Sign-out</span>
+                        </a>
+                    </div>
+                </div>
+              </div>
+            </nav>
         </div>
-    </nav>
-</div>
-<div class="columns m-0 p-0 h-100">
-    <div class="p-2 column is-2 is-desktop-visible">
+<div class="columns m-0 p-0">
+    <div class="p-2 column is-2 d-none">
         <aside class="menu">
-          <p class="menu-label pt-2 pl-3 pr-4 m-0">
-              <img src="assets/uitm-logo.png">
+          <p class="menu-label">
+              <img src="">
           </p>
           <ul class="menu-list">
               <li>
-                  <a class="navbar-item p-4 is-size-7" href="Admin/Dashboard-Admin.jsp">
-                    <span class="has-text-white fas fa-home pr-2"></span>
-                    <span class="has-text-white is-size-7" >Dashboard</span>
+                  <a class="box has-text-black navbar-item p-4 m-0 is-size-7" style="background-color: #a0e4d1;;">
+                    <span class="fas fa-home pr-2"></span>
+                    <span class="is-size-7" >Dashboard</span>
                   </a>
               </li>
               <li>
-                  <a class="box has-text-black navbar-item p-4 m-0 is-size-7" style="background-color: #a0e4d1;">
-                    <span class="fas fa-user pr-4"></span>
-                    <span class="is-size-7" >Profile</span>
+                  <a class="navbar-item p-4 is-size-7">
+                    <span class="has-text-white fas fa-user pr-4"></span>
+                    <span class="has-text-white is-size-7" >Profile</span>
                   </a>
               </li>
               <li>
-                  <a class="navbar-item p-4 is-size-7" href="Admin/Report-Admin.jsp">
+                  <a class="navbar-item p-4 is-size-7">
                     <span class="has-text-white fas fa-inbox pr-4"></span>
                     <span class="has-text-white is-size-7" >Reports</span>
                   </a>
               </li>
               <li>
-                  <a class="navbar-item p-4 is-size-7" href="Admin/Guidline-Admin.jsp">
+                  <a class="navbar-item p-4 is-size-7">
+                        <span class="has-text-white fas fa-file-pen pr-4"></span>
+                        <span class="has-text-white" >Form</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="navbar-item p-4 is-size-7">
                       <span class="has-text-white fas fa-circle-info pr-4"></span>
                       <span class="has-text-white" >Guideline</span>
                   </a>
               </li>
               <li>
-                  <a class="navbar-item p-4 is-size-7" href="Admin/Scope-Admin.jsp">
+                  <a class="navbar-item p-4 is-size-7">
                       <span class="has-text-white fas fa-book pr-4"></span>
-                      <span class="has-text-white " >Scope</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="navbar-item p-4 is-size-7" href="Admin/StudentList-Supervision-Admin.jsp">
-                      <span class="has-text-white fas fa-circle-plus pr-4"></span>
-                      <span class="has-text-white" >Supervision</span>
+                      <span class="has-text-white" >Scope</span>
                   </a>
               </li>
               <li>
                   <a class="navbar-item p-4 is-size-7">
+                      <span class="has-text-white fas fa-circle-plus pr-4"></span>
+                      <span class="has-text-white" >Supervision</span>
+                  </a>
+              </li>
+              <hr class="navbar-divider">
+              <li>
+                  <a class="is-size-7">
                       <span class="has-text-white fas fa-arrow-right-from-bracket pr-4"></span>
-                      <span class="has-text-white is-size-7" >Sign-out</span>
+                      <span class="has-text-white" >Sign-out</span>
                   </a>
               </li>
           </ul>
         </aside>
     </div>
-    <div class="column px-6 py-4" style="background-color:#FFFFFF;">
+    <div class="column" style="background-color:#FFFFFF;">
         <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
             User Profile
         </div>
@@ -139,16 +166,16 @@
             </div>
         </div>
         <div class="columns is-multiline m-0 p-0">
-            <div class="column is-half">
-                <label class="has-text-weight-semibold has-text-grey">First Name</label>
+            <div class="column is-full">
+                <label class="has-text-weight-semibold has-text-grey">Name</label>
                 <div class="py-2">
-                    <input class="custom-input px-4 py-2" type="text" placeholder="First Name">
+                    <input class="px-4 py-2" type="text" placeholder="First Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                 </div>
             </div>
             <div class="column is-half">
                 <label class="has-text-weight-semibold has-text-grey">Last Name</label>
                 <div class="py-2">
-                    <input class="custom-input px-4 py-2" type="text" placeholder="Last Name">
+                    <input class="px-4 py-2" type="text" placeholder="Last Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                 </div>
             </div>
             <div class="column is-full">
