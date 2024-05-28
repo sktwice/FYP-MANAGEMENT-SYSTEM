@@ -32,16 +32,17 @@ public class AddLecturerServlet extends HttpServlet {
         AL = new AddLecturerDAO();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            List<faculty> facultyList = AL.listFaculty();
-            request.setAttribute("facultyList", facultyList);
-            request.getRequestDispatcher("/Admin/Add-Lecturer.jsp").forward(request, response);
-        } catch (SQLException e) {
-            throw new ServletException(e);
-        }
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    try {
+        List<faculty> facultyList = AL.listFaculty();
+        System.out.println("Faculty list from DAO: " + facultyList); // Debug statement
+        request.setAttribute("facultyList", facultyList);
+        request.getRequestDispatcher("/Admin/Add-Lecturer.jsp").forward(request, response);
+    } catch (SQLException e) {
+        throw new ServletException(e);
     }
+}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

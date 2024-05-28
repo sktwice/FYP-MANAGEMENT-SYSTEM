@@ -46,27 +46,29 @@ public class AddLecturerDAO {
         return 1 + random.nextInt(10000); // Generates a random digit number
     }
 
-    public List<faculty> listFaculty() throws SQLException {
-        List<faculty> listFaculty = new ArrayList<>();
-        String sql = "SELECT * FROM faculty";
-        connect();
+public List<faculty> listFaculty() throws SQLException {
+    List<faculty> listFaculty = new ArrayList<>();
+    String sql = "SELECT * FROM faculty";
+    connect();
 
-        try (PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-             ResultSet resultSet = statement.executeQuery()) {
+    try (PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+         ResultSet resultSet = statement.executeQuery()) {
 
-            while (resultSet.next()) {
-                int f_id = resultSet.getInt("f_id");
-                String f_name = resultSet.getString("f_name");
-                String f_course = resultSet.getString("f_course");
+        while (resultSet.next()) {
+            int f_id = resultSet.getInt("f_id");
+            String f_name = resultSet.getString("f_name");
+            String f_course = resultSet.getString("f_course");
 
-                faculty f = new faculty(f_id, f_name, f_course);
-                listFaculty.add(f);
-            }
-        } finally {
-            disconnect();
+            faculty f = new faculty(f_id, f_name, f_course);
+            listFaculty.add(f);
         }
-        return listFaculty;
+    } finally {
+        disconnect();
     }
+    System.out.println("Faculty list: " + listFaculty); // Debug statement
+    return listFaculty;
+}
+
 
     public faculty getFacultyById(int fId) throws SQLException {
         String sqlFaculty = "SELECT * FROM faculty WHERE f_id = ?";

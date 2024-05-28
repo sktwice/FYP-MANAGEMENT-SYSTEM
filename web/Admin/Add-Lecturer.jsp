@@ -20,7 +20,7 @@
         <select id="f_id" name="f_id" required>
             <option value="">Select Faculty and Course</option>
             <% 
-                List<faculty> listFaculty = (List<faculty>) request.getAttribute("listFaculty");
+                List<faculty> listFaculty = (List<faculty>) request.getAttribute("facultyList");
                 if (listFaculty != null) {
                     for (faculty f : listFaculty) {
                         out.println("<option value=\"" + f.getfId() + "\">" + f.getfName() + " :- " + f.getfCourse() + "</option>");
@@ -48,9 +48,6 @@
         
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="l_course">Lecturer Course:</label>
-        <input type="text" id="l_course" name="l_course" required><br><br>
         
         <input type="submit" value="Register">
     </form>

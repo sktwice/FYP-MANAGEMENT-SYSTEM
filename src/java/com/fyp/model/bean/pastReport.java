@@ -8,14 +8,14 @@ package com.fyp.model.bean;
  *
  * @author User
  */
-public class pastTitles {
+public class pastReport {
     private int proId;
     private int studentId;
     private int lId;
     private String proTitle;
     private String session;
     
-    public pastTitles(int proId,int studentId, int lId, String proTitle,String session){
+    public pastReport(int proId,int studentId, int lId, String proTitle,String session){
         this.proId=proId;
         this.studentId=studentId;
         this.lId=lId;
