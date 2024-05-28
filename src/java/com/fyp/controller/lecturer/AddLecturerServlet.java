@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
-@WebServlet("/RegisterServlet")
+@WebServlet("/RegisterLecturerServlet")
 public class AddLecturerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private AddLecturerDAO AL;
@@ -58,7 +58,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
             int admin_id = Integer.parseInt(request.getParameter("admin_id"));
 
             int f_id = Integer.parseInt(request.getParameter("f_id"));
-            String l_course = request.getParameter("f_course");
+            String l_course = request.getParameter("l_course");
             
             
             int login_id = AL.generateId();
@@ -78,7 +78,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+           
         }
     }
 }

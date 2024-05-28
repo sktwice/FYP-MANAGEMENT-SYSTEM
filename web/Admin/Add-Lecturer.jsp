@@ -9,7 +9,7 @@
 </head>
 <body>
     <h2>Register Lecturer</h2>
-    <form action="RegisterServlet" method="post">
+    <form action="RegisterLecturerServlet" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
         
@@ -30,6 +30,9 @@
                 }
             %>
         </select><br><br>
+        
+        <label for="l_course">Lecturer Course:</label>
+        <input type="text" id="l_course" name="l_course" required><br><br>
 
         <label for="admin_id">Admin ID:</label>
         <input type="text" id="admin_id" name="admin_id" required><br><br>
@@ -48,6 +51,7 @@
         
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
+        
         
         <input type="submit" value="Register">
     </form>
