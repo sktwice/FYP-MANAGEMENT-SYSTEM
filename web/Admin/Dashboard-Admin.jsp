@@ -31,7 +31,7 @@
                 color: #090a0c
             }
         </style>
-        <title>F3 Page</title>
+        <title>Dashboard Page</title>
     </head>
     <body style="height:100%;">
         <div class="is-flex is-justify-content-space-between is-mobile-visible">
@@ -50,41 +50,41 @@
                 <div class="navbar-item has-dropdown">
                     <div class="navbar-dropdown">
                         <a class="box has-text-black navbar-item p-4 m-0" style="background-color: #a0e4d1;">
-                                <span class="fas fa-home pr-2"></span>
-                                <span class="is-size-7" >Dashboard</span>
-                            </a>
-                            <a class="navbar-item p-4" href="Admin/UserProfile-Admin.jsp">
-                                <span class="fas fa-user pr-4"></span>
-                                <span class="is-size-7" >Profile</span>
-                            </a>
-                            <a class="navbar-item p-4" href="Admin/Report-Admin.jsp">
-                                <span class="fas fa-book-open pr-4 is-size-7"></span>
-                                <span class="is-size-7" >Reports</span>
-                            </a>
-                            <a class="navbar-item p-4" href="Admin/ListOfLecturer.jsp">
-                                <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
-                                <span class="is-size-7" >Lecturer</span>
-                            </a>
-                            <a class="navbar-item p-4" href="Admin/Examiner-List.jsp">
-                                <span class="fas fa-user-tie pr-4 is-size-7"></span>
-                                <span class="is-size-7" >Examiner</span>
-                            </a>
-                            <a class="navbar-item p-4" href="Admin/Student-List.jsp">
-                                <span class="fas fa-user-graduate pr-4 is-size-7"></span>
-                                <span class="is-size-7" >Students</span>
-                            </a>
-                            <a class="navbar-item p-4" href="Admin/Scope-Admin.jsp">
-                                <span class="fas fa-book pr-4 is-size-7"></span>
-                                <span class="is-size-7" >Scope</span>
-                            </a>
-                            <a class="navbar-item p-4" href="Admin/StudenList-Supervision-Admin.jsp">
-                                <span class="fas fa-bullseye pr-4 is-size-7"></span>
-                                <span class="is-size-7">Supervision</span>
-                            </a>
-                            <a class="navbar-item p-4">
-                                <span class="fas fa-arrow-right-from-bracket pr-4"></span>
-                                <span class=" is-size-7" >Sign-out</span>
-                            </a>
+                            <span class="fas fa-home pr-2"></span>
+                            <span class="is-size-7" >Dashboard</span>
+                        </a>
+                        <a class="navbar-item p-4" href="Admin/UserProfile-Admin.jsp">
+                           <span class="fas fa-user pr-4"></span>
+                           <span class="is-size-7" >Profile</span>
+                        </a>
+                        <a class="navbar-item p-4" href="Admin/Report-Admin.jsp">
+                            <span class="fas fa-book-open pr-4 is-size-7"></span>
+                            <span class="is-size-7" >Reports</span>
+                        </a>
+                        <a class="navbar-item p-4" href="Admin/ListOfLecturer.jsp">
+                            <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
+                            <span class="is-size-7" >Lecturer</span>
+                        </a>
+                        <a class="navbar-item p-4" href="Admin/Examiner-List.jsp">
+                            <span class="fas fa-user-tie pr-4 is-size-7"></span>
+                            <span class="is-size-7" >Examiner</span>
+                        </a>
+                        <a class="navbar-item p-4" href="Admin/Student-List.jsp">
+                            <span class="fas fa-user-graduate pr-4 is-size-7"></span>
+                            <span class="is-size-7" >Students</span>
+                        </a> 
+                        <a class="navbar-item p-4" href="Admin/Scope-Admin.jsp">
+                            <span class="fas fa-book pr-4 is-size-7"></span>
+                            <span class="is-size-7" >Scope</span>
+                        </a>
+                        <a class="navbar-item p-4" href="Admin/StudentList-Supervision-Admin.jsp">
+                            <span class="fas fa-bullseye pr-4 is-size-7"></span>
+                            <span class="is-size-7">Supervision</span>
+                        </a>
+                        <a class="navbar-item p-4">
+                            <span class="fas fa-arrow-right-from-bracket pr-4"></span>
+                            <span class=" is-size-7" >Sign-out</span>
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -139,7 +139,7 @@
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Admin/StudenList-Supervision-Admin.jsp">
+                            <a class="button is-nav navbar-item p-4" href="Admin/StudentList-Supervision-Admin.jsp">
                                 <span class="fas fa-bullseye pr-4 is-size-7"></span>
                                 <span class="is-size-7">Supervision</span>
                             </a>
@@ -151,7 +151,7 @@
                             </a>
                         </li>
                     </ul>
-                  </aside>
+                </aside>
             </div>
     <div class="column px-6 py-2" style="background-color:#FFFFFF;">
         <div class="py-1 px-5 is-flex is-justify-content-end is-align-items-center">
