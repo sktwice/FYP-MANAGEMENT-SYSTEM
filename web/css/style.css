@@ -227,6 +227,38 @@ table td {
     border-color: #fff;
     color: #3e8ed0
 }
+.button.is-update {
+    background-color: #35B638;
+    border-color: #fff;
+    color: #fff;
+    padding: 5px 24px;
+}
+.button.is-update:hover,.button.custom2.is-hovered {
+    background-color: #fff;
+    border-color: #35B638;
+    color: #35B638
+}
+.button.is-update.is-outlined:hover,.button.is-update.is-outlined.is-hovered,.button.is-update.is-outlined:focus,.button.is-update.is-outlined.is-focused {
+    background-color: #fff;
+    border-color: #fff;
+    color: #35B638
+}
+.button.is-delete {
+    background-color: #FF0000;
+    border-color: #fff;
+    color: #fff;
+    padding: 5px 24px;
+}
+.button.is-delete:hover,.button.custom2.is-hovered {
+    background-color: #fff;
+    border-color: #FF0000;
+    color: #FF0000
+}
+.button.is-delete.is-outlined:hover,.button.is-delete.is-outlined.is-hovered,.button.is-delete.is-outlined:focus,.button.is-delete.is-outlined.is-focused {
+    background-color: #fff;
+    border-color: #fff;
+    color: #FF0000
+}
 .dropdown {
     display: inline-flex;
     position: relative;
@@ -342,3 +374,12 @@ a.dropdown-item:hover,button.dropdown-item:hover {
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
+        .card{
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 .5em 1em -0.125em rgba(10,10,10,.1),0 0px 0 1px rgba(10,10,10,.02);
+            color: #4a4a4a;
+            display: block;
+            padding: 1.25rem;
+            border-width: 10px;
+ }
