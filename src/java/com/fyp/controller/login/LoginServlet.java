@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
                 if (category != null) {
                     switch (category) {
                         case "admin":
-                            response.sendRedirect("RegisterLecturerServlet");
+                            response.sendRedirect("Admin/Dashboard-Admin.jsp");
                             break;
                         case "student":
                             response.sendRedirect("Students/student.jsp");
