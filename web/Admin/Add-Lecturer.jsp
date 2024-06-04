@@ -1,10 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.fyp.model.bean.Faculty" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="java.util.ArrayList, java.util.Iterator" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Register Lecturer</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
@@ -113,6 +117,12 @@
                             <span class="is-size-7">Lecturer</span>
                         </a>
                     </li>
+                      <li class="py-1">
+                     <a class="button is-nav navbar-item p-4" href="RegisterLecturerServlet">
+                      <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
+                      <span class="is-size-7">Add Lecturer User</span>
+                            </a>
+                        </li>
                     <li class="py-1">
                         <a class="button is-nav navbar-item p-4" href="../Admin/Examiner-List.jsp">
                             <span class="fas fa-user-tie pr-4 is-size-7"></span>
@@ -149,108 +159,108 @@
         
         <div class="column px-6 py-3" style="background-color:#FFFFFF;">
             <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
-                Lecturer Form
+                Register Lecturer
             </div>
             <div class="p-4">
-                <label class="has-text-weight-semibold has-text-grey">Name</label>
-                <div class="py-2">
-                    <input class="px-4 py-2" type="text" placeholder="Full Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                </div>
-                <label class="has-text-weight-semibold has-text-grey">Staff ID</label>
-                <div class="py-2">
-                    <input class="custom-input px-4 py-2" type="text" placeholder="Staff ID">
-               </div>
-                <label class="has-text-weight-semibold has-text-grey">Position</label>
-                <div class="py-2">
-                    <input class="custom-input px-4 py-2" type="text" placeholder="Position">
-                </div>
-                <label class="has-text-weight-semibold has-text-grey">Email</label>
-                <div class="py-2">
-                    <input class="custom-input px-4 py-2" type="text" placeholder="@uitm.edu.my">
-                </div>
-                <label class="has-text-weight-semibold has-text-grey">Upload Photo</label>
-                <div class="py-2">
-                    <input type="file" id="docfile" name="docfile" accept="application/pdf/jpg" class="button is-info is-light is-size-7 w-100 p-2" style="border: 1px solid #ccc ;">
-                </div>
-            </div>
-            <div class="is-flex is-justify-content-space-between p-4">
-                <a class="button is-custom2" href="../Admin/Report-Admin.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
-                <a class="button is-custom"><span class="has-text-weight-semibold is-size-7">Save Changes</span></a>
+                <form action="RegisterLecturerServlet" method="post">
+                    <label for="username" class="has-text-weight-semibold has-text-grey">Username:</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="text" id="username" name="username" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    
+                    <label for="password" class="has-text-weight-semibold has-text-grey">Password:</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="password" id="password" name="password" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    
+                    <label for="f_id" class="has-text-weight-semibold has-text-grey">Faculty:</label>
+                    <div class="py-2">
+                        <select id="f_id" name="f_id" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                            <option value="">Select Faculty and Course</option>
+                                        <% 
+                List<Faculty> listFaculty = (List<Faculty>) request.getAttribute("facultyList");
+                if (listFaculty != null) {
+                    for (Faculty f : listFaculty) {
+                        out.println("<option value=\"" + f.getfId() + "\">" + f.getfName() + " :- " + f.getfCourse() + "</option>");
+                    }
+                } else {
+                    out.println("<option value=\"\">No faculties available</option>");
+                }
+            %>
+                        </select><br>
+                    </div>
+                    
+                    <label for="l_course" class="has-text-weight-semibold has-text-grey">Lecturer Course:</label>
+                    <div class="py-2">
+                        <select id="l_course" name="l_course" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbdbd; outline: none;">
+                            <option value="">Select Course</option>
+                                        <% 
+                List<String> courseList = (List<String>) request.getAttribute("courseList");
+                if (courseList != null) {
+                    for (String course : courseList) {
+                        out.println("<option value=\"" + course + "\">" + course + "</option>");
+                    }
+                } else {
+                    out.println("<option value=\"\">No courses available</option>");
+                }
+            %>
+                        </select><br>
+                    </div>
+                    
+                    <label for="admin_id" class="has-text-weight-semibold has-text-grey">Admin ID:</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="text" id="admin_id" name="admin_id" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    
+                    <label for="position" class="has-text-weight-semibold has-text-grey">Position:</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="text" id="position" name="position" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    
+                    <label for="l_image" class="has-text-weight-semibold has-text-grey">Image Path:</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="text" id="l_image" name="l_image" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    
+                    <label for="l_name" class="has-text-weight-semibold has-text-grey">Lecturer Name:</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="text" id="l_name" name="l_name" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    
+                    <label for="phone_num" class="has-text-weight-semibold has-text-grey">Phone Number:</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="text" id="phone_num" name="phone_num" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    
+                    <label for="email" class="has-text-weight-semibold has-text-grey">Email:</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="email" id="email" name="email" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    
+                    <div class="is-flex is-justify-content-space-between p-4">
+                        <a class="button is-custom2" href="../Admin/Report-Admin.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
+                        <input class="button is-custom" type="submit" value="Register">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
-        // Get all "navbar-burger" elements
-        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-        // Add a click event on each of them
-        $navbarBurgers.forEach( el => {
-          el.addEventListener('click', () => {
-
-            // Get the target from the "data-target" attribute
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
-
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-            el.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
-
-          });
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
         });
-
-      });
     </script>
-</body> <!-- 
-
-<html>
-<head>
-    <title>Register Lecturer</title>
-</head>
-<body>
-    <h2>Register Lecturer</h2>
-    <form action="RegisterLecturerServlet" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        
-        <label for="f_id">Faculty:</label>
-        <select id="f_id" name="f_id" required>
-            <option value="">Select Faculty and Course</option>
-
-        </select><br><br>
-        
-        <label for="l_course">Lecturer Course:</label>
-        <select id="l_course" name="l_course" required>
-            <option value="">Select Course</option>
-        </select><br><br>
-
-        <label for="admin_id">Admin ID:</label>
-        <input type="text" id="admin_id" name="admin_id" required><br><br>
-        
-        <label for="position">Position:</label>
-        <input type="text" id="position" name="position" required><br><br>
-        
-        <label for="l_image">Image Path:</label>
-        <input type="text" id="l_image" name="l_image" required><br><br>
-        
-        <label for="l_name">Lecturer Name:</label>
-        <input type="text" id="l_name" name="l_name" required><br><br>
-        
-        <label for="phone_num">Phone Number:</label>
-        <input type="text" id="phone_num" name="phone_num" required><br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-
-        
-        <input type="submit" value="Register">
-    </form>
 </body>
-</html>
- -->
 </html>
