@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class AddLecturerDAO {
-    private String jdbcURL = "jdbc:mysql://localhost:3306/fyp";
+    
+    private String jdbcURL = "jdbc:mysql://localhost:3306/fyp?useSSL=false";
     private String jdbcUsername = "root";
     private String jdbcPassword = "";
     private Connection jdbcConnection;
@@ -46,26 +46,33 @@ public class AddLecturerDAO {
         return 1 + random.nextInt(10000); // Generates a random digit number
     }
 
-    public List<Faculty> listAllFaculties() throws SQLException {
-        List<Faculty> listFaculty = new ArrayList<>();
-        String sql = "SELECT * FROM faculty";
-        connect();
-        try (PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-             ResultSet resultSet = statement.executeQuery(sql)) {
+public List<Faculty> listFaculty() throws SQLException {
+    List<Faculty> listFaculty = new ArrayList<>();
+    String sql = "SELECT * FROM faculty";
+    connect();
 
-            while (resultSet.next()) {
-                int f_id = resultSet.getInt("f_id");
-                String f_name = resultSet.getString("f_name");
-                String f_course = resultSet.getString("f_course");
-                Faculty f = new Faculty(f_id, f_name, f_course);
-                listFaculty.add(f);
-            }
-        } finally {
-            disconnect();
+    try (PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+         ResultSet resultSet = statement.executeQuery()) {
+
+        while (resultSet.next()) {
+            int f_id = resultSet.getInt("f_id");
+            String f_name = resultSet.getString("f_name");
+            String f_course = resultSet.getString("f_course");
+
+            Faculty f = new Faculty(f_id, f_name, f_course);
+            listFaculty.add(f);
         }
-        return listFaculty;
-    }  
-    
+    } finally {
+        disconnect();
+    }
+    System.out.println("Faculty list: " + listFaculty); // Debug statement
+    return listFaculty;
+}
+
+
+
+
+
     public Faculty getFacultyById(int fId) throws SQLException {
         String sqlFaculty = "SELECT * FROM faculty WHERE f_id = ?";
         Faculty f = null;
@@ -86,6 +93,24 @@ public class AddLecturerDAO {
     }
     
     
+    public List<String> courseList() throws SQLException {
+    List<String> listCourses = new ArrayList<>();
+    String sql = "SELECT f_course FROM faculty"; 
+    connect();
+
+    try (PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+         ResultSet resultSet = statement.executeQuery()) {
+
+        while (resultSet.next()) {
+            String l_course = resultSet.getString("f_course");
+            listCourses.add(l_course );
+        }
+    } finally {
+        disconnect();
+    }
+    return listCourses;
+}
+
     public void registerLecturer(Login log, Faculty f, Lecturer user) throws SQLException {
         String sqlLogin = "INSERT INTO login (login_id, username, password, category) VALUES (?, ?, ?, ?)";
         String sqlLecturer = "INSERT INTO lecturer (l_id, f_id, login_id, admin_id, position, l_image, l_name, phone_num, email, l_course) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
