@@ -131,12 +131,12 @@
                             <span class="is-size-7">Scope</span>
                         </a>
                     </li>
-                    <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/StudenList-Supervision-Admin.jsp">
-                            <span class="fas fa-bullseye pr-4 is-size-7"></span>
-                            <span class="is-size-7">Supervision</span>
-                        </a>
-                    </li>
+                        <li class="py-1">
+                            <a class="button is-nav navbar-item p-4" href="StudentList-Supervision-Admin.jsp">
+                                <span class="fas fa-bullseye pr-4 is-size-7"></span>
+                                <span class="is-size-7">Supervision</span>
+                            </a>
+                        </li>
                     <li class="py-1">
                         <a class="button is-nav navbar-item p-4">
                             <span class="fas fa-arrow-right-from-bracket pr-4 is-size-7"></span>

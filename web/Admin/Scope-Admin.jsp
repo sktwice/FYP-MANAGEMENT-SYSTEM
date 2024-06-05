@@ -63,17 +63,19 @@
                         <span class="is-size-7" >Examiner</span>
                     </a>
                     <a class="navbar-item p-4" href="../Admin/Student-List.jsp">
-                        <span class="fas fa-user-graduate pr-4 is-size-7"></span>
+                        <span class="fas fa-user-graduate pr-4 is-size-7"></span>d
                         <span class="is-size-7" >Students</span>
                     </a> 
                     <a class="box has-text-black navbar-item p-4 m-0" style="background-color: #a0e4d1;">
                         <span class="fas fa-book pr-4 is-size-7"></span>
                         <span class="is-size-7" >Scope</span>
                     </a>
-                    <a class="navbar-item p-4" href="../Admin/StudenList-Supervision-Admin.jsp">
-                        <span class="fas fa-bullseye pr-4 is-size-7"></span>
-                        <span class="is-size-7">Supervision</span>
-                    </a>
+                        <li class="py-1">
+                            <a class="button is-nav navbar-item p-4" href="StudentList-Supervision-Admin.jsp">
+                                <span class="fas fa-bullseye pr-4 is-size-7"></span>
+                                <span class="is-size-7">Supervision</span>
+                            </a>
+                        </li>
                     <a class="navbar-item p-4">
                         <span class="fas fa-arrow-right-from-bracket pr-4"></span>
                         <span class=" is-size-7" >Sign-out</span>

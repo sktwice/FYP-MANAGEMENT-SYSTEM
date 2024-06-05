@@ -103,43 +103,43 @@
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Admin/UserProfile-Admin.jsp">
+                            <a class="button is-nav navbar-item p-4" href="UserProfile-Admin.jsp">
                               <span class="fas fa-user pr-4 is-size-7"></span>
                               <span class="is-size-7" >Profile</span>
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Admin/Report-Admin.jsp">
+                            <a class="button is-nav navbar-item p-4" href="Report-Admin.jsp">
                               <span class="fas fa-book-open pr-4 is-size-7"></span>
                               <span class="is-size-7">Reports</span>
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Admin/ListOfLecturer.jsp">
+                            <a class="button is-nav navbar-item p-4" href="ListOfLecturer.jsp">
                                 <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
                                   <span class="is-size-7">Lecturer</span>
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Admin/Examiner-List.jsp">
+                            <a class="button is-nav navbar-item p-4" href="Examiner-List.jsp">
                                 <span class="fas fa-user-tie pr-4 is-size-7"></span>
                                 <span class="is-size-7">Examiner</span>
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Admin/Student-List.jsp">
+                            <a class="button is-nav navbar-item p-4" href="Student-List.jsp">
                                 <span class="fas fa-user-graduate pr-4 is-size-7"></span>
                                 <span class="is-size-7">Students</span>
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Admin/Scope-Admin.jsp">
+                            <a class="button is-nav navbar-item p-4" href="Scope-Admin.jsp">
                                 <span class="fas fa-book pr-4 is-size-7"></span>
                                   <span class="is-size-7">Scope</span>
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Admin/StudentList-Supervision-Admin.jsp">
+                            <a class="button is-nav navbar-item p-4" href="StudentList-Supervision-Admin.jsp">
                                 <span class="fas fa-bullseye pr-4 is-size-7"></span>
                                 <span class="is-size-7">Supervision</span>
                             </a>
