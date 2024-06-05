@@ -32,7 +32,8 @@ public class AddLecturerServlet extends HttpServlet {
         AL = new AddLecturerDAO();
     }
 
-protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
     try {
         List<Faculty> facultyList = AL.listFaculty();
@@ -45,16 +46,18 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
     }
 }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             String username = request.getParameter("username");
             String password = request.getParameter("password"); 
             String position = request.getParameter("position");
-            String l_image = request.getParameter("l_image");
             String l_name = request.getParameter("l_name");
             int phone_num = Integer.parseInt(request.getParameter("phone_num"));
             String email = request.getParameter("email");
+            
+            String l_image = request.getParameter("l_image");
            
             int admin_id = Integer.parseInt(request.getParameter("admin_id"));
 

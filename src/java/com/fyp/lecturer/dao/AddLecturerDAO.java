@@ -65,7 +65,7 @@ public List<Faculty> listFaculty() throws SQLException {
     } finally {
         disconnect();
     }
-    System.out.println("Faculty list: " + listFaculty); // Debug statement
+   
     return listFaculty;
 }
 

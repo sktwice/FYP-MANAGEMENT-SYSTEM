@@ -117,12 +117,6 @@
                             <span class="is-size-7">Lecturer</span>
                         </a>
                     </li>
-                      <li class="py-1">
-                     <a class="button is-nav navbar-item p-4" href="RegisterLecturerServlet">
-                      <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
-                      <span class="is-size-7">Add Lecturer User</span>
-                            </a>
-                        </li>
                     <li class="py-1">
                         <a class="button is-nav navbar-item p-4" href="../Admin/Examiner-List.jsp">
                             <span class="fas fa-user-tie pr-4 is-size-7"></span>
@@ -236,6 +230,8 @@
                     <div class="py-2">
                         <input class="px-4 py-2" type="email" id="email" name="email" required style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                     </div>
+                    
+
                     
                     <div class="is-flex is-justify-content-space-between p-4">
                         <a class="button is-custom2" href="../Admin/Report-Admin.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
