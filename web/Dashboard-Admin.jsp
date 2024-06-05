@@ -120,12 +120,6 @@
                                   <span class="is-size-7">Lecturer</span>
                             </a>
                         </li>
-                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="RegisterLecturerServlet">
-                                <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
-                                  <span class="is-size-7">Add Lecturer User</span>
-                            </a>
-                        </li>
                         <li class="py-1">
                             <a class="button is-nav navbar-item p-4" href="Admin/Examiner-List.jsp">
                                 <span class="fas fa-user-tie pr-4 is-size-7"></span>
