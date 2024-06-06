@@ -10,7 +10,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Title</title>
+        <title>Dashboard</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
@@ -25,51 +25,45 @@
                         <img src="">
                     </span>
                 </div>
-                <div class="columns m-0 p-0">
-                    <div class="column is-full">
-                        <div class="custom-border p-3 h-100 w-100">
-                            <label class="has-text-weight-semibold has-text-grey">
-                                Today's Summary
-                            </label>
-                            <div class="columns m-0 p-0">
-                                <div class="column">
-                                    <div class="box custom-bg w-100 h-100">
-                                        <div class="is-size-5 fas fa-user-graduate has-text-grey"></div>
-                                        <p class="has-text-grey has-text-weight-semibold">20</p>
-                                        <p class="has-text-grey is-size-7">Total Students</p>
-                                    </div>
+                <div class="column is-full">                       
+                        <div class="columns m-0 p-0">
+                            <div class="column">
+                                <div class="box custom-bg w-100 h-100">
+                                    <div class="is-size-4 fas fa-user-graduate has-text-grey"></div>
+                                    <p class="has-text-grey has-text-weight-semibold is-size-5">20</p>
+                                    <p class="has-text-grey is-size-">Total Students</p>
                                 </div>
-                                <div class="column">
-                                    <div class="box custom-bg2 w-100 h-100">
-                                        <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
-                                        <p class="has-text-grey has-text-weight-semibold">20</p>
-                                        <p class="has-text-grey is-size-7">Ongoing Report</p>
-                                    </div>
+                            </div>
+                            <div class="column">
+                                <div class="box custom-bg2 w-100 h-100">
+                                    <div class="is-size-4 fas fa-book-open-reader has-text-grey"></div>
+                                    <p class="has-text-grey has-text-weight-semibold is-size-5">20</p>
+                                    <p class="has-text-grey is-size-6">Ongoing Report</p>
                                 </div>
-                                <div class="column">
-                                    <div class="box custom-bg3 w-100 h-100">
-                                        <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
-                                        <p class="has-text-grey has-text-weight-semibold">20</p>
-                                        <p class="has-text-grey is-size-7">Past Report</p>
-                                    </div>
+                            </div>
+                            <div class="column">
+                                <div class="box custom-bg3 w-100 h-100">
+                                    <div class="is-size-4 fas fa-book-open-reader has-text-grey"></div>
+                                    <p class="has-text-grey has-text-weight-semibold is-size-5">20</p>
+                                    <p class="has-text-grey is-size-6">Past Report</p>
                                 </div>
-                                <div class="column">
-                                    <div class="box custom-bg4 w-100 h-100">
-                                        <div class="is-size-5 fas fa-list-check has-text-grey"></div>
-                                        <p class="has-text-grey has-text-weight-semibold">20</p>
-                                        <p class="has-text-grey is-size-7">Ongoing Task</p>
-                                    </div>
+                            </div>
+                            <div class="column">
+                                <div class="box custom-bg4 w-100 h-100">
+                                    <div class="is-size-4 fas fa-list-check has-text-grey"></div>
+                                    <p class="has-text-grey has-text-weight-semibold is-size-5">20</p>
+                                    <p class="has-text-grey is-size-6">Ongoing Task</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
+                <div class="column is-full">     
                 <div class="columns m-0 p-0">
                     <div class="column is-one-third">
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image is-4by3">
-                                    <img src="../web/assets/uitm_background.jpeg">
+                                    <img src=".../assets/uitm_background.jpeg">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -89,7 +83,7 @@
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image is-4by3">
-                                    <img src="/web/assets/uitm_background.jpeg" alt="">
+                                    <img src=".../assets/uitm_background.jpeg" alt="">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -109,7 +103,7 @@
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image is-4by3">
-                                    <img src="/web/assets/uitm_background.jpeg" alt="">
+                                    <img src=".../assets/uitm_background.jpeg" alt="">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -124,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
