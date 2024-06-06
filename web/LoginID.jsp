@@ -1,41 +1,52 @@
 <%-- 
-    Document   : LoginID
-    Created on : May 10, 2024, 12:54:47 AM
-    Author     : Acer
+    Document   : Login-Student
+    Created on : May 2, 2024, 6:13:07 PM
+    Author     : User
 --%>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
- <div align="center">
-  <h1>Login Form</h1>
-  <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
-   <table style="width: 100%">
-    <tr>
-     <td>UserName</td>
-     <td><input type="text" name="username" /></td>
-    </tr>
-    <tr>
-     <td>Password</td>
-     <td><input type="password" name="password" /></td>
-    </tr>
-   </table>
-   <input type="submit" value="Submit" />
-  </form>
-  <%
-      String error = request.getParameter("error");
-      if ("invalid".equals(error)) {
-  %>
-      <p style="color:red;">Invalid username or password. Please try again.</p>
-  <%
-      }
-  %>
- </div>
+<body style="height: 100vh;">
+    <div class="columns is-vcentered" style="height: 100vh;">
+        <div class="column is-one-third is-offset-one-third">
+            <div class="box">
+                <div class="has-text-centered mb-5">
+                    <h1 class="title has-text-weight-bold">Welcome!</h1>
+                    <p class="subtitle has-text-grey has-text-weight-semibold">FYP Management System</p>
+                </div>
+                <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="text" name="username" placeholder="ID">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button class="button is-primary is-fullwidth is-medium" type="submit">Login</button>
+                    </div>
+                </form>
+                <%
+                    String error = request.getParameter("error");
+                    if ("invalid".equals(error)) {
+                %>
+                    <p class="has-text-danger has-text-centered">Invalid username or password. Please try again.</p>
+                <%
+                    }
+                %>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
