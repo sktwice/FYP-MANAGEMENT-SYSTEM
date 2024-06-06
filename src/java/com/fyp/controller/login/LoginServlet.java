@@ -37,10 +37,10 @@ public class LoginServlet extends HttpServlet {
                 if (category != null) {
                     switch (category) {
                         case "admin":
-                            response.sendRedirect("Admin/Dashboard-Admin.jsp");
+                            response.sendRedirect("Dashboard-Admin.jsp");
                             break;
                         case "student":
-                            response.sendRedirect("Students/student.jsp");
+                            response.sendRedirect("Students/Dashboard.jsp");
                             break;
                         case "lecturer":
                             int loginId = loginBean.getLoginId();
@@ -52,14 +52,14 @@ public class LoginServlet extends HttpServlet {
                                             response.sendRedirect("examiner.jsp");
                                             break;
                                         case "supervisor":
-                                            response.sendRedirect("supervisor.jsp");
+                                            response.sendRedirect("Supervisor/Dashboard-Supervisor.jsp");
                                             break;
                                         default:
-                                            response.sendRedirect("generic.jsp");
+                                            response.sendRedirect("Lecturers/Dashboard-Lecturer.jsp");
                                             break;
                                     }
                                 } else {
-                                    response.sendRedirect("generic.jsp");
+                                    response.sendRedirect("generics.jsp");
                                 }
                             } else {
                                 response.sendRedirect("generic.jsp");
