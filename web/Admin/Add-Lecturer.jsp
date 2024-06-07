@@ -234,7 +234,7 @@
 
                     
                     <div class="is-flex is-justify-content-space-between p-4">
-                        <a class="button is-custom2" href="../Admin/Report-Admin.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
+                        <a class="button is-custom2" href="Admin/ListOfLecturer.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
                         <input class="button is-custom" type="submit" value="Register">
                     </div>
                 </form>

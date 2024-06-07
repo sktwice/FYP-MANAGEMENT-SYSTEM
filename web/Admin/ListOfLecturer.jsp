@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -159,7 +160,7 @@
                         <label class="has-text-weight-bold has-text-grey is-size-5">List of Lecturer</label>
                         <p class="has-text-grey-light is-size-7">More than 400+ lecturers</p>
                     </div>
-                    <a class="button is-custom" style="height:2rem;" href="../Admin/Add-Lecturer.jsp">
+                    <a class="button is-custom" style="height:2rem;" href="${pageContext.request.contextPath}/AddLecturer" >
                         <span class="is-size-7">Add Lecturer</span>
                     </a>
                 </div>

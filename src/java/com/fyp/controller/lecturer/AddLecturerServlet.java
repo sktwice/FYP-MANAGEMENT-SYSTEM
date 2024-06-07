@@ -78,7 +78,7 @@ public class AddLecturerServlet extends HttpServlet {
 
             Lecturer l = new Lecturer(l_id, f_id, login_id, admin_id, position, l_image, l_name, phone_num, email, l_course);
             AL.registerLecturer(lo, f, l);
-            
+            response.sendRedirect("Admin/ListOfLecturer.jsp");
            
         } catch (Exception e) {
             e.printStackTrace();
