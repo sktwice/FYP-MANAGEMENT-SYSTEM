@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="content-wrapper">
-            <jsp:include page="../sidebar.jsp"></jsp:include>
+            <jsp:include page="../student-sidebar.jsp"></jsp:include>
             <div class="main-content">
             <div class="column h-100 px-4 py-2" style="background-color: #FFFFFF; overflow-y: scroll;">
                 <div class="custom-border p-6 pt-4 w-100">

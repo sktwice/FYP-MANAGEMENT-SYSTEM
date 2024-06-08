@@ -30,7 +30,7 @@
     </head>
     <body>
         <div class="content-wrapper">
-        <jsp:include page="../sidebar.jsp"></jsp:include>
+        <jsp:include page="../student-sidebar.jsp"></jsp:include>
          <div class="main-content">
         <div class="columns m-0 p-0 h-100">
             <div class="column px-6 py-3" style="background-color:#FFFFFF;">

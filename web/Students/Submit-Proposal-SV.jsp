@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="content-wrapper">
-            <jsp:include page="../sidebar.jsp"></jsp:include>
+            <jsp:include page="../student-sidebar.jsp"></jsp:include>
             <div class="main-content">
             <div class="column p-6 is-justify-content-center" style="background-color:#FFFFFF; overflow-y: scroll;">
                 <div class="has-text-weight-semibold has-text-grey is-size-5 p-4"
