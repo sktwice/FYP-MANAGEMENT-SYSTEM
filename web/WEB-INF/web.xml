@@ -20,6 +20,14 @@
         <servlet-name>AddLecturerServlet</servlet-name>
         <servlet-class>com.fyp.controller.lecturer.AddLecturerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LecturerServlet</servlet-name>
+        <servlet-class>com.fyp.controller.lecturer.LecturerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProposalSvServlet</servlet-name>
+        <servlet-class>com.fyp.controller.student.ProposalSvServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -40,7 +48,15 @@
         <servlet-name>AddLecturerServlet</servlet-name>
         <url-pattern>/AddLecturer</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerServlet</servlet-name>
+        <url-pattern>/Students/Lecturer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProposalSvServlet</servlet-name>
+        <url-pattern>/ProposalSvServlet</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>LoginID.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
