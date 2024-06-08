@@ -10,18 +10,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Title</title>
+        <title>Proposal</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../css/style.css">
     </head>
-    <body style="height: 100%;">
-        <div class="is-flex is-justify-content-space-between is-mobile-visible">
-            <div class="is-mobile-visible p-2">
-                <img src="../assets/uitm-logo.png" style="height: 30px; width: 60px;">
-            </div>
-        </div>
-        <div class="columns m-0 p-0 h-100">
+    <body>
+        <div class="content-wrapper">
+            <jsp:include page="../sidebar.jsp"></jsp:include>
+            <div class="main-content">
             <div class="column h-100 px-6 py-6" style="background-color: #FFFFFF; overflow-y: scroll;">
                 <div class="pt-5">
                     <div class="custom-border p-3 pt-4 w-100">
@@ -37,7 +34,7 @@
                                         <span class="is-size-6 has-text-weight-semibold has-text-grey">There's no proposal has yet been submit!</span>
                                     </div>
                                     <div class="is-justify-content-end pr-5">
-                                            <button class=" is-justify-content-end button is-custom3 is-small">Submit Proposal</button>
+                                            <a href="../Students/Submit-Proposal-MainForm.jsp" class="is-justify-content-end button is-custom3 is-small" >Submit Proposal</a>
                                     </div>        
                                 </div>
                             </table>
@@ -73,7 +70,6 @@
                 </div> 
             </div> 
         </div> 
+        </div>
     </body>
 </html>
-
-

@@ -5,9 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <!DOCTYPE html>
-    <html style="height:100%;">
-
+<!DOCTYPE html>
+<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,12 +15,11 @@
         <link rel="stylesheet" href="../css/style.css">
         <title>Submit Proposal</title>
     </head>
-
-    <body style="height:100%;">
+    <body>
         <div class="columns m-0 p-0 h-100">
             <div class="column p-6 is-justify-content-center" style="background-color:#FFFFFF; overflow-y: scroll;">
                 <div class="has-text-weight-semibold has-text-grey is-size-5 p-4"
-                    style="border-bottom: 1px solid #bdbdbd">
+                     style="border-bottom: 1px solid #bdbdbd">
                     Submit Proposal
                 </div>
                 <div class="columns is-multiline m-0 p-0">
@@ -31,7 +29,7 @@
                     <div class="column is-10">
                         <div class="py-2">
                             <input class="px-4 py-2" type="text" placeholder="Full Name"
-                                style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                                   style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                         </div>
                     </div>
                     <div class="column is-2" style="align-content: center">
@@ -40,7 +38,7 @@
                     <div class="column is-10">
                         <div class="py-2">
                             <input class="px-4 py-2" type="text" placeholder="Student ID"
-                                style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                                   style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                         </div>
                     </div>
                     <div class="column is-2" style="align-content: center">
@@ -49,7 +47,7 @@
                     <div class="column is-10">
                         <div class="py-2">
                             <input class="px-4 py-2" type="text" placeholder="Proposal Tittle"
-                                style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                                   style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                         </div>
                     </div>
                     <div class="column is-2" style="align-content: center">
@@ -58,7 +56,7 @@
                     <div class="column is-6">
                         <div class="py-2">
                             <input class="px-4 py-2" type="text" placeholder="Semester"
-                                style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                                   style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                         </div>
                     </div>
                     <div class="pl-3">
@@ -87,9 +85,14 @@
 
                 </div>
                 <div class="buttons pt-5 pl-3 pr-5 is-justify-content-space-between">
-                    <a class="button is-custom is-soft">Cancel</a>
+                    <a href="../Students/Proposal.jsp" class="button is-custom is-soft">Cancel</a>
                     <a class="button is-custom is-soft">Save Changes</a>
                 </div>
-    </body>
+                <script>
+                    window.onbeforeunload = function () {
+                        return "Your work will be lost.";
+                    };
+                </script>
+                </body>
 
-    </html>
+                </html>

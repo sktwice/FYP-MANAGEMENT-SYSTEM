@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <link rel="stylesheet" href="../css/style.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-        
+        <title>User Profile</title>
         <style>
             .custom-input2 {
                 border-radius: 6px;
@@ -28,7 +28,10 @@
             }
         </style>
     </head>
-    <body style="height:100%;">
+    <body>
+        <div class="content-wrapper">
+        <jsp:include page="../sidebar.jsp"></jsp:include>
+         <div class="main-content">
         <div class="columns m-0 p-0 h-100">
             <div class="column px-6 py-3" style="background-color:#FFFFFF;">
                 <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
@@ -145,5 +148,6 @@
             </div>
         </div>
     </div>
+         </div>
 </body>
 </html>

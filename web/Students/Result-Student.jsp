@@ -15,14 +15,11 @@
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../css/style.css">
     </head>
-    <body style="height: 100%;">
-        <div class="is-flex is-justify-content-space-between is-mobile-visible">
-            <div class="is-mobile-visible p-2">
-                <img src="../assets/uitm-logo.png" style="height: 30px; width: 60px;">
-            </div>
-        </div>
-        <div class="columns m-0 p-0 h-100">
-            <div class="column h-100 px-6 py-6" style="background-color: #FFFFFF; overflow-y: scroll;">
+    <body>
+        <div class="content-wrapper">
+            <jsp:include page="../sidebar.jsp"></jsp:include>
+            <div class="main-content">
+            <div class="column h-100 px-4 py-2" style="background-color: #FFFFFF; overflow-y: scroll;">
                 <div class="custom-border p-6 pt-4 w-100">
                     <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                         <div>
@@ -179,6 +176,7 @@
                     });
                 });
             </script>
+            </div>
     </body>
 </html>
 

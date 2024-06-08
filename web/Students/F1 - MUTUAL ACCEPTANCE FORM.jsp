@@ -10,11 +10,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Title</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../css/style.css">
-        <title>F1 Page</title>
+        <title>MUTUAL ACCEPTANCE FORM</title>
     </head>
     <body style="height:100%;">
         <div class="columns m-0 p-0 h-100">
@@ -31,7 +30,7 @@
                         <li class="has-text-weight-normal">At all times, mutual respect and courtesy should be observed between the supervisor and the student. </li>
                     </div>
                     <div class=" has-text-grey is-size-6 p-3">
-                        II. EXPECTATION OF SUPERVISOR(S ) FROM THE STUDENT
+                        II. EXPECTATION OF SUPERVISOR(S) FROM THE STUDENT
                         <li class="has-text-weight-normal">The student should apply his/her acquired skills and knowledge to produce a substantially successful and original project.</li>
                         <li class="has-text-weight-normal">The student should be responsible for the completion of his/her project without undue dependence on his/her supervisor. </li>
                         <li class="has-text-weight-normal">The student should be punctual for the weekly meetings with his/her supervisor. Any meeting changes should be communicated in advance to the supervisor to facilitate re-scheduling.</li>
@@ -154,6 +153,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="buttons pt-5 pl-3 pr-5 is-justify-content-space-between">
+                    <a class="button is-custom is-soft" href="../Students/Form-Student.jsp">Cancel</a>
+                    <a class="button is-custom is-soft">Save Changes</a>
+<!--                    add modal that says you have successfully add a proposal-->
+                </div>
             </div>
+            <script>
+                window.onbeforeunload = function () {
+                    return "Your work will be lost.";
+                };
+            </script>
     </body>
 </html>

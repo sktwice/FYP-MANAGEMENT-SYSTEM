@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <!DOCTYPE html>
     <html style="height:100%;">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,9 +15,10 @@
         <link rel="stylesheet" href="../css/style.css">
         <title>Submit Proposal</title>
     </head>
-
-    <body style="height:100%;">
-        <div class="columns m-0 p-0 h-100">
+    <body>
+        <div class="content-wrapper">
+            <jsp:include page="../sidebar.jsp"></jsp:include>
+            <div class="main-content">
             <div class="column p-6 is-justify-content-center" style="background-color:#FFFFFF; overflow-y: scroll;">
                 <div class="has-text-weight-semibold has-text-grey is-size-5 p-4"
                     style="border-bottom: 1px solid #bdbdbd">
@@ -99,6 +99,13 @@
                     <a class="button is-custom is-soft">Cancel</a>
                     <a class="button is-custom is-soft">Save Changes</a>
                 </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onbeforeunload = function () {
+            return "Your work will be lost.";
+        };
+    </script>
     </body>
-
     </html>
