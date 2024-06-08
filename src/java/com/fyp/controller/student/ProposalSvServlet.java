@@ -2,7 +2,8 @@ package com.fyp.controller.student;
 
 import com.fyp.dao.student.ProposalSvDAO;
 import com.fyp.model.bean.Proposal;
-
+import com.fyp.model.bean.Scope;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Random;
 
 @MultipartConfig
@@ -65,20 +67,32 @@ public class ProposalSvServlet extends HttpServlet {
             System.out.println("Proposal inserted successfully.");
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid number format");
         } catch (IOException | ServletException e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error processing file upload");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            // Retrieve list of scopes
+            List<Scope> scopeList = proposalSvDAO.getAllScopes();
+            request.setAttribute("scopeList", scopeList);
+
+            // Forward request to the JSP
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Students/Submit-Proposal-SV.jsp");
+            dispatcher.forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database error");
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "An error occurred while processing your request");
+            throw new ServletException("Error retrieving data", e);
         }
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher(".jsp").forward(request, response);
     }
 }
