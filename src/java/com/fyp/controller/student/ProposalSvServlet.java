@@ -65,6 +65,7 @@ public class ProposalSvServlet extends HttpServlet {
             proposalSvDAO.insertProposal(proposal);
 
             System.out.println("Proposal inserted successfully.");
+            response.sendRedirect("Students/Dashboard.jsp");
         } catch (NumberFormatException e) {
             e.printStackTrace();
         } catch (IOException | ServletException e) {
