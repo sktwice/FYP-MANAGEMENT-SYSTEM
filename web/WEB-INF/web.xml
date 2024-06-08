@@ -28,6 +28,34 @@
         <servlet-name>ProposalSvServlet</servlet-name>
         <servlet-class>com.fyp.controller.student.ProposalSvServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Scope</servlet-name>
+        <servlet-class>com.fyp.model.bean.Scope</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Proposal</servlet-name>
+        <servlet-class>com.fyp.model.bean.Proposal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LectureListDAO</servlet-name>
+        <servlet-class>com.fyp.LectureList.LectureListDAO</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerListDAO</servlet-name>
+        <servlet-class>com.fyp.LecturerList.LecturerListDAO</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerListServlet</servlet-name>
+        <servlet-class>com.fyp.LecturerList.LecturerListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerDeleteServlet</servlet-name>
+        <servlet-class>com.fyp.LecturerList.LecturerDeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditLecturerServlet</servlet-name>
+        <servlet-class>com.fyp.LecturerList.EditLecturerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -55,6 +83,30 @@
     <servlet-mapping>
         <servlet-name>ProposalSvServlet</servlet-name>
         <url-pattern>/ProposalSvServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Scope</servlet-name>
+        <url-pattern>/Scope</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Proposal</servlet-name>
+        <url-pattern>/Proposal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerListDAO</servlet-name>
+        <url-pattern>/LecturerListDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerListServlet</servlet-name>
+        <url-pattern>/LecturerListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerDeleteServlet</servlet-name>
+        <url-pattern>/deleteLecturer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditLecturerServlet</servlet-name>
+        <url-pattern>/editLecturer</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

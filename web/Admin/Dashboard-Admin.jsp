@@ -3,7 +3,7 @@
     Created on : May 2, 2024, 6:50:15 PM
     Author     : User
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html style="height:100%;">
@@ -115,7 +115,7 @@
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="ListOfLecturer.jsp">
+                            <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/LecturerListServlet">
                                 <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
                                   <span class="is-size-7">Lecturer</span>
                             </a>

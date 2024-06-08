@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fyp.model.Dao.login;
 
 import com.fyp.model.bean.Login;
@@ -14,36 +10,36 @@ import java.sql.SQLException;
 
 public class LoginDAO {
 
-    public boolean validate(Login loginBean) throws ClassNotFoundException {
-        boolean status = false;
+    public Login validate(String username, String password) throws SQLException, ClassNotFoundException {
+        Login login = null;
 
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fyp?useSSL=false", "root", "");
-            PreparedStatement preparedStatement = connection.prepareStatement("select login_id, category from login where username = ? and password = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT login_id, category FROM login WHERE username = ? AND password = ?")) {
 
-            preparedStatement.setString(1, loginBean.getUsername());
-            preparedStatement.setString(2, loginBean.getPassword());
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
 
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                loginBean.setCategory(rs.getString("category")); // Retrieve category from database
-                loginBean.setLoginId(rs.getInt("login_id")); // Retrieve loginId from database
-                status = true;
+                login = new Login();
+                login.setLoginId(rs.getInt("login_id")); // Retrieve loginId from database
+                login.setCategory(rs.getString("category")); // Retrieve category from database
+                login.setUsername(username); // Set username
+                login.setPassword(password); // Set password
             }
-        } catch (SQLException e) {
-            printSQLException(e);
         }
-        return status;
+        return login;
     }
 
     public String getLecturerPosition(int loginId) throws ClassNotFoundException {
         String position = null;
 
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fyp?useSSL=false", "root", "");
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT position FROM lecturer WHERE login_id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT position FROM lecturer WHERE login_id = ?")) {
             
             preparedStatement.setInt(1, loginId);
 

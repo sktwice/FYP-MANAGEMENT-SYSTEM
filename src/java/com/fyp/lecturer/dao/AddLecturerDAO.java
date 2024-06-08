@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.fyp.lecturer.dao;
 
 import java.util.Random;
@@ -65,12 +61,9 @@ public List<Faculty> listFaculty() throws SQLException {
     } finally {
         disconnect();
     }
-   
+    
     return listFaculty;
 }
-
-
-
 
 
     public Faculty getFacultyById(int fId) throws SQLException {
