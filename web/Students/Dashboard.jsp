@@ -18,7 +18,7 @@
     </head>
     <body>
         <div class="content-wrapper">
-            <jsp:include page="../sidebar.jsp"></jsp:include>
+            <jsp:include page="../student-sidebar.jsp"></jsp:include>
             <div class="main-content">
                 <div class="py-1 px-5 is-flex is-justify-content-end is-align-items-center">
                     <input class="px-4 mx-4 my-1" type="text" placeholder="Search here..." style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">

@@ -15,7 +15,7 @@
 
         <body>
             <div class="content-wrapper">
-                <jsp:include page="../sidebar.jsp"></jsp:include>
+                <jsp:include page="../student-sidebar.jsp"></jsp:include>
                 <div class="main-content">
                     <div class="column" style="background-color:#FFFFFF; height:726px;">
                         <div class="py-1 px-5 is-flex is-justify-content-end is-align-items-center">
