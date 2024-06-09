@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import com.fyp.model.bean.Lecturer;
 import com.fyp.model.bean.Faculty;
+import com.fyp.model.bean.Proposal;
 import com.fyp.model.bean.Login;
 
 public class LecturerListDAO {
-    private String jdbcURL = "jdbc:mysql://localhost:3306/fyp?useSSL=false";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/sample?useSSL=false";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "";
+    private String jdbcPassword = "faris161102";
      private Connection jdbcConnection;
 
     private static final String INSERT_LECT_SQL = "INSERT INTO lecturer (l_id, f_id, login_id, admin_id, position, l_image, l_name, phone_num, email, l_course) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -23,6 +24,9 @@ public class LecturerListDAO {
     private static final String SELECT_ALL_LECT = "SELECT * FROM lecturer";
     private static final String DELETE_LECT_SQL = "DELETE FROM lecturer WHERE l_id = ?";
     private static final String DELETE_LOGIN_SQL = "DELETE FROM login WHERE login_id = ?";
+    private static final String DELETE_PROPOSAL_SQL = "DELETE FROM proposal WHERE l_id = ?";
+    private static final String DELETE_SCOPE_SQL = "DELETE FROM scope WHERE l_id = ?";
+    private static final String DELETE_PROJECT_SQL = "DELETE FROM project WHERE l_id = ?";
     private static final String UPDATE_LECT_SQL = "UPDATE lecturer SET f_id = ?, login_id = ?, admin_id = ?, position = ?, l_image = ?, l_name = ?, phone_num = ?, email = ?, l_course = ? WHERE l_id = ?";
      private static final String UPDATE_LOGIN_SQL = "UPDATE lecturer SET admin_id = ? ";
     private static final String SELECT_ALL_FACULTY = "SELECT * FROM faculty";
@@ -190,6 +194,34 @@ public Lecturer selectLecturer(int lId) {
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(DELETE_LOGIN_SQL)) {
             statement.setInt(1, loginId);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
+    }
+        
+        public boolean deleteProposal(int lId) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_PROPOSAL_SQL)) {
+            statement.setInt(1, lId);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
+    }
+        public boolean deleteProject(int lId) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_PROJECT_SQL)) {
+            statement.setInt(1, lId);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
+    }
+        public boolean deleteScope(int lId) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_SCOPE_SQL)) {
+            statement.setInt(1, lId);
             rowDeleted = statement.executeUpdate() > 0;
         }
         return rowDeleted;
