@@ -41,9 +41,13 @@ public class LecturerDeleteServlet extends HttpServlet {
         Lecturer lecturer = lecturerDAO.selectLecturer(lId);
         if (lecturer != null) {
             int loginId = lecturer.getLoginId();
-
+            
+            lecturerDAO.deleteScope(lId);
+            lecturerDAO.deleteProposal(lId);
+            lecturerDAO.deleteProject(lId);
             lecturerDAO.deleteLecturer(lId);
-
+            
+            
            
             lecturerDAO.deleteLogin(loginId);
         }
