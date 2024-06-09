@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -7,7 +8,7 @@
     <title>Report Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <style>
         .button.is-nav {
             background-color: #14161a;
@@ -29,7 +30,7 @@
 <body style="height:100%;">
     <div class="is-flex is-justify-content-space-between is-mobile-visible">
         <div class=" is-mobile-visible p-2">
-            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+            <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:30px; width:60px;">
         </div>
         <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -54,7 +55,7 @@
                         <span class="fas fa-book-open pr-4 is-size-7"></span>
                         <span class="is-size-7" >Reports</span>
                     </a>
-                    <a class="navbar-item p-4" href="../Admin/ListOfLecturer.jsp">
+                    <a class="navbar-item p-4" href="${pageContext.request.contextPath}/LecturerListServlet">
                         <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
                         <span class="is-size-7" >Lecturer</span>
                     </a>
@@ -86,7 +87,7 @@
         <div class="p-2 column is-2 is-desktop-visible">
             <aside class="menu">
                 <p class="menu-label p-1 m-0">
-                    <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
+                    <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:50px; width:142px;">
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
@@ -108,7 +109,7 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/ListOfLecturer.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/LecturerListServlet">
                             <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
                             <span class="is-size-7">Lecturer</span>
                         </a>

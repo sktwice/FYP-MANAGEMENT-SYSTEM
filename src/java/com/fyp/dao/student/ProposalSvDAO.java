@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Random;
 
 public class ProposalSvDAO {
-    private String jdbcURL = "jdbc:mysql://localhost:3306/sample?useSSL=false";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/fyp?useSSL=false";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "faris161102";
+    private String jdbcPassword = "";
 
     private static final String INSERT_PROPOSAL_SQL = "INSERT INTO proposal (proposal_id, student_id, l_id, scope_id, topic, session, pdf_url, pdf_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 

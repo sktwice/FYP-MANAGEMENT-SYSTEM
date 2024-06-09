@@ -19,8 +19,6 @@ public class LecturerListDAO {
      private Connection jdbcConnection;
 
     private static final String INSERT_LECT_SQL = "INSERT INTO lecturer (l_id, f_id, login_id, admin_id, position, l_image, l_name, phone_num, email, l_course) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String INSERT_LOGIN_SQL = "INSERT INTO login (login_id) VALUES (?)";
-    private static final String SELECT_LECT_BY_ID = "SELECT * FROM lecturer WHERE l_id = ?";
     private static final String SELECT_ALL_LECT = "SELECT * FROM lecturer";
     private static final String DELETE_LECT_SQL = "DELETE FROM lecturer WHERE l_id = ?";
     private static final String DELETE_LOGIN_SQL = "DELETE FROM login WHERE login_id = ?";
@@ -28,7 +26,7 @@ public class LecturerListDAO {
     private static final String DELETE_SCOPE_SQL = "DELETE FROM scope WHERE l_id = ?";
     private static final String DELETE_PROJECT_SQL = "DELETE FROM project WHERE l_id = ?";
     private static final String UPDATE_LECT_SQL = "UPDATE lecturer SET f_id = ?, login_id = ?, admin_id = ?, position = ?, l_image = ?, l_name = ?, phone_num = ?, email = ?, l_course = ? WHERE l_id = ?";
-     private static final String UPDATE_LOGIN_SQL = "UPDATE lecturer SET admin_id = ? ";
+   
     private static final String SELECT_ALL_FACULTY = "SELECT * FROM faculty";
 
     protected Connection getConnection() {

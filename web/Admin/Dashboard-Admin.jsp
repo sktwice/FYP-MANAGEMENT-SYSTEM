@@ -13,7 +13,7 @@
         <title>Title</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
         <style>
             .button.is-nav {
                 background-color: #14161a;
@@ -36,7 +36,7 @@
     <body style="height:100%;">
         <div class="is-flex is-justify-content-space-between is-mobile-visible">
             <div class=" is-mobile-visible p-2">
-                <img src="assets/uitm-logo.png" style="height:30px; width:60px;">
+                <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:30px; width:60px;">
             </div>
             <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
@@ -93,7 +93,7 @@
             <div class="p-2 column is-2 is-desktop-visible">
                 <aside class="menu">
                     <p class="menu-label p-1 m-0">
-                        <img src="assets/uitm-logo.png" style="height:50px; width:142px;">
+                        <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:50px; width:142px;">
                     </p>
                     <ul class="menu-list">
                         <li class="py-1">

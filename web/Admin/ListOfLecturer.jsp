@@ -1,4 +1,4 @@
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.fyp.model.bean.Lecturer" %>
 <%@ page import="java.util.List" %>
@@ -32,7 +32,7 @@
 <body style="height:100%;">
     <div class="is-flex is-justify-content-space-between is-mobile-visible">
         <div class=" is-mobile-visible p-2">
-            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+            <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:30px; width:60px;">
         </div>
         <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -93,7 +93,7 @@
         <div class="p-2 column is-2 is-desktop-visible">
             <aside class="menu">
                 <p class="menu-label p-1 m-0">
-                    <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
+                    <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:50px; width:142px;">
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
@@ -183,7 +183,7 @@
                             <thead>
                                 <tr style="border-bottom: 2px solid #ddd;">
                                     <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Name</th>
-                                    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Staff ID/Position</th>
+                                    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Lecturer ID/Position</th>
                                     <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Email</th>
                                     <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                 </tr>
