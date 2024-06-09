@@ -11,9 +11,9 @@ import java.util.List;
 
 public class LecturerDAO {
 
-    private String jdbcURL = "jdbc:mysql://localhost:3306/sample?useSSL=false";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/fyp?useSSL=false";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "faris161102";
+    private String jdbcPassword = "";
 
     private static final String SELECT_ALL_LECTURERS = "SELECT * FROM lecturer";
 
