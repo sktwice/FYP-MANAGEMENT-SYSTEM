@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
                         response.sendRedirect("generic.jsp"); // Redirect to a generic page if admin details not found
                     }
                 } else if ("student".equals(login.getCategory())) {
-                    response.sendRedirect("Students/student.jsp");
+                    response.sendRedirect("Students/Dashboard.jsp");
                 } else if ("lecturer".equals(login.getCategory())) {
                     int loginId = login.getLoginId();
                     if (loginId != 0) {
@@ -59,10 +59,10 @@ public class LoginServlet extends HttpServlet {
                                     response.sendRedirect("examiner.jsp");
                                     break;
                                 case "supervisor":
-                                    response.sendRedirect("supervisor.jsp");
+                                    response.sendRedirect("Supervisor/Dashboard-Supervisor.jsp");
                                     break;
                                 default:
-                                    response.sendRedirect("generic.jsp");
+                                    response.sendRedirect("Lecturers/Dashboard-Lecturer.jsp");
                                     break;
                             }
                         } else {
