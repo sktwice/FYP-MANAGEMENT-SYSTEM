@@ -13,9 +13,9 @@ import com.fyp.model.bean.Proposal;
 import com.fyp.model.bean.Login;
 
 public class LecturerListDAO {
-    private String jdbcURL = "jdbc:mysql://localhost:3306/sample?useSSL=false";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/fyp?useSSL=false";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "faris161102";
+    private String jdbcPassword = "";
      private Connection jdbcConnection;
 
     private static final String INSERT_LECT_SQL = "INSERT INTO lecturer (l_id, f_id, login_id, admin_id, position, l_image, l_name, phone_num, email, l_course) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
