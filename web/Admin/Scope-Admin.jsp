@@ -45,7 +45,7 @@
         <nav class="navbar" role="navigation" aria-label="dropdown navigation">
             <div class="navbar-item has-dropdown">
                 <div class="navbar-dropdown">
-                    <a class="navbar-item p-4" href="../Admin/Dashboard-Admin.jsp">
+                    <a class="navbar-item p-4" href="${pageContext.request.contextPath}/Admin/Dashboard-Admin.jsp">
                         <span class="fas fa-home pr-2"></span>
                         <span class="is-size-7" >Dashboard</span>
                     </a>
@@ -95,7 +95,7 @@
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Dashboard-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/Admin/Dashboard-Admin.jsp">
                             <span class="fas fa-home pr-2 is-size-7"></span>
                             <span class="is-size-7" >Dashboard</span>
                         </a>
@@ -113,7 +113,7 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/ListOfLecturer.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/LecturerListServlet">
                             <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
                             <span class="is-size-7">Lecturer</span>
                         </a>
@@ -182,7 +182,7 @@
                             </div>
                         </div>
                         <div class="column p-1" style="align-content:center;">
-                            <a class="button is-custom px-4 py-3 w-100" style="" href="${pageContext.request.contextPath}/EditScopeForm">
+                            <a class="button is-custom px-4 py-3 w-100" style="" href="${pageContext.request.contextPath}/editScope">
                                 <span class="is-size-7">Add Scope</span>
                             </a>
                         </div>
@@ -199,19 +199,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Topic">Android App Development</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Programme">CS230</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Session Date">Session Date</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Total Students">23</td>
-                            </tr>
-                            <tr>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Topic">Android App Development</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Programme">CS230</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Session Date">Session Date</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Total Students">23</td>
-                            </tr>
-                        </tbody>
+                                  <c:forEach var="scope" items="${listScope}">
+                                    <tr>
+                                        <td class="has-text-centered"><c:out value="${scope. scopeName}" /></td> 
+                                        <td class="has-text-centered"><c:out value="${scope.program}" /></td>
+                                        <td class="has-text-centered"><c:out value = "${scope.session}"/></td>
+                                        <td class="has-text-centered"></td>
+                                    </tr>
+                                </c:forEach>
                     </table>
                 </div>
                 <div class="p-3 is-flex is-justify-content-space-between">

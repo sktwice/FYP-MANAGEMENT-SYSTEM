@@ -60,13 +60,25 @@
         <servlet-name>UpdateLecturerServlet</servlet-name>
         <servlet-class>com.fyp.LecturerList.UpdateLecturerServlet</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>AddScopeServlet</servlet-name>
         <servlet-class>com.fyp.Scope</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
+        <servlet-name>AddScopeDAO</servlet-name>
+        <servlet-class>com.fyp.Scope.AddScopeDAO</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListScopeServlet</servlet-name>
+        <servlet-class>com.fyp.Scope.ListScopeServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>InsertScopeServlet</servlet-name>
-        <servlet-class>com.fyp.Scope</servlet-class>
+        <servlet-class>com.fyp.Scope.InsertScopeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditScopeForm</servlet-name>
+        <servlet-class>com.fyp.Scope.EditScopeForm</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
@@ -120,7 +132,7 @@
         <servlet-name>EditLecturerServlet</servlet-name>
         <url-pattern>/editLecturer</url-pattern>
     </servlet-mapping>
-      <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AddScopeServlet</servlet-name>
         <url-pattern>/addScope</url-pattern>
     </servlet-mapping>
@@ -128,9 +140,21 @@
         <servlet-name>UpdateLecturerServlet</servlet-name>
         <url-pattern>/updateLecturer</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddScopeDAO</servlet-name>
+        <url-pattern>/AddScopeDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListScopeServlet</servlet-name>
+        <url-pattern>/ListScopeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>InsertScopeServlet</servlet-name>
         <url-pattern>/insertScope</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditScopeForm</servlet-name>
+        <url-pattern>/editScope</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

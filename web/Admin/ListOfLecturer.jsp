@@ -32,7 +32,7 @@
 <body style="height:100%;">
     <div class="is-flex is-justify-content-space-between is-mobile-visible">
         <div class=" is-mobile-visible p-2">
-            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+            <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:30px; width:60px;">
         </div>
         <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -73,7 +73,7 @@
                         <span class="fas fa-user-graduate pr-4 is-size-7"></span>
                         <span class="is-size-7" >Students</span>
                     </a> 
-                    <a class="navbar-item p-4" href="../Admin/Scope-Admin.jsp">
+                    <a class="navbar-item p-4" href="${pageContext.request.contextPath}/ListScopeServlet">
                         <span class="fas fa-book pr-4 is-size-7"></span>
                         <span class="is-size-7" >Scope</span>
                     </a>
@@ -93,7 +93,7 @@
         <div class="p-2 column is-2 is-desktop-visible">
             <aside class="menu">
                 <p class="menu-label p-1 m-0">
-                    <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
+                    <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:50px; width:142px;">
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
@@ -139,7 +139,7 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Scope-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListScopeServlet">
                             <span class="fas fa-book pr-4 is-size-7"></span>
                             <span class="is-size-7">Scope</span>
                         </a>

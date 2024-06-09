@@ -133,7 +133,7 @@
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Scope-Admin.jsp">
+                            <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListScopeServlet">
                                 <span class="fas fa-book pr-4 is-size-7"></span>
                                   <span class="is-size-7">Scope</span>
                             </a>
