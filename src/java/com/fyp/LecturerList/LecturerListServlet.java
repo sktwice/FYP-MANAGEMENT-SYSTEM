@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import com.fyp.model.bean.Lecturer;
+import java.util.stream.Collectors;
 
 public class LecturerListServlet extends HttpServlet {
 
@@ -39,18 +40,19 @@ public class LecturerListServlet extends HttpServlet {
         
 
 }
-    private void listLecturer(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
-        List<Lecturer> listLecturer = lecturerDAO.selectAllLecturers();
-        request.setAttribute("listLecturer", listLecturer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("Admin/ListOfLecturer.jsp");
-        dispatcher.forward(request, response);
-    }
+    
+private void listLecturer(HttpServletRequest request, HttpServletResponse response)
+        throws SQLException, IOException, ServletException {
+    List<Lecturer> listLecturer = lecturerDAO.selectAllLecturers();
+    
+    // Filter the list to include only lecturers with lId > 0
+    List<Lecturer> filteredList = listLecturer.stream()
+            .filter(lecturer -> lecturer.getlId() > 0)
+            .collect(Collectors.toList());
+    
+    request.setAttribute("listLecturer", filteredList);
+    RequestDispatcher dispatcher = request.getRequestDispatcher("Admin/ListOfLecturer.jsp");
+    dispatcher.forward(request, response);
+}
 
-
-    private void deleteLecturer(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
-        int lId = Integer.parseInt(request.getParameter("id"));
-        lecturerDAO.deleteLecturer(lId);
-    }
 }

@@ -121,12 +121,6 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/LecturerListServlet/list">
-                            <span class="fas fa-chalkboard-teacher pr-4 is-size-7"></span>
-                            <span class="is-size-7">Lecturer List</span>
-                        </a>
-                    </li>
-                    <li class="py-1">
                         <a class="button is-nav navbar-item p-4" href="../Admin/Examiner-List.jsp">
                             <span class="fas fa-user-tie pr-4 is-size-7"></span>
                             <span class="is-size-7">Examiner</span>
