@@ -60,6 +60,14 @@
         <servlet-name>UpdateLecturerServlet</servlet-name>
         <servlet-class>com.fyp.LecturerList.UpdateLecturerServlet</servlet-class>
     </servlet>
+        <servlet>
+        <servlet-name>AddScopeServlet</servlet-name>
+        <servlet-class>com.fyp.Scope</servlet-class>
+    </servlet>
+        <servlet>
+        <servlet-name>InsertScopeServlet</servlet-name>
+        <servlet-class>com.fyp.Scope</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -112,9 +120,17 @@
         <servlet-name>EditLecturerServlet</servlet-name>
         <url-pattern>/editLecturer</url-pattern>
     </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>AddScopeServlet</servlet-name>
+        <url-pattern>/addScope</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateLecturerServlet</servlet-name>
         <url-pattern>/updateLecturer</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>InsertScopeServlet</servlet-name>
+        <url-pattern>/insertScope</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

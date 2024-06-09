@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="com.fyp.model.bean.Admin" %>
+<%@ page import="com.fyp.model.bean.Lecturer" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -7,7 +10,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <style>
         .button.is-nav {
             background-color: #14161a;
@@ -29,7 +32,7 @@
 <body style="height:100%;">
     <div class="is-flex is-justify-content-space-between is-mobile-visible">
         <div class=" is-mobile-visible p-2">
-            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+            <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:30px; width:60px;">
         </div>
         <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -86,7 +89,7 @@
         <div class="p-2 column is-2 is-desktop-visible">
             <aside class="menu">
                 <p class="menu-label p-1 m-0">
-                    <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
+                    <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:50px; width:142px;">
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
@@ -147,51 +150,61 @@
             </aside>
         </div>
         <div class="column px-6 py-3 h-100" style="background-color:#FFFFFF;">
+                  
             <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
                 Add New Scope
             </div>
-            <div class="p-4">
-                <label class="has-text-weight-semibold has-text-grey">Scope</label>
-                <div class="py-2">
-                    <input class="px-4 py-2" type="text" placeholder="Scope" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+            <form action="insertScope" method="post">
+                <div class="p-4">
+                    <input type="hidden" name="adminId" value="${sessionScope.admin_id }"/>
+                    <input type="hidden" name="lId" value="0" />
+                    <label class="has-text-weight-semibold has-text-grey">Scope</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="text" name="scopeName" placeholder="Scope Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    
+                        
+                    
+                    <label class="has-text-weight-semibold has-text-grey">Programme</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="text" name="program" placeholder="Programme" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
+                    <label class="has-text-weight-semibold has-text-grey">Session</label>
+                    <div class="py-2">
+                        <input class="px-4 py-2" type="text" name="session" placeholder="Session" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    </div>
                 </div>
-                <label class="has-text-weight-semibold has-text-grey">Programme</label>
-                <div class="py-2">
-                    <input class="custom-input px-4 py-2" type="text" placeholder="Programme">
-               </div>
-                <label class="has-text-weight-semibold has-text-grey">Session</label>
-                <div class="py-2">
-                    <input class="custom-input px-4 py-2" type="text" placeholder="Session">
+                <div class="is-flex is-justify-content-space-between p-4">
+                    <a class="button is-custom2" href="${pageContext.request.contextPath}/Admin/ScopeList.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
+                    <button type="submit" class="button is-custom">
+                        <span class="has-text-weight-semibold is-size-7">Save Changes</span>
+                    </button>
                 </div>
-            </div>
-            <div class="is-flex is-justify-content-space-between p-4">
-                <a class="button is-custom2" href="Scope-Lecturer.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
-                <a class="button is-custom"><span class="has-text-weight-semibold is-size-7">Save Changes</span></a>
-            </div>
+            </form>
         </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-        // Get all "navbar-burger" elements
-        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-        // Add a click event on each of them
-        $navbarBurgers.forEach( el => {
-          el.addEventListener('click', () => {
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
 
-            // Get the target from the "data-target" attribute
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
 
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-            el.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
 
-          });
+                });
+            });
+
         });
-
-      });
     </script>
 </body>
 </html>
