@@ -183,7 +183,7 @@
                             <thead>
                                 <tr style="border-bottom: 2px solid #ddd;">
                                     <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Name</th>
-                                    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Staff ID/Position</th>
+                                    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Lecturer ID/Position</th>
                                     <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Email</th>
                                     <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                 </tr>
