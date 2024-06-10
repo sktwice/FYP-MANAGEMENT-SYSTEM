@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.fyp.model.bean.PastProject" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -91,7 +93,7 @@
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Dashboard-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/Admin/Dashboard-Admin.jsp">
                             <span class="fas fa-home pr-2 is-size-7"></span>
                             <span class="is-size-7" >Dashboard</span>
                         </a>
@@ -127,7 +129,7 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Scope-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListScopeServlet">
                             <span class="fas fa-book pr-4 is-size-7"></span>
                             <span class="is-size-7">Scope</span>
                         </a>
@@ -160,7 +162,7 @@
                         <label class="has-text-weight-bold has-text-grey is-size-5">Past Reports</label>
                         <p class="has-text-grey-light is-size-7">More than 400+ students' reports</p>
                     </div>
-                    <a class="button is-custom" style="height:2rem;" href="../Admin/Add-New-Pass-Report-Admin.jsp">
+                    <a class="button is-custom" style="height:2rem;" href="${pageContext.request.contextPath}/addForm">
                         <span class="is-size-7">New Report</span>
                     </a>
                     </div>
@@ -176,32 +178,22 @@
                                     <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student">Badrul</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345678</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">Android App Dev</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                                   <tbody>
+                                  <c:forEach var="report" items="${listPastReport}">
+                                    <tr>
+                                        <td class="has-text-centered"><c:out value="${report.studentName}" /></td> 
+                                        <td class="has-text-centered"><c:out value="${report.studentId}" /></td>
+                                        <td class="has-text-centered"><c:out value = "${report.session}"/></td>
+                                        <td class="has-text-centered"><c:out value = "${report.proTitle}"/></td>
+                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
                                         <div class=" is-flex is-justify-content-center">
                                             <button class="button is-custom is-small">View</button>
                                             <button class="button is-custom3 is-small">Download</button>
                                         </div>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student">Hisham</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345679</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">Android App Dev</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                        <div class=" is-flex is-justify-content-center">
-                                            <button class="button is-custom is-small">View</button>
-                                            <button class="button is-custom3 is-small">Download</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
+                                    </tr>
+                                </c:forEach>
+                        </tbody>
                         </table>
                     </div>
                 </div>

@@ -109,7 +109,7 @@
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="Report-Admin.jsp">
+                            <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListPastReport">
                               <span class="fas fa-book-open pr-4 is-size-7"></span>
                               <span class="is-size-7">Reports</span>
                             </a>
