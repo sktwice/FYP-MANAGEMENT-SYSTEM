@@ -155,7 +155,7 @@
         </div>
         <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
             <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                <input class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                 <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
                     <img src="">
                 </span>
@@ -182,7 +182,7 @@
                                     <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tableBody">
                                 <c:forEach var="lecturer" items="${listLecturer}">
                                     <tr>
                                         <td class="has-text-centered"><c:out value="${lecturer.lName}" /></td> 
@@ -226,6 +226,24 @@
                 });
             });
 
+        });
+    </script>
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            var input = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#table tbody tr');
+
+            rows.forEach(function(row) {
+                var name = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+                var idPosition = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                var email = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+
+                if (name.includes(input) || idPosition.includes(input) || email.includes(input)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>

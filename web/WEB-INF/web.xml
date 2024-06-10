@@ -80,6 +80,14 @@
         <servlet-name>EditScopeForm</servlet-name>
         <servlet-class>com.fyp.Scope.EditScopeForm</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExaminerServlet</servlet-name>
+        <servlet-class>com.fyp.controller.lecturer.ExaminerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExaminerListServlet</servlet-name>
+        <servlet-class>com.fyp.LecturerList.ExaminerListServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -155,6 +163,14 @@
     <servlet-mapping>
         <servlet-name>EditScopeForm</servlet-name>
         <url-pattern>/editScope</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExaminerServlet</servlet-name>
+        <url-pattern>/ExaminerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExaminerListServlet</servlet-name>
+        <url-pattern>/ExaminerListServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

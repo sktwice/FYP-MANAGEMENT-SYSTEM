@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.fyp.model.bean.Lecturer" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -7,7 +10,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <style>
         .button.is-nav {
             background-color: #14161a;
@@ -29,7 +32,7 @@
 <body style="height:100%;">
     <div class="is-flex is-justify-content-space-between is-mobile-visible">
         <div class=" is-mobile-visible p-2">
-            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+            <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:30px; width:60px;">
         </div>
         <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -86,7 +89,7 @@
         <div class="p-2 column is-2 is-desktop-visible">
             <aside class="menu">
                 <p class="menu-label p-1 m-0">
-                    <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
+                    <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:50px; width:142px;">
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
@@ -148,16 +151,16 @@
         </div>
         <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
             <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                <input class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                 <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
                     <img src="">
                 </span>
             </div>
             <div class="custom-border p-6 w-100">
-                <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
+                <div class="pb-4">
                     <div>
                         <label class="has-text-weight-bold has-text-grey is-size-5">List of Examiner</label>
-                        <p class="has-text-grey-light is-size-7">More than 400+ lecturers</p>
+                        <p class="has-text-grey-light is-size-7">More than  ${listExaminer.size()} lecturers</p>
                     </div>
                 <div>
                     <div class="p-1" id="table">
@@ -171,24 +174,25 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <c:forEach var="lecturer" items="${listExaminer}">
                                 <tr>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Name">Encik Azmi bin Ayub</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Staff ID">
-                                        12345678
-                                        <p class="has-text-grey-light" style="font-size: 0.5rem;">Position</p>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Name">
+                                        <c:out value="${lecturer.lName}" />
                                     </td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Contact">+60 156742729</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email">Azmi56@microsoft.com</td>
-                                </tr>
-                                <tr>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Name">Puan Hasnah bte Hj Ahmad</td>
                                     <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Staff ID">
-                                        12345678
-                                        <p class="has-text-grey-light" style="font-size: 0.5rem;">Position</p>
+                                        <c:out value="${lecturer.lId}" />
+                                        <p class="has-text-grey-light" style="font-size: 0.5rem;">
+                                            <c:out value = "${lecturer.position}"/>
+                                        </p>
                                     </td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action">+60 156742729</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email">hasnah@microsoft.com</td>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Contact">
+                                        <c:out value = "${lecturer.email}"/>
+                                    </td>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email">
+                                        <c:out value = "${lecturer.email}"/>
+                                    </td>
                                 </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -218,6 +222,25 @@
         });
 
       });
+    </script>
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            var input = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#table tbody tr');
+
+            rows.forEach(function(row) {
+                var name = row.querySelector('[data-label="Name"]').textContent.toLowerCase();
+                var staffId = row.querySelector('[data-label="Staff ID"]').textContent.toLowerCase();
+                var contact = row.querySelector('[data-label="Contact"]').textContent.toLowerCase();
+                var email = row.querySelector('[data-label="Email"]').textContent.toLowerCase();
+
+                if (name.includes(input) || staffId.includes(input) || contact.includes(input) || email.includes(input)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 </html>
