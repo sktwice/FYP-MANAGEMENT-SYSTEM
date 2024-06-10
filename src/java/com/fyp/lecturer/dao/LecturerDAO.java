@@ -62,7 +62,7 @@ public class LecturerDAO {
         return lecturers;
     }
     
-    public List<Lecturer> selectAllExaminer() {
+    public List<Lecturer> selectAllExaminers() {
         List<Lecturer> examiners = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_EXAMINERS);) {
