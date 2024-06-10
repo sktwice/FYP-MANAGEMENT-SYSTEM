@@ -207,6 +207,7 @@
                                         <td class="has-text-centered"></td>
                                     </tr>
                                 </c:forEach>
+                        </tbody>
                     </table>
                 </div>
                 <div class="p-3 is-flex is-justify-content-space-between">
