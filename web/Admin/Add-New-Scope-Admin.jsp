@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 <div class="is-flex is-justify-content-space-between p-4">
-                    <a class="button is-custom2" href="${pageContext.request.contextPath}/Admin/ScopeList.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
+                    <a class="button is-custom2" href="${pageContext.request.contextPath}/ListScopeServlet"><span class="has-text-weight-semibold is-size-7">Back</span></a>
                     <button type="submit" class="button is-custom">
                         <span class="has-text-weight-semibold is-size-7">Save Changes</span>
                     </button>

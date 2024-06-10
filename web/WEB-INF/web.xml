@@ -88,6 +88,26 @@
         <servlet-name>ExaminerListServlet</servlet-name>
         <servlet-class>com.fyp.LecturerList.ExaminerListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PastProject</servlet-name>
+        <servlet-class>com.fyp.model.bean.PastProject</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowAddForm</servlet-name>
+        <servlet-class>com.fyp.pastreport.ShowAddForm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddPastReportDAO</servlet-name>
+        <servlet-class>com.fyp.pastreport.AddPastReportDAO</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddPastReportServlet</servlet-name>
+        <servlet-class>com.fyp.pastreport.AddPastReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListPastReport</servlet-name>
+        <servlet-class>com.fyp.pastreport.ListPastReport</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -163,14 +183,6 @@
     <servlet-mapping>
         <servlet-name>EditScopeForm</servlet-name>
         <url-pattern>/editScope</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ExaminerServlet</servlet-name>
-        <url-pattern>/ExaminerServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ExaminerListServlet</servlet-name>
-        <url-pattern>/ExaminerListServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

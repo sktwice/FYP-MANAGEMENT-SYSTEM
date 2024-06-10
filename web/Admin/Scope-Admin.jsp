@@ -53,11 +53,11 @@
                         <span class="fas fa-user pr-4"></span>
                         <span class="is-size-7" >Profile</span>
                     </a>
-                    <a class="navbar-item p-4" href="../Admin/Report-Admin.jsp">
+                    <a class="navbar-item p-4" href="${pageContext.request.contextPath}/ListPastReport">
                         <span class="fas fa-book-open pr-4 is-size-7"></span>
                         <span class="is-size-7" >Reports</span>
                     </a>
-                    <a class="navbar-item p-4" href="../Admin/ListOfLecturer.jsp">
+                    <a class="navbar-item p-4" href="${pageContext.request.contextPath}/LecturerListServlet">
                         <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
                         <span class="is-size-7" >Lecturer</span>
                     </a>
@@ -207,6 +207,7 @@
                                         <td class="has-text-centered"></td>
                                     </tr>
                                 </c:forEach>
+                        </tbody>
                     </table>
                 </div>
                 <div class="p-3 is-flex is-justify-content-space-between">
