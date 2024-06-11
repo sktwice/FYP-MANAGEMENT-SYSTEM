@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.fyp.model.bean.Supervision" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -7,7 +10,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <style>
         .button.is-nav {
             background-color: #14161a;
@@ -29,7 +32,7 @@
 <body style="height:100%;">
     <div class="is-flex is-justify-content-space-between is-mobile-visible">
         <div class=" is-mobile-visible p-2">
-            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+            <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:30px; width:60px;">
         </div>
         <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -86,11 +89,11 @@
         <div class="p-2 column is-2 is-desktop-visible">
             <aside class="menu">
                 <p class="menu-label p-1 m-0">
-                    <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
+                    <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:50px; width:142px;">
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Dashboard-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}Admin/Dashboard-Admin.jsp">
                             <span class="fas fa-home pr-2 is-size-7"></span>
                             <span class="is-size-7" >Dashboard</span>
                         </a>
@@ -102,31 +105,31 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Report-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListPastReport">
                             <span class="fas fa-book-open pr-4 is-size-7"></span>
                             <span class="is-size-7">Reports</span>
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/ListOfLecturer.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/LecturerListServlet">
                             <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
                             <span class="is-size-7">Lecturer</span>
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Examiner-List.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ExaminerListServlet">
                             <span class="fas fa-user-tie pr-4 is-size-7"></span>
                             <span class="is-size-7">Examiner</span>
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Student-List.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/StudentListServlet">
                             <span class="fas fa-user-graduate pr-4 is-size-7"></span>
                             <span class="is-size-7">Students</span>
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Scope-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListScopeServlet">
                             <span class="fas fa-book pr-4 is-size-7"></span>
                             <span class="is-size-7">Scope</span>
                         </a>
@@ -184,20 +187,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="mb-0">
-                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-weight-semibold has-text-grey" data-label="Topic">
-                                Android App Development
-                            </td>
-                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-weight-semibold has-text-grey" data-label="Supervisor Name">
-                                Puan Nurul Huda binti Harun
-                            </td>
-                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-weight-semibold has-text-grey" data-label="Matric ID">
-                                2023546821
-                            </td>
-                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-weight-semibold has-text-grey" data-label="Session">
-                                Session Date
-                            </td>
-                        </tr>
+                                 <c:forEach var="supervision" items="${listSupervision}">
+                                <tr>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">
+                                        <c:out value="${supervision.protitle}" />
+                                    </td>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Supervisor Name">
+                                        <c:out value="${supervision.lecturerName}" />
+                                    </td> 
+   
+                                    <td class = "has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="MAtric ID">
+                                         <c:out value = "${supervision.matricId}"/>
+                                    </td> 
+                                    
+                                    <td class = "has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Session">
+                                        <c:out value = "${supervision.Session}"/>
+                                    </td>  
+                                </tr>
+                                </c:forEach>
                         </tbody>
                     </table>
                 </div>
