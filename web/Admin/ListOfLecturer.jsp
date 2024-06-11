@@ -45,7 +45,7 @@
         <nav class="navbar" role="navigation" aria-label="dropdown navigation">
             <div class="navbar-item has-dropdown">
                 <div class="navbar-dropdown">
-                    <a class="navbar-item p-4" href="../Admin/Dashboard-Admin.jsp">
+                    <a class="navbar-item p-4" href="${pageContext.request.contextPath}/Admin/Dashboard-Admin.jsp">
                         <span class="fas fa-home pr-2"></span>
                         <span class="is-size-7" >Dashboard</span>
                     </a>

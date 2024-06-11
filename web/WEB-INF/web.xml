@@ -108,6 +108,14 @@
         <servlet-name>ListPastReport</servlet-name>
         <servlet-class>com.fyp.Admin.PastReport.ListPastReport</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentDAO</servlet-name>
+        <servlet-class>com.fyp.model.user.StudentDAO</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentListServlet</servlet-name>
+        <servlet-class>com.fyp.Student.StudentList.StudentListServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -211,6 +219,14 @@
     <servlet-mapping>
         <servlet-name>AddPastReportDAO</servlet-name>
         <url-pattern>/AddPastReportDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentDAO</servlet-name>
+        <url-pattern>/StudentDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentListServlet</servlet-name>
+        <url-pattern>/StudentListServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.fyp.model.bean.Student" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -7,7 +10,7 @@
     <title>Report Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <style>
         .button.is-nav {
             background-color: #14161a;
@@ -29,7 +32,7 @@
 <body style="height:100%;">
     <div class="is-flex is-justify-content-space-between is-mobile-visible">
         <div class=" is-mobile-visible p-2">
-            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+            <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:30px; width:60px;">
         </div>
         <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -86,11 +89,11 @@
         <div class="p-2 column is-2 is-desktop-visible">
             <aside class="menu">
                 <p class="menu-label p-1 m-0">
-                    <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
+                    <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:50px; width:142px;">
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Dashboard-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/Admin/Dashboard-Admin.jsp">
                             <span class="fas fa-home pr-2 is-size-7"></span>
                             <span class="is-size-7" >Dashboard</span>
                         </a>
@@ -102,19 +105,19 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Report-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListPastReport">
                             <span class="fas fa-book-open pr-4 is-size-7"></span>
                             <span class="is-size-7">Reports</span>
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/ListOfLecturer.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/LecturerListServlet">
                             <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
                             <span class="is-size-7">Lecturer</span>
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Examiner-List.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ExaminerListServlet">
                             <span class="fas fa-user-tie pr-4 is-size-7"></span>
                             <span class="is-size-7">Examiner</span>
                         </a>
@@ -126,7 +129,7 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Scope-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListScopeServlet">
                             <span class="fas fa-book pr-4 is-size-7"></span>
                             <span class="is-size-7">Scope</span>
                         </a>
@@ -157,7 +160,7 @@
                 <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                     <div>
                         <label class="has-text-weight-bold has-text-grey is-size-5">List of Reports</label>
-                        <p class="has-text-grey-light is-size-7">More than 400+ students</p>
+                        <p class="has-text-grey-light is-size-7">More than ${listStudent.size()} students</p>
                     </div>
                 </div>
                 <div>
@@ -173,30 +176,29 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                 <c:forEach var="student" items="${listStudent}">
                                 <tr>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Name">Azmi bin Ayub</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345678</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Programme">Android App Dev</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                        <div class=" is-flex is-justify-content-center">
-                                            <button class="button is-custom is-small">View</button>
-                                            <button class="button is-custom3 is-small">Download</button>
-                                        </div>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Name">
+                                        <c:out value="${student.sName}" />
                                     </td>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">
+                                        <c:out value="${student.studentId}" />
+                                    </td> 
+   
+                                    <td class = "has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">
+                                         <c:out value = "${student.semester}"/>
+                                    </td> 
+                                    
+                                    <td class = "has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Programme">
+                                        <c:out value = "${student.sCourse}"/>
+                                    </td>  
+                                    
+                                        <td  class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action">
+                                        <button class="button is-custom is-small">View</button>
+                                        <button class="button is-custom3 is-small">Download</button>
+                                        </td>
                                 </tr>
-                                <tr>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Name">Hasnah bte Hj Ahmad</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345679</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Programme">Android App Dev</td>
-                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                        <div class=" is-flex is-justify-content-center">
-                                            <button class="button is-custom is-small">View</button>
-                                            <button class="button is-custom3 is-small">Download</button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>

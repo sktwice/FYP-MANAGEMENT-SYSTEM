@@ -123,7 +123,7 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Student-List.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/StudentListServlet">
                             <span class="fas fa-user-graduate pr-4 is-size-7"></span>
                             <span class="is-size-7">Students</span>
                         </a>
