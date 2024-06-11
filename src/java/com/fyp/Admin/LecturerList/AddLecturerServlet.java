@@ -1,21 +1,26 @@
-package com.fyp.Admin.LecturerList;
-
 import com.fyp.model.bean.Lecturer;
 import com.fyp.model.bean.Login;
 import com.fyp.model.bean.Faculty;
+import com.fyp.Admin.LecturerList.AddLecturerDAO;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet("/RegisterLecturerServlet")
+@MultipartConfig // Added annotation to handle file uploads
 public class AddLecturerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private AddLecturerDAO AL;
@@ -60,7 +65,6 @@ public class AddLecturerServlet extends HttpServlet {
 
             // Generate a single ID and use it for both login_id and l_id
             int generatedId = AL.generateId();
-            int generatedId1 = AL.generateId();
 
             Login lo = new Login(username, password, "lecturer");
             lo.setLoginId(generatedId); // Set the generated login ID
@@ -69,13 +73,27 @@ public class AddLecturerServlet extends HttpServlet {
             if (f == null) {
                 throw new Exception("Faculty not found with ID: " + f_id);
             }
-            
-            String l_image = request.getParameter("l_image");
-            
-            
-            
 
-            Lecturer l = new Lecturer(generatedId1, f_id, generatedId, adminId, position, l_image, l_name, phone_num, email, l_course);
+            Part filePart = request.getPart("l_image");
+            String fileName = filePart.getSubmittedFileName();
+            
+            String applicationPath = getServletContext().getRealPath("");
+            String uploadPath = applicationPath + File.separator + "images";
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) uploadDir.mkdirs();
+
+            String filePath = uploadPath + File.separator + fileName;
+
+            try (InputStream inputStream = filePart.getInputStream();
+                 FileOutputStream outputStream = new FileOutputStream(new File(filePath))) {
+                int read;
+                final byte[] bytes = new byte[1024];
+                while ((read = inputStream.read(bytes)) != -1) {
+                    outputStream.write(bytes, 0, read);
+                }
+            }
+
+            Lecturer l = new Lecturer(generatedId, f_id, generatedId, adminId, position, filePath, l_name, phone_num, email, l_course);
             
             AL.registerLecturer(lo, f, l);
 
@@ -83,6 +101,7 @@ public class AddLecturerServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
+            throw new ServletException(e); // Propagate the exception properly
         }
     }
 }
