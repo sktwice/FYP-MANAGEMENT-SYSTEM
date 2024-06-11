@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.fyp.controller.login.LoginServlet</servlet-class>
+        <servlet-class>com.fyp.Login.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddLecturerDao</servlet-name>
@@ -14,19 +14,19 @@
     </servlet>
     <servlet>
         <servlet-name>AddLecturerDAO</servlet-name>
-        <servlet-class>com.fyp.lecturer.dao.AddLecturerDAO</servlet-class>
+        <servlet-class>com.fyp.Admin.LecturerList.AddLecturerDAO</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddLecturerServlet</servlet-name>
-        <servlet-class>com.fyp.controller.lecturer.AddLecturerServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.LecturerList.AddLecturerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LecturerServlet</servlet-name>
-        <servlet-class>com.fyp.controller.lecturer.LecturerServlet</servlet-class>
+        <servlet-class>com.fyp.Student.SubmitProposalSV.LecturerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProposalSvServlet</servlet-name>
-        <servlet-class>com.fyp.controller.student.ProposalSvServlet</servlet-class>
+        <servlet-class>com.fyp.Student.SubmitProposalSV.ProposalSvServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Scope</servlet-name>
@@ -42,23 +42,23 @@
     </servlet>
     <servlet>
         <servlet-name>LecturerListDAO</servlet-name>
-        <servlet-class>com.fyp.LecturerList.LecturerListDAO</servlet-class>
+        <servlet-class>com.fyp.Admin.LecturerList.LecturerListDAO</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LecturerListServlet</servlet-name>
-        <servlet-class>com.fyp.LecturerList.LecturerListServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.LecturerList.LecturerListServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LecturerDeleteServlet</servlet-name>
-        <servlet-class>com.fyp.LecturerList.LecturerDeleteServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.LecturerList.LecturerDeleteServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditLecturerServlet</servlet-name>
-        <servlet-class>com.fyp.LecturerList.EditLecturerServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.LecturerList.EditLecturerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateLecturerServlet</servlet-name>
-        <servlet-class>com.fyp.LecturerList.UpdateLecturerServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.LecturerList.UpdateLecturerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddScopeServlet</servlet-name>
@@ -66,27 +66,27 @@
     </servlet>
     <servlet>
         <servlet-name>AddScopeDAO</servlet-name>
-        <servlet-class>com.fyp.Scope.AddScopeDAO</servlet-class>
+        <servlet-class>com.fyp.Admin.Scope.AddScopeDAO</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListScopeServlet</servlet-name>
-        <servlet-class>com.fyp.Scope.ListScopeServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.Scope.ListScopeServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>InsertScopeServlet</servlet-name>
-        <servlet-class>com.fyp.Scope.InsertScopeServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.Scope.InsertScopeServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditScopeForm</servlet-name>
-        <servlet-class>com.fyp.Scope.EditScopeForm</servlet-class>
+        <servlet-class>com.fyp.Admin.Scope.EditScopeForm</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExaminerServlet</servlet-name>
-        <servlet-class>com.fyp.controller.lecturer.ExaminerServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.ExaminerList.ExaminerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExaminerListServlet</servlet-name>
-        <servlet-class>com.fyp.LecturerList.ExaminerListServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.ExaminerList.ExaminerListServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PastProject</servlet-name>
@@ -94,19 +94,19 @@
     </servlet>
     <servlet>
         <servlet-name>ShowAddForm</servlet-name>
-        <servlet-class>com.fyp.pastreport.ShowAddForm</servlet-class>
+        <servlet-class>com.fyp.Admin.PastReport.ShowAddForm</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddPastReportDAO</servlet-name>
-        <servlet-class>com.fyp.pastreport.AddPastReportDAO</servlet-class>
+        <servlet-class>com.fyp.Admin.PastReport.AddPastReportDAO</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddPastReportServlet</servlet-name>
-        <servlet-class>com.fyp.pastreport.AddPastReportServlet</servlet-class>
+        <servlet-class>com.fyp.Admin.PastReport.AddPastReportServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListPastReport</servlet-name>
-        <servlet-class>com.fyp.pastreport.ListPastReport</servlet-class>
+        <servlet-class>com.fyp.Admin.PastReport.ListPastReport</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
