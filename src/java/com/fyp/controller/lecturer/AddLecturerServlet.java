@@ -52,7 +52,7 @@ public class AddLecturerServlet extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String position = request.getParameter("position");
-            String l_image = request.getParameter("l_image");
+            
             String l_name = request.getParameter("l_name");
             int phone_num = Integer.parseInt(request.getParameter("phone_num"));
             String email = request.getParameter("email");
@@ -70,6 +70,11 @@ public class AddLecturerServlet extends HttpServlet {
             if (f == null) {
                 throw new Exception("Faculty not found with ID: " + f_id);
             }
+            
+            String l_image = request.getParameter("l_image");
+            
+            
+            
 
             Lecturer l = new Lecturer(generatedId1, f_id, generatedId, adminId, position, l_image, l_name, phone_num, email, l_course);
             

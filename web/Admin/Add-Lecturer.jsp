@@ -216,14 +216,17 @@
                         <input class="px-4 py-2" type="email" id="email" name="email" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                     </div>
                     
-                    <label for="l_image" class="has-text-weight-semibold has-text-grey">Image Path:</label>
+                    <div class="p-4">
+                    <label class="has-text-weight-semibold has-text-grey">Image</label>
                     <div class="py-2">
-                        <input class="px-4 py-2" type="text" id="l_image" name="l_image" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                    <input type="file" name="l_image">
+                    </div>
                     </div>
 
                     <div class="py-4">
                         <button class="button is-primary px-6 py-3" type="submit">Register</button>
                     </div>
+                    
                 </form>
             </div>
         </div>
