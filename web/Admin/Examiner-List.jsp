@@ -93,7 +93,7 @@
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Dashboard-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/Admin/Dashboard-Admin.jsp">
                             <span class="fas fa-home pr-2 is-size-7"></span>
                             <span class="is-size-7" >Dashboard</span>
                         </a>
@@ -105,13 +105,13 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Report-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListPastReport">
                             <span class="fas fa-book-open pr-4 is-size-7"></span>
                             <span class="is-size-7">Reports</span>
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/ListOfLecturer.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/LecturerListServlet">
                             <span class="fas fa-users-viewfinder pr-4 is-size-7"></span>
                             <span class="is-size-7">Lecturer</span>
                         </a>
@@ -129,7 +129,7 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Scope-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ListScopeServlet">
                             <span class="fas fa-book pr-4 is-size-7"></span>
                             <span class="is-size-7">Scope</span>
                         </a>

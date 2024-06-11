@@ -192,6 +192,26 @@
         <servlet-name>ExaminerListServlet</servlet-name>
         <url-pattern>/ExaminerListServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PastProject</servlet-name>
+        <url-pattern>/PastProject</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowAddForm</servlet-name>
+        <url-pattern>/addForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListPastReport</servlet-name>
+        <url-pattern>/ListPastReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddPastReportServlet</servlet-name>
+        <url-pattern>/AddPastReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddPastReportDAO</servlet-name>
+        <url-pattern>/AddPastReportDAO</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>
     </welcome-file-list>

@@ -121,7 +121,7 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Examiner-List.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/ExaminerListServlet">
                             <span class="fas fa-user-tie pr-4 is-size-7"></span>
                             <span class="is-size-7">Examiner</span>
                         </a>
