@@ -164,7 +164,7 @@ table td {
     table td:last-child {
         border-bottom: 0;
     }
-}
+    }
 
 @media screen and (min-width: 1408px) {
     .is-hidden-fullhd {
@@ -226,7 +226,7 @@ table td {
 }
 
 .button.is-custom {
-    background-color: #414E6A;
+    background-color: #3699FF;
     border-color: #fff;
     color: #fff;
 }
@@ -234,8 +234,8 @@ table td {
 .button.is-custom:hover,
 .button.custom.is-hovered {
     background-color: #ffff;
-    border-color: #414E6A;
-    color: #414E6A
+    border-color: #3699FF;
+    color: #3699FF
 }
 
 .button.is-custom.is-outlined:hover,
@@ -244,7 +244,7 @@ table td {
 .button.is-custom.is-outlined.is-focused {
     background-color: #fff;
     border-color: #fff;
-    color: #414E6A
+    color: #3699FF
 }
 
 .button.is-custom2 {
@@ -270,7 +270,7 @@ table td {
 }
 
 .button.is-custom3 {
-    background-color: #3e8ed0;
+    background-color: #36B538;
     border-color: #fff;
     color: #fff
 }
@@ -278,8 +278,8 @@ table td {
 .button.is-custom3:hover,
 .button.custom2.is-hovered {
     background-color: #fff;
-    border-color: #3e8ed0;
-    color: #3e8ed0
+    border-color: #36B538;
+    color: #36B538
 }
 
 .button.is-custom3.is-outlined:hover,
@@ -288,7 +288,28 @@ table td {
 .button.is-custom3.is-outlined.is-focused {
     background-color: #fff;
     border-color: #fff;
-    color: #3e8ed0
+    color: #36B538
+}
+.button.is-custom4 {
+    background-color: #384D6C;
+    border-color: #fff;
+    color: #fff;
+}
+
+.button.is-custom4:hover,
+.button.custom.is-hovered {
+    background-color: #ffff;
+    border-color: #384D6C;
+    color: #384D6C
+}
+
+.button.is-custom4.is-outlined:hover,
+.button.is-custom4.is-outlined.is-hovered,
+.button.is-custom4.is-outlined:focus,
+.button.is-custom4.is-outlined.is-focused {
+    background-color: #fff;
+    border-color: #fff;
+    color: #384D6C
 }
 
 .button.is-update {
@@ -479,8 +500,6 @@ input[type=password] {
     border-width: 10px;
 }
 
-
-
 .content-wrapper {
     display: flex;
     height: 100vh;
@@ -497,14 +516,14 @@ input[type=password] {
 @media (max-width: 425px) {
 
     .content-wrapper {
-        margin-top: 50px;
+        margin-top: 40px;
         margin-bottom: 30px;
     }
 
     .main-content {
         margin-left: 0;
     }
-}
+    }
 .a {
     background-color: #3e8ed0;
     border-color: #fff;
