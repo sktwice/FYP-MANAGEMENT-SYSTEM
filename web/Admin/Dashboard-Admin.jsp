@@ -103,7 +103,7 @@
                             </a>
                         </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="UserProfile-Admin.jsp">
+                            <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/adminList">
                               <span class="fas fa-user pr-4 is-size-7"></span>
                               <span class="is-size-7" >Profile</span>
                             </a>

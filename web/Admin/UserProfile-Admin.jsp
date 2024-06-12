@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -7,7 +8,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <style>
         .button.is-nav {
             background-color: #14161a;
@@ -29,7 +30,7 @@
 <body style="height:100%;">
     <div class="is-flex is-justify-content-space-between is-mobile-visible">
         <div class=" is-mobile-visible p-2">
-            <img src="../assets/uitm-logo.png" style="height:30px; width:60px;">
+            <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:30px; width:60px;">
         </div>
         <button role="button" class="navbar-burger is-mobile-visible" data-target="navMenu" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -86,7 +87,7 @@
         <div class="p-2 column is-2 is-desktop-visible">
             <aside class="menu">
                 <p class="menu-label p-1 m-0">
-                    <img src="../assets/uitm-logo.png" style="height:50px; width:142px;">
+                    <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" style="height:50px; width:142px;">
                 </p>
                 <ul class="menu-list">
                     <li class="py-1">
@@ -172,49 +173,54 @@
                     </div>
                 </div>
             </div>
+            
             <div class="columns is-multiline m-0 p-0">
+                <form >
+               
                 <div class="column is-full">
                     <label class="has-text-weight-semibold has-text-grey">Name</label>
                     <div class="py-2">
-                        <input class="px-4 py-2" type="text" placeholder="Full Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                        <input class="px-4 py-2" type="text" placeholder="" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                     </div>
                 </div>
                 <div class="column is-full">
                     <label class="has-text-weight-semibold has-text-grey">Username</label>
                     <div class="py-2">
-                        <input class="custom-input px-4 py-2" type="text" placeholder="e.g. haha">
+                        <input class="custom-input px-4 py-2" type="text" placeholder="">
                     </div>
                 </div>
                 <div class="column is-half">
                     <label class="has-text-weight-semibold has-text-grey">Email Address</label>
                     <div class="py-2">
-                        <input class="custom-input px-4 py-2" type="text" placeholder="Last Name">
+                        <input class="custom-input px-4 py-2" type="text" placeholder="">
                     </div>
                 </div>
                 <div class="column is-half">
                     <label class="has-text-weight-semibold has-text-grey">Phone Number</label>
                     <div class="py-2">
-                        <input class="custom-input px-4 py-2" type="text" placeholder="Last Name">
+                        <input class="custom-input px-4 py-2" type="text" placeholder="">
                     </div>
                 </div>
                 <div class="column is-half">
                     <label class="has-text-weight-semibold has-text-grey">New Password</label>
                     <div class="py-2">
-                        <input class="custom-input px-4 py-2" type="password" placeholder="sorry dunno yet how">
+                        <input class="custom-input px-4 py-2" type="password" >
                     </div>
                 </div>
                 <div class="column is-half">
                     <label class="has-text-weight-semibold has-text-grey">Current Password</label>
                     <div class="py-2">
-                        <input class="custom-input px-4 py-2" type="password" placeholder="sorry dunno yet how">
+                        <input class="custom-input px-4 py-2" type="password" >
                     </div>
                 </div>
                 <div class="column is-full">
                     <label class="has-text-weight-semibold has-text-grey">Confirm New Password</label>
                     <div class="py-2">
-                        <input class="custom-input px-4 py-2" type="password" placeholder="sorry dunno yet how">
+                        <input class="custom-input px-4 py-2" type="password" >
                     </div>
                 </div>
+               
+                 </form>
             </div>
             <div class="is-flex is-justify-content-space-between px-3 py-6">
                 <button class="button is-custom2"><span class="has-text-weight-semibold is-size-7">Back</span></button>

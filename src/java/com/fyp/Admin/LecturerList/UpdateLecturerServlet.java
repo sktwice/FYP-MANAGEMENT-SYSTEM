@@ -48,7 +48,7 @@ private void updateLecturer(HttpServletRequest request, HttpServletResponse resp
     String email = request.getParameter("email");
     
     Lecturer existingLecturer = lecturerDAO.selectLecturer(lId);
-    System.out.println("Existing Lecturer: " + existingLecturer);
+    
 
     if (existingLecturer != null) {
         

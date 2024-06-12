@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class AdminDAO {
 
     private String jdbcURL = "jdbc:mysql://localhost:3306/fyp?useSSL=false";
@@ -48,7 +49,7 @@ public class AdminDAO {
                 int phoneNum = resultSet.getInt("phone_num");
                 String email = resultSet.getString("email");
 
-                admin = new Admin(adminId, loginId, aImage, aName, phoneNum, email);
+             admin = new Admin(adminId, loginId, aImage, aName, phoneNum, email);
             }
         } finally {
             disconnect();
@@ -56,4 +57,6 @@ public class AdminDAO {
 
         return admin;
     }
+    
+
 }
