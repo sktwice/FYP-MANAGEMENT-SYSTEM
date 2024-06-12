@@ -134,7 +134,7 @@
     </div>
     <ul class="nav-list">
         <li><a href="Dashboard-Admin.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
-        <li><a href="UserProfile-Admin.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
+        <li><a href="DisplayUserProfile-Admin.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="Report-Admin.jsp"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="ListOfLecturer.jsp"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
         <li><a href="Examiner-List.jsp"><i class="fa fa-chalkboard-teacher mx-2"></i> Examiner</a></li>
@@ -149,7 +149,7 @@
     <button class="hamburger"><i class="icon-menu"></i></button>
     <ul class="nav-list">
         <li><a href="Dashboard-Admin.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
-        <li><a href="UserProfile-Admin.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
+        <li><a href="DisplayUserProfile-Admin.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="Report-Admin.jsp"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="ListOfLecturer.jsp"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
         <li><a href="Examiner-List.jsp"><i class="fa fa-chalkboard-teacher mx-2"></i> Examiner</a></li>
