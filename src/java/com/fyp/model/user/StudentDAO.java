@@ -17,14 +17,23 @@ public class StudentDAO {
     private String jdbcPassword = "";
     private Connection jdbcConnection;
 
+    public StudentDAO() {}
+
     protected void connect() throws SQLException {
         if (jdbcConnection == null || jdbcConnection.isClosed()) {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
+                jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+                System.out.println("Database connection successful");
             } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                System.out.println("Database driver not found");
                 throw new SQLException(e);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                System.out.println("Error connecting to the database");
+                throw e;
             }
-            jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         }
     }
 
@@ -34,7 +43,30 @@ public class StudentDAO {
         }
     }
 
- public List<Student> listStudent() throws SQLException {
+    private static final String SELECT_STUDENT_ID_BY_LOGIN_ID = "SELECT student_id FROM student WHERE login_id = ?";
+
+    public int getStudentIdByLoginId(int loginId) {
+        int studentId = -1; // Default value if not found
+        try {
+            connect();
+            try (PreparedStatement preparedStatement = jdbcConnection.prepareStatement(SELECT_STUDENT_ID_BY_LOGIN_ID)) {
+                preparedStatement.setInt(1, loginId);
+                try (ResultSet rs = preparedStatement.executeQuery()) {
+                    if (rs.next()) {
+                        studentId = rs.getInt("student_id");
+                    }
+                }
+            } finally {
+                disconnect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error executing SQL query");
+        }
+        return studentId;
+    }
+
+    public List<Student> listStudents() throws SQLException {
         List<Student> listStudents = new ArrayList<>();
         String sql = "SELECT * FROM student";
         connect();
@@ -59,8 +91,7 @@ public class StudentDAO {
         } finally {
             disconnect();
         }
-        
-return listStudents;
-}
- 
+
+        return listStudents;
+    }
 }

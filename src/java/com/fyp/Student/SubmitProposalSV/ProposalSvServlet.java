@@ -59,8 +59,9 @@ public class ProposalSvServlet extends HttpServlet {
 
             String pdfUrl = "pdf/proposalSV/" + fileName; // Update this to your actual URL path
             String pdfName = fileName;
+            String status="pending";
 
-            Proposal proposal = new Proposal(proposalId, studentId, lecturerId, scopeId, topic, semester, pdfUrl, pdfName);
+            Proposal proposal = new Proposal(proposalId, studentId, lecturerId, scopeId, topic, semester, pdfUrl, pdfName, status);
             proposalSvDAO.insertProposal(proposal);
 
             System.out.println("Proposal inserted successfully.");

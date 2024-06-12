@@ -48,7 +48,7 @@ public class StudentListServlet extends HttpServlet {
     
 private void listStudent(HttpServletRequest request, HttpServletResponse response)
         throws SQLException, IOException, ServletException {
-    List<Student> listStudent = studentDAO.listStudent();
+    List<Student> listStudent = studentDAO.listStudents();
     request.setAttribute("listStudent", listStudent);
     RequestDispatcher dispatcher = request.getRequestDispatcher("Admin/Student-List.jsp");
     dispatcher.forward(request, response);

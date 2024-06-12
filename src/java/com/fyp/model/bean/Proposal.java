@@ -13,16 +13,32 @@ public class Proposal {
     private String semester;
     private String pdfUrl;
     private String pdfName;
+    private String status;
     
-    public Proposal(int proposalId,int studentId, int lId,int scopeId, String topic,String semester,String pdfUrl, String pdfName){
+    /**
+     *
+     * @param proposalId
+     * @param studentId
+     * @param lId
+     * @param scopeId
+     * @param topic
+     * @param semester
+     * @param pdfUrl
+     * @param pdfName
+     * @param status
+     */
+  
+
+    public Proposal(int proposalId, int studentId, int lecturerId, int scopeId, String topic, String session, String pdfUrl, String pdfName, String status) {
         this.proposalId=proposalId;
         this.studentId=studentId;
-        this.lId=lId;
+        this.lId=lecturerId;
         this.scopeId=scopeId;
         this.topic=topic;
-        this.semester=semester;
+        this.semester=session;
         this.pdfUrl=pdfUrl;
         this.pdfName=pdfName;
+        this.status=status;
     }
 
     public int getProposalId() {
@@ -87,6 +103,14 @@ public class Proposal {
 
     public void setPdfName(String pdfName) {
         this.pdfName = pdfName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
     
     

@@ -17,7 +17,7 @@ public class ProposalSvDAO {
     private String jdbcUsername = "root";
     private String jdbcPassword = "";
 
-    private static final String INSERT_PROPOSAL_SQL = "INSERT INTO proposal (proposal_id, student_id, l_id, scope_id, topic, session, pdf_url, pdf_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_PROPOSAL_SQL = "INSERT INTO proposal (proposal_id, student_id, l_id, scope_id, topic, session, pdf_url, pdf_name, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     public ProposalSvDAO() {}
 
@@ -45,6 +45,7 @@ public class ProposalSvDAO {
             preparedStatement.setString(6, proposal.getSemester());
             preparedStatement.setString(7, proposal.getPdfUrl());
             preparedStatement.setString(8, proposal.getPdfName());
+            preparedStatement.setString(9, proposal.getStatus());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);

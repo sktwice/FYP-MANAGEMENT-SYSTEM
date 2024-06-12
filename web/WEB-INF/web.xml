@@ -132,6 +132,22 @@
         <servlet-name>SupervisionList</servlet-name>
         <servlet-class>com.fyp.Student.StudentList.SupervisionList</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AcceptProposalServlet</servlet-name>
+        <servlet-class>com.fyp.Supervisor.RequestSv.AcceptProposalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RejectProposalServlet</servlet-name>
+        <servlet-class>com.fyp.Supervisor.RequestSv.RejectProposalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewProposalServlet</servlet-name>
+        <servlet-class>com.fyp.Supervisor.RequestSv.ViewProposalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProposalServlet</servlet-name>
+        <servlet-class>com.fyp.Student.SubmitProposalSV.DeleteProposalServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -259,6 +275,22 @@
     <servlet-mapping>
         <servlet-name>SupervisionList</servlet-name>
         <url-pattern>/adminSupervision</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AcceptProposalServlet</servlet-name>
+        <url-pattern>/AcceptProposalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RejectProposalServlet</servlet-name>
+        <url-pattern>/RejectProposalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProposalServlet</servlet-name>
+        <url-pattern>/ViewProposalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProposalServlet</servlet-name>
+        <url-pattern>/DeleteProposalServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

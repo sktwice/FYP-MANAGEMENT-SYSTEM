@@ -1,8 +1,11 @@
 package com.fyp.Login;
 
+import com.fyp.Student.SubmitProposalSV.LecturerDAO;
 import com.fyp.model.bean.Login;
 import com.fyp.model.bean.Admin;
+import com.fyp.model.bean.Lecturer;
 import com.fyp.model.user.AdminDAO;
+import com.fyp.model.user.StudentDAO;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -18,11 +21,15 @@ public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private LoginDAO loginDAO;
     private AdminDAO adminDAO;
+    private LecturerDAO lecturerDAO;
+    private StudentDAO studentDAO;
 
     @Override
     public void init() {
         loginDAO = new LoginDAO();
         adminDAO = new AdminDAO();
+        lecturerDAO=new LecturerDAO();
+        studentDAO = new StudentDAO();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -47,28 +54,33 @@ public class LoginServlet extends HttpServlet {
                         response.sendRedirect("generic.jsp"); // Redirect to a generic page if admin details not found
                     }
                 } else if ("student".equals(login.getCategory())) {
-                    response.sendRedirect("Students/Dashboard.jsp");
+                    // Here we fetch the student ID using the login ID
+                    int studentId = studentDAO.getStudentIdByLoginId(login.getLoginId());
+                    if (studentId != -1) {
+                        session.setAttribute("student_id", studentId);
+                        response.sendRedirect("Students/Dashboard.jsp");
+                    } else {
+                        response.sendRedirect("generic.jsp"); // Redirect to a generic page if student details not found
+                    }
                 } else if ("lecturer".equals(login.getCategory())) {
-                    int loginId = login.getLoginId();
-                    if (loginId != 0) {
-                        String position = loginDAO.getLecturerPosition(loginId);
-                        if (position != null) {
-                            switch (position) {
-                                case "examiner":
-                                    response.sendRedirect("examiner.jsp");
-                                    break;
-                                case "supervisor":
-                                    response.sendRedirect("Supervisor/Dashboard-Supervisor.jsp");
-                                    break;
-                                default:
-                                    response.sendRedirect("Lecturers/Dashboard-Lecturer.jsp");
-                                    break;
-                            }
-                        } else {
-                            response.sendRedirect("generic.jsp");
+                    Lecturer lecturer = lecturerDAO.getLecturerByLoginId(login.getLoginId());
+                    if (lecturer != null) {
+                        session.setAttribute("lecturer_id", lecturer.getlId());
+                        session.setAttribute("position", lecturer.getPosition());
+                        switch (lecturer.getPosition()) {
+                            case "examiner":
+                                //response.sendRedirect("examiner.jsp");
+                                response.sendRedirect("examiner.jsp");
+                                break;
+                            case "supervisor":
+                                response.sendRedirect("ViewProposalServlet");
+                                break;
+                            default:
+                                response.sendRedirect("Lecturers/Dashboard-Lecturer.jsp");
+                                break;
                         }
                     } else {
-                        response.sendRedirect("generic.jsp");
+                        response.sendRedirect("generics.jsp");
                     }
                 } else {
                     response.sendRedirect("generic.jsp");
