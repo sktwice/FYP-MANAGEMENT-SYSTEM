@@ -196,12 +196,12 @@
                                         <c:out value="${supervision.lecturerName}" />
                                     </td> 
    
-                                    <td class = "has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="MAtric ID">
+                                    <td class = "has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">
                                          <c:out value = "${supervision.matricId}"/>
                                     </td> 
                                     
                                     <td class = "has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Session">
-                                        <c:out value = "${supervision.Session}"/>
+                                        <c:out value = "${supervision.session}"/>
                                     </td>  
                                 </tr>
                                 </c:forEach>

@@ -1,3 +1,5 @@
+package com.fyp.Admin.LecturerList;
+
 import com.fyp.model.bean.Lecturer;
 import com.fyp.model.bean.Login;
 import com.fyp.model.bean.Faculty;
@@ -19,7 +21,7 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/RegisterLecturerServlet")
+
 @MultipartConfig // Added annotation to handle file uploads
 public class AddLecturerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;

@@ -44,8 +44,7 @@ public List<Supervision> listSupervision() throws SQLException {
     String sql = "SELECT p.pro_title, l.l_name, p.student_id, p.session " +
                  "FROM project p " +
                  "JOIN lecturer l ON p.l_id = l.l_id " +  
-                 "JOIN student s ON p.student_id = s.student_id" 
-            ;
+                 "JOIN student s ON p.student_id = s.student_id";
 
     connect();
 
@@ -67,6 +66,7 @@ public List<Supervision> listSupervision() throws SQLException {
 
     return listSupervision;
 }
+
 
 
 }

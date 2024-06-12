@@ -158,7 +158,7 @@
                 Register Lecturer
             </div>
             <div class="p-4">
-                <form action="${pageContext.request.contextPath}/RegisterLecturerServlet" method="post" enctype = "multipart/form-data">
+                <form action="${pageContext.request.contextPath}/AddLecturer" method="post" enctype = "multipart/form-data">
                     <input type="hidden" id="admin_id" name="admin_id" value="${sessionScope.admin_id}">
 
                     <label for="username" class="has-text-weight-semibold has-text-grey">Username:</label>
