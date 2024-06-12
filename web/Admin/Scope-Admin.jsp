@@ -125,7 +125,7 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/Student-List.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/StudentListServlet">
                             <span class="fas fa-user-graduate pr-4 is-size-7"></span>
                             <span class="is-size-7">Students</span>
                         </a>
@@ -137,13 +137,13 @@
                         </a>
                     </li>
                     <li class="py-1">
-                        <a class="button is-nav navbar-item p-4" href="../Admin/StudenList-Supervision-Admin.jsp">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/adminSupervision">
                             <span class="fas fa-bullseye pr-4 is-size-7"></span>
                             <span class="is-size-7">Supervision</span>
                         </a>
                     </li>
-                    <li class="py-1">
-                        <a class="button is-nav navbar-item p-4">
+                         <li class="py-1">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/LoginID.jsp">
                             <span class="fas fa-arrow-right-from-bracket pr-4 is-size-7"></span>
                             <span class="is-size-7" >Sign-out</span>
                         </a>

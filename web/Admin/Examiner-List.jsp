@@ -135,13 +135,13 @@
                         </a>
                     </li>
                         <li class="py-1">
-                            <a class="button is-nav navbar-item p-4" href="StudentList-Supervision-Admin.jsp">
+                            <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/adminSupervision">
                                 <span class="fas fa-bullseye pr-4 is-size-7"></span>
                                 <span class="is-size-7">Supervision</span>
                             </a>
                         </li>
-                    <li class="py-1">
-                        <a class="button is-nav navbar-item p-4">
+                         <li class="py-1">
+                        <a class="button is-nav navbar-item p-4" href="${pageContext.request.contextPath}/LoginID.jsp">
                             <span class="fas fa-arrow-right-from-bracket pr-4 is-size-7"></span>
                             <span class="is-size-7" >Sign-out</span>
                         </a>
@@ -186,7 +186,7 @@
                                         </p>
                                     </td>
                                     <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Contact">
-                                        <c:out value = "${lecturer.email}"/>
+                                        <c:out value = "${lecturer.phoneNum}"/>
                                     </td>
                                     <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email">
                                         <c:out value = "${lecturer.email}"/>
