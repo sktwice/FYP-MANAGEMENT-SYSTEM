@@ -28,8 +28,10 @@
             }
         </style>
     </head>
-    <body style="height:100%;">
-        <div class="columns m-0 p-0 h-100">
+    <body>
+        <div class="content-wrapper">
+            <jsp:include page="../examiner-sidebar.jsp"></jsp:include>
+            <div class="main-content">
             <div class="column px-6 py-3" style="background-color:#FFFFFF;">
                 <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
                     User Profile

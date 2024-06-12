@@ -10,13 +10,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>List Of Proposal</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body style="height:100%;">
-    <div class="columns m-0 p-0 h-100">
+<body>
+    <div class="content-wrapper">
+        <jsp:include page="../examiner-sidebar.jsp"></jsp:include>
+        <div class="main-content">
         <div class="column h-100 p-6" style="background-color:#FFFFFF; overflow-y: scroll;">
             <div class="custom-border p-6 w-100">
                 <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
@@ -128,6 +130,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>
