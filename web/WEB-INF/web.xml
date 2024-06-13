@@ -148,6 +148,18 @@
         <servlet-name>DeleteProposalServlet</servlet-name>
         <servlet-class>com.fyp.Student.SubmitProposalSV.DeleteProposalServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentPastReportServlet</servlet-name>
+        <servlet-class>com.fyp.Student.PastReport.StudentPastReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ScopeServlet</servlet-name>
+        <servlet-class>com.fyp.Student.Scope.ScopeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <servlet-class>com.fyp.UserProfile.UserProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -291,6 +303,18 @@
     <servlet-mapping>
         <servlet-name>DeleteProposalServlet</servlet-name>
         <url-pattern>/DeleteProposalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentPastReportServlet</servlet-name>
+        <url-pattern>/Students/StudentPastReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ScopeServlet</servlet-name>
+        <url-pattern>/Students/ScopeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <url-pattern>/Admin/UserProfileServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

@@ -50,6 +50,7 @@ public class AdminDAO {
                 String email = resultSet.getString("email");
 
              admin = new Admin(adminId, loginId, aImage, aName, phoneNum, email);
+              System.out.println("DEBUG: Student ID: " + aName); 
             }
         } finally {
             disconnect();
@@ -57,6 +58,8 @@ public class AdminDAO {
 
         return admin;
     }
+    
+    
     
 
 }

@@ -1,10 +1,7 @@
-<%-- 
-    Document   : Scope-Student
-    Created on : May 2, 2024, 6:18:52 PM
-    Author     : User
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.fyp.model.bean.Scope" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
     <head>
@@ -62,18 +59,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Topic">Android App Development</td>
-                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Programme">CS230</td>
-                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Session Date">Session Date</td>
-                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Total Students">23</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Topic">Android App Development</td>
-                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Programme">CS230</td>
-                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Session Date">Session Date</td>
-                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Total Students">23</td>
-                                    </tr>
+                                    <c:forEach var="scope" items="${scopes}">
+                                        <tr>
+                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Topic">${scope.scopeName}</td>
+                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Programme">${scope.program}</td>
+                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Session Date">${scope.session}</td>
+                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Total Students">23</td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>

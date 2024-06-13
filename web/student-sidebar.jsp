@@ -135,12 +135,12 @@
     <ul class="nav-list">
         <li><a href="Dashboard.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="UserProfile-Student.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
-        <li><a href="Report-Student.jsp"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
+        <li><a href="StudentPastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="Form-Student.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
         <li><a href="Lecturer"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
         <li><a href="Proposal.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
         <li><a href="Result-Student.jsp"><i class="fa fa-check mx-2"></i> Result</a></li>
-        <li><a href="Scope-Student.jsp"><i class="fa fa-search mx-2"></i> Scope</a></li>
+        <li><a href="ScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="Login.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
     </ul>
 </div>
@@ -150,7 +150,7 @@
     <ul class="nav-list">
        <li><a href="Dashboard.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="UserProfile-Student.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
-        <li><a href="Report-Student.jsp"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
+        <li><a href="StudentPastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="Form-Student.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
         <li><a href="Lecturer"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
         <li><a href="Proposal.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
