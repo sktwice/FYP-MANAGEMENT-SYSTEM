@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.fyp.model.bean.PastProject" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -34,7 +37,7 @@
                     <label class="has-text-weight-bold has-text-grey is-size-5">Past Reports</label>
                     <p class="has-text-grey-light is-size-7">More than 400+ students' reports</p>
                 </div>
-                        <a class="button is-custom" href="Add-New-Pass-Report-Lecturer.jsp"><span class="has-text-weight-semibold is-size-7">New Report</span></a>                                              
+                        <a class="button is-custom" href="${pageContext.request.contextPath}/addExaminerForm"><span class="has-text-weight-semibold is-size-7">New Report</span></a>                                              
                 </div>
             <div>
                 <div class="p-1" id="table">
@@ -48,31 +51,21 @@
                                 <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student">Badrul</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345678</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">Android App Dev</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                    <div class=" is-flex is-justify-content-center">
-                                        <button class="button is-custom is-small has-text-weight-bold">View</button>
-                                        <button class="button is-custom3 is-small has-text-weight-bold">Download</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student">Hisham</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345679</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">Android App Dev</td>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                    <div class=" is-flex is-justify-content-center">
-                                        <button class="button is-custom is-small has-text-weight-bold">View</button>
-                                        <button class="button is-custom3 is-small has-text-weight-bold">Download</button>
-                                    </div>
-                                </td>
-                            </tr>
+                         <tbody>
+                                  <c:forEach var="report" items="${listPastReport}">
+                                    <tr>
+                                        <td class="has-text-centered"><c:out value="${report.studentName}" /></td> 
+                                        <td class="has-text-centered"><c:out value="${report.studentId}" /></td>
+                                        <td class="has-text-centered"><c:out value = "${report.session}"/></td>
+                                        <td class="has-text-centered"><c:out value = "${report.proTitle}"/></td>
+                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                        <div class=" is-flex is-justify-content-center">
+                                            <button class="button is-custom is-small">View</button>
+                                            <button class="button is-custom3 is-small">Download</button>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                </c:forEach>
                         </tbody>
                     </table>
                 </div>

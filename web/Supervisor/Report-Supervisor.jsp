@@ -28,7 +28,7 @@
                                 <p class="has-text-grey-light is-size-7">More than 400+ students' reports</p>
                             </div>
                             <div>
-                                <a class="button is-custom" href="Add-New-Pass-Report.jsp"><span class="has-text-weight-semibold is-size-7">New Report</span></a>                                              
+                                <a class="button is-custom" href="${pageContext.request.contextPath}/Supervisor/ShowAddPastReport"><span class="has-text-weight-semibold is-size-7">New Report</span></a>                                              
                
                             </div>
                         </div>

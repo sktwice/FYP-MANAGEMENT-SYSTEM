@@ -168,6 +168,14 @@
         <servlet-name>ScopeSvServlet</servlet-name>
         <servlet-class>com.fyp.Supervisor.ScopeSV.ScopeSvServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShowAddPastReport</servlet-name>
+        <servlet-class>com.fyp.Supervisor.PastReport.ShowAddPastReport</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddPastRepostSupervisor</servlet-name>
+        <servlet-class>com.fyp.Supervisor.PastReport.AddPastReportSupervisor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -331,6 +339,14 @@
     <servlet-mapping>
         <servlet-name>ScopeSvServlet</servlet-name>
         <url-pattern>/Supervisor/ScopeSvServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowAddPastReport</servlet-name>
+        <url-pattern>/Supervisor/ShowAddPastReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddPastRepostSupervisor</servlet-name>
+        <url-pattern>/Supervisor/AddPastRepostSupervisor</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>
