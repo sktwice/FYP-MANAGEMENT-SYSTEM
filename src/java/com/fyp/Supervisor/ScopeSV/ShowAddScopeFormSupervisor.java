@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.fyp.Supervisor.PastReport;
+package com.fyp.Supervisor.ScopeSV;
 
 import com.fyp.Admin.LecturerList.LecturerListDAO;
 import com.fyp.Admin.PastReport.AddPastReportDAO;
@@ -13,18 +13,18 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-
 
 /**
  *
  * @author Acer
  */
-public class ShowAddPastReport extends HttpServlet {
+public class ShowAddScopeFormSupervisor extends HttpServlet {
 
+ 
     private static final long serialVersionUID = 1L;
     private AddPastReportDAO psDAO;
+   
 
     public void init() {
         psDAO = new AddPastReportDAO();
@@ -49,10 +49,8 @@ public class ShowAddPastReport extends HttpServlet {
     private void showAddForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Supervisor/Add-New-Pass-Report.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/Supervisor/Add-New-Scope.jsp");
         dispatcher.forward(request, response);
     }
 
 }
-
-

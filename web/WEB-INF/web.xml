@@ -176,6 +176,14 @@
         <servlet-name>AddPastRepostSupervisor</servlet-name>
         <servlet-class>com.fyp.Supervisor.PastReport.AddPastReportSupervisor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShowAddScopeFormSupervisor</servlet-name>
+        <servlet-class>com.fyp.Supervisor.ScopeSV.ShowAddScopeFormSupervisor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertScopeSupervisorServlet</servlet-name>
+        <servlet-class>com.fyp.Supervisor.ScopeSV.InsertScopeSupervisorServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -347,6 +355,14 @@
     <servlet-mapping>
         <servlet-name>AddPastRepostSupervisor</servlet-name>
         <url-pattern>/Supervisor/AddPastRepostSupervisor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowAddScopeFormSupervisor</servlet-name>
+        <url-pattern>/Supervisor/ShowAddScopeForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertScopeSupervisorServlet</servlet-name>
+        <url-pattern>/InsertScopeSupervisorServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

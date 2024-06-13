@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="column p-1" style="align-content:center;">
                                     <div>
-                                        <a class="button is-custom4 px-4 py-3 w-100" href="Add-New-Scope.jsp"><span class="has-text-weight-semibold is-size-7">Add Scope</span></a>                                             
+                                        <a class="button is-custom4 px-4 py-3 w-100" href="${pageContext.request.contextPath}/Supervisor/ShowAddScopeForm"><span class="has-text-weight-semibold is-size-7">Add Scope</span></a>                                             
                                     </div>
                                 </div>
                             </div>
