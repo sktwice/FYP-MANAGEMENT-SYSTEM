@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
     <head>
@@ -44,30 +45,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:forEach var="pastProject" items="${pastProjects}">
                                         <tr>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student">Badrul</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345678</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">Android App Dev</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                                <div class=" is-flex is-justify-content-center">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
+                                                data-label="Student">${pastProject.studentName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
+                                                data-label="Matric ID">${pastProject.studentId}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
+                                                data-label="Semester">${pastProject.session}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
+                                                data-label="Topic">${pastProject.proTitle}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                                <div class="is-flex is-justify-content-center">
                                                     <button class="button is-custom is-small">View</button>
                                                     <button class="button is-custom3 is-small">Download</button>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student">Hisham</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID">12345679</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester">23/24</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">Android App Dev</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                                <div class=" is-flex is-justify-content-center">
-                                                    <button class="button is-custom is-small">View</button>
-                                                    <button class="button is-custom3 is-small">Download</button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

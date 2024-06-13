@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
                                 response.sendRedirect("examiner.jsp");
                                 break;
                             case "supervisor":
-                                response.sendRedirect("ViewProposalServlet");
+                                response.sendRedirect("Supervisor/Dashboard-Supervisor.jsp");
                                 break;
                             default:
                                 response.sendRedirect("Lecturers/Dashboard-Lecturer.jsp");

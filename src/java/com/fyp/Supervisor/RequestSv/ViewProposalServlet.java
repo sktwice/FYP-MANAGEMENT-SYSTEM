@@ -30,7 +30,7 @@ public class ViewProposalServlet extends HttpServlet {
         List<Proposal> proposals = lecturerDAO.selectProposalsByLecturerId(lecturerId);
         request.setAttribute("listProposals", proposals);
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("Supervisor/Request-Supervision-Supervisor.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Request-Supervision-Supervisor.jsp");
         dispatcher.forward(request, response);
     }
 }
