@@ -51,7 +51,7 @@
                             <div class="pt-3">
                                 <div id="file-js-example" class="file has-name">
                                     <label class="file-label">
-                                        <input class="file-input" type="file" name="resume" />
+                                        <input class="file-input" type="file" name="pdfFile" />
                                         <span class="file-cta" style="background-color: #3699FF; border: none;">
                                             <span class="file-icon">
                                                 <i class="fas fa-upload"></i>

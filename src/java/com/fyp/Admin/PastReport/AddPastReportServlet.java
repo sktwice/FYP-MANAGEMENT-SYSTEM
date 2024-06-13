@@ -20,6 +20,7 @@ public class AddPastReportServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private AddPastReportDAO PR;
 
+    @Override
     public void init() {
         PR = new AddPastReportDAO();
     }
