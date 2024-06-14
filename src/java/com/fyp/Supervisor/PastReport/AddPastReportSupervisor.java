@@ -9,6 +9,7 @@ package com.fyp.Supervisor.PastReport;
 import com.fyp.Admin.PastReport.AddPastReportDAO;
 import com.fyp.model.bean.PastProject;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import java.io.InputStream;
 
 import java.sql.SQLException;
 
+@MultipartConfig
 public class AddPastReportSupervisor extends HttpServlet {
 
      private static final long serialVersionUID = 1L;
@@ -49,8 +51,14 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     }
 
     try {
+        
+        System.out.println("stu_name: " + request.getParameter("stu_name"));
+        System.out.println("student_id: " + request.getParameter("student_id"));
+        System.out.println("pro_title: " + request.getParameter("pro_title"));
+        System.out.println("session: " + request.getParameter("session"));
+        
         int proId = PR.generateId();
-        int adminId = Integer.parseInt(request.getParameter("admin_id"));
+        int adminId = 0;
         String studentName = request.getParameter("stu_name");
         int studentId = Integer.parseInt(request.getParameter("student_id"));
         String proTitle = request.getParameter("pro_title");
