@@ -52,11 +52,6 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 
     try {
         
-        System.out.println("stu_name: " + request.getParameter("stu_name"));
-        System.out.println("student_id: " + request.getParameter("student_id"));
-        System.out.println("pro_title: " + request.getParameter("pro_title"));
-        System.out.println("session: " + request.getParameter("session"));
-        
         int proId = PR.generateId();
         int adminId = 0;
         String studentName = request.getParameter("stu_name");
@@ -100,6 +95,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 
         PR.addPastReport(pastReport);
         
+        response.sendRedirect("PastReportServlet");
 
             
         } catch (SQLException e) {

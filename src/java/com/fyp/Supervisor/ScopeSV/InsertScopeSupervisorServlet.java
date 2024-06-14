@@ -7,6 +7,7 @@ package com.fyp.Supervisor.ScopeSV;
 import com.fyp.Admin.Scope.AddScopeDAO;
 import com.fyp.model.bean.Scope;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
+@MultipartConfig
 public class InsertScopeSupervisorServlet extends HttpServlet {
 
  private static final long serialVersionUID = 1L;
@@ -26,24 +28,22 @@ public class InsertScopeSupervisorServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-     {    
-    }
     }
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
-         Integer lId = (Integer) session.getAttribute("l_id");
-        
-          if (lId == null) {
-            response.sendRedirect("error.jsp");
-            return;
-        }
+       
+    HttpSession session = request.getSession();
+    Integer lId = (Integer) session.getAttribute("lecturer_id");
+    System.out.println("Lecturer ID in session: " + lId);
+    if (lId == null) {
+        response.sendRedirect("Error.jsp");
+        return;
+    }
           
         try {
-        
-        int adminId = Integer.parseInt(request.getParameter("admin_Id"));
+         
+        int adminId = Integer.parseInt(request.getParameter("adminId"));
         String scopeName = request.getParameter("scopeName");
         String program = request.getParameter("program");
         String sessions = request.getParameter("session");
@@ -53,13 +53,14 @@ public class InsertScopeSupervisorServlet extends HttpServlet {
         Scope scope = new Scope(generatescopeid, adminId, lId, scopeName, program, sessions);
 
         
-            addScopeDAO.insertScope(scope);
+        addScopeDAO.insertScope(scope);
+        response.sendRedirect("Supervisor/ScopeSvServlet");
             
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        response.sendRedirect("/Supervisor/ScopeSvServlet"); // Redirect to the scope list page or another page
+        
     }
 }
 

@@ -18,8 +18,8 @@
                     <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
                         Add New Past Report
                     </div>
-                    <form action="AddPastRepostSupervisor" method="post" enctype="multipart/form-data">
-    <input type="hidden" id="admin_id" name="admin_id" value="0"/>multipart/form-data">
+    <form action="AddPastRepostSupervisor" method="post" enctype="multipart/form-data">
+    <input type="hidden" id="admin_id" name="admin_id" value="0"/>
     <input type="hidden" id="l_id" name="l_id" value="${sessionScope.lecturer_id}" />
 
     <label class="has-text-weight-semibold has-text-grey">Student Name</label>

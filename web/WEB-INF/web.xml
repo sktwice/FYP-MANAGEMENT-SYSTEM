@@ -394,7 +394,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InsertScopeSupervisorServlet</servlet-name>
-        <url-pattern>/InsertScopeSupervisorServlet</url-pattern>
+        <url-pattern>/Supervisor/InsertScopeSupervisorServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DownloadServlet</servlet-name>
