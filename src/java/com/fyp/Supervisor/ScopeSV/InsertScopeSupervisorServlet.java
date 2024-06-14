@@ -52,7 +52,6 @@ public class InsertScopeSupervisorServlet extends HttpServlet {
 
         Scope scope = new Scope(generatescopeid, adminId, lId, scopeName, program, sessions);
 
-        
         addScopeDAO.insertScope(scope);
         response.sendRedirect("Supervisor/ScopeSvServlet");
             
