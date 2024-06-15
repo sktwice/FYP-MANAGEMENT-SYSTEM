@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="com.fyp.model.bean.Proposal" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -23,12 +22,10 @@
         function confirmAction(status, proposalId) {
             if (status === "accepted") {
                 $('#acceptModal').modal('show');
+                $('#proposalIdInput').val(proposalId);
                 return false;
             } else if (status === "rejected") {
-                if (confirm("Are you sure you want to delete this proposal?")) {
-                    return true; // Proceed with form submission
-                }
-                return false;
+                return confirm("Are you sure you want to delete this proposal?");
             } else {
                 return confirm("Are you sure you want to delete this proposal?");
             }
@@ -52,7 +49,7 @@
                             </div>
                         </div>
                         <div>
-                            <table>
+                            <table >
                                 <thead>
                                     <tr>
                                         <th>Lecturer ID</th>
@@ -62,31 +59,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% List<Proposal> listProposals = (List<Proposal>) request.getAttribute("listProposals");
-                                        if (listProposals != null) {
-                                            for (Proposal proposal : listProposals) {
-                                    %>
-                                    <tr>
-                                        <td><%= proposal.getlId() %></td>
-                                        <td><%= proposal.getTopic() %></td>
-                                        <td><%= proposal.getStatus() %></td>
-                                        <td>
-                                            <% if ("accepted".equals(proposal.getStatus())) { %>
-                                                <form id="agreeForm_<%= proposal.getProposalId() %>" method="post" action="AcceptProposalServlet" onsubmit="return confirmAction('<%= proposal.getStatus() %>', <%= proposal.getProposalId() %>)">
-                                                    <input type="hidden" name="proposalId" value="<%= proposal.getProposalId() %>">
-                                                    <button class="button is-success is-small" type="submit">Agree</button>
-                                                </form>
-                                            <% } else if ("rejected".equals(proposal.getStatus())) { %>
-                                                <form id="acceptForm_<%= proposal.getProposalId() %>" method="post" action="<%= request.getContextPath() %>/DeleteProposalServlet" onsubmit="return confirmAction('<%= proposal.getStatus() %>', <%= proposal.getProposalId() %>)">
-                                                    <input type="hidden" name="proposalId" value="<%= proposal.getProposalId() %>">
-                                                    <button class="button is-success is-small" type="submit">Accept</button>
-                                                </form>
-                                            <% } %>
-                                        </td>
-                                    </tr>
-                                    <%      }
-                                        }
-                                    %>
+                                    <c:forEach var="proposal" items="${listProposals}">
+                                        <tr>
+                                            <td>${proposal.lId}</td>
+                                            <td>${proposal.topic}</td>
+                                            <td>${proposal.status}</td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${proposal.status eq 'accepted'}">
+                                                        <form id="agreeForm_${proposal.proposalId}" method="post" action="../AgreementServlet" onsubmit="return confirmAction('${proposal.status}', '${proposal.proposalId}')">
+                                                            <input type="hidden" name="proposalId" value="${proposal.proposalId}">
+                                                            <button class="button is-success is-small" type="submit">Agree</button>
+                                                        </form>
+                                                    </c:when>
+                                                    <c:when test="${proposal.status eq 'rejected'}">
+                                                        <form id="acceptForm_${proposal.proposalId}" method="post" action="${pageContext.request.contextPath}/DeleteProposalServlet" onsubmit="return confirmAction('${proposal.status}', '${proposal.proposalId}')">
+                                                            <input type="hidden" name="proposalId" value="${proposal.proposalId}">
+                                                            <button class="button is-success is-small" type="submit">Accept</button>
+                                                        </form>
+                                                    </c:when>
+                                                </c:choose>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -118,8 +113,11 @@
                     <p>I hereby understand the above mentioned Terms and Conditions and I hereby agree to be supervised by the mentioned lecturer and that the project will be the sole property of UiTM Malaysia.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="agreeToTerms()">Agree</button>
+                    <form id="acceptForm" method="post" action="../AgreementServlet">
+                        <input type="hidden" id="proposalIdInput" name="proposalId" value="">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" onclick="agreeToTerms()">Agree</button>
+                    </form>
                 </div>
             </div>
         </div>
