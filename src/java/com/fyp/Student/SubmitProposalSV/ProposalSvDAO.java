@@ -1,13 +1,13 @@
 package com.fyp.Student.SubmitProposalSV;
 
+import com.fyp.model.bean.Project;
 import com.fyp.model.bean.Proposal;
 import com.fyp.model.bean.Scope;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.sql.SQLException;
-import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -18,6 +18,8 @@ public class ProposalSvDAO {
     private String jdbcPassword = "";
 
     private static final String INSERT_PROPOSAL_SQL = "INSERT INTO proposal (proposal_id, student_id, l_id, scope_id, topic, session, pdf_url, pdf_name, status, domain) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String SELECT_PROPOSAL_BY_ID_SQL = "SELECT * FROM proposal WHERE proposal_id = ?";
+    private static final String INSERT_PROJECT_SQL = "INSERT INTO project (pro_ID, student_id, l_id, pro_title, domain, pro_url, session, scope_id, proposal_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     public ProposalSvDAO() {}
 
@@ -35,7 +37,7 @@ public class ProposalSvDAO {
     }
 
     public void insertProposal(Proposal proposal) throws SQLException {
-        try (Connection connection = getConnection(); 
+        try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PROPOSAL_SQL)) {
             preparedStatement.setInt(1, proposal.getProposalId());
             preparedStatement.setInt(2, proposal.getStudentId());
@@ -51,6 +53,57 @@ public class ProposalSvDAO {
         } catch (SQLException e) {
             printSQLException(e);
         }
+    }
+
+    public Proposal getProposalById(int proposalId) throws SQLException {
+        Proposal proposal = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PROPOSAL_BY_ID_SQL)) {
+            preparedStatement.setInt(1, proposalId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                int studentId = rs.getInt("student_id");
+                int lId = rs.getInt("l_id");
+                int scopeId = rs.getInt("scope_id");
+                String topic = rs.getString("topic");
+                String semester = rs.getString("session");
+                String pdfUrl = rs.getString("pdf_url");
+                String pdfName = rs.getString("pdf_name");
+                String status = rs.getString("status");
+                String domain = rs.getString("domain");
+
+                proposal = new Proposal(proposalId, studentId, lId, scopeId, topic, semester, pdfUrl, pdfName, status, domain);
+            }
+        }
+        return proposal;
+    }
+
+    public void transferProposalToProject(Proposal proposal) throws SQLException {
+        String proId = generateProId();
+        String proTitle = proposal.getTopic();
+        String session = proposal.getSemester();
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PROJECT_SQL)) {
+            preparedStatement.setString(1, proId);
+            preparedStatement.setInt(2, proposal.getStudentId());
+            preparedStatement.setInt(3, proposal.getlId());
+            preparedStatement.setString(4, proTitle);
+            preparedStatement.setString(5, proposal.getDomain());
+            preparedStatement.setString(6, null); // pro_url set to null
+            preparedStatement.setString(7, session);
+            preparedStatement.setInt(8, proposal.getScopeId());
+            preparedStatement.setInt(9, proposal.getProposalId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+    }
+
+    private String generateProId() {
+        Random random = new Random();
+        int number = random.nextInt(999999);
+        return String.format("PROJ%06d", number);
     }
 
     private void printSQLException(SQLException ex) {
@@ -87,4 +140,36 @@ public class ProposalSvDAO {
         }
         return scopeList;
     }
+    
+    public void insertProject(Project project) throws SQLException {
+    String INSERT_PROJECT_SQL = "INSERT INTO project (pro_ID, student_id, l_id, pro_title, domain, pro_url, session, scope_id, proposal_id) " +
+                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    try (Connection connection = getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PROJECT_SQL)) {
+        // Auto-generated pro_ID in MySQL, assuming it's an auto_increment column
+        preparedStatement.setInt(1, project.getProId()); // MySQL auto-increment will handle this
+        preparedStatement.setInt(2, project.getStudentId());
+        preparedStatement.setInt(3, project.getlId());
+        preparedStatement.setString(4, project.getProTitle());
+        preparedStatement.setString(5, project.getDomain());
+        preparedStatement.setString(6, project.getProUrl());
+        preparedStatement.setString(7, project.getSession());
+        preparedStatement.setInt(8, project.getScopeId());
+        preparedStatement.setInt(9, project.getProposalId());
+
+        preparedStatement.executeUpdate();
+    }
+}
+
+public void deleteProposal(int proposalId) throws SQLException {
+    String DELETE_PROPOSAL_SQL = "DELETE FROM proposal WHERE proposal_id = ?";
+
+    try (Connection connection = getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PROPOSAL_SQL)) {
+        preparedStatement.setInt(1, proposalId);
+        preparedStatement.executeUpdate();
+    }
+}
+
 }
