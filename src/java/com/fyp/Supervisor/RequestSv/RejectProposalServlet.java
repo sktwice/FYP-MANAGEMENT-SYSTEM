@@ -22,7 +22,7 @@ public class RejectProposalServlet extends HttpServlet {
         int proposalId = Integer.parseInt(request.getParameter("proposalId"));
         try {
             pdfFileDao.rejectProposal(proposalId);
-            response.sendRedirect("ViewProposalServlet"); // Redirect to the proposals page
+            response.sendRedirect("Supervisor/ViewProposalServlet"); // Redirect to the proposals page
         } catch (SQLException e) {
             e.printStackTrace();
             throw new ServletException("Error rejecting proposal", e);
