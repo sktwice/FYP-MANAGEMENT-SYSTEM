@@ -51,7 +51,8 @@ public class PdfFileDao {
                     rs.getString("session"),
                     rs.getString("pdf_url"),
                     rs.getString("pdf_name"),
-                    rs.getString("status")
+                    rs.getString("status"),
+                    rs.getString("domain")
                 );
             }
         } catch (SQLException e) {

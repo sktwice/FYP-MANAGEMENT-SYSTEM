@@ -14,6 +14,7 @@ public class Proposal {
     private String pdfUrl;
     private String pdfName;
     private String status;
+    private String domain;
     
     /**
      *
@@ -29,7 +30,7 @@ public class Proposal {
      */
   
 
-    public Proposal(int proposalId, int studentId, int lecturerId, int scopeId, String topic, String session, String pdfUrl, String pdfName, String status) {
+    public Proposal(int proposalId, int studentId, int lecturerId, int scopeId, String topic, String session, String pdfUrl, String pdfName, String status, String domain) {
         this.proposalId=proposalId;
         this.studentId=studentId;
         this.lId=lecturerId;
@@ -39,7 +40,10 @@ public class Proposal {
         this.pdfUrl=pdfUrl;
         this.pdfName=pdfName;
         this.status=status;
+        this.domain=domain;
     }
+    
+    
 
     public int getProposalId() {
         return proposalId;
@@ -111,6 +115,14 @@ public class Proposal {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
     }
     
     

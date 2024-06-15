@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 
 import java.io.File;
@@ -25,8 +26,16 @@ public class ProposalSvServlet extends HttpServlet {
     private ProposalSvDAO proposalSvDAO = new ProposalSvDAO();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("student_id") == null) {
+            response.sendRedirect("../LoginID.jsp"); // Redirect to login if session is invalid
+            return;
+        }
+
+        int studentId = (int) session.getAttribute("student_id");
         try {
-            int studentId = Integer.parseInt(request.getParameter("studentId"));
+            
+            System.out.println("DEBUG: Student ID: " + studentId); // Debug statement to print student_id
             int lecturerId = Integer.parseInt(request.getParameter("lecturerId"));
             int scopeId = Integer.parseInt(request.getParameter("scopeId"));
             String topic = request.getParameter("topic");
@@ -60,8 +69,19 @@ public class ProposalSvServlet extends HttpServlet {
             String pdfUrl = "pdf/proposalSV/" + fileName; // Update this to your actual URL path
             String pdfName = fileName;
             String status="pending";
+            String domain=request.getParameter("domain");
+            System.out.println(proposalId);
+            System.out.println(studentId);
+            System.out.println(lecturerId);
+            System.out.println(scopeId);
+            System.out.println(topic);
+            System.out.println(semester);
+            System.out.println(pdfUrl);
+            System.out.println(pdfName);
+            System.out.println(status);
+            System.out.println(domain);
 
-            Proposal proposal = new Proposal(proposalId, studentId, lecturerId, scopeId, topic, semester, pdfUrl, pdfName, status);
+            Proposal proposal = new Proposal(proposalId, studentId, lecturerId, scopeId, topic, semester, pdfUrl, pdfName, status, domain);
             proposalSvDAO.insertProposal(proposal);
 
             System.out.println("Proposal inserted successfully.");

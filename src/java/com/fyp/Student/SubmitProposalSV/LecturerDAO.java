@@ -176,7 +176,8 @@ public class LecturerDAO {
                 String pdfUrl = rs.getString("pdf_url");
                 String pdfName = rs.getString("pdf_name");
                 String status = rs.getString("status");
-                proposals.add(new Proposal(proposalId, studentId, lId, scopeId, topic, session, pdfUrl, pdfName, status));
+                String domain = rs.getString("domain");
+                proposals.add(new Proposal(proposalId, studentId, lId, scopeId, topic, session, pdfUrl, pdfName, status, domain));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -200,7 +201,8 @@ public class LecturerDAO {
                 String pdfUrl = rs.getString("pdf_url");
                 String pdfName = rs.getString("pdf_name");
                 String status = rs.getString("status");
-                proposals.add(new Proposal(proposalId, studentId, lecturerId, scopeId, topic, session, pdfUrl, pdfName, status));
+                String domain = rs.getString("domain");
+                proposals.add(new Proposal(proposalId, studentId, lecturerId, scopeId, topic, session, pdfUrl, pdfName, status, domain));
             }
         } catch (SQLException e) {
             e.printStackTrace();
