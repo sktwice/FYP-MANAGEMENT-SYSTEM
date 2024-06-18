@@ -61,17 +61,26 @@ public class FormDAO {
 
     // Method to insert Form3
     public void insertForm3(Form3 form3) throws SQLException {
-        String sql = "INSERT INTO form3 (form_id, relevance, knowledge, writing, total, approval, date_approve) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO form3 (form_id, relevance, knowledge, writing, total, agreement, date, login_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, form3.getFormId());
-            preparedStatement.setInt(2, form3.getRelevance());
-            preparedStatement.setInt(3, form3.getKnowledge());
-            preparedStatement.setInt(4, form3.getWriting());
-            preparedStatement.setInt(5, form3.getTotal());
-            preparedStatement.setString(6, form3.getApproval());
-            preparedStatement.setString(7, form3.getDateApprove());
-            preparedStatement.executeUpdate();
+             PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_FORM_SQL);
+             PreparedStatement preparedStatement2 = connection.prepareStatement(sql)) {
+            
+            preparedStatement1.setInt(1, form3.getFormId());
+            preparedStatement1.setInt(2, form3.getStudentId());
+            preparedStatement1.setInt(3, form3.getlId());
+            preparedStatement1.setInt(4, form3.getProId());
+            preparedStatement1.executeUpdate(); 
+            
+            preparedStatement2.setInt(1, form3.getFormId());
+            preparedStatement2.setInt(2, form3.getRelevance());
+            preparedStatement2.setInt(3, form3.getKnowledge());
+            preparedStatement2.setInt(4, form3.getWriting());
+            preparedStatement2.setInt(5, form3.getTotal());
+            preparedStatement2.setString(6, form3.getAgreement());
+            preparedStatement2.setDate(7, java.sql.Date.valueOf(form3.getDate()));
+            preparedStatement2.setInt(8, form3.getLoginId());
+            preparedStatement2.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
         }
