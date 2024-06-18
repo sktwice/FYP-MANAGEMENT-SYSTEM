@@ -98,6 +98,6 @@ public class Form7Servlet extends HttpServlet {
 
     @Override
     public String getServletInfo() {
-        return "Form8Servlet handles the submission of Form 8.";
+        return "Form7Servlet handles the submission of Form 7.";
     }
 }

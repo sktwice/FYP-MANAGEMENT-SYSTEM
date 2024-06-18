@@ -14,19 +14,23 @@ public class Form4 extends Form {
     private int description;
     private int model;
     private int total;
-    private String approval;
-    private String dateApprove;
+    private String agreement;
+    private String date;
+    private int loginId;
     
     public Form4(int formId, int studentId, int lId, int proId, 
-            int design, int description, int model, int total, String approval, String dateApprove) {
+            int design, int description, int model, int total, String agreement, String date, int loginId) {
         super(formId, studentId, lId, proId);
         this.design=design;
         this.description=description;
         this.model=model;
         this.total=total;
-        this.approval=approval;
-        this.dateApprove=dateApprove;
+        this.agreement=agreement;
+        this.date=date;
+        this.loginId=loginId;
     }
+    
+    
 
     public int getDesign() {
         return design;
@@ -44,12 +48,12 @@ public class Form4 extends Form {
         return total;
     }
 
-    public String getApproval() {
-        return approval;
+    public String getAgreement() {
+        return agreement;
     }
 
-    public String getDateApprove() {
-        return dateApprove;
+    public String getDate() {
+        return date;
     }
 
     public void setDesign(int design) {
@@ -68,12 +72,20 @@ public class Form4 extends Form {
         this.total = total;
     }
 
-    public void setApproval(String approval) {
-        this.approval = approval;
+    public void setAgreement(String agreement) {
+        this.agreement = agreement;
     }
 
-    public void setDateApprove(String dateApprove) {
-        this.dateApprove = dateApprove;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getLoginId() {
+        return loginId;
+    }
+
+    public void setLoginId(int loginId) {
+        this.loginId = loginId;
     }
     
     

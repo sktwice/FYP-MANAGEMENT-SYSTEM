@@ -11,13 +11,7 @@
 </head>
 <body style="height:100%;">
    <div class="content-wrapper">
-        <% 
-        String userCategory = (String) session.getAttribute("userCategory");
-    
-    if(userCategory.equals("lecturer")){
-        %> <jsp:include page="../lecturer-sidebar.jsp"></jsp:include> <%
-            }
-        %>
+        <jsp:include page="../lecturer-sidebar.jsp"></jsp:include> 
         <div class="main-content">
     <div class="column h-100 p-6" style="background-color:#FFFFFF; overflow-y: scroll;">
         <div class="custom-border p-6 w-100">
@@ -54,7 +48,7 @@
             <div class="p-3">
                 <div class="is-flex is-justify-content-space-between pb-2">
                     <label class="has-text-weight-semibold has-text-grey is-size-5">F4 - METHODOLOGY EVALUATION FORM</label>
-                    <a class="button is-custom" href="../Lecturers/F4-MethodologyEvaluationForm.jsp">
+                    <a class="button is-custom" href="../Form4Servlet">
                         <span class="is-size-7 p-1">Open</span>
                         <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                     </a>
@@ -63,7 +57,7 @@
             <div class="p-3">
                 <div class="is-flex is-justify-content-space-between pb-2">
                     <label class="has-text-weight-semibold has-text-grey is-size-5">F7 - PROJECT FORMULATION PRESENTATION EVALUATION</label>
-                    <a class="button is-custom" href="../Lecturers/F7-Project-Formulation-Presentation-Form-Lecturer.jsp">
+                    <a class="button is-custom" href="../Form7Servlet">
                         <span class="is-size-7 p-1">Open</span>
                         <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                     </a>
@@ -72,7 +66,7 @@
             <div class="p-3">
                 <div class="is-flex is-justify-content-space-between pb-2">
                     <label class="has-text-weight-semibold has-text-grey is-size-5">F8 - PROJECT FORMULATION REPORT EVALUATION</label>
-                    <a class="button is-custom" href="../Lecturers/F8-Project-Formulation-Report-Evaluation-Form-Lecturer.jsp">
+                    <a class="button is-custom" href="../Form8Servlet">
                         <span class="is-size-7 p-1">Open</span>
                         <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                     </a>

@@ -130,7 +130,7 @@
 
 <div class="sidebar">
     <div class="logo">
-        <img src="../assets/uitm-logo.png" alt="Logo">
+        <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" alt="Logo">
     </div>
     <ul class="nav-list">
         <li><a href="Dashboard-Lecturer.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
