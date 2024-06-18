@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 
-public class DownloadServlet extends HttpServlet {
+public class DownloadProposalServlet extends HttpServlet {
     private PdfFileDao pdfFileDao = new PdfFileDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

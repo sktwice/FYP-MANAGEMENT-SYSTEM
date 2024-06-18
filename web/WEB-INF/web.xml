@@ -186,7 +186,7 @@
     </servlet>
     <servlet>
         <servlet-name>DownloadServlet</servlet-name>
-        <servlet-class>com.fyp.Download.DownloadServlet</servlet-class>
+        <servlet-class>com.fyp.Download.DownloadProposalServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Form2Servlet</servlet-name>
@@ -213,12 +213,12 @@
         <servlet-class>com.fyp.Form.Form7Servlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Form8Servlet</servlet-name>
-        <servlet-class>com.fyp.Form.Form8Servlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AgreementServlet</servlet-name>
         <servlet-class>com.fyp.Student.SubmitProposalSV.AgreementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Form8Servlet</servlet-name>
+        <servlet-class>com.fyp.Form.Form8Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
@@ -429,12 +429,12 @@
         <url-pattern>/Form7Servlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Form8Servlet</servlet-name>
-        <url-pattern>/Form8Servlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AgreementServlet</servlet-name>
         <url-pattern>/AgreementServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Form8Servlet</servlet-name>
+        <url-pattern>/Form8Servlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

@@ -19,9 +19,12 @@ import com.fyp.model.bean.Form8;
 
 public class FormDAO {
 
-    private String jdbcURL = "jdbc:mysql://localhost:3306/yourdatabase";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/fyp?useSSL=false";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "password";
+    private String jdbcPassword = "";
+
+    private static final String INSERT_FORM_SQL = "INSERT INTO form (form_id, student_id, l_id, pro_id) VALUES (?, ?, ?, ?)";
+    private static final String INSERT_FORM8_SQL = "INSERT INTO form8 (form_id, handover_date, pro_background, objective, significance, literature, pro_methodology, present_report, progress_evaluate, total, comment, login_id, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     public FormDAO() {}
 
@@ -38,26 +41,9 @@ public class FormDAO {
         return connection;
     }
 
-//    // Method to insert Form1
-//    public void insertForm1(Form1 form1) throws SQLException {
-//        String sql = "INSERT INTO form1 (form_id, student_id, l_id, pro_id, approval, date_approve) VALUES (?, ?, ?, ?, ?, ?);";
-//        try (Connection connection = getConnection();
-//             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-//            preparedStatement.setInt(1, form1.getFormId());
-//            preparedStatement.setInt(2, form1.getStudentId());
-//            preparedStatement.setInt(3, form1.getLId());
-//            preparedStatement.setInt(4, form1.getProId());
-//            preparedStatement.setString(5, form1.getApproval());
-//            preparedStatement.setString(6, form1.getDateApprove());
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException e) {
-//            printSQLException(e);
-//        }
-//    }
-
     // Method to insert Form2
     public void insertForm2(Form2 form2) throws SQLException {
-        String sql="INSERT INTO form2 (form_id, prob_identify, evidence, solution, total, approval, date_approve) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO form2 (form_id, prob_identify, evidence, solution, total, approval, date_approve) VALUES (?, ?, ?, ?, ?, ?, ?);";
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setInt(1, form2.getFormId());
@@ -72,6 +58,7 @@ public class FormDAO {
             printSQLException(e);
         }
     }
+
     // Method to insert Form3
     public void insertForm3(Form3 form3) throws SQLException {
         String sql = "INSERT INTO form3 (form_id, relevance, knowledge, writing, total, approval, date_approve) VALUES (?, ?, ?, ?, ?, ?, ?);";
@@ -166,26 +153,58 @@ public class FormDAO {
 
     // Method to insert Form8
     public void insertForm8(Form8 form8) throws SQLException {
-        String sql = "INSERT INTO form8 (form_id, handover_date, pro_background, objective, significance, literature, pro_methodology, present_report, progress_evaluate, total, comment, name, term_sv, dateT_sv) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-        try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, form8.getFormId());
-            preparedStatement.setString(2, form8.getHandoverDate());
-            preparedStatement.setInt(3, form8.getProBackground());
-            preparedStatement.setInt(4, form8.getObjective());
-            preparedStatement.setInt(5, form8.getSignificance());
-            preparedStatement.setInt(6, form8.getLiterature());
-            preparedStatement.setInt(7, form8.getProMethodology());
-            preparedStatement.setInt(8, form8.getPresentReport());
-            preparedStatement.setInt(9, form8.getProgressEvaluate());
-            preparedStatement.setInt(10, form8.getTotal());
-            preparedStatement.setString(11, form8.getComment());
-            preparedStatement.setString(12, form8.getName());
-            preparedStatement.setString(13, form8.getTermSv());
-            preparedStatement.setString(14, form8.getDateTSv());
-            preparedStatement.executeUpdate();
+        Connection connection = null;
+        PreparedStatement preparedStatement1 = null;
+        PreparedStatement preparedStatement2 = null;
+        
+        try {
+            connection = getConnection();
+            connection.setAutoCommit(false); // Start transaction
+
+            // Insert into the `form` table first
+            preparedStatement1 = connection.prepareStatement(INSERT_FORM_SQL);
+            preparedStatement1.setInt(1, form8.getFormId());
+            preparedStatement1.setInt(2, form8.getStudentId());
+            preparedStatement1.setInt(3, form8.getlId());
+            preparedStatement1.setInt(4, form8.getProId());
+            preparedStatement1.executeUpdate();
+
+            // Then insert into the `form8` table
+            preparedStatement2 = connection.prepareStatement(INSERT_FORM8_SQL);
+            preparedStatement2.setInt(1, form8.getFormId());
+            preparedStatement2.setString(2, form8.getHandoverDate());
+            preparedStatement2.setInt(3, form8.getProBackground());
+            preparedStatement2.setInt(4, form8.getObjective());
+            preparedStatement2.setInt(5, form8.getSignificance());
+            preparedStatement2.setInt(6, form8.getLiterature());
+            preparedStatement2.setInt(7, form8.getProMethodology());
+            preparedStatement2.setInt(8, form8.getPresentReport());
+            preparedStatement2.setInt(9, form8.getProgressEvaluate());
+            preparedStatement2.setInt(10, form8.getTotal());
+            preparedStatement2.setString(11, form8.getComment());
+            preparedStatement2.setInt(12, form8.getLoginId());
+            preparedStatement2.setString(13, form8.getAgreement());
+            preparedStatement2.setDate(14, java.sql.Date.valueOf(form8.getDate()));
+            preparedStatement2.executeUpdate();
+
+            connection.commit(); // Commit transaction
+
         } catch (SQLException e) {
+            if (connection != null) {
+                connection.rollback(); // Rollback transaction on error
+            }
             printSQLException(e);
+        } finally {
+            if (preparedStatement1 != null) {
+                preparedStatement1.close();
+            }
+            if (preparedStatement2 != null) {
+                preparedStatement2.close();
+            }
+            if (connection != null) {
+                connection.setAutoCommit(true);
+                connection.close();
+            }
         }
     }
 

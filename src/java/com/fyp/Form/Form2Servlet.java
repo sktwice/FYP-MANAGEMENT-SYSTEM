@@ -10,7 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.fyp.Form.FormDAO;
+import com.fyp.Form.FormTestDao;
 import com.fyp.model.bean.Form2;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -34,12 +34,13 @@ public class Form2Servlet extends HttpServlet {
             String dateApprove = request.getParameter("dateApprove");
             
             Form2 form2 = new Form2(formId, studentId, lId, proId, proIdentity, evidence, solution, total, approval, dateApprove);
-            FormDAO dao = new FormDAO();
-            dao.insertForm2(form2);
+            FormTestDao dao = new FormTestDao();
+            dao.insertForm(form2);
             
             response.sendRedirect("success.jsp");
-        } catch (SQLException ex) {
-            Logger.getLogger(Form2Servlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException e) {
+            Logger.getLogger(Form2Servlet.class.getName()).log(Level.SEVERE, null, e);
+            response.sendRedirect("error.jsp");
         }
     }
 }

@@ -20,15 +20,15 @@ public class Form8 extends Form {
     private int progressEvaluate;      
     private int total;                 
     private String comment;            
-    private String name;               
-    private String termSv;             
-    private String dateTSv;
+    private int loginId;               
+    private String agreement;             
+    private String date;
 
     public Form8(int formId, int studentId, int lId, int proId,
             String handoverDate, int proBackground, int objective,
                  int significance, int literature, int proMethodology, int presentReport,
-                 int progressEvaluate, int total, String comment, String name,
-                 String termSv, String dateTSv) {
+                 int progressEvaluate, int total, String comment, int loginId,
+                 String agreement, String date) {
         super(formId, studentId, lId, proId);
         
         this.handoverDate = handoverDate;
@@ -41,9 +41,9 @@ public class Form8 extends Form {
         this.progressEvaluate = progressEvaluate;
         this.total = total;
         this.comment = comment;
-        this.name = name;
-        this.termSv = termSv;
-        this.dateTSv = dateTSv;
+        this.loginId = loginId;
+        this.agreement = agreement;
+        this.date = date;
     }
 
     public String getHandoverDate() {
@@ -86,16 +86,16 @@ public class Form8 extends Form {
         return comment;
     }
 
-    public String getName() {
-        return name;
+    public int getLoginId() {
+        return loginId;
     }
 
-    public String getTermSv() {
-        return termSv;
+    public String getAgreement() {
+        return agreement;
     }
 
-    public String getDateTSv() {
-        return dateTSv;
+    public String getDate() {
+        return date;
     }
 
     public void setHandoverDate(String handoverDate) {
@@ -138,16 +138,16 @@ public class Form8 extends Form {
         this.comment = comment;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLoginId(int loginId) {
+        this.loginId = loginId;
     }
 
-    public void setTermSv(String termSv) {
-        this.termSv = termSv;
+    public void setAgreement(String agreement) {
+        this.agreement = agreement;
     }
 
-    public void setDateTSv(String dateTSv) {
-        this.dateTSv = dateTSv;
+    public void setDate(String date) {
+        this.date = date;
     }
     
     
