@@ -16,14 +16,14 @@ public class Form7 extends Form {
     private int delivery;          
     private int total;             
     private String comment;        
-    private String name;           
-    private String termSv;         
-    private String dateTSv;
+    private int loginId;           
+    private String agreement;         
+    private String date;
 
     public Form7(int formId, int studentId, int lId, int proId, 
              String presentDate, int knowledge, int overallProject,
                  int presentMaterial, int delivery, int total, String comment,
-                 String name, String termSv, String dateTSv) {
+                 int loginId, String agreement, String date) {
         super(formId, studentId, lId, proId);
         this.presentDate = presentDate;
         this.knowledge = knowledge;
@@ -32,9 +32,9 @@ public class Form7 extends Form {
         this.delivery = delivery;
         this.total = total;
         this.comment = comment;
-        this.name = name;
-        this.termSv = termSv;
-        this.dateTSv = dateTSv;
+        this.loginId = loginId;
+        this.agreement = agreement;
+        this.date = date;
     }
 
     public String getPresentDate() {
@@ -65,16 +65,16 @@ public class Form7 extends Form {
         return comment;
     }
 
-    public String getName() {
-        return name;
+    public int getLoginId() {
+        return loginId;
     }
 
-    public String getTermSv() {
-        return termSv;
+    public String getAgreement() {
+        return agreement;
     }
 
-    public String getDateTSv() {
-        return dateTSv;
+    public String getDate() {
+        return date;
     }
 
     public void setPresentDate(String presentDate) {
@@ -105,16 +105,16 @@ public class Form7 extends Form {
         this.comment = comment;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLoginId(int loginId) {
+        this.loginId = loginId;
     }
 
-    public void setTermSv(String termSv) {
-        this.termSv = termSv;
+    public void setAgreement(String agreement) {
+        this.agreement = agreement;
     }
 
-    public void setDateTSv(String dateTSv) {
-        this.dateTSv = dateTSv;
+    public void setDate(String date) {
+        this.date = date;
     }
     
     

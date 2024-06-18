@@ -1,4 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html style="height:100%;">
     <head>
@@ -6,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
         <title>F7 – PROJECT FORMULATION PRESENTATION FORM</title>
     </head>
     <body style="height:100%;">
@@ -17,53 +18,36 @@
                     <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
                         F7 – PROJECT FORMULATION PRESENTATION FORM
                     </div>
+                    <form action="${pageContext.request.contextPath}/Form7Servlet" method="post">
                     <div class="columns is-multiline m-0 p-0">
-                        <div class="column is-2" style="align-content: center">
-                            <label class="has-text-weight-semibold has-text-grey">Student Name:</label>
-                        </div>
-                        <div class="column is-10">
-                            <div class="py-2">
-                                <input class="px-4 py-2" type="text" placeholder="Full Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            </div>
-                        </div>
-                        <div class="column is-2" style="align-content: center">
-                            <label class="has-text-weight-semibold has-text-grey">Student ID:</label>
-                        </div>
-                        <div class="column is-10">
-                            <div class="py-2">
-                                <input class="px-4 py-2" type="text" placeholder="Student ID" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            </div>
-                        </div>
-                        <div class="column is-2" style="align-content: center">
-                            <label class="has-text-weight-semibold has-text-grey">Programme:</label>
-                        </div>
-                        <div class="column is-10">
-                            <div class="py-2">
-                                <input class="px-4 py-2" type="text" placeholder="Programme" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            </div>
-                        </div>
-                        <div class="column is-2" style="align-content: center">
-                            <label class="has-text-weight-semibold has-text-grey">Supervisor:</label>
-                        </div>
-                        <div class="column is-10">
-                            <div class="py-2">
-                                <input class="px-4 py-2" type="text" placeholder="Supervisor" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            </div>
-                        </div>
                         <div class="column is-2" style="align-content: center">
                             <label class="has-text-weight-semibold has-text-grey">Project Title:</label>
                         </div>
                         <div class="column is-10">
-                            <div class="py-2">
-                                <input class="px-4 py-2" type="text" placeholder="Title" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            </div>
+                        <div class="py-2">
+                            <select class="px-4 py-2" name="projectInfo" id="projectInfo" style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;" required>
+                                <option value="">Select a Project</option>
+                                <c:forEach var="project" items="${projectList}">
+                                    <option value="${project.proId},${project.studentId},${project.lId}">${project.proTitle}</option>
+                                </c:forEach>
+                            </select>
                         </div>
+                    </div>
                         <div class="column is-2" style="align-content: center">
                             <label class="has-text-weight-semibold has-text-grey">Presentation Date :</label>
                         </div>
                         <div class="column is-10">
                             <div class="py-2">
-                                <input class="px-4 py-2" type="date" placeholder="" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                                <input class="px-4 py-2" name="presentDate" id="presentDate" type="date" placeholder="" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                            </div>
+                        </div>
+                        <div class="column is-2" style="align-content: center">
+                            <label class="has-text-weight-semibold has-text-grey">Comment:</label>
+                        </div>
+                        <div class="column is-10">
+                            <div class="py-2">
+                                <input class="px-4 py-2" type="text" placeholder="Your comment" name="comment" id="comment"
+                                       style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                             </div>
                         </div>
                     </div>
@@ -80,151 +64,109 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7 has-text-grey-dark">1. Depth of Knowledge</p>
+                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                            <p class="has-text-weight-semibold is-size-7">1. Depth of Knowledge</p>
                                             <p class="is-size-7 has-text-grey-dark">(Possess a clear understanding and able to explain the subject matter.)</p>
                                         </td>
-                                        <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;">3</td>
+                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT1">3</td>
                                         <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <div class="dropdown is-hoverable">
-                                                <div class="dropdown-trigger">
-                                                    <button class="button is-white" style="border: 0.9px solid;" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                                        <span class=" is-size-7">Score</span>
-                                                        <span class="icon is-small">
-                                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                                <div class="dropdown-menu is-size-7" id="dropdown-menu1" role="menu">
-                                                    <div class="dropdown-content">
-                                                        <a href="#" class="dropdown-item is-size-7"> 1 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 2 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 3 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 4 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 5 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 6 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 7 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 8 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 9 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 10 </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <select id="t1" class="form-control" name="t1" onchange="getDataT1()">
+                                                <option hidden>Score</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
                                         </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" style="border: 1px solid #dbdbdb; align-content:center;"></td>
+                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueT1" id="valueT1" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                        <input type="hidden" name="data1" id="data1">
                                     </tr>
                                     <tr>
-                                        <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7 has-text-grey-dark">2. Overall Organization of the Project Presentation /p>
+                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                            <p class="has-text-weight-semibold is-size-7">2. Overall Organization of the Project Presentation</p>
                                             <p class="is-size-7 has-text-grey-dark">(Exhibit/Present the project in a clear, engaging and appropriate form.)</p>
                                         </td>
-                                        <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;">2</td>
+                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT2">2</td>
                                         <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <div class="dropdown is-hoverable">
-                                                <div class="dropdown-trigger">
-                                                    <button class="button is-white" style="border: 0.9px solid;" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                                        <span class=" is-size-7">Score</span>
-                                                        <span class="icon is-small">
-                                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                                <div class="dropdown-menu is-size-7" id="dropdown-menu2" role="menu">
-                                                    <div class="dropdown-content">
-                                                        <a href="#" class="dropdown-item is-size-7"> 1 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 2 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 3 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 4 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 5 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 6 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 7 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 8 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 9 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 10 </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <select id="t2" class="form-control" name="t2" onchange="getDataT2()">
+                                                <option hidden>Score</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
                                         </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" style="border: 1px solid #dbdbdb; align-content:center;"></td>
+                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueT2" id="valueT2" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                        <input type="hidden" name="data2" id="data2">
                                     </tr>
                                     <tr>
-                                        <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7 has-text-grey-dark">3. Use Quality of Presentation Materials</p>
+                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                            <p class="has-text-weight-semibold is-size-7">3. Use Quality of Presentation Materials</p>
                                             <p class="is-size-7 has-text-grey-dark">(Use several materials or media in presenting the project.)</p>
                                         </td>
-                                        <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;">2</td>
+                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT3">2</td>
                                         <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <div class="dropdown is-hoverable">
-                                                <div class="dropdown-trigger">
-                                                    <button class="button is-white" style="border: 0.9px solid;" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                                        <span class=" is-size-7">Score</span>
-                                                        <span class="icon is-small">
-                                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                                <div class="dropdown-menu is-size-7" id="dropdown-menu2" role="menu">
-                                                    <div class="dropdown-content">
-                                                        <a href="#" class="dropdown-item is-size-7"> 1 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 2 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 3 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 4 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 5 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 6 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 7 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 8 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 9 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 10 </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <select id="t3" class="form-control" name="t3" onchange="getDataT3()">
+                                                <option hidden>Score</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
                                         </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" style="border: 1px solid #dbdbdb; align-content:center;"></td>
+                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueT3" id="valueT3" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                        <input type="hidden" name="data3" id="data3">
                                     </tr>
                                     <tr>
-                                        <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7 has-text-grey-dark">4. Delivery Skills</p>
-                                            <p class="is-size-7 has-text-grey-dark">(Proper language used, speak clearly, loudly and at appropriate pace, effective eye contact and presentable attitude.)</p>
+                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                            <p class="has-text-weight-semibold is-size-7">4. Delivery Skills</p>
+                                            <p class="is-size-7 has-text-grey-dark">(Proper language used, speak clearly, loudly and at appropriate pace, effective eye contact and presentable attitude.) </p>
                                         </td>
-                                        <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;">3</td>
+                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT4">3</td>
                                         <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <div class="dropdown is-hoverable">
-                                                <div class="dropdown-trigger">
-                                                    <button class="button is-white" style="border: 0.9px solid;" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                                        <span class=" is-size-7">Score</span>
-                                                        <span class="icon is-small">
-                                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                                <div class="dropdown-menu is-size-7" id="dropdown-menu3" role="menu">
-                                                    <div class="dropdown-content">
-                                                        <a href="#" class="dropdown-item is-size-7"> 1 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 2 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 3 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 4 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 5 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 6 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 7 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 8 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 9 </a>
-                                                        <a href="#" class="dropdown-item is-size-7"> 10 </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <select id="t4" class="form-control" name="t4" onchange="getDataT4()">
+                                                <option hidden>Score</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
                                         </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" style="border: 1px solid #dbdbdb; align-content:center;"></td>
+                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueT4" id="valueT4" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                        <input type="hidden" name="data4" id="data4">
                                     </tr>
                                     <tr>
-                                        <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-bold has-text-grey-dark is-size-7">Total</p>
-                                            <p class="is-size-7"></p>
+                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                            <p class="has-text-weight-semibold is-size-7">Total Marks</p>
                                         </td>
-                                        <td class="has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;"> </td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" style="border: 1px solid #dbdbdb; align-content:center;"></td>
+                                        <td class="has-text-centered has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;"></td>
+                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;"></td>
+                                        <td class="has-text-centered has-text-weight-bold" data-label="Marks (W*S)" id="totalMarks" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                        <input type="hidden" name="equal" id="equal">
                                     </tr>
                                 </tbody>
                             </table>
@@ -367,12 +309,61 @@
                         </table>
                         <div class="is-flex is-justify-content-space-between p-4">
                             <a class="button is-custom2" href="Form-Lecturer.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
-                            <a class="button is-custom4" href="Form-Lecturer.jsp"><span class="has-text-weight-semibold is-size-7">Save Changes</span></a>
+                            <!--<a class="button is-custom4" href="Form-Lecturer.jsp"><span class="has-text-weight-semibold is-size-7">Save Changes</span></a>-->
+                            <button class="button is-primary" type="submit">Submit</button>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
+            <script>
+        function getDataT1() {
+            let scoreT1 = document.getElementById("t1").value;
+            let data1 = document.getElementById("data1");
+            let weightT1 = document.getElementById("wT1").textContent;
+            document.getElementById("valueT1").textContent = parseInt(scoreT1) * parseInt(weightT1);
+            data1.value = parseInt(scoreT1) * parseInt(weightT1);
+            updateTotalMarks();
+        }
+
+        function getDataT2() {
+            let scoreT2 = document.getElementById("t2").value;
+            let data2 = document.getElementById("data2");
+            let weightT2 = document.getElementById("wT2").textContent;
+            document.getElementById("valueT2").textContent = parseInt(scoreT2) * parseInt(weightT2);
+            data2.value = parseInt(scoreT2) * parseInt(weightT2);
+            updateTotalMarks();
+        }
+
+        function getDataT3() {
+            let scoreT3 = document.getElementById("t3").value;
+            let data3 = document.getElementById("data3");
+            let weightT3 = document.getElementById("wT3").textContent;
+            document.getElementById("valueT3").textContent = parseInt(scoreT3) * parseInt(weightT3);
+            data3.value = parseInt(scoreT3) * parseInt(weightT3);
+            updateTotalMarks();
+        }
+
+        function getDataT4() {
+            let scoreT4 = document.getElementById("t4").value;
+            let data4 = document.getElementById("data4");
+            let weightT4 = document.getElementById("wT4").textContent;
+            document.getElementById("valueT4").textContent = parseInt(scoreT4) * parseInt(weightT4);
+            data4.value = parseInt(scoreT4) * parseInt(weightT4);
+            updateTotalMarks();
+        }
+
+        function updateTotalMarks() {
+            let totalMarks = 0;
+            for (let i = 1; i <= 4; i++) {
+                let value = document.getElementById('valueT' + i).textContent;
+                totalMarks += parseInt(value);
+            }
+            document.getElementById("totalMarks").textContent = totalMarks;
+            document.getElementById("equal").value = totalMarks;
+        }
+    </script>
     </body>
 </html>
 

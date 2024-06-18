@@ -131,21 +131,29 @@ public class FormDAO {
 
     // Method to insert Form7
     public void insertForm7(Form7 form7) throws SQLException {
-        String sql = "INSERT INTO form7 (form_id, present_date, knowledge, overall_project, present_material, delivery, total, comment, name, term_sv, dateT_sv) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO form7 (form_id, present_date, knowledge, overall_project, present_material, delivery, total, comment, login_id, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, form7.getFormId());
-            preparedStatement.setString(2, form7.getPresentDate());
-            preparedStatement.setInt(3, form7.getKnowledge());
-            preparedStatement.setInt(4, form7.getOverallProject());
-            preparedStatement.setInt(5, form7.getPresentMaterial());
-            preparedStatement.setInt(6, form7.getDelivery());
-            preparedStatement.setInt(7, form7.getTotal());
-            preparedStatement.setString(8, form7.getComment());
-            preparedStatement.setString(9, form7.getName());
-            preparedStatement.setString(10, form7.getTermSv());
-            preparedStatement.setString(11, form7.getDateTSv());
-            preparedStatement.executeUpdate();
+            PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_FORM_SQL);
+            PreparedStatement preparedStatement2 = connection.prepareStatement(sql)) {
+            preparedStatement1.setInt(1, form7.getFormId());
+            preparedStatement1.setInt(2, form7.getStudentId());
+            preparedStatement1.setInt(3, form7.getlId());
+            preparedStatement1.setInt(4, form7.getProId());
+            preparedStatement1.executeUpdate();    
+                
+            
+            preparedStatement2.setInt(1, form7.getFormId());
+            preparedStatement2.setString(2, form7.getPresentDate());
+            preparedStatement2.setInt(3, form7.getKnowledge());
+            preparedStatement2.setInt(4, form7.getOverallProject());
+            preparedStatement2.setInt(5, form7.getPresentMaterial());
+            preparedStatement2.setInt(6, form7.getDelivery());
+            preparedStatement2.setInt(7, form7.getTotal());
+            preparedStatement2.setString(8, form7.getComment());
+            preparedStatement2.setInt(9, form7.getLoginId());
+            preparedStatement2.setString(10, form7.getAgreement());
+            preparedStatement2.setDate(11, java.sql.Date.valueOf(form7.getDate()));
+            preparedStatement2.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
         }
