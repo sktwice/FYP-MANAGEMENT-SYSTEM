@@ -1,42 +1,94 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.fyp.Form;
 
-import java.io.IOException;
+import com.fyp.model.bean.Form;
+import com.fyp.model.bean.Form5;
+import com.fyp.model.bean.Project;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.fyp.model.bean.Form5;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import jakarta.servlet.http.HttpSession;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Form5Servlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            int formId = Integer.parseInt(request.getParameter("formId"));
-            int studentId = Integer.parseInt(request.getParameter("studentId"));
-            int lId = Integer.parseInt(request.getParameter("lId"));
-            int proId = Integer.parseInt(request.getParameter("proId"));
-            String dateMeet = request.getParameter("dateMeet");
-            String completeActivity = request.getParameter("completeActivity");
-            String nextActivity = request.getParameter("nextActivity");
-            String approval = request.getParameter("approval");
-            
-            Form5 form5 = new Form5(formId, studentId, lId, proId, dateMeet, completeActivity, nextActivity, approval);
-            FormDAO dao = new FormDAO();
-            dao.insertForm5(form5);
-            
-            response.sendRedirect("success.jsp");
-        } catch (SQLException ex) {
-            Logger.getLogger(Form5Servlet.class.getName()).log(Level.SEVERE, null, ex);
+    private Form5Dao formDAO;
+
+    @Override
+    public void init() {
+        formDAO = new Form5Dao();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("student_id") == null) {
+            response.sendRedirect("../LoginID.jsp"); // Redirect to login if session is invalid
+            return;
         }
+
+        int studentId = (int) session.getAttribute("student_id");
+        System.out.println("DEBUG: Student ID: " + studentId); // Debug statement to print student_id
+
+        List<Form> forms = formDAO.getFormsByStudentId(studentId);
+        if (forms.isEmpty()) {
+            request.setAttribute("message", "No forms found for the student ID: " + studentId);
+        } else {
+            List<Form5> form5List = new ArrayList<>();
+            for (Form form : forms) {
+                form5List.addAll(formDAO.getForm5ByFormId(form.getFormId()));
+            }
+            request.setAttribute("form5List", form5List);
+        }
+        request.getRequestDispatcher("Students/F5 – PROJECT IN-PROGRESS FORM.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("student_id") == null) {
+            response.sendRedirect("../LoginID.jsp"); // Redirect to login if session is invalid
+            return;
+        }
+
+        String action = request.getParameter("action");
+
+        if (action != null && action.equals("addForm5")) {
+    int studentId = (int) session.getAttribute("student_id");
+    
+    // Generate a random formId
+            Random random = new Random();
+            int formId = random.nextInt(100000); // Adjust range as needed
+
+    // Retrieve Project details based on studentId
+    Project project = formDAO.getProjectByStudentId(studentId);
+    if (project == null) {
+        // Handle case where project details are not found
+        response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Project details not found for student ID: " + studentId);
+        return;
+    }
+
+    // Use retrieved values from project to create Form5 entry
+    int lId = project.getlId();
+    int proId = project.getProId();
+
+    // Read data from the modal form
+    String dateMeet = request.getParameter("dateMeet");
+    String completeActivity = request.getParameter("completeActivity");
+
+    // Create Form5 object and insert into database
+    Form5 form5 = new Form5(formId, studentId, lId, proId, dateMeet, completeActivity, null, null);
+    formDAO.insertForm5(form5);
+
+    // Redirect back to doGet to refresh the page with updated data
+    response.sendRedirect(request.getContextPath() + "/Form5Servlet");
+}
     }
 }

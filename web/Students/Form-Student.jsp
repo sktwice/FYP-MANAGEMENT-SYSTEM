@@ -39,7 +39,7 @@
                     <div class="p-3">
                         <div class="is-flex is-justify-content-space-between pb-2">
                             <label class="has-text-weight-semibold has-text-grey-dark is-size-5">F5 - PROPOSAL/PROJECT IN-PROGRESS FORM</label>
-                            <button class="button is-custom3"><a href="../Students/F6 – PROJECT FORMULATION REPORT SUBMISSION FORM.jsp" class="is-size-7 has-text-white">Open</a></button>
+                            <button class="button is-custom3"><a href="../Form5Servlet" class="is-size-7 has-text-white">Open</a></button>
                         </div>
                     </div>
                     <div class="p-3">
