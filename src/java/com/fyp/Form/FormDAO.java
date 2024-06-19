@@ -43,17 +43,26 @@ public class FormDAO {
 
     // Method to insert Form2
     public void insertForm2(Form2 form2) throws SQLException {
-        String sql = "INSERT INTO form2 (form_id, prob_identify, evidence, solution, total, approval, date_approve) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO form2 (form_id, prob_identify, evidence, solution, total, agreement, date, login_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, form2.getFormId());
-            preparedStatement.setInt(2, form2.getProIdentity());
-            preparedStatement.setInt(3, form2.getEvidence());
-            preparedStatement.setInt(4, form2.getSolution());
-            preparedStatement.setInt(5, form2.getTotal());
-            preparedStatement.setString(6, form2.getApproval());
-            preparedStatement.setString(7, form2.getDateApprove());
-            preparedStatement.executeUpdate();
+             PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_FORM_SQL);
+             PreparedStatement preparedStatement2 = connection.prepareStatement(sql)) {
+            
+            preparedStatement1.setInt(1, form2.getFormId());
+            preparedStatement1.setInt(2, form2.getStudentId());
+            preparedStatement1.setInt(3, form2.getlId());
+            preparedStatement1.setInt(4, form2.getProId());
+            preparedStatement1.executeUpdate(); 
+            
+            preparedStatement2.setInt(1, form2.getFormId());
+            preparedStatement2.setInt(2, form2.getProIdentity());
+            preparedStatement2.setInt(3, form2.getEvidence());
+            preparedStatement2.setInt(4, form2.getSolution());
+            preparedStatement2.setInt(5, form2.getTotal());
+            preparedStatement2.setString(6, form2.getAgreement());
+             preparedStatement2.setDate(7, java.sql.Date.valueOf(form2.getDate()));
+             preparedStatement2.setInt(8, form2.getLoginId());
+            preparedStatement2.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
         }
