@@ -152,7 +152,7 @@
         <li><a href="Form-Lecturer.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
         <li><a href="Scope-Lecturer.jsp"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="StudentList-Supervision.jsp"><i class="fa fa-bullseye mx-2"></i> Supervision</a></li>
-        <li><a href="Login.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
+        <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
     </ul>
 </div>
 

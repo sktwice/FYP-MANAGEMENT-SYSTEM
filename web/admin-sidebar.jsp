@@ -160,7 +160,7 @@
         <li><a href="${pageContext.request.contextPath}/StudentListServlet"><i class="fa fa-user-graduate mx-2"></i> Student</a></li>
         <li><a href="${pageContext.request.contextPath}/ListScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/adminSupervision"><i class="fa fa-bullseye mx-2"></i> Supervision</a></li>
-        <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
+        <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
     </ul>
 </div>
 

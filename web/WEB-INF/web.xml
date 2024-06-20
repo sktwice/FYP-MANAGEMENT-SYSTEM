@@ -220,6 +220,18 @@
         <servlet-name>Form8Servlet</servlet-name>
         <servlet-class>com.fyp.Form.Form8Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SupervisorViewServlet</servlet-name>
+        <servlet-class>com.fyp.Form.SupervisorViewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SupervisorProjectDetailsServlet</servlet-name>
+        <servlet-class>com.fyp.Form.SupervisorProjectDetailsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateForm5Servlet</servlet-name>
+        <servlet-class>com.fyp.Form.UpdateForm5Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -435,6 +447,18 @@
     <servlet-mapping>
         <servlet-name>Form8Servlet</servlet-name>
         <url-pattern>/Form8Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupervisorViewServlet</servlet-name>
+        <url-pattern>/SupervisorViewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupervisorProjectDetailsServlet</servlet-name>
+        <url-pattern>/SupervisorProjectDetailsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateForm5Servlet</servlet-name>
+        <url-pattern>/UpdateForm5Servlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

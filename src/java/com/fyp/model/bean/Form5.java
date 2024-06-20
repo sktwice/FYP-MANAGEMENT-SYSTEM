@@ -16,12 +16,12 @@ public class Form5 extends Form {
     private String approval;
     
     public Form5(int formId, int studentId, int lId, int proId,
-            String dateMeet, String completeActivity, String necxtActivity, String approval) {
+            String dateMeet, String completeActivity, String nextActivity, String approval) {
         super(formId, studentId, lId, proId);
         
         this.dateMeet=dateMeet;
         this.completeActivity=completeActivity;
-        this.nextActivity=nextActivity;
+        this.nextActivity = nextActivity;
         this.approval=approval;
     }
 

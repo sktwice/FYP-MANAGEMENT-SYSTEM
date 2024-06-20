@@ -140,7 +140,7 @@
         <li><a href="Progress-Supervisor.jsp"><i class="fa fa-qrcode mx-2"></i> Progress</a></li>
         <li><a href="ScopeSvServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="ViewProposalServlet"><i class="fa fa-bullseye mx-2"></i>Request</a></li>
-        <li><a href="Login.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
+        <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
     </ul>
 </div>
 
