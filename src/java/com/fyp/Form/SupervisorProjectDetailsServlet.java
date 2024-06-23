@@ -3,6 +3,7 @@ package com.fyp.Form;
 import com.fyp.model.bean.Form5;
 import com.fyp.Form.Form5Dao;
 import com.fyp.model.bean.Form;
+import com.fyp.model.bean.FormTeach;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -30,13 +31,13 @@ public class SupervisorProjectDetailsServlet extends HttpServlet {
         int proId = Integer.parseInt(request.getParameter("proId"));
         int studentId = Integer.parseInt(request.getParameter("studentId"));
 
-        List<Form> forms = form5DAO.getFormsByStudentId(studentId);
+        List<FormTeach> forms = form5DAO.getFormsByStudentId(studentId);
         if (forms.isEmpty()) {
             request.setAttribute("message", "No forms found for the student ID: " + studentId);
         } else {
             List<Form5> form5List = new ArrayList<>();
-            for (Form form : forms) {
-                form5List.addAll(form5DAO.getForm5ByFormId(form.getFormId()));
+            for (FormTeach form : forms) {
+                form5List.addAll(form5DAO.getForm5ByFormId(form.getFormTId()));
             }
             request.setAttribute("form5List", form5List);
         }

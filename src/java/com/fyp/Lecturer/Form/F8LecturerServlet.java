@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.fyp.Examiner.form;
+package com.fyp.Lecturer.Form;
 
 
 
@@ -10,8 +10,7 @@ package com.fyp.Examiner.form;
 
 import com.fyp.Form.FormDAO;
 import com.fyp.Lecturer.Form.StudentDetailsDAO;
-import com.fyp.model.bean.Form7;
-import com.fyp.model.bean.Form8;
+import com.fyp.model.bean.Form8Lecturer;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,7 +21,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 
-public class F8Servlet extends HttpServlet {
+public class F8LecturerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +30,7 @@ public class F8Servlet extends HttpServlet {
         StudentDetailsDAO.StudentDetails studentDetails = studentDAO.getStudentDetails(studentId);
 
         request.setAttribute("studentDetails", studentDetails);
-        request.getRequestDispatcher("/Examiners/Form8EX.jsp").forward(request, response);
+        request.getRequestDispatcher("/Lecturers/Form8Lecturer.jsp").forward(request, response);
     }
 
 
@@ -62,7 +61,7 @@ public class F8Servlet extends HttpServlet {
             int progressEvaluate = Integer.parseInt(request.getParameter("data7"));
             int total = Integer.parseInt(request.getParameter("equal"));
             String comment = request.getParameter("comment");
-            String role = "examiner";
+            String role = "lecturer";
            
 
             // Setting other required fields
@@ -71,15 +70,15 @@ public class F8Servlet extends HttpServlet {
             String date = currentDate.toString();
 
             // Creating Form8 object
-            Form8 form8 = new Form8(formtId,handoverDate, proBackground, objective, significance, literature, proMethodology, presentReport, progressEvaluate, total, comment, role, agreement, date);
-            System.out.println(form8.getFormTId());
+            Form8Lecturer form8l = new Form8Lecturer(formtId,handoverDate, proBackground, objective, significance, literature, proMethodology, presentReport, progressEvaluate, total, comment, role, agreement, date);
+            System.out.println(form8l.getFormTId());
             System.out.println(formtId);
             // Inserting Form8 object into database
             FormDAO dao = new FormDAO();
-            dao.insertForm8(form8);
+            dao.insertForm8Lecturer(form8l);
 
             // Redirecting to success page
-            response.sendRedirect("Examiners/Form.jsp");
+            response.sendRedirect("Lecturers/Form-Lecturer.jsp");
         } catch (SQLException ex) {
             ex.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database access error");

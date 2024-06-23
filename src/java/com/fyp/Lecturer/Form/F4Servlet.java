@@ -2,36 +2,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.fyp.Examiner.form;
-
-
-
-
+package com.fyp.Lecturer.Form;
 
 import com.fyp.Form.FormDAO;
-import com.fyp.Lecturer.Form.StudentDetailsDAO;
-import com.fyp.model.bean.Form7;
-import com.fyp.model.bean.Form8;
+import com.fyp.Lecturer.Form.StudentDetailsDAO.StudentDetails;
+import com.fyp.model.bean.Form2;
+import com.fyp.model.bean.Form4;
+
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Random;
 
 
-public class F8Servlet extends HttpServlet {
+public class F4Servlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int studentId = Integer.parseInt(request.getParameter("studentId"));
         StudentDetailsDAO studentDAO = new StudentDetailsDAO();
-        StudentDetailsDAO.StudentDetails studentDetails = studentDAO.getStudentDetails(studentId);
+        StudentDetails studentDetails = studentDAO.getStudentDetails(studentId);
 
         request.setAttribute("studentDetails", studentDetails);
-        request.getRequestDispatcher("/Examiners/Form8EX.jsp").forward(request, response);
+        request.getRequestDispatcher("/Lecturers/Form4.jsp").forward(request, response);
     }
 
 
@@ -45,25 +45,14 @@ public class F8Servlet extends HttpServlet {
         }
 
         try {
-
-
-            // Generating a random formId
-            
             int formtId = Integer.parseInt(request.getParameter("formtId"));
 
             // Getting form data from request
-            String handoverDate = request.getParameter("handoverDate");
-            int proBackground = Integer.parseInt(request.getParameter("data1"));
-            int objective = Integer.parseInt(request.getParameter("data2"));
-            int significance = Integer.parseInt(request.getParameter("data3"));
-            int literature = Integer.parseInt(request.getParameter("data4"));
-            int proMethodology = Integer.parseInt(request.getParameter("data5"));
-            int presentReport = Integer.parseInt(request.getParameter("data6"));
-            int progressEvaluate = Integer.parseInt(request.getParameter("data7"));
+            int design = Integer.parseInt(request.getParameter("data1"));
+            int description = Integer.parseInt(request.getParameter("data2"));
+            int model = Integer.parseInt(request.getParameter("data3"));
             int total = Integer.parseInt(request.getParameter("equal"));
-            String comment = request.getParameter("comment");
-            String role = "examiner";
-           
+            
 
             // Setting other required fields
             String agreement = "approved";
@@ -71,15 +60,15 @@ public class F8Servlet extends HttpServlet {
             String date = currentDate.toString();
 
             // Creating Form8 object
-            Form8 form8 = new Form8(formtId,handoverDate, proBackground, objective, significance, literature, proMethodology, presentReport, progressEvaluate, total, comment, role, agreement, date);
-            System.out.println(form8.getFormTId());
+            Form4 form4 = new Form4(formtId,design, description, model,total, agreement, date);
+            System.out.println(form4.getFormTId());
             System.out.println(formtId);
             // Inserting Form8 object into database
             FormDAO dao = new FormDAO();
-            dao.insertForm8(form8);
+            dao.insertForm4(form4);
 
             // Redirecting to success page
-            response.sendRedirect("Examiners/Form.jsp");
+            response.sendRedirect("Lecturers/Form-Lecturer.jsp");
         } catch (SQLException ex) {
             ex.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database access error");

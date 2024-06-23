@@ -8,7 +8,7 @@ package com.fyp.model.bean;
  *
  * @author User
  */
-public class Form3 extends Form {
+public class Form3 extends FormTeach {
     
     private int relevance;
     private int knowledge;
@@ -16,18 +16,16 @@ public class Form3 extends Form {
     private int total;
     private String agreement;
     private String date;
-    private int loginId;
     
-    public Form3(int formId, int studentId, int lId, int proId
-                ,int relevance, int knowledge, int writing, int total, String agreement, String date, int loginId) {
-        super(formId, studentId, lId, proId);
+    public Form3(int formtId
+                ,int relevance, int knowledge, int writing, int total, String agreement, String date) {
+        super(formtId);
         this.relevance=relevance;
         this.knowledge=knowledge;
         this.writing=writing;
         this.total=total;
         this.agreement=agreement;
         this.date=date;
-        this.loginId=loginId;
     }
     
     
@@ -78,14 +76,6 @@ public class Form3 extends Form {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public int getLoginId() {
-        return loginId;
-    }
-
-    public void setLoginId(int loginId) {
-        this.loginId = loginId;
     }
     
     

@@ -20,9 +20,9 @@ public class SupervisorViewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        int lecturerId = (int) session.getAttribute("lecturer_id"); // Assuming lecturer_id is stored in session
+        int svId = (int) session.getAttribute("sv_id"); // Assuming lecturer_id is stored in session
 
-        List<Project> projects = form5Dao.getProjectsByLecturerIdWithForm5(lecturerId);
+        List<Project> projects = form5Dao.getProjectsByLecturerIdWithForm5(svId);
 
         request.setAttribute("projects", projects);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Supervisor/SupervisorView.jsp");

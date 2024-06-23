@@ -39,7 +39,7 @@
             <div class="p-3">
                 <div class="is-flex is-justify-content-space-between pb-2">
                     <label class="has-text-weight-semibold has-text-grey is-size-5">F3 - LITERATURE REVIEW EVALUATION RUBRIC</label>
-                    <a class="button is-custom" href="../Form3Servlet">
+                    <a class="button is-custom" href="${pageContext.request.contextPath}/F3ListServlet">
                         <span class="is-size-7 p-1">Open</span>
                         <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                     </a>
@@ -48,7 +48,7 @@
             <div class="p-3">
                 <div class="is-flex is-justify-content-space-between pb-2">
                     <label class="has-text-weight-semibold has-text-grey is-size-5">F4 - METHODOLOGY EVALUATION FORM</label>
-                    <a class="button is-custom" href="../Form4Servlet">
+                    <a class="button is-custom" href="${pageContext.request.contextPath}/F4ListServlet">
                         <span class="is-size-7 p-1">Open</span>
                         <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                     </a>
@@ -57,7 +57,7 @@
             <div class="p-3">
                 <div class="is-flex is-justify-content-space-between pb-2">
                     <label class="has-text-weight-semibold has-text-grey is-size-5">F7 - PROJECT FORMULATION PRESENTATION EVALUATION</label>
-                    <a class="button is-custom" href="../Form7Servlet">
+                    <a class="button is-custom" href="../F7ListServlet">
                         <span class="is-size-7 p-1">Open</span>
                         <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                     </a>
@@ -66,7 +66,7 @@
             <div class="p-3">
                 <div class="is-flex is-justify-content-space-between pb-2">
                     <label class="has-text-weight-semibold has-text-grey is-size-5">F8 - PROJECT FORMULATION REPORT EVALUATION</label>
-                    <a class="button is-custom" href="../Form8Servlet">
+                    <a class="button is-custom" href="../F8LecturerListServlet">
                         <span class="is-size-7 p-1">Open</span>
                         <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                     </a>

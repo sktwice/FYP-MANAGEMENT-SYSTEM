@@ -8,16 +8,16 @@ package com.fyp.model.bean;
  *
  * @author User
  */
-public class Form5 extends Form {
+public class Form5 extends FormTeach {
     
     private String dateMeet;
     private String completeActivity;
     private String nextActivity;
     private String approval;
     
-    public Form5(int formId, int studentId, int lId, int proId,
+    public Form5(int formtId,
             String dateMeet, String completeActivity, String nextActivity, String approval) {
-        super(formId, studentId, lId, proId);
+        super(formtId);
         
         this.dateMeet=dateMeet;
         this.completeActivity=completeActivity;

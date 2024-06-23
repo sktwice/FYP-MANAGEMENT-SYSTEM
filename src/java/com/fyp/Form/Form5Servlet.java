@@ -1,6 +1,6 @@
 package com.fyp.Form;
 
-import com.fyp.model.bean.Form;
+import com.fyp.model.bean.FormTeach;
 import com.fyp.model.bean.Form5;
 import com.fyp.model.bean.Project;
 import jakarta.servlet.ServletException;
@@ -36,13 +36,13 @@ public class Form5Servlet extends HttpServlet {
         int studentId = (int) session.getAttribute("student_id");
         System.out.println("DEBUG: Student ID: " + studentId); // Debug statement to print student_id
 
-        List<Form> forms = formDAO.getFormsByStudentId(studentId);
+        List<FormTeach> forms = formDAO.getFormsByStudentId(studentId);
         if (forms.isEmpty()) {
             request.setAttribute("message", "No forms found for the student ID: " + studentId);
         } else {
             List<Form5> form5List = new ArrayList<>();
-            for (Form form : forms) {
-                form5List.addAll(formDAO.getForm5ByFormId(form.getFormId()));
+            for (FormTeach form : forms) {
+                form5List.addAll(formDAO.getForm5ByFormId(form.getFormTId()));
             }
             request.setAttribute("form5List", form5List);
         }
@@ -65,7 +65,7 @@ public class Form5Servlet extends HttpServlet {
     
     // Generate a random formId
             Random random = new Random();
-            int formId = random.nextInt(100000); // Adjust range as needed
+            int formtId = random.nextInt(100000); // Adjust range as needed
 
     // Retrieve Project details based on studentId
     Project project = formDAO.getProjectByStudentId(studentId);
@@ -84,7 +84,7 @@ public class Form5Servlet extends HttpServlet {
     String completeActivity = request.getParameter("completeActivity");
 
     // Create Form5 object and insert into database
-    Form5 form5 = new Form5(formId, studentId, lId, proId, dateMeet, completeActivity, null, null);
+    Form5 form5 = new Form5(formtId, dateMeet, completeActivity, null, null);
     formDAO.insertForm5(form5);
 
     // Redirect back to doGet to refresh the page with updated data

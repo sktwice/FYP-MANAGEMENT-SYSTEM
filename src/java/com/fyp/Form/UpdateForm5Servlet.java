@@ -23,15 +23,15 @@ public class UpdateForm5Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        int formId = Integer.parseInt(request.getParameter("formId"));
+        int formtId = Integer.parseInt(request.getParameter("formId"));
         String nextActivity = request.getParameter("nextActivity");
         String approval = request.getParameter("approval");
         
-         System.out.println("Form ID: " + formId);
+         System.out.println("Form ID: " + formtId);
     System.out.println("Next Activity: " + nextActivity);
     System.out.println("Approval: " + approval);
 
-        Form5 form5 = new Form5(formId, 0, 0, 0, null, null, nextActivity, approval);
+        Form5 form5 = new Form5(formtId, null, null, nextActivity, approval);
         form5Dao.updateForm5(form5);
 
         response.sendRedirect(request.getContextPath() +"/Supervisor/Form-Supervisor.jsp");
