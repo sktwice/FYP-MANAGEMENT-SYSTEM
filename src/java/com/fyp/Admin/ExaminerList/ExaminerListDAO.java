@@ -21,6 +21,7 @@ public class ExaminerListDAO {
     private static final String INSERT_LECT_SQL = "INSERT INTO lecturer (l_id, f_id, login_id, admin_id, position, l_image, l_name, phone_num, email, l_course) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ALL_LECT = "SELECT * FROM lecturer";
     private static final String SELECT_ALL_EXAMINERS = "SELECT * FROM lecturer WHERE position = 'examiner'";
+    private static final String SELECT_ALL_EXAMINERS_ROLES = "SELECT lecturer.l_name, lecturer.l_id, lecturer.phone_num, lecturer.email FROM lecturer JOIN ROLE ON lecturer.l_id = ROLE.l_id WHERE ROLE.position = 'examiner' OR ROLE.position = 'Examiner';";
     private static final String DELETE_LECT_SQL = "DELETE FROM lecturer WHERE l_id = ?";
     private static final String DELETE_LOGIN_SQL = "DELETE FROM login WHERE login_id = ?";
     private static final String DELETE_PROPOSAL_SQL = "DELETE FROM proposal WHERE l_id = ?";
@@ -115,7 +116,7 @@ public void insertLecturer(Lecturer lecturer) throws SQLException {
         preparedStatement.setString(7, lecturer.getlName());
         preparedStatement.setInt(8, lecturer.getPhoneNum());
         preparedStatement.setString(9, lecturer.getEmail());
-        preparedStatement.setString(10, lecturer.getsCourse());
+        preparedStatement.setString(10, lecturer.getLCourse());
         preparedStatement.executeUpdate();
         
        
@@ -201,6 +202,24 @@ public Lecturer selectLecturer(int lId) {
         }
         return examiners;
     }
+    
+    public List<Lecturer> selectAllExaminersByRoles() {
+        List<Lecturer> examiners = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_EXAMINERS_ROLES)) {
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int lId = rs.getInt("l_id");
+                String lName = rs.getString("l_name");
+                int phoneNum = rs.getInt("phone_num");
+                String email = rs.getString("email");
+                examiners.add(new Lecturer(lId,lName, phoneNum, email));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return examiners;
+    }
 
     public boolean deleteLecturer(int lId) throws SQLException {
         boolean rowDeleted;
@@ -264,7 +283,7 @@ public Lecturer selectLecturer(int lId) {
             statement.setString(6, lecturer.getlName());
             statement.setInt(7, lecturer.getPhoneNum());
             statement.setString(8, lecturer.getEmail());
-            statement.setString(9, lecturer.getsCourse());
+            statement.setString(9, lecturer.getLCourse());
             statement.setInt(10, lecturer.getlId());
             rowUpdated = statement.executeUpdate() > 0;
             

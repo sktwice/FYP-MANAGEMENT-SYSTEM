@@ -76,7 +76,7 @@ public class Form5Servlet extends HttpServlet {
     }
 
     // Use retrieved values from project to create Form5 entry
-    int lId = project.getlId();
+    int lId = project.getSvId();
     int proId = project.getProId();
 
     // Read data from the modal form

@@ -20,6 +20,7 @@
                 </div>
                 <form action="${pageContext.request.contextPath}/ProposalSvServlet" method="post" enctype="multipart/form-data">
                     <input type="hidden" id="lecturerId" name="lecturerId" value="${param.lecturerId}">
+                    <input type="hidden" id="svId" name="svId" value="${param.svId}">
                     <div class="columns is-multiline m-0 p-0">
                         <div class="column is-2" style="align-content: center">
                             <label class="has-text-weight-semibold has-text-grey">Semester:</label>

@@ -21,7 +21,6 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 
-
 @MultipartConfig // Added annotation to handle file uploads
 public class AddLecturerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -31,7 +30,8 @@ public class AddLecturerServlet extends HttpServlet {
     public void init() {
         AL = new AddLecturerDAO();
     }
-
+    
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -44,7 +44,8 @@ public class AddLecturerServlet extends HttpServlet {
             throw new ServletException(e);
         }
     }
-
+    
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -58,7 +59,7 @@ public class AddLecturerServlet extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String position = request.getParameter("position");
-            
+
             String l_name = request.getParameter("l_name");
             int phone_num = Integer.parseInt(request.getParameter("phone_num"));
             String email = request.getParameter("email");
@@ -78,11 +79,13 @@ public class AddLecturerServlet extends HttpServlet {
 
             Part filePart = request.getPart("l_image");
             String fileName = filePart.getSubmittedFileName();
-            
+
             String applicationPath = getServletContext().getRealPath("");
             String uploadPath = applicationPath + File.separator + "images";
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()) uploadDir.mkdirs();
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
 
             String filePath = uploadPath + File.separator + fileName;
 
@@ -96,8 +99,12 @@ public class AddLecturerServlet extends HttpServlet {
             }
 
             Lecturer l = new Lecturer(generatedId, f_id, generatedId, adminId, position, filePath, l_name, phone_num, email, l_course);
-            
-            AL.registerLecturer(lo, f, l);
+
+            // Check if "teachesCsp600" checkbox is checked
+            String teachesCsp600 = request.getParameter("teaches_csp600");
+
+            // Pass position and teachesCsp600 to registerLecturer method
+            AL.registerLecturer(lo, f, l, position, teachesCsp600);
 
             response.sendRedirect("LecturerListServlet");
 

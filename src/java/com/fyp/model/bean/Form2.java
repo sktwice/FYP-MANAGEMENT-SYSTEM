@@ -8,7 +8,7 @@ package com.fyp.model.bean;
  *
  * @author User
  */
-public class Form2 extends Form {
+public class Form2 extends FormTeach {
     
     private int proIdentity;
     private int evidence;
@@ -16,20 +16,26 @@ public class Form2 extends Form {
     private int total;
     private String agreement;
     private String date;
-    private int loginId;
 
-    public Form2(int formId, int studentId, int lId, int proId, int proIdentity, int evidence, int solution, int total, String agreement, String date, int loginId) {
-        super(formId, studentId, lId, proId);
+    public Form2(int formtId, int studentId, int tId, int proId, int proIdentity, int evidence, int solution, int total, String agreement, String date) {
+        super(formtId);
         this.proIdentity=proIdentity;
         this.evidence=evidence;
         this.solution=solution;
         this.total=total;
         this.agreement=agreement;
         this.date=date;
-        this.loginId=loginId;
     }
     
-    
+    public Form2(int formtId, int proIdentity, int evidence, int solution, int total, String agreement, String date) {
+        super(formtId);
+        this.proIdentity=proIdentity;
+        this.evidence=evidence;
+        this.solution=solution;
+        this.total=total;
+        this.agreement=agreement;
+        this.date=date;
+    }
 
     public int getProIdentity() {
         return proIdentity;
@@ -77,14 +83,6 @@ public class Form2 extends Form {
 
     public void setDate(String date) {
         this.date= date;
-    }
-
-    public int getLoginId() {
-        return loginId;
-    }
-
-    public void setLoginId(int loginId) {
-        this.loginId = loginId;
     }
     
     

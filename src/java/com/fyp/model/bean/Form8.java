@@ -8,7 +8,7 @@ package com.fyp.model.bean;
  *
  * @author User
  */
-public class Form8 extends Form {
+public class Form8 extends FormTeach {
     
     private String handoverDate;         
     private int proBackground;         
@@ -20,16 +20,15 @@ public class Form8 extends Form {
     private int progressEvaluate;      
     private int total;                 
     private String comment;            
-    private int loginId;               
+    private String role;               
     private String agreement;             
     private String date;
 
-    public Form8(int formId, int studentId, int lId, int proId,
-            String handoverDate, int proBackground, int objective,
+    public Form8(int formtId,String handoverDate, int proBackground, int objective,
                  int significance, int literature, int proMethodology, int presentReport,
-                 int progressEvaluate, int total, String comment, int loginId,
+                 int progressEvaluate, int total, String comment, String role,
                  String agreement, String date) {
-        super(formId, studentId, lId, proId);
+        super(formtId);
         
         this.handoverDate = handoverDate;
         this.proBackground = proBackground;
@@ -41,7 +40,7 @@ public class Form8 extends Form {
         this.progressEvaluate = progressEvaluate;
         this.total = total;
         this.comment = comment;
-        this.loginId = loginId;
+        this.role = role;
         this.agreement = agreement;
         this.date = date;
     }
@@ -85,11 +84,7 @@ public class Form8 extends Form {
     public String getComment() {
         return comment;
     }
-
-    public int getLoginId() {
-        return loginId;
-    }
-
+    
     public String getAgreement() {
         return agreement;
     }
@@ -138,16 +133,20 @@ public class Form8 extends Form {
         this.comment = comment;
     }
 
-    public void setLoginId(int loginId) {
-        this.loginId = loginId;
-    }
-
     public void setAgreement(String agreement) {
         this.agreement = agreement;
     }
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
     
     

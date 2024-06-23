@@ -34,12 +34,11 @@ public class ProposalSvServlet extends HttpServlet {
 
         int studentId = (int) session.getAttribute("student_id");
         try {
-            
-            System.out.println("DEBUG: Student ID: " + studentId); // Debug statement to print student_id
             int lecturerId = Integer.parseInt(request.getParameter("lecturerId"));
             int scopeId = Integer.parseInt(request.getParameter("scopeId"));
             String topic = request.getParameter("topic");
             String semester = request.getParameter("semester");
+            int svId = Integer.parseInt(request.getParameter("svId")); // Retrieve sv_id
 
             Part filePart = request.getPart("pdfFile");
             String fileName = filePart.getSubmittedFileName();
@@ -66,22 +65,12 @@ public class ProposalSvServlet extends HttpServlet {
                 }
             }
 
-            String pdfUrl = "pdf/proposalSV/" + fileName; // Update this to your actual URL path
+            String pdfUrl = "pdf/proposalSV/" + fileName;
             String pdfName = fileName;
-            String status="pending";
-            String domain=request.getParameter("domain");
-            System.out.println(proposalId);
-            System.out.println(studentId);
-            System.out.println(lecturerId);
-            System.out.println(scopeId);
-            System.out.println(topic);
-            System.out.println(semester);
-            System.out.println(pdfUrl);
-            System.out.println(pdfName);
-            System.out.println(status);
-            System.out.println(domain);
+            String status = "pending";
+            String domain = request.getParameter("domain");
 
-            Proposal proposal = new Proposal(proposalId, studentId, lecturerId, scopeId, topic, semester, pdfUrl, pdfName, status, domain);
+            Proposal proposal = new Proposal(proposalId, studentId, svId, scopeId, topic, semester, pdfUrl, pdfName, status, domain);
             proposalSvDAO.insertProposal(proposal);
 
             System.out.println("Proposal inserted successfully.");

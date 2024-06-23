@@ -37,18 +37,19 @@ public class AgreementServlet extends HttpServlet {
                 // Generate a unique pro_ID (as integer) for the project using Random
                 int proId = rand.nextInt(1000000); // Example range: 0 to 999999
                 String pro_url="in progress";
+                
 
                 // Create a new project object with null pro_url
                 Project project = new Project(
                         proId,
                         proposal.getStudentId(),
-                        proposal.getlId(),
                         proposal.getTopic(), // Assuming pro_title is the same as topic
                         proposal.getDomain(),
                         pro_url, // pro_url initially null as per requirement
                         proposal.getSemester(), // Assuming session is the same as semester
                         proposal.getScopeId(),
-                        proposal.getProposalId()
+                        proposal.getProposalId(),
+                        proposal.getSvId()
                 );
 
                 // Insert into project table

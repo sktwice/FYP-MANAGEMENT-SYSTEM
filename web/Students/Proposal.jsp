@@ -34,7 +34,7 @@
                                         <span class="is-size-6 has-text-weight-semibold has-text-grey">There's no proposal has yet been submit!</span>
                                     </div>
                                     <div class="is-justify-content-end pr-5">
-                                            <a href="../Students/Submit-Proposal-MainForm.jsp" class="is-justify-content-end button is-custom3 is-small" >Submit Proposal</a>
+                                            <a href="../Students/Submit-Proposal-MainForm.jsp" class="is-justify-content-end button is-custom is-small" >Submit Proposal</a>
                                     </div>        
                                 </div>
                             </table>

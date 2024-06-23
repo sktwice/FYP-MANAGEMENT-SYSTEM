@@ -43,55 +43,55 @@ public class Form2Servlet extends HttpServlet {
             return;
         }
 
-        try {
-            Integer loginIdObj = (Integer) session.getAttribute("login_id");
-            if (loginIdObj == null) {
-                response.sendRedirect("LoginID.jsp");
-                return;
-            }
-            int loginId = loginIdObj;
-
-            // Getting projectInfo and splitting it
-            String projectInfo = request.getParameter("projectInfo");
-            String[] projectData = projectInfo.split(",");
-            // Parsing project data
-            int proId = Integer.parseInt(projectData[0]);
-            int studentId = Integer.parseInt(projectData[1]);
-            int lId = Integer.parseInt(projectData[2]);
-
-            // Generating a random formId
-            Random rand = new Random();
-            int formId = rand.nextInt(1000);
-
-            // Getting form data from request
-            int identity = Integer.parseInt(request.getParameter("data1"));
-            int evidence = Integer.parseInt(request.getParameter("data2"));
-            int solution = Integer.parseInt(request.getParameter("data3"));
-            int total = Integer.parseInt(request.getParameter("equal"));
-            
-            // Logging loginId for debugging purposes
-            System.out.println("DEBUG: Login ID: " + loginId);
-
-            // Setting other required fields
-            String agreement = "approved";
-            LocalDate currentDate = LocalDate.now();
-            String date = currentDate.toString();
-
-            // Creating Form8 object
-            Form2 form2 = new Form2(formId, studentId, lId, proId, identity, evidence, solution,total, agreement, date, loginId);
-            System.out.println(form2.getFormId());
-            System.out.println(formId);
-            // Inserting Form8 object into database
-            FormDAO dao = new FormDAO();
-            dao.insertForm2(form2);
-
-            // Redirecting to success page
-            response.sendRedirect("Lecturers/Form-Lecturer.jsp");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database access error");
-        }
-    }
+//        try {
+//            Integer loginIdObj = (Integer) session.getAttribute("login_id");
+//            if (loginIdObj == null) {
+//                response.sendRedirect("LoginID.jsp");
+//                return;
+//            }
+//            int loginId = loginIdObj;
+//
+//            // Getting projectInfo and splitting it
+//            String projectInfo = request.getParameter("projectInfo");
+//            String[] projectData = projectInfo.split(",");
+//            // Parsing project data
+//            int proId = Integer.parseInt(projectData[0]);
+//            int studentId = Integer.parseInt(projectData[1]);
+//            int lId = Integer.parseInt(projectData[2]);
+//
+//            // Generating a random formId
+//            Random rand = new Random();
+//            int formId = rand.nextInt(1000);
+//
+//            // Getting form data from request
+//            int identity = Integer.parseInt(request.getParameter("data1"));
+//            int evidence = Integer.parseInt(request.getParameter("data2"));
+//            int solution = Integer.parseInt(request.getParameter("data3"));
+//            int total = Integer.parseInt(request.getParameter("equal"));
+//            
+//            // Logging loginId for debugging purposes
+//            System.out.println("DEBUG: Login ID: " + loginId);
+//
+//            // Setting other required fields
+//            String agreement = "approved";
+//            LocalDate currentDate = LocalDate.now();
+//            String date = currentDate.toString();
+//
+//            // Creating Form8 object
+//            Form2 form2 = new Form2(formId, studentId, lId, proId, identity, evidence, solution,total, agreement, date, loginId);
+//            System.out.println(form2.getFormId());
+//            System.out.println(formId);
+//            // Inserting Form8 object into database
+//            FormDAO dao = new FormDAO();
+//            dao.insertForm2(form2);
+//
+//            // Redirecting to success page
+//            response.sendRedirect("Lecturers/Form-Lecturer.jsp");
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database access error");
+//        }
+   }
 
     @Override
     public String getServletInfo() {

@@ -56,7 +56,7 @@ private void updateLecturer(HttpServletRequest request, HttpServletResponse resp
         String position = request.getParameter("position");
         int fId = existingLecturer.getfId();
 
-        Lecturer lecturer = new Lecturer(lId, fId, existingLecturer.getLoginId(), existingLecturer.getAdminId(), position, existingLecturer.getiImage(), lName, existingLecturer.getPhoneNum(), email, existingLecturer.getsCourse());
+        Lecturer lecturer = new Lecturer(lId, fId, existingLecturer.getLoginId(), existingLecturer.getAdminId(), position, existingLecturer.getiImage(), lName, existingLecturer.getPhoneNum(), email, existingLecturer.getLCourse());
 
         lecturerDAO.updateLecturer(lecturer);
         response.sendRedirect("LecturerListServlet");

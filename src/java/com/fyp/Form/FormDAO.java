@@ -24,7 +24,7 @@ public class FormDAO {
     private String jdbcPassword = "";
 
     private static final String INSERT_FORM_SQL = "INSERT INTO form (form_id, student_id, l_id, pro_id) VALUES (?, ?, ?, ?)";
-    private static final String INSERT_FORM8_SQL = "INSERT INTO form8 (form_id, handover_date, pro_background, objective, significance, literature, pro_methodology, present_report, progress_evaluate, total, comment, login_id, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_FORM8_SQL = "INSERT INTO form8 (formt_id, handover_date, pro_background, objective, significance, literature, pro_methodology, present_report, progress_evaluate, total, comment, role, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     public FormDAO() {}
 
@@ -41,27 +41,20 @@ public class FormDAO {
         return connection;
     }
 
-    // Method to insert Form2
+     //Method to insert Form2
     public void insertForm2(Form2 form2) throws SQLException {
-        String sql = "INSERT INTO form2 (form_id, prob_identify, evidence, solution, total, agreement, date, login_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO form2 (formt_id, prob_identify, evidence, solution, total, approval, date_approve) VALUES (?, ?, ?, ?, ?, ?, ?);";
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_FORM_SQL);
              PreparedStatement preparedStatement2 = connection.prepareStatement(sql)) {
             
-            preparedStatement1.setInt(1, form2.getFormId());
-            preparedStatement1.setInt(2, form2.getStudentId());
-            preparedStatement1.setInt(3, form2.getlId());
-            preparedStatement1.setInt(4, form2.getProId());
-            preparedStatement1.executeUpdate(); 
-            
-            preparedStatement2.setInt(1, form2.getFormId());
+            preparedStatement2.setInt(1, form2.getFormTId());
             preparedStatement2.setInt(2, form2.getProIdentity());
             preparedStatement2.setInt(3, form2.getEvidence());
             preparedStatement2.setInt(4, form2.getSolution());
             preparedStatement2.setInt(5, form2.getTotal());
             preparedStatement2.setString(6, form2.getAgreement());
              preparedStatement2.setDate(7, java.sql.Date.valueOf(form2.getDate()));
-             preparedStatement2.setInt(8, form2.getLoginId());
             preparedStatement2.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -158,18 +151,12 @@ public class FormDAO {
 
     // Method to insert Form7
     public void insertForm7(Form7 form7) throws SQLException {
-        String sql = "INSERT INTO form7 (form_id, present_date, knowledge, overall_project, present_material, delivery, total, comment, login_id, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO form7 (formt_id, present_date, knowledge, overall_project, present_material, delivery, total, comment, role, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try (Connection connection = getConnection();
             PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_FORM_SQL);
             PreparedStatement preparedStatement2 = connection.prepareStatement(sql)) {
-            preparedStatement1.setInt(1, form7.getFormId());
-            preparedStatement1.setInt(2, form7.getStudentId());
-            preparedStatement1.setInt(3, form7.getlId());
-            preparedStatement1.setInt(4, form7.getProId());
-            preparedStatement1.executeUpdate();    
-                
             
-            preparedStatement2.setInt(1, form7.getFormId());
+            preparedStatement2.setInt(1, form7.getFormTId());
             preparedStatement2.setString(2, form7.getPresentDate());
             preparedStatement2.setInt(3, form7.getKnowledge());
             preparedStatement2.setInt(4, form7.getOverallProject());
@@ -177,7 +164,7 @@ public class FormDAO {
             preparedStatement2.setInt(6, form7.getDelivery());
             preparedStatement2.setInt(7, form7.getTotal());
             preparedStatement2.setString(8, form7.getComment());
-            preparedStatement2.setInt(9, form7.getLoginId());
+            preparedStatement2.setString(9, form7.getRole());
             preparedStatement2.setString(10, form7.getAgreement());
             preparedStatement2.setDate(11, java.sql.Date.valueOf(form7.getDate()));
             preparedStatement2.executeUpdate();
@@ -185,29 +172,15 @@ public class FormDAO {
             printSQLException(e);
         }
     }
-
-    // Method to insert Form8
+    
     public void insertForm8(Form8 form8) throws SQLException {
-        Connection connection = null;
-        PreparedStatement preparedStatement1 = null;
-        PreparedStatement preparedStatement2 = null;
-        
-        try {
-            connection = getConnection();
-            connection.setAutoCommit(false); // Start transaction
-
-            // Insert into the `form` table first
-            preparedStatement1 = connection.prepareStatement(INSERT_FORM_SQL);
-            preparedStatement1.setInt(1, form8.getFormId());
-            preparedStatement1.setInt(2, form8.getStudentId());
-            preparedStatement1.setInt(3, form8.getlId());
-            preparedStatement1.setInt(4, form8.getProId());
-            preparedStatement1.executeUpdate();
-
-            // Then insert into the `form8` table
-            preparedStatement2 = connection.prepareStatement(INSERT_FORM8_SQL);
-            preparedStatement2.setInt(1, form8.getFormId());
-            preparedStatement2.setString(2, form8.getHandoverDate());
+        //String sql = "INSERT INTO form7 (formt_id, present_date, knowledge, overall_project, present_material, delivery, total, comment, role, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        try (Connection connection = getConnection();
+            //PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_FORM_SQL);
+            PreparedStatement preparedStatement2 = connection.prepareStatement(INSERT_FORM8_SQL)) {
+            
+            preparedStatement2.setInt(1, form8.getFormTId());
+            preparedStatement2.setDate(2, java.sql.Date.valueOf(form8.getHandoverDate()));
             preparedStatement2.setInt(3, form8.getProBackground());
             preparedStatement2.setInt(4, form8.getObjective());
             preparedStatement2.setInt(5, form8.getSignificance());
@@ -217,31 +190,19 @@ public class FormDAO {
             preparedStatement2.setInt(9, form8.getProgressEvaluate());
             preparedStatement2.setInt(10, form8.getTotal());
             preparedStatement2.setString(11, form8.getComment());
-            preparedStatement2.setInt(12, form8.getLoginId());
+            preparedStatement2.setString(12, form8.getRole());
             preparedStatement2.setString(13, form8.getAgreement());
             preparedStatement2.setDate(14, java.sql.Date.valueOf(form8.getDate()));
             preparedStatement2.executeUpdate();
 
-            connection.commit(); // Commit transaction
-
         } catch (SQLException e) {
-            if (connection != null) {
-                connection.rollback(); // Rollback transaction on error
-            }
             printSQLException(e);
-        } finally {
-            if (preparedStatement1 != null) {
-                preparedStatement1.close();
-            }
-            if (preparedStatement2 != null) {
-                preparedStatement2.close();
-            }
-            if (connection != null) {
-                connection.setAutoCommit(true);
-                connection.close();
-            }
         }
     }
+
+
+    // Method to insert Form8
+   
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {

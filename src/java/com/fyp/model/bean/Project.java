@@ -12,24 +12,41 @@ package com.fyp.model.bean;
 public class Project {
     private int proId;
     private int studentId;
-    private int lId;
     private String proTitle;
     private String domain;
     private String proUrl;
     private String session;
     private int scopeId;
     private int proposalId;
+    private int exId;
+    private int svId;
     
-    public Project(int proId,int studentId, int lId, String proTitle,String domain,String proUrl, String session, int scopeId, int proposalId ){
+    public Project(int proId,int studentId, String proTitle,String domain,String proUrl, String session, int scopeId, int proposalId, int exId, int svId ){
         this.proId=proId;
         this.studentId=studentId;
-        this.lId=lId;
         this.domain=domain;
         this.proUrl=proUrl;
         this.proTitle=proTitle;
         this.session=session;
         this.scopeId=scopeId;
         this.proposalId=proposalId;
+        this.exId=exId;
+        this.svId=svId;
+    }
+    public Project(int proId,int studentId, String proTitle,String domain,String proUrl, String session, int scopeId, int proposalId, int svId ){
+        this.proId=proId;
+        this.studentId=studentId;
+        this.domain=domain;
+        this.proUrl=proUrl;
+        this.proTitle=proTitle;
+        this.session=session;
+        this.scopeId=scopeId;
+        this.proposalId=proposalId;
+        this.svId=svId;
+    }
+
+    public Project(int proId, int studentId, int lId, String proTitle, String domain, String proUrl, String session, int scopeId, int proposalId) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getProId() {
@@ -39,11 +56,6 @@ public class Project {
     public int getStudentId() {
         return studentId;
     }
-
-    public int getlId() {
-        return lId;
-    }
-
     public String getProTitle() {
         return proTitle;
     }
@@ -76,10 +88,6 @@ public class Project {
         this.studentId = studentId;
     }
 
-    public void setlId(int lId) {
-        this.lId = lId;
-    }
-
     public void setProTitle(String proTitle) {
         this.proTitle = proTitle;
     }
@@ -102,6 +110,22 @@ public class Project {
 
     public void setProposalId(int proposalId) {
         this.proposalId = proposalId;
+    }
+
+    public int getExId() {
+        return exId;
+    }
+
+    public int getSvId() {
+        return svId;
+    }
+
+    public void setExId(int exId) {
+        this.exId = exId;
+    }
+
+    public void setSv_id(int sv_id) {
+        this.svId = svId;
     }
     
     

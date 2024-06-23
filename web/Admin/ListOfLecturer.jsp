@@ -1,112 +1,117 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ page import="com.fyp.model.bean.Lecturer" %>
-        <%@ page import="java.util.List" %>
-            <!DOCTYPE html>
-            <html lang="en" style="height: 100%;">
+<%@ page import="com.fyp.model.bean.Lecturer" %>
+<%@ page import="java.util.List" %>
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
 
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <title>Lecturers</title>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-                <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-                <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-            </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecturers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
 
-            <body>
-                <div class="content-wrapper">
-                    <jsp:include page="../admin-sidebar.jsp"></jsp:include>
-                    <div class="main-content">
-                        <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
-                            <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                                <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search"
-                                    style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                                <span class="has-background-black"
-                                    style="border-radius: 100%; width: 40px; height: 40px;">
-                                    <img src="">
-                                </span>
-                            </div>
+<body>
+    <div class="content-wrapper">
+        <jsp:include page="../admin-sidebar.jsp"></jsp:include>
+        <div class="main-content">
+            <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
+                <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
+                    <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search"
+                        style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                    <span class="has-background-black"
+                        style="border-radius: 100%; width: 40px; height: 40px;">
+                        <img src="">
+                    </span>
+                </div>
 
-                            <div class="custom-border p-6 w-100">
-                                <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
-                                    <div>
-                                        <label class="has-text-weight-bold has-text-grey is-size-5">List of
-                                            Lecturer</label>
-                                        <p class="has-text-grey-light is-size-7">More than 400+ lecturers</p>
-                                    </div>
-                                    <a class="button is-custom" style="height:2rem;"
-                                        href="${pageContext.request.contextPath}/AddLecturer">
-                                        <span class="is-size-7">Add Lecturer</span>
-                                    </a>
-                                </div>
-                                <div>
-                                    <div class="p-1" id="table">
-                                        <table class="">
-                                            <thead>
-                                                <tr style="border-bottom: 2px solid #ddd;">
-                                                    <th
-                                                        class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
-                                                        Name</th>
-                                                    <th
-                                                        class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
-                                                        Lecturer ID/Position</th>
-                                                    <th
-                                                        class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
-                                                        Email</th>
-                                                    <th
-                                                        class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
-                                                        Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tableBody">
-                                                <c:forEach var="lecturer" items="${listLecturer}">
-                                                    <tr>
-                                                        <td class="has-text-centered">
-                                                            <c:out value="${lecturer.lName}" />
-                                                        </td>
-                                                        <td class="has-text-centered">
-                                                            <c:out value="${lecturer.lId}" /><br>
-                                                            <c:out value="${lecturer.position}" />
-                                                        </td>
-                                                        <td class="has-text-centered">
-                                                            <c:out value="${lecturer.email}" />
-                                                        </td>
-                                                        <td class="has-text-centered">
-                                                            <i class="button is-success is-outlined"><a
-                                                                    href="${pageContext.request.contextPath}/editLecturer?id=${lecturer.lId}"
-                                                                    class="btn btn-info fas fa-eye has-text-success"></a></i>
-                                                            <i class="button is-danger is-outlined"><a
-                                                                    href="${pageContext.request.contextPath}/deleteLecturer?id=${lecturer.lId}"
-                                                                    class="btn btn-danger fas fa-trash has-text-danger"></a></i>
-                                                        </td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="custom-border p-6 w-100">
+                    <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
+                        <div>
+                            <label class="has-text-weight-bold has-text-grey is-size-5">List of Lecturers</label>
+                            <p class="has-text-grey-light is-size-7">More than 400+ lecturers</p>
+                        </div>
+                        <a class="button is-custom" style="height:2rem;"
+                            href="${pageContext.request.contextPath}/AddLecturer">
+                            <span class="is-size-7">Add Lecturer</span>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="p-1" id="table">
+                            <table class="">
+                                <thead>
+                                    <tr style="border-bottom: 2px solid #ddd;">
+                                        <th
+                                            class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
+                                            Name</th>
+                                        <th
+                                            class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
+                                            Lecturer ID</th>
+                                        <th
+                                            class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
+                                            Position</th>
+                                        <th
+                                            class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
+                                            Email</th>
+                                        <th
+                                            class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
+                                            Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody">
+                                    <c:forEach var="lecturer" items="${listLecturer}">
+                                        <tr>
+                                            <td class="has-text-centered">
+                                                <c:out value="${lecturer.lName}" />
+                                            </td>
+                                            <td class="has-text-centered">
+                                                <c:out value="${lecturer.lId}" />
+                                            </td>
+                                            <td class="has-text-centered">
+                                                <c:out value="${lecturer.positions}" />
+                                            </td>
+                                            <td class="has-text-centered">
+                                                <c:out value="${lecturer.email}" />
+                                            </td>
+                                            <td class="has-text-centered">
+                                                <i class="button is-success is-outlined"><a
+                                                        href="${pageContext.request.contextPath}/editLecturer?id=${lecturer.lId}"
+                                                        class="btn btn-info fas fa-eye has-text-success"></a></i>
+                                                <i class="button is-danger is-outlined"><a
+                                                        href="${pageContext.request.contextPath}/deleteLecturer?id=${lecturer.lId}"
+                                                        class="btn btn-danger fas fa-trash has-text-danger"></a></i>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <script>
-                    document.getElementById('searchInput').addEventListener('input', function () {
-                        var input = this.value.toLowerCase();
-                        var rows = document.querySelectorAll('#table tbody tr');
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function () {
+            var input = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#table tbody tr');
 
-                        rows.forEach(function (row) {
-                            var name = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
-                            var idPosition = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
-                            var email = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+            rows.forEach(function (row) {
+                var name = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+                var id = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                var position = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                var email = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
 
-                            if (name.includes(input) || idPosition.includes(input) || email.includes(input)) {
-                                row.style.display = '';
-                            } else {
-                                row.style.display = 'none';
-                            }
-                        });
-                    });
-                </script>
-            </body>
+                if (name.includes(input) || id.includes(input) || position.includes(input) || email.includes(input)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
 
-            </html>
+</html>

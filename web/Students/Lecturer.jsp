@@ -55,7 +55,7 @@
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"><c:out value="${lecturer.email}" /></td>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
                                                 <div class="is-flex is-justify-content-center">
-                                                    <a class="button is-custom3 is-small" href="${pageContext.request.contextPath}/ProposalSvServlet?lecturerId=${lecturer.lId}">Submit Proposal</a>
+                                                    <a class="button is-custom3 is-small" href="${pageContext.request.contextPath}/ProposalSvServlet?lecturerId=${lecturer.lId}&svId=${lecturer.svId}">Submit Proposal</a>
                                                 </div>
                                             </td>
                                         </tr>

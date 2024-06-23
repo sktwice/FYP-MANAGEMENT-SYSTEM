@@ -7,7 +7,7 @@ package com.fyp.model.bean;
 public class Proposal {
     private int proposalId;
     private int studentId;
-    private int lId;
+    private int svId;
     private int scopeId;
     private String topic;
     private String semester;
@@ -30,10 +30,10 @@ public class Proposal {
      */
   
 
-    public Proposal(int proposalId, int studentId, int lecturerId, int scopeId, String topic, String session, String pdfUrl, String pdfName, String status, String domain) {
+    public Proposal(int proposalId, int studentId, int svId, int scopeId, String topic, String session, String pdfUrl, String pdfName, String status, String domain) {
         this.proposalId=proposalId;
         this.studentId=studentId;
-        this.lId=lecturerId;
+        this.svId=svId;
         this.scopeId=scopeId;
         this.topic=topic;
         this.semester=session;
@@ -53,8 +53,8 @@ public class Proposal {
         return studentId;
     }
 
-    public int getlId() {
-        return lId;
+    public int getSvId() {
+        return svId;
     }
 
     public int getScopeId() {
@@ -85,8 +85,8 @@ public class Proposal {
         this.studentId = studentId;
     }
 
-    public void setlId(int lId) {
-        this.lId = lId;
+    public void setSvId(int svId) {
+        this.svId = svId;
     }
 
     public void setScopeId(int scopeId) {

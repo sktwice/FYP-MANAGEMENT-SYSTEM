@@ -23,11 +23,11 @@ public class ViewProposalServlet extends HttpServlet {
         lecturerDAO = new LecturerDAO();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        int lecturerId = (int) session.getAttribute("lecturer_id");
+        int svId = (int) session.getAttribute("sv_id"); // Retrieve sv_id from session
         
-        List<Proposal> proposals = lecturerDAO.selectProposalsByLecturerId(lecturerId);
+        List<Proposal> proposals = lecturerDAO.selectProposalsBySupervisorId(svId);
         request.setAttribute("listProposals", proposals);
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("Request-Supervision-Supervisor.jsp");

@@ -3,7 +3,11 @@ package com.fyp.Login;
 import com.fyp.Student.SubmitProposalSV.LecturerDAO;
 import com.fyp.model.bean.Login;
 import com.fyp.model.bean.Admin;
+import com.fyp.model.bean.Examiner;
 import com.fyp.model.bean.Lecturer;
+import com.fyp.model.bean.Role;
+import com.fyp.model.bean.Supervisor;
+import com.fyp.model.bean.Teach;
 import com.fyp.model.user.AdminDAO;
 import com.fyp.model.user.StudentDAO;
 
@@ -15,6 +19,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class LoginServlet extends HttpServlet {
@@ -28,10 +33,11 @@ public class LoginServlet extends HttpServlet {
     public void init() {
         loginDAO = new LoginDAO();
         adminDAO = new AdminDAO();
-        lecturerDAO=new LecturerDAO();
+        lecturerDAO = new LecturerDAO();
         studentDAO = new StudentDAO();
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username = request.getParameter("username");
@@ -54,7 +60,6 @@ public class LoginServlet extends HttpServlet {
                         response.sendRedirect("generic.jsp"); // Redirect to a generic page if admin details not found
                     }
                 } else if ("student".equals(login.getCategory())) {
-                    // Here we fetch the student ID using the login ID
                     int studentId = studentDAO.getStudentIdByLoginId(login.getLoginId());
                     if (studentId != -1) {
                         session.setAttribute("student_id", studentId);
@@ -64,33 +69,79 @@ public class LoginServlet extends HttpServlet {
                     }
                 } else if ("lecturer".equals(login.getCategory())) {
                     Lecturer lecturer = lecturerDAO.getLecturerByLoginId(login.getLoginId());
-                    if (lecturer != null) {
-                        session.setAttribute("lecturer_id", lecturer.getlId());
-                        session.setAttribute("position", lecturer.getPosition());
-                        switch (lecturer.getPosition()) {
-                            case "examiner":
-                                //response.sendRedirect("examiner.jsp");
-                                response.sendRedirect("examiner.jsp");
-                                break;
-                                case "Examiner":
-                                //response.sendRedirect("examiner.jsp");
-                                response.sendRedirect("examiner.jsp");
-                                break;
-                                case "Supervisor":
-                                response.sendRedirect("Supervisor/Dashboard-Supervisor.jsp");
-                                break;
-                                case "supervisor":
-                                response.sendRedirect("Supervisor/Dashboard-Supervisor.jsp");
-                                break;
-                            default:
+                if (lecturer != null) {
+                    int lecturerId = lecturer.getlId();
+                    session.setAttribute("lecturer_id", lecturerId);
+
+                    // Assuming you have a method to get Supervisor details by lecturerId
+                    Supervisor supervisor = lecturerDAO.getSupervisorByLecturerId(lecturerId);
+                    if (supervisor != null) {
+                        int svId = supervisor.getSvId();
+                        System.out.println(svId);
+                        session.setAttribute("sv_id", svId); // Store svId in session
+                    }
+                    
+                    Teach teach = lecturerDAO.getTeachByLecturerId(lecturerId);
+                    if (teach != null) {
+                        int tId = teach.gettId();
+                        System.out.println(tId);
+                        session.setAttribute("t_id", tId); // Store svId in session
+                    }
+                    
+                    Examiner examiner = lecturerDAO.getExaminerByLecturerId(lecturerId);
+                    if (examiner != null) {
+                        int exId = examiner.getExId();
+                        System.out.println(exId);
+                        session.setAttribute("ex_id", exId); // Store svId in session
+                    }
+
+                        int roleCount = lecturerDAO.countRolesByLecturerId(lecturerId);
+                        List<Role> roles = lecturerDAO.getRolesByLecturerId(lecturerId);
+
+                        boolean hasActiveSupervisorRole = false;
+                        boolean hasActiveExaminerRole = false;
+                        boolean hasActiveTeachingRole = false;
+
+                        for (Role role : roles) {
+                            if ("supervisor".equalsIgnoreCase(role.getPosition()) && "active".equalsIgnoreCase(role.getStatus())) {
+                                hasActiveSupervisorRole = true;
+                            }
+                            if ("examiner".equalsIgnoreCase(role.getPosition()) && "active".equalsIgnoreCase(role.getStatus())) {
+                                hasActiveExaminerRole = true;
+                            }
+                            if ("teaching".equalsIgnoreCase(role.getPosition()) && "active".equalsIgnoreCase(role.getStatus())) {
+                                hasActiveTeachingRole = true;
+                            }
+                        }
+
+                        if (roleCount > 2) {
+                            response.sendRedirect("multipleRolesPage.jsp"); // Redirect to a page for multiple active roles
+                        } else if (roleCount == 2) {
+                            if (hasActiveSupervisorRole && hasActiveExaminerRole) {
+                                response.sendRedirect("SupervisorExaminerPage.jsp");
+                            } else if (hasActiveTeachingRole && hasActiveExaminerRole) {
+                                response.sendRedirect("TeachingExaminerPage.jsp");
+                            } else if (hasActiveTeachingRole && hasActiveSupervisorRole) {
+                                response.sendRedirect("TeachingSupervisorPage.jsp");
+                            } else {
                                 response.sendRedirect("Lecturers/Dashboard-Lecturer.jsp");
-                                break;
+                            }
+                        } else if (roleCount == 1) {
+                            if (hasActiveSupervisorRole) {
+                                response.sendRedirect("Supervisor/Dashboard-Supervisor.jsp");
+                            } else if (hasActiveExaminerRole) {
+                                response.sendRedirect("examiner.jsp");
+                            } else if (hasActiveTeachingRole) {
+                                response.sendRedirect("Lecturers/Dashboard-Teaching.jsp");
+                            } else {
+                                response.sendRedirect("Lecturers/Dashboard-Lecturer.jsp");
+                            }
+                        } else {
+                            response.sendRedirect("generic.jsp");
                         }
                     } else {
-                        response.sendRedirect("generics.jsp");
+                        response.sendRedirect("generic.jsp");
                     }
-                } else {
-                    response.sendRedirect("generic.jsp");
                 }
             } else {
                 response.sendRedirect("login.jsp?error=Invalid username or password");

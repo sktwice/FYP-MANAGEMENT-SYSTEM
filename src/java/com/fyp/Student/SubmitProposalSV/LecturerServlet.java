@@ -45,8 +45,8 @@ public class LecturerServlet extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("StatusProposal.jsp");
                 dispatcher.forward(request, response);
             } else {
-                // Retrieve list of lecturers
-                List<Lecturer> listLecturer = lecturerDAO.selectAllSupervisor();
+                // Retrieve list of lecturers who are supervisors
+                List<Lecturer> listLecturer = lecturerDAO.selectLecturersBySupervisor();
                 request.setAttribute("listLecturer", listLecturer);
 
                 // Forward request to the JSP to display lecturers

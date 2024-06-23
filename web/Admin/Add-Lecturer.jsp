@@ -24,7 +24,7 @@
                             Register Lecturer
                         </div>
                         <div class="p-4">
-                            <form action="${pageContext.request.contextPath}/AddLecturer" method="post" enctype = "multipart/form-data">
+                            <form action="${pageContext.request.contextPath}/AddLecturer" method="post" enctype="multipart/form-data">
                             <input type="hidden" id="admin_id" name="admin_id" value="${sessionScope.admin_id}">
 
                             <label for="username" class="has-text-weight-semibold has-text-grey">Username:</label>
@@ -64,8 +64,23 @@
                                     <option value="N/A">N/A</option>
                                     <option value="Supervisor">Supervisor</option>
                                     <option value="Examiner">Examiner</option>
+                                    <option value="Both">Both</option>
                                 </select>
                             </div>
+
+                            <!-- Added Radio Button Section -->
+                            <label class="has-text-weight-semibold has-text-grey">Do this lecturer teach CSP600?</label>
+                            <div class="py-2">
+                                <label class="radio">
+                                    <input type="radio" name="teaches_csp600" value="yes" required>
+                                    Yes
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="teaches_csp600" value="no" required>
+                                    No
+                                </label>
+                            </div>
+                            <!-- End of Radio Button Section -->
 
                             <label for="l_name" class="has-text-weight-semibold has-text-grey">Lecturer Name:</label>
                             <div class="py-2">

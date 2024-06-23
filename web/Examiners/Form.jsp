@@ -41,7 +41,7 @@
                         <div class="p-3">
                             <div class="is-flex is-justify-content-space-between pb-2">
                                 <label class="has-text-weight-semibold has-text-grey-dark is-size-5">F8 – PROJECT FORMULATION REPORT EVALUATION FORM</label>
-                                <a href="../Examiners/F8.jsp">
+                                <a href="${pageContext.request.contextPath}/StudentExReportServlet">
                                     <button class="button is-custom3"><span class="is-size-7">Open</span></button>
                                 </a>
                             </div>

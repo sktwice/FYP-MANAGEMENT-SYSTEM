@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <title>F5 Page</title>
+    
 </head>
 <body style="height:100%;">
 
@@ -90,15 +91,15 @@
             <h1 class="title is-4 has-text-centered">Add Form5 Entry</h1>
             <form action="${pageContext.request.contextPath}/Form5Servlet" method="post">
                 <div class="field">
-                    <label class="label">Date Meet</label>
+                    <label class="">Date Meet</label>
                     <div class="control">
-                        <input class="input" type="date" name="dateMeet" placeholder="Enter Date Meet" required>
+                        <input class="" type="date" name="dateMeet" placeholder="Enter Date Meet" required>
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Completed Activity</label>
+                    <label class="">Completed Activity</label>
                     <div class="control">
-                        <input class="input" type="text" name="completeActivity" placeholder="Enter Completed Activity" required>
+                        <input class="" type="text" name="completeActivity" placeholder="Enter Completed Activity" required>
                     </div>
                 </div>
                 <input type="hidden" name="action" value="addForm5">

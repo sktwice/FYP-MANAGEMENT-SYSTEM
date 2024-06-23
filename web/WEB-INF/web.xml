@@ -232,6 +232,38 @@
         <servlet-name>UpdateForm5Servlet</servlet-name>
         <servlet-class>com.fyp.Form.UpdateForm5Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentReportServlet</servlet-name>
+        <servlet-class>com.fyp.Lecturer.Form.StudentReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>F2Servlet</servlet-name>
+        <servlet-class>com.fyp.Lecturer.Form.F2Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentSvReportServlet</servlet-name>
+        <servlet-class>com.fyp.Supervisor.Form.StudentSvReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>F7Servlet</servlet-name>
+        <servlet-class>com.fyp.Supervisor.Form.F7Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListExaminerServlet</servlet-name>
+        <servlet-class>com.fyp.Lecturer.List.ListExaminerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AssignListServlet</servlet-name>
+        <servlet-class>com.fyp.Lecturer.List.AssignListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>F8Servlet</servlet-name>
+        <servlet-class>com.fyp.Examiner.form.F8Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentExReportServlet</servlet-name>
+        <servlet-class>com.fyp.Examiner.form.StudentExReportServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -459,6 +491,38 @@
     <servlet-mapping>
         <servlet-name>UpdateForm5Servlet</servlet-name>
         <url-pattern>/UpdateForm5Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentReportServlet</servlet-name>
+        <url-pattern>/StudentReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>F2Servlet</servlet-name>
+        <url-pattern>/F2Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentSvReportServlet</servlet-name>
+        <url-pattern>/StudentSvReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>F7Servlet</servlet-name>
+        <url-pattern>/F7Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListExaminerServlet</servlet-name>
+        <url-pattern>/ListExaminerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AssignListServlet</servlet-name>
+        <url-pattern>/AssignListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>F8Servlet</servlet-name>
+        <url-pattern>/F8Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentExReportServlet</servlet-name>
+        <url-pattern>/StudentExReportServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

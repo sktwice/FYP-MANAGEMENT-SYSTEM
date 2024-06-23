@@ -57,7 +57,7 @@
                         <div class="p-3">
                             <div class="is-flex is-justify-content-space-between pb-2">
                                 <label class="has-text-weight-semibold has-text-grey is-size-5">F7 - PROJECT FORMULATION PRESENTATION EVALUATION</label>
-                                <a class="button is-custom" href="../Form7Servlet">
+                                <a class="button is-custom" href="${pageContext.request.contextPath}/StudentSvReportServlet">
                                     <span class="is-size-7 p-1">Open</span>
                                     <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                                 </a>

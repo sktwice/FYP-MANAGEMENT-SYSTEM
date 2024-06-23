@@ -23,7 +23,7 @@
                                 <label class="has-text-weight-bold has-text-grey is-size-5">FYP Scope</label>
                                 <p class="has-text-success is-size-7">Available topics</p>
                             </div>
-                            <div class="columns m-0 p-0" style="width: 50%;">
+                            <div class="columns m-0 p-0" style="width: 30%;">
                                 <div class="column is-third p-1">
                                     <input class="px-4 py-3" type="text" placeholder="Search here" style="width: 100%; border-radius: 6px; outline: none;">
                                 </div>
@@ -73,7 +73,7 @@
                         <div class="p-3 is-flex is-justify-content-space-between">
                             <label class="has-text-grey-light is-size-7">Showing data 1 to 8 of 256k entries</label>
                             <div>
-                                <nav class="pagination is-right" role="navigation" aria-label="pagination">
+                                <nav class="pagination is-right is-small" role="navigation" aria-label="pagination">
                                     <ul class="pagination-list">
                                         <li><a href="#" class="pagination-link has-background-grey-lighter  has-text-black" style="border: 0;" aria-label="Goto page before"><</a></li>
                                         <li><a class="pagination-link is-current" aria-label="Goto page 1">1</a></li>

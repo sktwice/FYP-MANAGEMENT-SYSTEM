@@ -141,7 +141,7 @@
         <li><a href="Proposal.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
         <li><a href="Result-Student.jsp"><i class="fa fa-check mx-2"></i> Result</a></li>
         <li><a href="ScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
-        <li><a href="Login.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
+        <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
     </ul>
 </div>
 
