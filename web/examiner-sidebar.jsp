@@ -137,7 +137,7 @@
         <li><a href="UserProfile-Examiner.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="List-Of-Proposal-Examiner.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
         <li><a href="Form.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
-        <li><a href="Login.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
+        <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
     </ul>
 </div>
 

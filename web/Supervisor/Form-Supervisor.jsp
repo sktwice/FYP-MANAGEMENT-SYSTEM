@@ -29,15 +29,6 @@
                         </div>
                         <div class="p-3">
                             <div class="is-flex is-justify-content-space-between pb-2">
-                                <label class="has-text-weight-semibold has-text-grey is-size-5">F1- MUTUAL ACCEPTANCE FORM</label>
-                                <a class="button is-custom" href="../Supervisor/F1.jsp">
-                                    <span class="is-size-7 p-1">Open</span>
-                                    <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="p-3">
-                            <div class="is-flex is-justify-content-space-between pb-2">
                                 <label class="has-text-weight-semibold has-text-grey is-size-5">F5 – PROJECT IN-PROGRESS FORM</label>
                                 <a class="button is-custom" href="../SupervisorViewServlet">
                                     <span class="is-size-7 p-1">Open</span>

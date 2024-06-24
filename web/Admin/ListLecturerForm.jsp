@@ -9,7 +9,7 @@
         <div class="content-wrapper">
             <jsp:include page="../admin-sidebar.jsp"></jsp:include>
                 <div class="main-content">
-                    <div class="container col-md-5">
+                    <div class="container col-md-5 h-100" style="align-content:center;">
                         <div class="card">
                             <div class="card-body">
                                 <form action="updateLecturer" method="post">
@@ -41,4 +41,3 @@
         </div>
     </body>
 </html>
-

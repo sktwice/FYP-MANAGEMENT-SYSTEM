@@ -19,12 +19,12 @@ public class Form5Dao {
     private String jdbcPassword = "";
 
     private static final String SELECT_FORMS_BY_STUDENT_ID = "SELECT * FROM formteach WHERE student_id = ?";
-    private static final String SELECT_FORM5_BY_FORM_ID = "SELECT * FROM form5 WHERE form_id = ? ORDER BY date_meet";
+    private static final String SELECT_FORM5_BY_FORM_ID = "SELECT * FROM form5 WHERE formt_id = ? ORDER BY date_meet";
 
     private static final String SELECT_PROJECT_BY_STUDENT_ID = "SELECT * FROM project WHERE student_id = ?";
     private static final String SELECT_PROJECTS_BY_LECTURER_ID = "SELECT * FROM project WHERE sv_id = ?";
     private static final String INSERT_FORM_SQL = "INSERT INTO form (form_id, student_id, l_id, pro_id) VALUES (?, ?, ?, ?)";
-    private static final String INSERT_FORM5 = "INSERT INTO form5 (form_id, date_meet, completed_activity) VALUES (?, ?, ?)";
+    private static final String INSERT_FORM5 = "INSERT INTO form5 (formt_id, date_meet, completed_activity) VALUES (?, ?, ?)";
     private static final String UPDATE_FORM5_SQL = "UPDATE form5 SET next_activity = ?, approval = ? WHERE formt_id = ?";
     private static final String SELECT_PROJECTS_BY_LECTURER_ID_WITH_FORM5 =
         "SELECT DISTINCT p.pro_ID, p.student_id, p.sv_id, p.pro_title, p.domain, p.pro_url, p.session, p.scope_id, p.proposal_id " +
@@ -53,9 +53,9 @@ public class Form5Dao {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int formtId = rs.getInt("formt_id");
-                int lId = rs.getInt("l_id");
+                int svId = rs.getInt("sv_id");
                 String proId = rs.getString("pro_ID");
-                forms.add(new FormTeach(formtId, studentId, lId, Integer.parseInt(proId)));
+                forms.add(new FormTeach(formtId, studentId, svId, Integer.parseInt(proId)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,14 +91,14 @@ public class Form5Dao {
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 int proId = rs.getInt("pro_ID");
-                int lId = rs.getInt("l_id");
+                int svId = rs.getInt("sv_id");
                 String proTitle = rs.getString("pro_title");
                 String domain = rs.getString("domain");
                 String proUrl = rs.getString("pro_url");
                 String session = rs.getString("session");
                 int scopeId = rs.getInt("scope_id");
                 int proposalId = rs.getInt("proposal_id");
-                project = new Project(proId, studentId, lId, proTitle, domain, proUrl, session, scopeId, proposalId);
+                project = new Project(proId, studentId, svId, proTitle, domain, proUrl, session, scopeId, proposalId);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -223,5 +223,22 @@ public class Form5Dao {
             e.printStackTrace();
         }
     }
+    
+    public int getFormtIdByStudentAndProject(int studentId) {
+    int formtId = -1;
+    String sql = "SELECT formt_id FROM formteach WHERE student_id = ?";
+    try (Connection connection = getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        preparedStatement.setInt(1, studentId);
+        ResultSet rs = preparedStatement.executeQuery();
+        if (rs.next()) {
+            formtId = rs.getInt("formt_id");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return formtId;
+}
+
 
 }

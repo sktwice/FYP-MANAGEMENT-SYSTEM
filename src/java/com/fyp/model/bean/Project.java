@@ -46,7 +46,14 @@ public class Project {
     }
 
     public Project(int proId, int studentId, int lId, String proTitle, String domain, String proUrl, String session, int scopeId, int proposalId) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.proId=proId;
+        this.studentId=studentId;
+        this.domain=domain;
+        this.proUrl=proUrl;
+        this.proTitle=proTitle;
+        this.session=session;
+        this.scopeId=scopeId;
+        this.proposalId=proposalId;
     }
 
     public int getProId() {

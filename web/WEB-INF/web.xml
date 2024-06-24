@@ -304,6 +304,14 @@
         <servlet-name>F8SupervisorListServlet</servlet-name>
         <servlet-class>com.fyp.Supervisor.Form.F8SupervisorListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ScopeList</servlet-name>
+        <servlet-class>com.fyp.Lecturer.Scope.ScopeList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerPastReportServlet</servlet-name>
+        <servlet-class>com.fyp.Lecturer.Scope.LecturerPastReportServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -603,6 +611,14 @@
     <servlet-mapping>
         <servlet-name>F8SupervisorListServlet</servlet-name>
         <url-pattern>/F8SupervisorListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ScopeList</servlet-name>
+        <url-pattern>/ScopeList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerPastReportServlet</servlet-name>
+        <url-pattern>/LecturerPastReportServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

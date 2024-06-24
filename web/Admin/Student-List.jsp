@@ -31,7 +31,7 @@
                                     <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                                         <div>
                                             <label class="has-text-weight-bold has-text-grey is-size-5">List of
-                                                Reports</label>
+                                                Students</label>
                                             <p class="has-text-grey-light is-size-7">More than ${listStudent.size()}
                                                 students</p>
                                         </div>
@@ -53,8 +53,7 @@
                                                         <th
                                                             class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
                                                             Programme</th>
-                                                        <th
-                                                            class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
+                                                        <thclass="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
                                                             Action</th>
                                                     </tr>
                                                 </thead>

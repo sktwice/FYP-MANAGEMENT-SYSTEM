@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <title>Submit Proposal</title>
 </head>
 <body>
     <div class="content-wrapper">
-        <!-- <jsp:include page="../student-sidebar.jsp"></jsp:include> -->
+        <jsp:include page="../student-sidebar.jsp"></jsp:include>
         <div class="main-content">
             <div class="column p-6 is-justify-content-center" style="background-color:#FFFFFF; overflow-y: scroll;">
                 <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
@@ -58,10 +58,10 @@
                             <div class="py-2">
                                 <select class="px-4 py-2" name="domain" id="domain" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;" required>
                                     <option value="">Select Domain</option>
-                                    <option value="Domain1">Domain1</option>
-                                    <option value="Domain2">Domain2</option>
-                                    <option value="Domain3">Domain3</option>
-                                    <option value="Domain4">Domain4</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Human Resources">Human Resources</option>
+                                    <option value="Sport">Sport</option>
+                                    <option value="AI">AI</option>
                                 </select>
                             </div>
                         </div>
@@ -74,12 +74,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column is-12 has-text-centered">
-                        <button class="button is-custom3 is-medium" type="submit">Submit</button>
-                    </div>
                     <div class="buttons pt-5 pl-3 pr-5 is-justify-content-space-between">
                         <a class="button is-custom is-soft">Cancel</a>
-                        <a class="button is-custom is-soft" type="submit">Save Changes</a>
+                        <button class="button is-custom is-soft" type="submit">Save Changes</button>
                     </div>
                 </form>
             </div>

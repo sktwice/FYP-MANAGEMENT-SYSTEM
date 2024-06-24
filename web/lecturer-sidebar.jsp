@@ -135,12 +135,12 @@
     <ul class="nav-list">
         <li><a href="Dashboard-Lecturer.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="UserProfile-Lecturer.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
-        <li><a href="Report-Lecturer.jsp"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
+        <li><a href="${pageContext.request.contextPath}/LecturerPastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="Form-Lecturer.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
-        <li><a href="Scope-Lecturer.jsp"><i class="fa fa-search mx-2"></i> Scope</a></li>
+        <li><a href="${pageContext.request.contextPath}/ScopeList"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/ListExaminerServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Examiner</a></li>
         <li><a href="StudentList-Supervision.jsp"><i class="fa fa-bullseye mx-2"></i> Supervision</a></li>
-        <li><a href="Login.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
+        <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
     </ul>
 </div>
 
@@ -149,9 +149,9 @@
     <ul class="nav-list">
         <li><a href="Dashboard-Lecturer.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="UserProfile-Lecturer.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
-        <li><a href="Report-Lecturer.jsp"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
+        <li><a href="${pageContext.request.contextPath}/LecturerPastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="Form-Lecturer.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
-        <li><a href="Scope-Lecturer.jsp"><i class="fa fa-search mx-2"></i> Scope</a></li>
+        <li><a href="${pageContext.request.contextPath}/ScopeList"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/ListExaminerServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Examiner</a></li>
         <li><a href="StudentList-Supervision.jsp"><i class="fa fa-bullseye mx-2"></i> Supervision</a></li>
         <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>

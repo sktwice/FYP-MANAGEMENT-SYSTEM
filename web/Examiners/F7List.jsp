@@ -25,12 +25,9 @@
                 <div class="custom-border p-6 w-100">
                     <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                         <div>
-                            <label class="has-text-weight-bold has-text-grey is-size-5">Past Reports</label>
-                            <p class="has-text-grey-light is-size-7">More than 400+ students' reports</p>
-                        </div>
-                        <a class="button is-custom" href="${pageContext.request.contextPath}/addExaminerForm">
-                            <span class="has-text-weight-semibold is-size-7">New Report</span>
-                        </a>                                              
+                            <label class="has-text-weight-bold has-text-grey is-size-5">Select Students</label>
+                            <p class="has-text-grey-light is-size-7"></p>
+                        </div>                                            
                     </div>
                     <div>
                         <div class="p-1" id="table">

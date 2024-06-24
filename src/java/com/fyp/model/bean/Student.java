@@ -30,6 +30,10 @@ public class Student {
         this.sCourse=sCourse;
         this.phoneNum=phoneNum;
     }
+
+    public Student() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 
@@ -96,6 +100,14 @@ public class Student {
 
     public void setsCourse(String sCourse) {
         this.sCourse = sCourse;
+    }
+
+    public void setLoginId(int loginId) {
+        this.loginId = loginId;
+    }
+
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
     }
     
     

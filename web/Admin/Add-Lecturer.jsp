@@ -39,8 +39,8 @@
 
                             <label for="f_id" class="has-text-weight-semibold has-text-grey">Faculty:</label>
                             <div class="py-2">
-                                <select id="f_id" name="f_id" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                                    <option value="">Select Faculty and Course</option>
+                                <select id="f_id" name="f_id" class="p-2" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                                    <option value="">Select Faculty</option>
                                     <c:forEach var="faculty" items="${facultyList}">
                                         <option value="${faculty.fId}">${faculty.fName} :- ${faculty.fCourse}</option>
                                     </c:forEach>
@@ -49,17 +49,16 @@
 
                             <label for="l_course" class="has-text-weight-semibold has-text-grey">Lecturer Course:</label>
                             <div class="py-2">
-                                <select id="l_course" name="l_course" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                                <select id="l_course" name="l_course" class="p-2" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                                     <option value="">Select Course</option>
                                     <c:forEach var="course" items="${courseList}">
                                         <option value="${course}">${course}</option>
                                     </c:forEach>
                                 </select>
                             </div>
-
-                            <label for="position" class="has-text-weight-semibold has-text-grey">Position:</label>
+<label for="position" class="has-text-weight-semibold has-text-grey">Position:</label>
                             <div class="py-2">
-                                <select id="position" name="position" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                                <select id="position" name="position" class="p-2" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                                     <option value="">Select Position</option>
                                     <option value="N/A">N/A</option>
                                     <option value="Supervisor">Supervisor</option>
@@ -97,7 +96,7 @@
                                 <input class="px-4 py-2" type="email" id="email" name="email" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                             </div>
 
-                            <div class="p-4">
+                            <div class="p-2">
                                 <label class="has-text-weight-semibold has-text-grey">Image</label>
                                 <div class="py-2">
                                     <input type="file" name="l_image">

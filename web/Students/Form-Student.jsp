@@ -32,13 +32,6 @@
                     </div>
                     <div class="p-3">
                         <div class="is-flex is-justify-content-space-between pb-2">
-                            <label class="has-text-weight-semibold has-text-grey-dark is-size-6">F1 - MUTUAL ACCEPTANCE FORM</label>
-                            <button class="button is-custom"><a href="../Students/F1-MUTUAL-ACCEPTANCE-FORM.jsp" class="is-size-7 has-text-white">Open</a>
-                        <span class="is-size-7 fas fa-arrow-up-right-from-square pl-2"></span></button>
-                        </div>
-                    </div>
-                    <div class="p-3">
-                        <div class="is-flex is-justify-content-space-between pb-2">
                             <label class="has-text-weight-semibold has-text-grey-dark is-size-6">F5 - PROPOSAL/PROJECT IN-PROGRESS FORM</label>
                             <button class="button is-custom"><a href="../Form5Servlet" class="is-size-7 has-text-white">Open</a>
                                 <span class="is-size-7 fas fa-arrow-up-right-from-square pl-2"></span></button>

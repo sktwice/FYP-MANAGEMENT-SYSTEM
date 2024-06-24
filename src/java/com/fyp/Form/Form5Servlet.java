@@ -63,9 +63,7 @@ public class Form5Servlet extends HttpServlet {
         if (action != null && action.equals("addForm5")) {
     int studentId = (int) session.getAttribute("student_id");
     
-    // Generate a random formId
-            Random random = new Random();
-            int formtId = random.nextInt(100000); // Adjust range as needed
+    int formtId = formDAO.getFormtIdByStudentAndProject(studentId);
 
     // Retrieve Project details based on studentId
     Project project = formDAO.getProjectByStudentId(studentId);

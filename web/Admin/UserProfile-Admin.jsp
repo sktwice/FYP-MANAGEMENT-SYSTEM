@@ -75,7 +75,7 @@
             <div class="main-content">
                 <section class="section">
                     <div class="container">
-                        <h1 class="title has-text-grey">Username</h1>
+                        <h1 class="title has-text-grey">zahidi</h1>
                         <div class="column is-one-two">
                             <figure class="image is-128x128">
                                 <img id="profile-img" src="https://via.placeholder.com/128" alt="Profile Picture">
