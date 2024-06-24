@@ -138,7 +138,7 @@
     </div>
     <ul class="nav-list is-size-7">
         <li><a href="${pageContext.request.contextPath}/Admin/Dashboard-Admin.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
-        <li><a href="${pageContext.request.contextPath}/Admin/UserProfile-Admin.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
+        <li><a href="${pageContext.request.contextPath}/AdminUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/ListPastReport"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/LecturerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
         <li><a href="${pageContext.request.contextPath}/ExaminerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Examiner</a></li>
@@ -152,7 +152,7 @@
     <button class="hamburger"><i class="icon-menu"></i></button>
     <ul class="nav-list is-size-7">
         <li><a href="${pageContext.request.contextPath}/Admin/Dashboard-Admin.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
-        <li><a href="${pageContext.request.contextPath}/Admin/UserProfile-Admin.jsp""><i class="fa fa-user mx-2"></i> Profile</a></li>
+        <li><a href="${pageContext.request.contextPath}/AdminUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/ListPastReport"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/LecturerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
         <li><a href="${pageContext.request.contextPath}/ExaminerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Examiner</a></li>

@@ -4,6 +4,7 @@
  */
 package com.fyp.UserProfile;
 import com.fyp.model.bean.Student;
+import com.fyp.model.bean.Admin;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,6 +18,7 @@ public class UserDao {
     private String jdbcPassword = "";
 
     private static final String SELECT_STUDENT_BY_ID = "SELECT * FROM student WHERE student_id = ?";
+     private static final String SELECT_ADMIN_BY_ID = "SELECT * FROM Admin WHERE admin_id = ?";
 
     protected Connection getConnection() throws SQLException {
         Connection connection = null;
@@ -54,4 +56,28 @@ public class UserDao {
         }
         return student;
     }
+    
+    
+    
+public Admin selectAdmin(int adminId) {
+    Admin admin = null;
+    String query = "SELECT * FROM admin WHERE admin_id = ?";
+    try (Connection connection = getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        preparedStatement.setInt(1, adminId);
+        ResultSet rs = preparedStatement.executeQuery();
+        if (rs.next()) {
+            int loginId = rs.getInt("login_id");
+            String aImage = rs.getString("a_image");
+            String aName = rs.getString("a_name");
+            int phoneNum = rs.getInt("phone_num");
+            String email = rs.getString("email");
+            admin = new Admin(adminId, loginId, aImage, aName, phoneNum, email);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return admin;
+}
+
 }

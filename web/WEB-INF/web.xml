@@ -157,8 +157,8 @@
         <servlet-class>com.fyp.Student.Scope.ScopeServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UserProfileServlet</servlet-name>
-        <servlet-class>com.fyp.UserProfile.UserProfileServlet</servlet-class>
+        <servlet-name>AdminUserProfileServlet</servlet-name>
+        <servlet-class>com.fyp.UserProfile.AdminUserProfileServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PastReportServlet</servlet-name>
@@ -461,10 +461,6 @@
         <url-pattern>/Students/ScopeServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UserProfileServlet</servlet-name>
-        <url-pattern>/Admin/UserProfileServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ViewProposalServlet</servlet-name>
         <url-pattern>/Supervisor/ViewProposalServlet</url-pattern>
     </servlet-mapping>
@@ -619,6 +615,10 @@
     <servlet-mapping>
         <servlet-name>LecturerPastReportServlet</servlet-name>
         <url-pattern>/LecturerPastReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUserProfileServlet</servlet-name>
+        <url-pattern>/AdminUserProfileServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

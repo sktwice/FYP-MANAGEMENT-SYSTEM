@@ -1,15 +1,11 @@
-<%-- 
-    Document   : UserProfile-Admin
-    Created on : May 2, 2024, 6:13:32 PM
-    Author     : User
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.fyp.model.bean.Admin"%>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="wi
+              dth=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <link rel="stylesheet" href="../css/style.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
@@ -50,7 +46,7 @@
                 color: #000;
             }
             .tabs ul li a:hover {
-                background-color: #00b89c; /* Custom hover color */
+                background-color: #00b89c;
             }
             .tabs ul li.is-active.light-theme a {
                 color: #000;
@@ -75,10 +71,10 @@
             <div class="main-content">
                 <section class="section">
                     <div class="container">
-                        <h1 class="title has-text-grey">zahidi</h1>
+                        <h1 class="title has-text-grey"><%= ((Admin) request.getAttribute("admin")).getaName() %></h1>
                         <div class="column is-one-two">
                             <figure class="image is-128x128">
-                                <img id="profile-img" src="https://via.placeholder.com/128" alt="Profile Picture">
+                                <img id="profile-img" src="<%= ((Admin) request.getAttribute("admin")).getaImage() %>" alt="Profile Picture">
                             </figure>
                             <a id="remove-picture" href="#">Remove picture</a>
                             <div class="file is-small">
@@ -96,13 +92,14 @@
                                 </ul>
                             </div>
                             <div id="details-tab" class="tab-content">
-                                <form>
+                                <form action=" " method = "post">
                                     <div class="columns">
                                         <div class="column is-one-third">
                                             <div class="field">
+                                                <input type="hidden" name="id" value="<%= ((Admin) request.getAttribute("admin")).getAdminId() %>" />
                                                 <label class="label has-text-grey">Name</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="text" placeholder="Name">
+                                                    <input class="input custom-input2" type="text" placeholder="Name" value="<%= ((Admin) request.getAttribute("admin")).getaName() %>">
                                                 </div>
                                             </div>
                                         </div>
@@ -110,7 +107,7 @@
                                             <div class="field">
                                                 <label class="label has-text-grey">Phone Number</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="text" placeholder="Phone Number">
+                                                    <input class="input custom-input2" type="text" placeholder="Phone Number" value="<%= ((Admin) request.getAttribute("admin")).getPhoneNum() %>">
                                                 </div>
                                             </div>
                                         </div>
@@ -118,17 +115,9 @@
                                     <div class="columns">
                                         <div class="column is-one-third">
                                             <div class="field">
-                                                <label class="label has-text-grey">Address</label>
-                                                <div class="control">
-                                                    <input class="input custom-input2" type="text" placeholder="Address">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column is-one-third">
-                                            <div class="field">
                                                 <label class="label has-text-grey">Email Address</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="text" placeholder="Email Address">
+                                                    <input class="input custom-input2" type="text" placeholder="Email Address" value="<%= ((Admin) request.getAttribute("admin")).getEmail() %>">
                                                 </div>
                                             </div>
                                         </div>
@@ -165,7 +154,7 @@
                                             <div class="field">
                                                 <label class="label has-text-grey">Confirm New Password</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="password" placeholder="Confirm Current Password">
+                                                    <input class="input custom-input2" type="password" placeholder="Confirm New Password">
                                                 </div>
                                             </div>
                                         </div>
@@ -184,7 +173,6 @@
         </div>
 
         <script>
-            // Handling profile picture upload
             document.getElementById('profile-picture').addEventListener('change', function (event) {
                 const file = event.target.files[0];
                 const reader = new FileReader();
@@ -196,25 +184,20 @@
                 reader.readAsDataURL(file);
             });
 
-            // Handling remove picture link
             document.getElementById('remove-picture').addEventListener('click', function (event) {
                 event.preventDefault();
                 document.getElementById('profile-img').src = 'https://via.placeholder.com/128';
                 document.getElementById('profile-picture').value = '';
             });
+
             document.querySelectorAll('.tabs ul li').forEach(tab => {
                 tab.addEventListener('click', function () {
                     document.querySelectorAll('.tabs ul li').forEach(tab => tab.classList.remove('is-active'));
                     tab.classList.add('is-active');
 
                     const targetTab = tab.getAttribute('data-tab');
-                    const currentTheme = document.body.getAttribute('data-theme');
-
                     document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
                     document.getElementById(targetTab).classList.remove('hidden');
-
-                    // Update active tab style based on current theme
-                    updateActiveTabStyle(currentTheme);
                 });
             });
         </script>
