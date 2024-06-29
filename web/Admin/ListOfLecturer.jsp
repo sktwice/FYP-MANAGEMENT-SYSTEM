@@ -78,7 +78,7 @@
                                             <td class="has-text-centered">
                                                 <i class="button is-success is-outlined"><a
                                                         href="${pageContext.request.contextPath}/editLecturer?id=${lecturer.lId}"
-                                                        class="btn btn-info fas fa-eye has-text-success"></a></i>
+                                                        class="btn btn-info fas fa-edit has-text-success"></a></i>
                                                 <i class="button is-danger is-outlined"><a
                                                         href="${pageContext.request.contextPath}/deleteLecturer?id=${lecturer.lId}"
                                                         class="btn btn-danger fas fa-trash has-text-danger"></a></i>

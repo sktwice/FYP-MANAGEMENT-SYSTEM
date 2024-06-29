@@ -130,25 +130,25 @@
 
 <div class="sidebar">
     <div class="logo">
-        <img src="../assets/uitm-logo.png" alt="Logo">
+        <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" alt="Logo">
     </div>
     <ul class="nav-list">
-        <li><a href="Dashboard-Examiner.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
-        <li><a href="UserProfile-Examiner.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
-        <li><a href="List-Of-Proposal-Examiner.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
-        <li><a href="Form.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
-        <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
+        <li><a href="${pageContext.request.contextPath}/Examiners/Dashboard-Examiner.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
+        <li><a href="${pageContext.request.contextPath}/ExaminerUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
+        <li><a href="${pageContext.request.contextPath}/Examiners/List-Of-Proposal-Examiner.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
+        <li><a href="${pageContext.request.contextPath}/Examiners/Form.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
+        <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
     </ul>
 </div>
 
 <div class="navbar">
     <button class="hamburger"><i class="icon-menu"></i></button>
     <ul class="nav-list">
-        <li><a href="Dashboard-Examiner.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
-        <li><a href="UserProfile-Examiner.jsp"><i class="fa fa-user mx-2"></i> Profile</a></li>
-        <li><a href="List-Of-Proposal-Examiner.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
-        <li><a href="Form.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
-        <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
+        <li><a href="${pageContext.request.contextPath}/Examiners/Dashboard-Examiner.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
+        <li><a href="${pageContext.request.contextPath}/ExaminerUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
+        <li><a href="${pageContext.request.contextPath}/Examiners/List-Of-Proposal-Examiner.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
+        <li><a href="${pageContext.request.contextPath}/Examiners/Form.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
+        <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
     </ul>
 </div>
 

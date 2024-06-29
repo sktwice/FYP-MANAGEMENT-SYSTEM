@@ -9,24 +9,24 @@ package com.fyp.model.bean;
  * @author User
  */
 public class FormTeach {
-    private int formTId;
+    private int formtId;
     private int studentId;
     private int tId;
     private int proId;
     
-    public FormTeach(int formTId, int studentId, int tId, int proId){
-        this.formTId=formTId;
+    public FormTeach(int formtId, int studentId, int tId, int proId){
+        this.formtId=formtId;
         this.studentId=studentId;
         this.tId=tId;
         this.proId=proId;
     }
     
-    public FormTeach(int formTId){
-        this.formTId=formTId;
+    public FormTeach(int formtId){
+        this.formtId=formtId;
     }
 
     public int getFormTId() {
-        return formTId;
+        return formtId;
     }
 
     public int getStudentId() {
@@ -41,8 +41,8 @@ public class FormTeach {
         return proId;
     }
 
-    public void setFormTId(int formTId) {
-        this.formTId = formTId;
+    public void setFormTId(int formtId) {
+        this.formtId = formtId;
     }
 
     public void setStudentId(int studentId) {

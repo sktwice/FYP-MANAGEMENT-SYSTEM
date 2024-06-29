@@ -53,7 +53,7 @@
                                                         <th
                                                             class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
                                                             Programme</th>
-                                                        <thclass="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
+                                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
                                                             Action</th>
                                                     </tr>
                                                 </thead>
@@ -81,9 +81,9 @@
 
                                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"
                                                                 data-label="Action">
-                                                                <button class="button is-custom is-small">View</button>
+                                                                <button class="button is-success is-outlined mr-2 is-small"><i class="fas fa-eye"></i></button>
                                                                 <button
-                                                                    class="button is-custom3 is-small">Download</button>
+                                                                    class="button is-info is-outlined is-small"><i class="fas fa-download"></i></button>
                                                             </td>
                                                         </tr>
                                                     </c:forEach>

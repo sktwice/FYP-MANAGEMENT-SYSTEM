@@ -108,14 +108,15 @@ public class FormDAO {
 
     // Method to insert Form5
     public void insertForm5(Form5 form5) throws SQLException {
-        String sql = "INSERT INTO form5 (form_id, date_meet, completed_activity, next_activity, approval) VALUES (?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO form5 (form_id, date_meet, completed_activity, next_activity, approval, pro_ID) VALUES (?, ?, ?, ?, ?, ?);";
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, form5.getFormTId());
+            preparedStatement.setInt(1, form5.getFormId());
             preparedStatement.setString(2, form5.getDateMeet());
             preparedStatement.setString(3, form5.getCompleteActivity());
             preparedStatement.setString(4, form5.getNextActivity());
             preparedStatement.setString(5, form5.getApproval());
+            preparedStatement.setInt(6, form5.getProId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);

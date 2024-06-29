@@ -225,6 +225,10 @@
         <servlet-class>com.fyp.Form.SupervisorViewServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>SupervisionServlet</servlet-name>
+        <servlet-class>com.fyp.Supervision.SupervisionServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>SupervisorProjectDetailsServlet</servlet-name>
         <servlet-class>com.fyp.Form.SupervisorProjectDetailsServlet</servlet-class>
     </servlet>
@@ -311,6 +315,46 @@
     <servlet>
         <servlet-name>LecturerPastReportServlet</servlet-name>
         <servlet-class>com.fyp.Lecturer.Scope.LecturerPastReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AssignExaminerServlet</servlet-name>
+        <servlet-class>com.fyp.Lecturer.List.AssignExaminerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateExaminerServlet</servlet-name>
+        <servlet-class>com.fyp.Lecturer.List.UpdateExaminerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DownloadPastReportServlet</servlet-name>
+        <servlet-class>com.fyp.Download.DownloadPastReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewPdfServlet</servlet-name>
+        <servlet-class>com.fyp.Download.ViewPdfServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListPastReportsServlet</servlet-name>
+        <servlet-class>com.fyp.Download.ListPastReportsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAdminUserProfile</servlet-name>
+        <servlet-class>com.fyp.UserProfile.UpdateAdminUserProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentUserProfileServlet</servlet-name>
+        <servlet-class>com.fyp.UserProfile.StudentUserProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerUserProfileServlet</servlet-name>
+        <servlet-class>com.fyp.UserProfile.LecturerUserProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SupervisorUserProfileServlet</servlet-name>
+        <servlet-class>com.fyp.UserProfile.SupervisorUserProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExaminerUserProfileServlet</servlet-name>
+        <servlet-class>com.fyp.UserProfile.ExaminerUserProfileServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
@@ -619,6 +663,50 @@
     <servlet-mapping>
         <servlet-name>AdminUserProfileServlet</servlet-name>
         <url-pattern>/AdminUserProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupervisionServlet</servlet-name>
+        <url-pattern>/SupervisionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AssignExaminerServlet</servlet-name>
+        <url-pattern>/AssignExaminerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateExaminerServlet</servlet-name>
+        <url-pattern>/UpdateExaminerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadPastReportServlet</servlet-name>
+        <url-pattern>/DownloadPastReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewPdfServlet</servlet-name>
+        <url-pattern>/ViewPdfServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListPastReportsServlet</servlet-name>
+        <url-pattern>/ListPastReportsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAdminUserProfile</servlet-name>
+        <url-pattern>/UpdateAdminUserProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentUserProfileServlet</servlet-name>
+        <url-pattern>/StudentUserProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerUserProfileServlet</servlet-name>
+        <url-pattern>/LecturerUserProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupervisorUserProfileServlet</servlet-name>
+        <url-pattern>/SupervisorUserProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExaminerUserProfileServlet</servlet-name>
+        <url-pattern>/ExaminerUserProfileServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

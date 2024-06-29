@@ -24,7 +24,7 @@
         <div class="custom-border p-6 w-100">
             <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
                 <div>
-                    <label class="has-text-weight-bold has-text-grey is-size-5">Student List With Supervisor</label>
+                    <label class="has-text-weight-bold has-text-grey is-size-5">Student List Without Examiner</label>
                     <p class="has-text-success is-size-7">Students with accepted Supervisor</p>
                 </div>
                 <div class="columns m-0 p-0">
@@ -53,21 +53,21 @@
                 <table class="">
                     <thead>
                         <tr class="" style="border-bottom: 2px solid #ddd;">
-                            <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Topic</th>
-                            <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Student Name</th>
                             <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Matric ID</th>
-                            <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Supervisor Name</th>
-                            <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Examiner Name</th>
+                            <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Student Name</th>
+                            <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Project Title</th>
+                            <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="supervision" items="${listSupervision}">
+                        <c:forEach var="assign" items="${projectStudents}">
                             <tr>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Topic">${supervision.proTitle}</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Student Name">${supervision.studentName}</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Matric ID">${supervision.studentId}</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Supervisor Name">${supervision.supervisorName}</td>
-                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Examiner Name">${supervision.examinerName}</td>
+                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Matric ID">${assign.studentId}</td>
+                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Student Name">${assign.studentName}</td>
+                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Project Title">${assign.projectTitle}</td>
+                                <td class="is-size-7 has-text-centered" data-label="Action">
+                                    <button class="button is-small is-info" onclick="openAssignModal(${assign.studentId})">Assign</button>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -92,5 +92,56 @@
     </div>
 </div>
    </div>
+
+<!-- Existing HTML content in AssignExaminer.jsp -->
+
+<!-- Modal for selecting an examiner -->
+<!-- Modal for Assign Examiner -->
+<div id="assignModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <h2 class="title is-4">Assign Examiner</h2>
+            <form id="assignForm" action="UpdateExaminerServlet" method="post">
+                <input type="hidden" id="studentId" name="studentId" value="">
+                <div class="field">
+                    <label class="label">Select Examiner</label>
+                    <div class="control">
+                        <div class="select">
+                            <select name="examinerId" id="examinerId">
+                                <c:forEach var="examiner" items="${examiners}">
+                                    <option value="${examiner.exId}">${examiner.LName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-info">Assign</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
+</div>
+
+<!-- JavaScript to handle modal -->
+<script>
+    function openAssignModal(studentId) {
+        var modal = document.getElementById('assignModal');
+        var hiddenInput = document.getElementById('studentId');
+        hiddenInput.value = studentId;  // Set the studentId in the hidden input field
+        modal.classList.add('is-active');  // Add 'is-active' class to show the modal
+    }
+
+    function closeModal() {
+        var modal = document.getElementById('assignModal');
+        modal.classList.remove('is-active');  // Remove 'is-active' class to hide the modal
+    }
+</script>
+
+
 </body>
 </html>

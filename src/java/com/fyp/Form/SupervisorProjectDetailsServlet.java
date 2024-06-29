@@ -31,13 +31,13 @@ public class SupervisorProjectDetailsServlet extends HttpServlet {
         int proId = Integer.parseInt(request.getParameter("proId"));
         int studentId = Integer.parseInt(request.getParameter("studentId"));
 
-        List<FormTeach> forms = form5DAO.getFormsByStudentId(studentId);
+        List<Form5> forms = form5DAO.getFormsByStudentId(studentId);
         if (forms.isEmpty()) {
             request.setAttribute("message", "No forms found for the student ID: " + studentId);
         } else {
             List<Form5> form5List = new ArrayList<>();
-            for (FormTeach form : forms) {
-                form5List.addAll(form5DAO.getForm5ByFormId(form.getFormTId()));
+            for (Form5 form : forms) {
+                form5List.addAll(form5DAO.getForm5ByFormId(form.getFormId()));
             }
             request.setAttribute("form5List", form5List);
         }

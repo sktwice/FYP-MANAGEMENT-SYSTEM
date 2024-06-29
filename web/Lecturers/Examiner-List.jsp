@@ -29,7 +29,7 @@
                                     <label class="has-text-weight-bold has-text-grey is-size-5">List of Examiner</label>
                                     <p class="has-text-grey-light is-size-7">More than ${examiners.size()} lecturers</p>
                                 </div>
-                                <a class="button is-custom4" style="height:2rem;" href="${pageContext.request.contextPath}/addForm">
+                                <a class="button is-custom4" style="height:2rem;" href="${pageContext.request.contextPath}/AssignExaminerServlet">
                                 <span class="is-size-7">Assign</span>
                             </a>
                         </div>

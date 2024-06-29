@@ -8,17 +8,32 @@ package com.fyp.model.bean;
  *
  * @author User
  */
-public class Form5 extends FormTeach {
+public class Form5{
     
+    private int formId;
     private String dateMeet;
     private String completeActivity;
     private String nextActivity;
     private String approval;
+    private int proId;
     
-    public Form5(int formtId,
-            String dateMeet, String completeActivity, String nextActivity, String approval) {
-        super(formtId);
+    public Form5(int formId,String dateMeet, String completeActivity, String nextActivity, String approval, int proId) {
+        this.formId=formId;
+        this.dateMeet=dateMeet;
+        this.completeActivity=completeActivity;
+        this.nextActivity = nextActivity;
+        this.approval=approval;
+        this.proId=proId;
         
+    }
+
+    public Form5(int formId, int proId) {
+        this.formId=formId;
+        this.proId=proId;
+    }
+
+    public Form5(int formId, String dateMeet, String completeActivity, String nextActivity, String approval) {
+        this.formId=formId;
         this.dateMeet=dateMeet;
         this.completeActivity=completeActivity;
         this.nextActivity = nextActivity;
@@ -55,6 +70,22 @@ public class Form5 extends FormTeach {
 
     public void setApproval(String approval) {
         this.approval = approval;
+    }
+
+    public int getFormId() {
+        return formId;
+    }
+
+    public int getProId() {
+        return proId;
+    }
+
+    public void setFormId(int formId) {
+        this.formId = formId;
+    }
+
+    public void setProId(int proId) {
+        this.proId = proId;
     }
     
     

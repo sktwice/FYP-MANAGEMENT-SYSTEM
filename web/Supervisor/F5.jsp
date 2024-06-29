@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.fyp.model.bean.Form5" %>
 <!DOCTYPE html>
 <html style="height:100%;">
 <head>
@@ -24,7 +25,7 @@
                     <table class="">
                         <thead>
                         <tr style="border-bottom: 2px solid #ddd;">
-                            <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Form ID</th>
+                           
                             <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Date Meet</th>
                             <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Completed Activity</th>
                             <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Next Activity</th>
@@ -35,7 +36,7 @@
                         <tbody>
                         <c:forEach var="form5" items="${form5List}">
                             <tr>
-                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.formId}</td>
+                               
                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.dateMeet}</td>
                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.completeActivity}</td>
                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.nextActivity}</td>

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.fyp.Download;
 
 import com.fyp.Supervisor.RequestSv.PdfFileDao;
@@ -22,7 +18,8 @@ import java.io.OutputStream;
 public class DownloadProposalServlet extends HttpServlet {
     private PdfFileDao pdfFileDao = new PdfFileDao();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int proposalId = Integer.parseInt(request.getParameter("proposalId"));
         Proposal proposal = pdfFileDao.getProposal(proposalId);
         String filePath = getServletContext().getRealPath("") + File.separator + proposal.getPdfUrl();
@@ -46,5 +43,10 @@ public class DownloadProposalServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 }

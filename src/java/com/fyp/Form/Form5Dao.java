@@ -18,20 +18,16 @@ public class Form5Dao {
     private String jdbcUsername = "root";
     private String jdbcPassword = "";
 
-    private static final String SELECT_FORMS_BY_STUDENT_ID = "SELECT * FROM formteach WHERE student_id = ?";
-    private static final String SELECT_FORM5_BY_FORM_ID = "SELECT * FROM form5 WHERE formt_id = ? ORDER BY date_meet";
+    private static final String SELECT_FORMS_BY_STUDENT_ID = "SELECT f.* FROM form5 f JOIN project p ON f.pro_ID = p.pro_ID WHERE p.student_id =?;";
+    private static final String SELECT_FORM5_BY_FORM_ID = "SELECT * FROM form5 WHERE form_id = ? ORDER BY date_meet";
 
     private static final String SELECT_PROJECT_BY_STUDENT_ID = "SELECT * FROM project WHERE student_id = ?";
     private static final String SELECT_PROJECTS_BY_LECTURER_ID = "SELECT * FROM project WHERE sv_id = ?";
     private static final String INSERT_FORM_SQL = "INSERT INTO form (form_id, student_id, l_id, pro_id) VALUES (?, ?, ?, ?)";
-    private static final String INSERT_FORM5 = "INSERT INTO form5 (formt_id, date_meet, completed_activity) VALUES (?, ?, ?)";
-    private static final String UPDATE_FORM5_SQL = "UPDATE form5 SET next_activity = ?, approval = ? WHERE formt_id = ?";
-    private static final String SELECT_PROJECTS_BY_LECTURER_ID_WITH_FORM5 =
-        "SELECT DISTINCT p.pro_ID, p.student_id, p.sv_id, p.pro_title, p.domain, p.pro_url, p.session, p.scope_id, p.proposal_id " +
-        "FROM project p " +
-        "JOIN formteach f ON p.sv_id = f.sv_id " +
-        "JOIN form5 f5 ON f.formt_id = f5.formt_id " +
-        "WHERE p.sv_id = ?";
+    private static final String INSERT_FORM5 = "INSERT INTO form5 (form_id, date_meet, completed_activity, pro_ID) VALUES (?, ?, ?,?)";
+    private static final String UPDATE_FORM5_SQL = "UPDATE form5 SET next_activity = ?, approval = ? WHERE form_id = ?";
+    private static final String SELECT_PROJECTS_BY_LECTURER_ID_WITH_FORM5 ="SELECT DISTINCT p.pro_ID, p.student_id, p.sv_id, p.pro_title, p.domain, p.pro_url, p.session, p.scope_id, p.proposal_id FROM project p JOIN form5 f5 ON p.pro_ID = f5.pro_ID WHERE p.sv_id = ?;";
+        
 
 
     protected Connection getConnection() {
@@ -45,17 +41,16 @@ public class Form5Dao {
         return connection;
     }
 
-    public List<FormTeach> getFormsByStudentId(int studentId) {
-        List<FormTeach> forms = new ArrayList<>();
+    public List<Form5> getFormsByStudentId(int studentId) {
+        List<Form5> forms = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FORMS_BY_STUDENT_ID)) {
             preparedStatement.setInt(1, studentId);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                int formtId = rs.getInt("formt_id");
-                int svId = rs.getInt("sv_id");
+                int formId = rs.getInt("form_id");
                 String proId = rs.getString("pro_ID");
-                forms.add(new FormTeach(formtId, studentId, svId, Integer.parseInt(proId)));
+                forms.add(new Form5(formId, Integer.parseInt(proId)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,18 +58,18 @@ public class Form5Dao {
         return forms;
     }
 
-    public List<Form5> getForm5ByFormId(int formtId) {
+    public List<Form5> getForm5ByFormId(int formId) {
         List<Form5> form5List = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FORM5_BY_FORM_ID)) {
-            preparedStatement.setInt(1, formtId);
+            preparedStatement.setInt(1, formId);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 String dateMeet = rs.getString("date_meet");
                 String completeActivity = rs.getString("completed_activity");
                 String nextActivity = rs.getString("next_activity");
                 String approval = rs.getString("approval");
-                Form5 form5 = new Form5(formtId, dateMeet, completeActivity, nextActivity, approval);
+                Form5 form5 = new Form5(formId, dateMeet, completeActivity, nextActivity, approval);
                 form5List.add(form5);
             }
         } catch (Exception e) {
@@ -136,9 +131,10 @@ public class Form5Dao {
              PreparedStatement preparedStatement2 = connection.prepareStatement(INSERT_FORM5)) {
 
 
-            preparedStatement2.setInt(1, form5.getFormTId());
+            preparedStatement2.setInt(1, form5.getFormId());
             preparedStatement2.setDate(2, java.sql.Date.valueOf(form5.getDateMeet()));
             preparedStatement2.setString(3, form5.getCompleteActivity());
+            preparedStatement2.setInt(4, form5.getProId());
             preparedStatement2.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -208,11 +204,11 @@ public class Form5Dao {
            System.out.println("Updating Form5:");
         System.out.println("Next Activity: " + form5.getNextActivity());
         System.out.println("Approval: " + form5.getApproval());
-        System.out.println("Form ID: " + form5.getFormTId());
+        System.out.println("Form ID: " + form5.getFormId());
 
         preparedStatement.setString(1, form5.getNextActivity());
         preparedStatement.setString(2, form5.getApproval());
-        preparedStatement.setInt(3, form5.getFormTId());
+        preparedStatement.setInt(3, form5.getFormId());
 
         // Print the statement to check values
         System.out.println("Executing update: " + preparedStatement);

@@ -7,7 +7,7 @@
         <meta name="viewport" content="wi
               dth=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <title>User Profile</title>
         <style>

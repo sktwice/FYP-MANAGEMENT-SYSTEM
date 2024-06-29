@@ -23,6 +23,10 @@ public class Form5Servlet extends HttpServlet {
     public void init() {
         formDAO = new Form5Dao();
     }
+    private int generateFormId() {
+        Random random = new Random();
+        return random.nextInt(10000) + 1; // Generates a random number between 1 and 10000
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,13 +40,13 @@ public class Form5Servlet extends HttpServlet {
         int studentId = (int) session.getAttribute("student_id");
         System.out.println("DEBUG: Student ID: " + studentId); // Debug statement to print student_id
 
-        List<FormTeach> forms = formDAO.getFormsByStudentId(studentId);
+        List<Form5> forms = formDAO.getFormsByStudentId(studentId);
         if (forms.isEmpty()) {
             request.setAttribute("message", "No forms found for the student ID: " + studentId);
         } else {
             List<Form5> form5List = new ArrayList<>();
-            for (FormTeach form : forms) {
-                form5List.addAll(formDAO.getForm5ByFormId(form.getFormTId()));
+            for (Form5 form : forms) {
+                form5List.addAll(formDAO.getForm5ByFormId(form.getFormId()));
             }
             request.setAttribute("form5List", form5List);
         }
@@ -63,7 +67,7 @@ public class Form5Servlet extends HttpServlet {
         if (action != null && action.equals("addForm5")) {
     int studentId = (int) session.getAttribute("student_id");
     
-    int formtId = formDAO.getFormtIdByStudentAndProject(studentId);
+    int formId = generateFormId();
 
     // Retrieve Project details based on studentId
     Project project = formDAO.getProjectByStudentId(studentId);
@@ -82,7 +86,7 @@ public class Form5Servlet extends HttpServlet {
     String completeActivity = request.getParameter("completeActivity");
 
     // Create Form5 object and insert into database
-    Form5 form5 = new Form5(formtId, dateMeet, completeActivity, null, null);
+    Form5 form5 = new Form5(formId, dateMeet, completeActivity, null, null, proId);
     formDAO.insertForm5(form5);
 
     // Redirect back to doGet to refresh the page with updated data

@@ -7,6 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -21,7 +22,10 @@ public class AdminUserProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int adminId = Integer.parseInt(request.getParameter("admin_id"));
+        
+        HttpSession session = request.getSession(false);
+
+        int adminId = (int) session.getAttribute("admin_id");
         Admin existingAdmin = userDao.selectAdmin(adminId);
 
         if (existingAdmin != null) {
