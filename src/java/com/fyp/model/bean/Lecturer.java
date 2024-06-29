@@ -71,6 +71,20 @@ public class Lecturer {
         this.email=email;
     }
 
+    public Lecturer(int id, String name, String position, String email) {
+        this.lId = lId;
+        this.fId = fId;
+        this.loginId = loginId;
+        this.adminId = adminId;
+        this.position = position;
+        this.iImage = iImage;
+        this.lName = lName;
+        this.phoneNum = phoneNum;
+        this.email = email;
+        this.lCourse = lCourse;
+        this.svId = svId; // Set the supervisor ID
+    }
+
 
     public int getlId() {
         return lId;

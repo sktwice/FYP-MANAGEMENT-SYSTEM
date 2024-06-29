@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.fyp.model.bean.Lecturer" %>
-<%@ page import="com.fyp.model.bean.Faculty" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
@@ -19,7 +18,7 @@
     <div class="content-wrapper">
         <jsp:include page="../admin-sidebar.jsp"></jsp:include>
         <div class="main-content">
-            <div class="column h-100 px-4 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
+            <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
                 <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
                     <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search"
                         style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
@@ -29,7 +28,7 @@
                     </span>
                 </div>
 
-                <div class="custom-border p-4 w-100">
+                <div class="custom-border p-6 w-100">
                     <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                         <div>
                             <label class="has-text-weight-bold has-text-grey is-size-5">List of Lecturers</label>
@@ -65,27 +64,32 @@
                                 <tbody id="tableBody">
                                     <c:forEach var="lecturer" items="${listLecturer}">
                                         <tr>
-                                            <td class="has-text-centered">
+                                            <td class="has-text-centered" style="word-break: break-word;">
                                                 <c:out value="${lecturer.lName}" />
                                             </td>
-                                            <td class="has-text-centered">
+                                            <td class="has-text-centered" style="word-break: break-word;">
                                                 <c:out value="${lecturer.lId}" />
                                             </td>
-                                            <td class="has-text-centered">
+                                            <td class="has-text-centered" style="word-break: break-word;">
                                                 <c:out value="${lecturer.positions}" />
                                             </td>
                                             <td class="has-text-centered" style="word-break: break-word;">
                                                 <c:out value="${lecturer.email}" />
                                             </td>
                                             <td class="has-text-centered">
-                                                <i class="button is-success is-outlined is-small mr-1 js-modal-trigger" data-target="modal-ter">
-                                                    <a class="btn btn-info fas fa-edit has-text-success">
-                                                       
+                                                <button class="button is-success is-outlined edit-button" 
+                                                        data-id="${lecturer.lId}" 
+                                                        data-name="${lecturer.lName}" 
+                                                        data-position="${lecturer.positions}" 
+                                                        data-email="${lecturer.email}">
+                                                    <span class="fas fa-edit has-text-success is-size-7"></span>
+                                                </button>
+                                                <i class="button is-danger is-outlined">
+                                                    <a
+                                                        href="${pageContext.request.contextPath}/deleteLecturer?id=${lecturer.lId}"
+                                                        class="btn btn-danger fas fa-trash has-text-danger is-size-7">
                                                     </a>
                                                 </i>
-                                                <i class="button is-danger is-outlined is-small"><a
-                                                        href="${pageContext.request.contextPath}/deleteLecturer?id=${lecturer.lId}"
-                                                        class="btn btn-danger fas fa-trash has-text-danger"></a></i>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -97,44 +101,47 @@
             </div>
         </div>
     </div>
-    <div id="modal-ter" class="modal">
+    <!-- Modal structure -->
+    <div id="editModal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
-          <header class="modal-card-head has-background-white">
-            <p class="modal-card-title title has-text-grey-dark">Edit Lecturer</p>
-            <button class="delete" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body has-background-white">
-            <div class="content">
-                <form action="updateLecturer" method="post">
-                    <% if (request.getAttribute("lecturer") != null) { %>
-                    <input type="hidden" name="id" value="<%= ((Lecturer) request.getAttribute("lecturer")).getlId() %>" />
-                    <fieldset class="form-group">
-                        <label>Lecturer Name</label>
-                        <input type="text" value="<%= ((Lecturer) request.getAttribute("lecturer")).getlName() %>" class="form-control" name="lName" required="required">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>Position</label>
-                        <input type="text" value="<%= ((Lecturer) request.getAttribute("lecturer")).getPosition() %>" class="form-control" name="position">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label>Email</label>
-                        <input type="text" value="<%= ((Lecturer) request.getAttribute("lecturer")).getEmail() %>" class="form-control" name="email">
-                    </fieldset>
-                    <input type="hidden" name="f_id" value="<%= ((Lecturer) request.getAttribute("lecturer")).getfId() %>" />
-                    
-                    <% } %>
+            <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
+                <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Edit Lecturer</p>
+                <button class="delete" aria-label="close" onclick="closeModal()"></button>
+            </header>
+            <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
+                <!-- Form to edit lecturer details -->
+                <form id="editLecturerForm" action="${pageContext.request.contextPath}/editLecturer" method="post">
+                    <input type="hidden" id="lecturerId" name="lId">
+                    <div class="field">
+                        <label class=" has-text-weight-semibold has-text-grey">Name</label>
+                        <div class="control">
+                            <input class="px-4 py-2" type="text" id="lecturerName" name="lName" 
+                                   style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class=" has-text-weight-semibold has-text-grey">Position</label>
+                        <div class="control">
+                            <input class="px-4 py-2" type="text" id="lecturerPosition" name="position"
+                                   style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                        </div>
+                    </div>
+                    <div class=" has-text-weight-semibold has-text-grey">
+                        <label class=" has-text-weight-semibold has-text-grey">Email</label>
+                        <div class="control">
+                            <input class="px-4 py-2" type="email" id="lecturerEmail" name="email"
+                                   style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                        </div>
+                    </div>
                 </form>
-            </div>
-          </section>
-          <footer class="modal-card-foot has-background-white">
-            <div class="buttons">
-                <button type="button" class="btn btn-secondary button is-small" onclick="window.location.href = '${pageContext.request.contextPath}/LecturerListServlet'">Back</button>
-                <button type="submit" class="btn btn-success button is-success is-small">Save</button>
-            </div>
-          </footer>
+            </section>
+            <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between">
+                <button class="button is-danger has-text-white" onclick="closeModal()">Cancel</button>
+                <button class="button is-success has-text-white" onclick="saveChanges()">Save changes</button>
+            </footer>
         </div>
-      </div>                       
+    </div>
     <script>
         document.getElementById('searchInput').addEventListener('input', function () {
             var input = this.value.toLowerCase();
@@ -154,50 +161,41 @@
             });
         });
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        // Functions to open and close a modal
-        function openModal($el) {
-          $el.classList.add('is-active');
-        }
+ <script>
+    function openModal() {
+    document.getElementById("editModal").classList.add("is-active");
+}
 
-        function closeModal($el) {
-          $el.classList.remove('is-active');
-        }
+function closeModal() {
+    document.getElementById("editModal").classList.remove("is-active");
+}
 
-        function closeAllModals() {
-          (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-            closeModal($modal);
-          });
-        }
+function saveChanges() {
+    // Perform form submission via JavaScript
+    document.getElementById('editLecturerForm').submit();
+}
 
-        // Add a click event on buttons to open a specific modal
-        (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-          const modal = $trigger.dataset.target;
-          const $target = document.getElementById(modal);
+function editLecturer(id, name, position, email) {
+    document.getElementById('lecturerId').value = id;
+    document.getElementById('lecturerName').value = name;
+    document.getElementById('lecturerPosition').value = position;
+    document.getElementById('lecturerEmail').value = email;
+    openModal();
+}
 
-          $trigger.addEventListener('click', () => {
-            openModal($target);
-          });
-        });
+// Event listener for edit buttons
+document.querySelectorAll('.edit-button').forEach(button => {
+    button.addEventListener('click', function () {
+        const id = this.getAttribute('data-id');
+        const name = this.getAttribute('data-name');
+        const position = this.getAttribute('data-position');
+        const email = this.getAttribute('data-email');
+        editLecturer(id, name, position, email);
+    });
+});
+</script>
 
-        // Add a click event on various child elements to close the parent modal
-        (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-          const $target = $close.closest('.modal');
 
-          $close.addEventListener('click', () => {
-            closeModal($target);
-          });
-        });
-
-        // Add a keyboard event to close all modals
-        document.addEventListener('keydown', (event) => {
-          if(event.key === "Escape") {
-            closeAllModals();
-          }
-        });
-      });
-    </script>
 </body>
 
 </html>

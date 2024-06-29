@@ -118,9 +118,34 @@
                     <div class="column is-full">
                         <div class="custom-border p-3 h-100 w-100">
                             <label class="has-text-weight-semibold has-text-grey">
-                                Alerts and Reminder
+                                Frequently Asked Questions (FAQs) for Lecturer
                             </label>
-                            <section class="section is-small"></section>
+                            <section class="section is-small">
+                                <a class="grid__item px-4 has-text-weight-semibold" tabindex="1">
+                                        1.<label class=" hover-underline p-1"> I am thinking of terminating my supervisory role to a student. How do I go about it?</label>
+                                    </a>
+                                    <div class="grid__description px-6 py-1">
+                                        This is not encouraged. However, if you still insist, please refer to the Terms and Conditions in the Mutual Acceptance Form (F1).
+                                    </div>
+                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="2">
+                                        2.<label class=" hover-underline p-1"> What is the maximum number of students that I can supervise?</label>
+                                    </a>
+                                    <div class="grid__description px-6 py-1">
+                                        There is no limit on the number of students you can be supervised. However, it is discretionary to have a proper distribution of students among supervisors within a department.
+                                    </div>
+                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="3">
+                                        3.<label class=" hover-underline p-1"> What if my student is frequently absent without any valid reasons from the weekly consultation?</label>
+                                    </a>
+                                    <div class="grid__description px-6 py-1">
+                                        The Supervisor should consult with the Final Year Project Coordinator or Course Lecturer. However, an 80% attendance is required by the Academic Affairs Division for all courses.
+                                    </div>
+                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="4">
+                                        4.<label class=" hover-underline p-1"> Is it compulsory for me to attend the progress presentation?</label>
+                                    </a>
+                                    <div class="grid__description px-6 py-1">
+                                        It is strongly encouraged
+                                    </div>
+                            </section>
                         </div>
                     </div>
                 </div>

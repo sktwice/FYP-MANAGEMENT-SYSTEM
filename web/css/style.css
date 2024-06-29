@@ -6,6 +6,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : May 13, 2024, 12:37:28 AM
     Author     : User
 */
+.grid__item {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    min-height: 30px;
+    font-size: .75rem;
+    color: inherit;
+    text-decoration: none;
+
+    &:focus + .grid__description {
+        max-height: 200px;
+        transition: max-height 0.4s ease-in;
+    }
+}
+
+.grid__description {
+    max-height: 0;
+    overflow: auto;
+    transition: max-height 0.15s ease-in;
+    font-size: .85rem;
+    font-weight: 600;
+}
+
 .hover-underline:hover {
     text-decoration: underline;
 }
@@ -339,26 +362,26 @@ table td {
 }
 
 .button.is-delete {
-    background-color: #FF0000;
-    border-color: #fff;
-    color: #fff;
+    background-color: #fff;
+    border-color: #FF0000;
+    color: #FF0000;
     padding: 5px 24px;
 }
 
 .button.is-delete:hover,
 .button.custom2.is-hovered {
-    background-color: #fff;
+    background-color: #FF0000;
     border-color: #FF0000;
-    color: #FF0000
+    color: #fff
 }
 
 .button.is-delete.is-outlined:hover,
 .button.is-delete.is-outlined.is-hovered,
 .button.is-delete.is-outlined:focus,
 .button.is-delete.is-outlined.is-focused {
-    background-color: #fff;
-    border-color: #fff;
-    color: #FF0000
+    background-color: #FF0000;
+    border-color: #FF0000;
+    color: #fff
 }
 
 .dropdown {

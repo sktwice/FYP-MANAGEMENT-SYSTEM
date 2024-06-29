@@ -27,7 +27,7 @@
                         <div>
                             <label class="has-text-weight-semibold has-text-grey-dark is-size-5">Past
                                 Reports</label>
-                            <p class="has-text-grey-light is-size-7">More than 400+ students' reports</p>
+                            <p class="has-text-grey-light is-size-7">More than ${pastProjects.size()} students' reports</p>
                         </div>
                     </div>
                     <div>
@@ -39,7 +39,7 @@
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Matric ID</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Semester</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Report Title</th>
-                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7"></th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tableBody">

@@ -16,7 +16,7 @@
 
 <div class="columns m-0 p-0 h-100">
     <div class="column p-6 is-justify-content-center" style="background-color:#FFFFFF; overflow-y: scroll;">
-        <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">
+        <div class="has-text-weight-semibold has-text-grey is-size-5 p-4 mb-6" style="border-bottom: 1px solid #bdbdbd">
             F5 – PROPOSAL/PROJECT IN-PROGRESS FORM
         </div>
         <div class="columns is-multiline m-0 p-0">
@@ -52,21 +52,7 @@
                             </tbody>
                         </table>
                         <br>
-                        <nav class="pagination is-small" role="navigation" aria-label="pagination">
-                            <a href="#" class="pagination-previous has-text-grey">Previous</a>
-                            <a href="#" class="pagination-next has-text-grey">Next page</a>
-                            <ul class="pagination-list">
-                                <li><a href="#" class="pagination-link has-text-grey" aria-label="Goto page 1">1</a></li>
-                                <li><span class="pagination-ellipsis">&hellip;</span></li>
-                                <li><a href="#" class="pagination-link has-text-grey" aria-label="Goto page 45">45</a></li>
-                                <li>
-                                    <a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a>
-                                </li>
-                                <li><a href="#" class="pagination-link has-text-grey" aria-label="Goto page 47">47</a></li>
-                                <li><span class="pagination-ellipsis">&hellip;</span></li>
-                                <li><a href="#" class="pagination-link has-text-grey" aria-label="Goto page 86">86</a></li>
-                            </ul>
-                        </nav>
+                        <a class="button is-custom2" href="${pageContext.request.contextPath}/Students/Form-Student.jsp">Cancel</a>
                     </div>
                 </div>
             </div>
@@ -89,8 +75,8 @@
     <div class="modal-background"></div>
     <div class="modal-content">
         <div class="box">
-            <h1 class="title is-4 has-text-centered">Add Form5 Entry</h1>
-            <form action="${pageContext.request.contextPath}/Form5Servlet" method="post">
+            <h1 class="title is-4 has-text-centered has-text-grey">Add Form 5 Entry</h1>
+            <form action="${pageContext.request.contextPath}/Form5Servlet" method="post" class="p-4">
                 <div class="field">
                     <label class="">Date Meet</label>
                     <div class="control">
@@ -106,10 +92,10 @@
                 <input type="hidden" name="action" value="addForm5">
                 <div class="field is-grouped is-grouped-centered mt-4">
                     <div class="control">
-                        <button type="submit" class="button is-primary">Submit</button>
+                        <button type="submit" class="button is-custom3 is-outlined">Submit</button>
                     </div>
                     <div class="control">
-                        <button type="button" class="button" onclick="toggleModal('addForm5Modal')">Cancel</button>
+                        <button type="button" class="button is-custom2 is-outlined" onclick="toggleModal('addForm5Modal')">Cancel</button>
                     </div>
                 </div>
             </form>

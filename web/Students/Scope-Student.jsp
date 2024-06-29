@@ -10,14 +10,14 @@
         <title>Title</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     </head>
     <body>
         <div class="content-wrapper">
             <jsp:include page="../student-sidebar.jsp"></jsp:include>
             <div class="main-content">
-                <div class="column h-100 p-5" style="background-color:#FFFFFF; overflow-y: scroll;">
-                    <div class="custom-border p-5 w-100">
+                <div class="column h-100 p-4" style="background-color:#FFFFFF; overflow-y: scroll;">
+                    <div class="custom-border p-6 w-100">
                         <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
                             <div>
                                 <label class="has-text-weight-bold has-text-grey is-size-5">FYP Scope</label>

@@ -19,8 +19,8 @@
         <div class="content-wrapper">
             <jsp:include page="../examiner-sidebar.jsp"></jsp:include>
             <div class="main-content">
-                <div class="column h-100 p-6" style="background-color:#FFFFFF; overflow-y: scroll;">
-                    <div class="custom-border p-4 w-100">
+                <div class="column h-100 p-4" style="background-color:#FFFFFF; overflow-y: scroll;">
+                    <div class="custom-border p-6 w-100">
                         <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
                             <div>
                                 <label class="has-text-weight-semibold has-text-grey-dark is-size-5">Forms</label>
