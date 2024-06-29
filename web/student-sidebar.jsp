@@ -136,16 +136,16 @@
 
 <div class="sidebar">
     <div class="logo">
-        <img src="../assets/uitm-logo.png" alt="Logo">
+        <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" alt="Logo">
     </div>
     <ul class="nav-list is-size-7">
-        <li><a href="${pageContext.request.contextPath}/Students/Dashboard.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
+        <li><a href="${pageContext.request.contextPath}/DashboardStudent"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/StudentUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Students/StudentPastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/Students/Form-Student.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
         <!--<li><a href="Lecturer"><i class="fa fa-chalkboard-teacher mx-2"></i> Request</a></li>-->
         <li><a href="${pageContext.request.contextPath}/Students/Lecturer"><i class="fa fa-check mx-2"></i> Request</a></li>
-        <!--<li><a href="Proposal.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
+        <!--<<li><a href="${pageContext.request.contextPath}/Students/Proposal.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
         <!--<li><a href="Result-Student.jsp"><i class="fa fa-check mx-2"></i> Result</a></li>-->
         <li><a href="${pageContext.request.contextPath}/Students/ScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
@@ -155,13 +155,13 @@
 <div class="navbar">
     <button class="hamburger"><i class="icon-menu" style="font-style:normal;"></i></button>
     <ul class="nav-list is-size-7">
-       <li><a href="${pageContext.request.contextPath}/Students/Dashboard.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
+       <li><a href="${pageContext.request.contextPath}/DashboardStudent><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/StudentUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Students/StudentPastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/Students/Form-Student.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
         <!--<li><a href="Lecturer"><i class="fa fa-chalkboard-teacher mx-2"></i> Request</a></li>-->
         <li><a href="${pageContext.request.contextPath}/Students/Lecturer""><i class="fa fa-check mx-2"></i> Request</a></li>
-        <!--<li><a href="Proposal.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
+        <!--<<li><a href="${pageContext.request.contextPath}/Students/Proposal.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
         <!--<li><a href="Result-Student.jsp"><i class="fa fa-check mx-2"></i> Result</a></li>-->
         <li><a href="${pageContext.request.contextPath}/Students/ScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>

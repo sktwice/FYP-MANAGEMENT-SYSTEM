@@ -356,6 +356,30 @@
         <servlet-name>ExaminerUserProfileServlet</servlet-name>
         <servlet-class>com.fyp.UserProfile.ExaminerUserProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>com.fyp.Dashboard.DashboardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashboardExaminer</servlet-name>
+        <servlet-class>com.fyp.Dashboard.DashboardExaminer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashboardLecturer</servlet-name>
+        <servlet-class>com.fyp.Dashboard.DashboardLecturer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashboardStudent</servlet-name>
+        <servlet-class>com.fyp.Dashboard.DashboardStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProgressServlet</servlet-name>
+        <servlet-class>com.fyp.Supervisor.Progress.ProgressServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashboardAdmin</servlet-name>
+        <servlet-class>com.fyp.Dashboard.DashboardAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -707,6 +731,30 @@
     <servlet-mapping>
         <servlet-name>ExaminerUserProfileServlet</servlet-name>
         <url-pattern>/ExaminerUserProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/DashboardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardExaminer</servlet-name>
+        <url-pattern>/DashboardExaminer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardLecturer</servlet-name>
+        <url-pattern>/DashboardLecturer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardStudent</servlet-name>
+        <url-pattern>/DashboardStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProgressServlet</servlet-name>
+        <url-pattern>/ProgressServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardAdmin</servlet-name>
+        <url-pattern>/DashboardAdmin</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

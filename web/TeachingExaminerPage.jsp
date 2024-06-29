@@ -53,8 +53,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="is-size-4 has-text-weight-semibold has-text-grey-dark pb-4">Select Your Role:</div>
-                        <button class="button is-custom" onclick="redirectTo('Examiners/Dashboard-Examiner.jsp')">Examiner</button>
-                        <button class="button is-custom2" onclick="redirectTo('Lecturers/Dashboard-Lecturer.jsp')">Lecturer</button>
+                        <button class="button is-custom" onclick="redirectTo('${pageContext.request.contextPath}/DashboardExaminer')">Examiner</button>
+                        <button class="button is-custom2" onclick="redirectTo('${pageContext.request.contextPath}/DashboardLecturer')">Lecturer</button>
                     </div>
                 </div>
             </div>

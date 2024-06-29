@@ -12,8 +12,8 @@
             <div class="card" style="width:16rem; height:6rem;">
                 <div class="card-body">
                     <h2>Select Your Role:</h2>
-                    <button onclick="redirectTo('Examiners/Dashboard-Examiner.jsp')">Examiner</button>
-                    <button onclick="redirectTo('Supervisor/Dashboard-Supervisor.jsp')">Supervisor</button>
+                    <button onclick="redirectTo('${pageContext.request.contextPath}/DashboardExaminer')">Examiner</button>
+                    <button onclick="redirectTo('${pageContext.request.contextPath}/DashboardServlet')">Supervisor</button>
                 </div>
             </div>
         </div>

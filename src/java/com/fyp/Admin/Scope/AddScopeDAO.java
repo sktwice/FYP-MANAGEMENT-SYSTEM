@@ -6,9 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import com.fyp.model.bean.Scope;
+import java.util.Map;
 import java.util.Random;
+import com.fyp.model.bean.Scope;
 
 public class AddScopeDAO {
 
@@ -52,11 +54,10 @@ public class AddScopeDAO {
             disconnect();
         }
     }
-    
-    
-        public int generateId() {
+
+    public int generateId() {
         Random random = new Random();
-        return 0 + random.nextInt(10000); // Generates a random digit number
+        return random.nextInt(10000); // Generates a random number up to 9999
     }
 
     private static final String SELECT_ALL_SCOPES = "SELECT scope_id, scope_name, program, session FROM scope";
@@ -82,5 +83,26 @@ public class AddScopeDAO {
         }
 
         return listScope;
+    }
+
+    private static final String SELECT_SCOPE_STUDENT_COUNT = "SELECT scope_id, COUNT(*) AS student_count FROM project GROUP BY scope_id";
+
+    public Map<Integer, Integer> getScopeStudentCount() throws SQLException {
+        Map<Integer, Integer> scopeStudentCount = new HashMap<>();
+        connect();
+
+        try (PreparedStatement statement = jdbcConnection.prepareStatement(SELECT_SCOPE_STUDENT_COUNT)) {
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int scopeId = resultSet.getInt("scope_id");
+                int studentCount = resultSet.getInt("student_count");
+                scopeStudentCount.put(scopeId, studentCount);
+            }
+        } finally {
+            disconnect();
+        }
+
+        return scopeStudentCount;
     }
 }

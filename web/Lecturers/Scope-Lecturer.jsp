@@ -69,7 +69,9 @@
                                         <td class="has-text-centered"><c:out value="${scope. scopeName}" /></td> 
                                         <td class="has-text-centered"><c:out value="${scope.program}" /></td>
                                         <td class="has-text-centered"><c:out value = "${scope.session}"/></td>
-                                        <td class="has-text-centered"></td>
+                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                            <c:out value="${scopeStudentCount[scope.scopeId]}" />
+                                        </td>
                                     </tr>
                                 </c:forEach>
                         </tbody>

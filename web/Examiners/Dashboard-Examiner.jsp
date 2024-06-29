@@ -36,29 +36,29 @@
                                     <div class="column">
                                         <div class="box custom-bg w-100 h-100">
                                             <div class="is-size-5 fas fa-user-graduate has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">20</p>
+                                            <p class="has-text-grey has-text-weight-semibold">${totalStudents}</p>
                                             <p class="has-text-grey is-size-7">Total Students</p>
                                         </div>
                                     </div>
                                     <div class="column">
                                         <div class="box custom-bg2 w-100 h-100">
                                             <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">20</p>
+                                            <p class="has-text-grey has-text-weight-semibold">${totalProject}</p>
                                             <p class="has-text-grey is-size-7">Ongoing Report</p>
                                         </div>
                                     </div>
                                     <div class="column">
                                         <div class="box custom-bg3 w-100 h-100">
                                             <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">20</p>
+                                            <p class="has-text-grey has-text-weight-semibold">${totalPastProject}</p>
                                             <p class="has-text-grey is-size-7">Past Report</p>
                                         </div>
                                     </div>
                                     <div class="column">
                                         <div class="box custom-bg4 w-100 h-100">
                                             <div class="is-size-5 fas fa-list-check has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">20</p>
-                                            <p class="has-text-grey is-size-7">Ongoing Task</p>
+                                            <p class="has-text-grey has-text-weight-semibold">${totalScope}</p>
+                                            <p class="has-text-grey is-size-7">Total Scope</p>
                                         </div>
                                     </div>
                                 </div>

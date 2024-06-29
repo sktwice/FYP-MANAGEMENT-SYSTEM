@@ -67,6 +67,8 @@ public class UserDao {
             int phoneNum = rs.getInt("phone_num");
             String email = rs.getString("email");
             String lCourse = rs.getString("l_course");
+            
+            System.out.println(lImage);
 
             lecturer = new Lecturer(lId, fId, loginId, adminId, position, lImage, lName, phoneNum, email, lCourse);
         }

@@ -30,28 +30,28 @@
                     <div class="column is-one-quarter">
                         <div class="box custom-bg w-100 h-100">
                             <div class="is-size-4 fas fa-user-graduate has-text-grey"></div>
-                            <p class="has-text-grey has-text-weight-semibold is-size-5">20</p>
+                            <p class="has-text-grey has-text-weight-semibold is-size-5">${totalStudents}</p>
                             <p class="has-text-grey is-size-6">Total Students</p>
                         </div>
                     </div>
                     <div class="column is-one-quarter">
                         <div class="box custom-bg2 w-100 h-100">
                             <div class="is-size-4 fas fa-chalkboard-teacher has-text-grey"></div>
-                            <p class="has-text-grey has-text-weight-semibold is-size-5">20</p>
+                            <p class="has-text-grey has-text-weight-semibold is-size-5">${totalLecturer}</p>
                             <p class="has-text-grey is-size-6">Total Lecturers</p>
                         </div>
                     </div>
                     <div class="column is-one-quarter">
                         <div class="box custom-bg3 w-100 h-100">
                             <div class="is-size-4 fas fa-book has-text-grey"></div>
-                            <p class="has-text-grey has-text-weight-semibold is-size-5">20</p>
-                            <p class="has-text-grey is-size-6">Total Topics</p>
+                            <p class="has-text-grey has-text-weight-semibold is-size-5">${totalScope}</p>
+                            <p class="has-text-grey is-size-6">Total Scope</p>
                         </div>
                     </div>
                     <div class="column is-one-quarter">
                         <div class="box custom-bg4 w-100 h-100">
                             <div class="is-size-4 fas fa-file-alt has-text-grey"></div>
-                            <p class="has-text-grey has-text-weight-semibold is-size-5">20</p>
+                            <p class="has-text-grey has-text-weight-semibold is-size-5">${totalProject}</p>
                             <p class="has-text-grey is-size-6">Total Reports</p>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         <div class="card">
                             <div class="card-image">
                                 <figure style="">
-                                    <img src="../assets/uitm_background.jpeg" style="height:12rem; width:100rem;">
+                                    <img src="${pageContext.request.contextPath}/assets/uitm_background.jpeg" style="height:12rem; width:100rem;">
                                 </figure>
                             </div>
                             <div class="card-content">

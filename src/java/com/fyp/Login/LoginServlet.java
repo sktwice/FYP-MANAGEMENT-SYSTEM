@@ -55,7 +55,8 @@ public class LoginServlet extends HttpServlet {
                     Admin admin = adminDAO.getAdminByLoginId(login.getLoginId());
                     if (admin != null) {
                         session.setAttribute("admin_id", admin.getAdminId());
-                        response.sendRedirect("Admin/Dashboard-Admin.jsp"); // Redirect to the admin dashboard
+                        String contextPath = request.getContextPath();
+                        response.sendRedirect(contextPath +"/DashboardAdmin"); // Redirect to the admin dashboard
                     } else {
                         response.sendRedirect("generic.jsp"); // Redirect to a generic page if admin details not found
                     }
@@ -63,7 +64,8 @@ public class LoginServlet extends HttpServlet {
                     int studentId = studentDAO.getStudentIdByLoginId(login.getLoginId());
                     if (studentId != -1) {
                         session.setAttribute("student_id", studentId);
-                        response.sendRedirect("Students/Dashboard.jsp");
+                        String contextPath = request.getContextPath();
+                        response.sendRedirect(contextPath +"/DashboardStudent");
                     } else {
                         response.sendRedirect("generic.jsp"); // Redirect to a generic page if student details not found
                     }
@@ -124,17 +126,22 @@ public class LoginServlet extends HttpServlet {
                             } else if (hasActiveTeachingRole && hasActiveSupervisorRole) {
                                 response.sendRedirect("TeachingSupervisorPage.jsp");
                             } else {
-                                response.sendRedirect("Lecturers/Dashboard-Lecturer.jsp");
+                                String contextPath = request.getContextPath();
+                                response.sendRedirect(contextPath +"/DashboardLecturer");
                             }
                         } else if (roleCount == 1) {
                             if (hasActiveSupervisorRole) {
-                                response.sendRedirect("Supervisor/Dashboard-Supervisor.jsp");
+                                String contextPath = request.getContextPath();
+                                response.sendRedirect(contextPath +"/DashboardServlet");
                             } else if (hasActiveExaminerRole) {
-                                response.sendRedirect("examiner.jsp");
+                                String contextPath = request.getContextPath();
+                                response.sendRedirect(contextPath +"/DashboardExaminer");
                             } else if (hasActiveTeachingRole) {
-                                response.sendRedirect("Lecturers/Dashboard-Teaching.jsp");
+                                String contextPath = request.getContextPath();
+                                response.sendRedirect(contextPath +"/DashboardLecturer");
                             } else {
-                                response.sendRedirect("Lecturers/Dashboard-Lecturer.jsp");
+                                String contextPath = request.getContextPath();
+                                response.sendRedirect(contextPath +"/DashboardLecturer");
                             }
                         } else {
                             response.sendRedirect("generic.jsp");

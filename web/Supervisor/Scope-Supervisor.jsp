@@ -69,7 +69,9 @@
                                             <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Topic">${scope.scopeName}</td>
                                             <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Programme">${scope.program}</td>
                                             <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Session Date">${scope.session}</td>
-                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Total Students"></td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                            <c:out value="${scopeStudentCount[scope.scopeId]}" />
+                                        </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

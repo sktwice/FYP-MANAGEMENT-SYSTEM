@@ -137,11 +137,11 @@
         <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" alt="Logo">
     </div>
     <ul class="nav-list is-size-7">
-        <li><a href="${pageContext.request.contextPath}/Supervisor/Dashboard-Supervisor.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
+        <li><a href="${pageContext.request.contextPath}/DashboardServlet"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/SupervisorUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/PastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/Form-Supervisor.jsp"><i class="fa fa-folder-open mx-2"></i> Forms</a></li>
-        <li><a href="${pageContext.request.contextPath}/Supervisor/Progress-Supervisor.jsp"><i class="fa fa-qrcode mx-2"></i> Progress</a></li>
+        <li><a href="${pageContext.request.contextPath}/ProgressServlet"><i class="fa fa-qrcode mx-2"></i> Progress</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/ScopeSvServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/ViewProposalServlet"><i class="fa fa-bullseye mx-2"></i>Request</a></li>
         <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
@@ -151,11 +151,11 @@
 <div class="navbar">
     <button class="hamburger"><i class="icon-menu" style="font-style:normal;"></i></button>
     <ul class="nav-list is-size-7">
-        <li><a href="${pageContext.request.contextPath}/Supervisor/Dashboard-Supervisor.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
+        <li><a href="${pageContext.request.contextPath}/DashboardServlet"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/SupervisorUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/PastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/Form-Supervisor.jsp"><i class="fa fa-folder-open mx-2"></i> Forms</a></li>
-        <li><a href="${pageContext.request.contextPath}/Supervisor/Progress-Supervisor.jsp"><i class="fa fa-qrcode mx-2"></i> Progress</a></li>
+        <li><a href="${pageContext.request.contextPath}/ProgressServlet><i class="fa fa-qrcode mx-2"></i> Progress</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/ScopeSvServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/ViewProposalServlet"><i class="fa fa-bullseye mx-2"></i>Request</a></li>
         <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>

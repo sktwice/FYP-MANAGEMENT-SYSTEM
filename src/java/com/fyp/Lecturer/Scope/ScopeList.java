@@ -25,6 +25,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -60,6 +61,8 @@ public class ScopeList extends HttpServlet {
     private void listScope(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<Scope> listScope = ScopeDAO.getAllScopes();
+        Map<Integer, Integer> scopeStudentCount = ScopeDAO.getScopeStudentCount();
+        request.setAttribute("scopeStudentCount", scopeStudentCount);
         request.setAttribute("listScope", listScope);
         RequestDispatcher dispatcher = request.getRequestDispatcher("Lecturers/Scope-Lecturer.jsp");
         dispatcher.forward(request, response);

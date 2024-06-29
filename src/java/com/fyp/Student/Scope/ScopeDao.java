@@ -6,8 +6,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ScopeDao {
     private String jdbcURL = "jdbc:mysql://localhost:3306/fyp?useSSL=false";
@@ -47,5 +50,25 @@ public class ScopeDao {
             e.printStackTrace();
         }
         return scopes;
+    }
+    private static final String SELECT_SCOPE_STUDENT_COUNT = "SELECT scope_id, COUNT(*) AS student_count FROM project GROUP BY scope_id";
+
+    public Map<Integer, Integer> getScopeStudentCount() throws SQLException {
+        Map<Integer, Integer> scopeStudentCount = new HashMap<>();
+
+        try (Connection connection = getConnection();
+                PreparedStatement statement = connection.prepareStatement(SELECT_SCOPE_STUDENT_COUNT)) {
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int scopeId = resultSet.getInt("scope_id");
+                int studentCount = resultSet.getInt("student_count");
+                scopeStudentCount.put(scopeId, studentCount);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return scopeStudentCount;
     }
 }

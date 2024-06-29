@@ -6,7 +6,7 @@
         <title>Title</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     </head>
     <body>
         <div class="content-wrapper">
@@ -29,29 +29,29 @@
                                     <div class="column">
                                         <div class="box custom-bg w-100 h-100">
                                             <div class="is-size-5 fas fa-user-graduate has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">20</p>
+                                            <p class="has-text-grey has-text-weight-semibold">${totalStudents}</p>
                                             <p class="has-text-grey is-size-7">Total Students</p>
                                         </div>
                                     </div>
                                     <div class="column">
                                         <div class="box custom-bg2 w-100 h-100">
                                             <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">20</p>
+                                            <p class="has-text-grey has-text-weight-semibold">${totalProject}</p>
                                             <p class="has-text-grey is-size-7">Ongoing Report</p>
                                         </div>
                                     </div>
                                     <div class="column">
                                         <div class="box custom-bg3 w-100 h-100">
                                             <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">20</p>
+                                            <p class="has-text-grey has-text-weight-semibold">${totalPastProject}</p>
                                             <p class="has-text-grey is-size-7">Past Report</p>
                                         </div>
                                     </div>
                                     <div class="column">
                                         <div class="box custom-bg4 w-100 h-100">
                                             <div class="is-size-5 fas fa-list-check has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">20</p>
-                                            <p class="has-text-grey is-size-7">Ongoing Task</p>
+                                            <p class="has-text-grey has-text-weight-semibold">${totalScope}</p>
+                                            <p class="has-text-grey is-size-7">Total Scope</p>
                                         </div>
                                     </div>
                                 </div>

@@ -138,7 +138,7 @@
         <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" alt="Logo">
     </div>
     <ul class="nav-list is-size-7">
-        <li><a href="${pageContext.request.contextPath}/Examiners/Dashboard-Examiner.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
+        <li><a href="${pageContext.request.contextPath}/DashboardExaminer"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/ExaminerUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Examiners/List-Of-Proposal-Examiner.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
         <li><a href="${pageContext.request.contextPath}/Examiners/Form.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
@@ -149,7 +149,7 @@
 <div class="navbar">
     <button class="hamburger"><i class="icon-menu" style="font-style:normal;"></i></button>
     <ul class="nav-list is-size-7">
-        <li><a href="${pageContext.request.contextPath}/Examiners/Dashboard-Examiner.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
+        <li><a href="${pageContext.request.contextPath}/DashboardExaminer""><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/ExaminerUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Examiners/List-Of-Proposal-Examiner.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
         <li><a href="${pageContext.request.contextPath}/Examiners/Form.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
