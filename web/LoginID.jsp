@@ -43,7 +43,7 @@
         .login-container-inner {
             display: flex;
             flex-direction: row;
-            width: 50%;
+            width: 70%;
             height: 70vh;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 10px;

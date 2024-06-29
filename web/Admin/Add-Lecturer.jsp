@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <div class="content-wrapper">
@@ -56,7 +57,7 @@
                                     </c:forEach>
                                 </select>
                             </div>
-<label for="position" class="has-text-weight-semibold has-text-grey">Position:</label>
+                            <label for="position" class="has-text-weight-semibold has-text-grey">Position:</label>
                             <div class="py-2">
                                 <select id="position" name="position" class="p-2" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                                     <option value="">Select Position</option>
@@ -69,12 +70,12 @@
 
                             <!-- Added Radio Button Section -->
                             <label class="has-text-weight-semibold has-text-grey">Do this lecturer teach CSP600?</label>
-                            <div class="py-2">
-                                <label class="radio">
+                            <div class="p-2">
+                                <label class="radio has-text-grey">
                                     <input type="radio" name="teaches_csp600" value="yes" required>
                                     Yes
                                 </label>
-                                <label class="radio">
+                                <label class="radio has-text-grey">
                                     <input type="radio" name="teaches_csp600" value="no" required>
                                     No
                                 </label>

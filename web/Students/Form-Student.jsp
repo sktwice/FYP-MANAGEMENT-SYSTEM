@@ -19,7 +19,7 @@
         <div class="content-wrapper">
                 <jsp:include page="../student-sidebar.jsp"></jsp:include>
                 <div class="main-content">
-            <div class="column p-6 h-100" style="background-color:#FFFFFF;">
+            <div class="column p-4 h-100" style="background-color:#FFFFFF;">
                 <div class="custom-border p-5 w-100">
                     <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
                         <div>
@@ -31,7 +31,7 @@
                         <div class="has-text-grey is-size-6 has-text-weight-semibold p-3">Refer to the rubric below</div>
                     </div>
                     <div class="p-3">
-                        <div class="is-flex is-justify-content-space-between pb-2">
+                        <div class="is-flex is-justify-content-space-between py-2">
                             <label class="has-text-weight-semibold has-text-grey-dark is-size-6">F5 - PROPOSAL/PROJECT IN-PROGRESS FORM</label>
                             <button class="button is-custom"><a href="../Form5Servlet" class="is-size-7 has-text-white">Open</a>
                                 <span class="is-size-7 fas fa-arrow-up-right-from-square pl-2"></span></button>

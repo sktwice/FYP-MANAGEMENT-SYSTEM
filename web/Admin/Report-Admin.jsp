@@ -16,9 +16,9 @@
         <div class="content-wrapper">
             <jsp:include page="../admin-sidebar.jsp"></jsp:include>
                 <div class="main-content">
-                    <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
+                    <div class="column h-100 px-4 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
                         <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                            <input class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                            <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                             <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
                                 <img src="">
                             </span>
@@ -27,7 +27,7 @@
                             <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                                 <div>
                                     <label class="has-text-weight-bold has-text-grey is-size-5">Past Reports</label>
-                                    <p class="has-text-grey-light is-size-7">More than 400+ students' reports</p>
+                                    <p class="has-text-grey-light is-size-7">More than ${listPastReport.size()} students' past reports</p>
                                 </div>
                                 <a class="button is-custom4" style="height:2rem;" href="${pageContext.request.contextPath}/addForm">
                                 <span class="is-size-7">New Report</span>
@@ -45,7 +45,7 @@
                                             <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tableBody">
                                         <c:forEach var="report" items="${listPastReport}">
                                             <tr>
                                                 <td class="has-text-centered"><c:out value="${report.studentName}" /></td> 
@@ -54,7 +54,9 @@
                                                 <td class="has-text-centered"><c:out value = "${report.proTitle}"/></td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
                                                 <div class="is-flex is-justify-content-center">
-                                                    <button class="button is-success is-outlined is-small mr-2"><i class="fas fa-eye"></i></button>
+                                                    <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}" class="button is-success is-outlined is-small mr-2">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
                                                     <a class="button is-info is-outlined is-small" href="${pageContext.request.contextPath}/DownloadPastReportServlet?proId=${report.proId}">
                                                         <i class="fas fa-download"></i>
                                                     </a>
@@ -70,5 +72,26 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.getElementById('searchInput').addEventListener('keyup', function() {
+              var input = document.getElementById('searchInput');
+              var filter = input.value.toLowerCase();
+              var tableBody = document.getElementById('tableBody');
+              var tr = tableBody.getElementsByTagName('tr');
+
+              for (var i = 0; i < tr.length; i++) {
+                var td = tr[i].getElementsByTagName('td');
+                var textValue = '';
+                for (var j = 0; j < td.length; j++) {
+                  textValue += td[j].textContent || td[j].innerText;
+                }
+                if (textValue.toLowerCase().indexOf(filter) > -1) {
+                  tr[i].style.display = '';
+                } else {
+                  tr[i].style.display = 'none';
+                }
+              }
+            });
+          </script>
     </body>
 </html>

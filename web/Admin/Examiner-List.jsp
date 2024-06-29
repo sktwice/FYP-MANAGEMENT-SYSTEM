@@ -16,7 +16,7 @@
         <div class="content-wrapper">
             <jsp:include page="../admin-sidebar.jsp"></jsp:include>
                 <div class="main-content">
-                    <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
+                    <div class="column h-100 px-4 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
                         <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
                             <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                             <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
@@ -27,7 +27,7 @@
                             <div class="pb-4">
                                 <div>
                                     <label class="has-text-weight-bold has-text-grey is-size-5">List of Examiner</label>
-                                    <p class="has-text-grey-light is-size-7">More than  ${listExaminer.size()} lecturers</p>
+                                    <p class="has-text-grey-light is-size-7">More than ${listExaminer.size()} lecturers</p>
                             </div>
                             <div>
                                 <div class="p-1" id="table">
@@ -52,10 +52,10 @@
                                                             <c:out value = "${lecturer.position}"/>
                                                         </p>
                                                     </td>
-                                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Contact">
+                                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Contact" style="word-break:break-all;">
                                                         <c:out value = "${lecturer.email}"/>
                                                     </td>
-                                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email">
+                                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email" style="word-break:break-all;">
                                                         <c:out value = "${lecturer.email}"/>
                                                     </td>
                                                 </tr>

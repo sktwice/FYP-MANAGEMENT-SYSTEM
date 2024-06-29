@@ -76,12 +76,12 @@
             <div class="main-content">
                 <section class="section">
                     <div class="container">
-                        <h1 class="title has-text-grey"><%= ((Student) request.getAttribute("Student")).getsName() %></h1>
+                        <h1 class="title has-text-grey" style="text-transform: uppercase;"><%= ((Student) request.getAttribute("Student")).getsName() %></h1>
                         <div class="column is-one-two">
                             <figure class="image is-128x128">
                                 <img id="profile-img" src="<%= ((Student) request.getAttribute("Student")).getsImage() %>" alt="Profile Picture">
                             </figure>
-                            <a id="remove-picture" href="#">Remove picture</a>
+                            <a id="remove-picture" href="#" class="has-text-danger is-size-7 hover-underline p-2">Remove picture</a>
                             <div class="file is-small">
                                 <label class="file-label">
                                     <input class="file-input" type="file" name="profile-picture" id="profile-picture">

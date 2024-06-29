@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <style>
     body {
         margin: 0;
@@ -16,7 +17,10 @@
 
     .sidebar .logo {
         text-align: center;
-        padding: 20px;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
     }
 
     .sidebar .logo img {
@@ -30,7 +34,7 @@
     }
 
     .sidebar .nav-list li {
-        padding: 15px 20px;
+        padding: 10px;
     }
 
     .sidebar .nav-list li a {
@@ -38,7 +42,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        padding: 10px 20px;
+        padding: 15px;
         border-radius: 5px;
         transition: background-color 0.3s ease;
     }
@@ -49,7 +53,8 @@
     }
 
     .sidebar .nav-list li a:hover {
-        background-color: #333333;
+        background-color: #A9DFD8;
+        color: black;
     }
 
     .navbar {
@@ -132,7 +137,7 @@
     <div class="logo">
         <img src="${pageContext.request.contextPath}/assets/uitm-logo.png" alt="Logo">
     </div>
-    <ul class="nav-list">
+    <ul class="nav-list is-size-7">
         <li><a href="${pageContext.request.contextPath}/Examiners/Dashboard-Examiner.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/ExaminerUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Examiners/List-Of-Proposal-Examiner.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
@@ -142,8 +147,8 @@
 </div>
 
 <div class="navbar">
-    <button class="hamburger"><i class="icon-menu"></i></button>
-    <ul class="nav-list">
+    <button class="hamburger"><i class="icon-menu" style="font-style:normal;"></i></button>
+    <ul class="nav-list is-size-7">
         <li><a href="${pageContext.request.contextPath}/Examiners/Dashboard-Examiner.jsp"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/ExaminerUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Examiners/List-Of-Proposal-Examiner.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>

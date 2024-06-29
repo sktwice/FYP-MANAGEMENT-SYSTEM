@@ -76,7 +76,7 @@
                             <figure class="image is-128x128">
                                 <img id="profile-img" src="<%= ((Admin) request.getAttribute("admin")).getaImage() %>" alt="Profile Picture">
                             </figure>
-                            <a id="remove-picture" href="#">Remove picture</a>
+                            <a id="remove-picture" href="#" class="has-text-danger hover-underline is-size-7 p-1">Remove picture</a>
                             <div class="file is-small">
                                 <label class="file-label">
                                     <input class="file-input" type="file" name="profile-picture" id="profile-picture">

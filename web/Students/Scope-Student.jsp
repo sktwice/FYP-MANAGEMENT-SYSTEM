@@ -25,7 +25,7 @@
                             </div>
                             <div class="columns m-0 p-0" style="width: 30%;">
                                 <div class="column is-third p-1">
-                                    <input class="px-4 py-3" type="text" placeholder="Search here" style="width: 100%; border-radius: 6px; outline: none;">
+                                    <input id="searchInput" class="px-4 py-3" type="text" placeholder="Search" style="width: 100%; border-radius: 6px; outline: none;">
                                 </div>
                                 <div class="column p-1" style="align-content:center;">
                                     <div class="dropdown is-hoverable w-100">
@@ -58,7 +58,7 @@
                                         <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Total Students</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="scopeTableBody">
                                     <c:forEach var="scope" items="${scopes}">
                                         <tr>
                                             <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Topic">${scope.scopeName}</td>
@@ -89,5 +89,20 @@
                 </div>
             </div>
         </div>
+        <script>
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
+                var searchText = $(this).val().toLowerCase();
+                $('#scopeTableBody tr').each(function () {
+                    var text = $(this).text().toLowerCase();
+                    if (text.includes(searchText)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
     </body>
 </html>

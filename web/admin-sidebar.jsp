@@ -18,7 +18,10 @@
 
     .sidebar .logo {
         text-align: center;
-        padding: 20px;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
     }
 
     .sidebar .logo img {
@@ -32,7 +35,7 @@
     }
 
     .sidebar .nav-list li {
-        padding: 15px 20px;
+        padding: 10px;
     }
 
     .sidebar .nav-list li a {
@@ -40,7 +43,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        padding: 10px 20px;
+        padding: 15px;
         border-radius: 5px;
         transition: background-color 0.3s ease;
     }
@@ -51,7 +54,8 @@
     }
 
     .sidebar .nav-list li a:hover {
-        background-color: #333333;
+        background-color: #A9DFD8;
+        color: black;
     }
 
     .navbar {
@@ -141,7 +145,7 @@
         <li><a href="${pageContext.request.contextPath}/AdminUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/ListPastReport"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/LecturerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
-        <li><a href="${pageContext.request.contextPath}/ExaminerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Examiner</a></li>
+        <li><a href="${pageContext.request.contextPath}/ExaminerListServlet"><i class="fa fa-graduation-cap mx-2"></i> Examiner</a></li>
         <li><a href="${pageContext.request.contextPath}/StudentListServlet"><i class="fa fa-user-graduate mx-2"></i> Student</a></li>
         <li><a href="${pageContext.request.contextPath}/ListScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
@@ -155,7 +159,7 @@
         <li><a href="${pageContext.request.contextPath}/AdminUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/ListPastReport"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/LecturerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
-        <li><a href="${pageContext.request.contextPath}/ExaminerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Examiner</a></li>
+        <li><a href="${pageContext.request.contextPath}/ExaminerListServlet"><i class="fa fa-graduation-cap mx-2"></i> Examiner</a></li>
         <li><a href="${pageContext.request.contextPath}/StudentListServlet"><i class="fa fa-user-graduate mx-2"></i> Student</a></li>
         <li><a href="${pageContext.request.contextPath}/ListScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>

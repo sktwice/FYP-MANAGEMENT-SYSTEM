@@ -16,7 +16,7 @@
         <div class="main-content">
             <div class="column" style="background-color:#FFFFFF; height:726px;">
                 <div class="py-1 px-5 is-flex is-justify-content-end is-align-items-center">
-                    <input class="px-4 m-1" type="text" placeholder="Search"
+                    <input id="searchInput" class="px-4 m-1" type="text" placeholder="Search"
                            style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                     <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
                         <img src="">
@@ -42,7 +42,7 @@
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7"></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tableBody">
                                     <c:forEach var="pastProject" items="${pastProjects}">
                                         <tr>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
@@ -71,5 +71,26 @@
             </div>
         </div>
     </div>
+    <script>
+            document.getElementById('searchInput').addEventListener('keyup', function() {
+              var input = document.getElementById('searchInput');
+              var filter = input.value.toLowerCase();
+              var tableBody = document.getElementById('tableBody');
+              var tr = tableBody.getElementsByTagName('tr');
+
+              for (var i = 0; i < tr.length; i++) {
+                var td = tr[i].getElementsByTagName('td');
+                var textValue = '';
+                for (var j = 0; j < td.length; j++) {
+                  textValue += td[j].textContent || td[j].innerText;
+                }
+                if (textValue.toLowerCase().indexOf(filter) > -1) {
+                  tr[i].style.display = '';
+                } else {
+                  tr[i].style.display = 'none';
+                }
+              }
+            });
+          </script>
 </body>
 </html>

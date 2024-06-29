@@ -6,6 +6,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : May 13, 2024, 12:37:28 AM
     Author     : User
 */
+.hover-underline:hover {
+    text-decoration: underline;
+}
 .custom-input {
     width: 100%;
     border-radius: 6px;
@@ -481,6 +484,7 @@ button.dropdown-item:hover {
 /* Assign full width inputs*/
 input[type=text],
 input[type=date],
+input[type=email],
 input[type=password] {
     width: 100%;
     padding: 12px 40px;

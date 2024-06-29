@@ -12,16 +12,16 @@
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
                     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
                     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 </head>
 
                 <body>
                     <div class="content-wrapper">
                         <jsp:include page="../admin-sidebar.jsp"></jsp:include>
                         <div class="main-content">
-                            <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
+                            <div class="column h-100 px-4 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
                                 <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                                    <input class="px-4 mx-4 my-1" type="text" placeholder="Search"
-                                        style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                                    <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                                     <span class="has-background-black"
                                         style="border-radius: 100%; width: 40px; height: 40px;">
                                         <img src="">
@@ -32,8 +32,7 @@
                                         <div>
                                             <label class="has-text-weight-bold has-text-grey is-size-5">List of
                                                 Students</label>
-                                            <p class="has-text-grey-light is-size-7">More than ${listStudent.size()}
-                                                students</p>
+                                            <p class="has-text-grey-light is-size-7">More than ${listStudent.size()} students</p>
                                         </div>
                                     </div>
                                     <div>
@@ -57,7 +56,7 @@
                                                             Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="studentTableBody">
                                                     <c:forEach var="student" items="${listStudent}">
                                                         <tr>
                                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"
@@ -95,6 +94,21 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        $(document).ready(function() {
+                            $('#searchInput').on('input', function() {
+                                var searchText = $(this).val().toLowerCase();
+                                $('#studentTableBody tr').each(function() {
+                                    var text = $(this).text().toLowerCase();
+                                    if (text.includes(searchText)) {
+                                        $(this).show();
+                                    } else {
+                                        $(this).hide();
+                                    }
+                                });
+                            });
+                        });
+                    </script>
                 </body>
 
                 </html>
