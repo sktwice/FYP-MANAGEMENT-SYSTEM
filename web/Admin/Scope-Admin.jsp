@@ -49,37 +49,22 @@
                             <tbody id="scopeTableBody">
                                 <c:forEach var="scope" items="${listScope}">
                                     <tr>
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">
                                             <c:out value="${scope.scopeName}" />
                                         </td>
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Programme">
                                             <c:out value="${scope.program}" />
                                         </td>
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Session Date">
                                             <c:out value="${scope.session}" />
                                         </td>
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Total Students">
                                             <c:out value="${scopeStudentCount[scope.scopeId]}" />
                                         </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="p-3 is-flex is-justify-content-space-between">
-                        <label class="has-text-grey-light is-size-7">Showing data 1 to 8 of 256k entries</label>
-                        <div>
-                            <nav class="pagination is-right" role="navigation" aria-label="pagination">
-                                <ul class="pagination-list">
-                                    <li><a href="#" class="pagination-link has-background-grey-lighter" style="border: 0;" aria-label="Goto page before"><</a></li>
-                                    <li><a class="pagination-link is-current" aria-label="Goto page 1">1</a></li>
-                                    <li><a href="#" class="pagination-link has-background-grey-lighter" style="border: 0;" aria-label="Page 2" aria-current="page">2</a></li>
-                                    <li><a href="#" class="pagination-link has-background-grey-lighter" style="border: 0;" aria-label="Goto page 3">3</a></li>
-                                    <li><span class="pagination-ellipsis">&hellip;</span></li>
-                                    <li><a href="#" class="pagination-link has-background-grey-lighter" style="border: 0;" aria-label="Goto page next">86</a></li>
-                                </ul>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </div>

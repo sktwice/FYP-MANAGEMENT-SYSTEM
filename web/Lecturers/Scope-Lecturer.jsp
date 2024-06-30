@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="content-wrapper">
         <jsp:include page="../lecturer-sidebar.jsp"></jsp:include>
-            <div class="main-content">
+        <div class="main-content">
         <div class="column h-100 p-6" style="background-color:#FFFFFF; overflow-y: scroll;">
             <div class="custom-border p-6 w-100">
                 <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
@@ -25,26 +26,7 @@
                     </div>
                     <div class="columns m-0 p-0" style="width:55%;">
                         <div class="column is-half p-1">
-                            <input class="px-4 py-3" type="text" placeholder="Student ID" style="width: 100%; border-radius: 6px; outline: none;">
-                        </div>
-                        <div class="column p-1" style="align-content:center;">
-                            <div class="dropdown is-hoverable w-100">
-                                <div class="dropdown-trigger w-100">
-                                    <button class="button is-white w-100" style="border: 0.9px solid;" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                        <span class=" is-size-7">Sort</span>
-                                        <span class="icon is-small">
-                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                                <div class="dropdown-menu is-size-7 w-100" id="dropdown-menu1" role="menu">
-                                    <div class="dropdown-content w-100">
-                                        <a href="#" class="dropdown-item is-size-7"> Newest </a>
-                                        <a href="#" class="dropdown-item is-size-7"> All </a>
-                                        <a href="#" class="dropdown-item is-size-7"> Solved </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <input id="searchInput" class="px-4 py-3" type="text" placeholder="Student ID" style="width: 100%; border-radius: 6px; outline: none;">
                         </div>
                         <div class="column p-1" style="align-content:center;">
                             <a class="button is-custom px-4 py-3 w-100" style="" href="${pageContext.request.contextPath}/editScope">
@@ -63,38 +45,41 @@
                                 <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Total Students</th>
                             </tr>
                         </thead>
-                        <tbody>
-                                  <c:forEach var="scope" items="${listScope}">
-                                    <tr>
-                                        <td class="has-text-centered"><c:out value="${scope. scopeName}" /></td> 
-                                        <td class="has-text-centered"><c:out value="${scope.program}" /></td>
-                                        <td class="has-text-centered"><c:out value = "${scope.session}"/></td>
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                            <c:out value="${scopeStudentCount[scope.scopeId]}" />
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+                        <tbody id="scopeTableBody">
+                            <c:forEach var="scope" items="${listScope}">
+                                <tr>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic">
+                                        <c:out value="${scope. scopeName}" /></td> 
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Programme">
+                                        <c:out value="${scope.program}" /></td>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Session Date">
+                                        <c:out value = "${scope.session}"/></td>
+                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Total Students">
+                                        <c:out value="${scopeStudentCount[scope.scopeId]}" />
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
-                <div class="p-3 is-flex is-justify-content-space-between">
-                    <label class="has-text-grey-light is-size-7">Showing data 1 to 8 of 256k entries</label>
-                    <div>
-                        <nav class="pagination is-right" role="navigation" aria-label="pagination">
-                          <ul class="pagination-list">
-                            <li><a href="#" class="pagination-link has-background-grey-lighter" style="border: 0;" aria-label="Goto page before"><</a></li>
-                            <li><a class="pagination-link is-current" aria-label="Goto page 1">1</a></li>
-                            <li><a href="#" class="pagination-link has-background-grey-lighter" style="border: 0;" aria-label="Page 2" aria-current="page">2</a></li>
-                            <li><a href="#" class="pagination-link has-background-grey-lighter" style="border: 0;" aria-label="Goto page 3">3</a></li>
-                            <li><span class="pagination-ellipsis">&hellip;</span></li>
-                            <li><a href="#" class="pagination-link has-background-grey-lighter" style="border: 0;" aria-label="Goto page next">86</a></li>
-                          </ul>
-                        </nav>
-                    </div>
-                </div>
             </div>
         </div>
+        </div>
     </div>
-    </div>
+    <script>
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
+                var searchText = $(this).val().toLowerCase();
+                $('#scopeTableBody tr').each(function () {
+                    var text = $(this).text().toLowerCase();
+                    if (text.includes(searchText)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

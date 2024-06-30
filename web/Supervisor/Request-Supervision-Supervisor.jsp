@@ -132,21 +132,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="p-3 is-flex is-justify-content-space-between">
-                        <label class="has-text-grey-light is-size-7">Showing data 1 to 8 of 256k entries</label>
-                        <div>
-                            <nav class="pagination is-right" role="navigation" aria-label="pagination">
-                                <ul class="pagination-list">
-                                    <li><a href="#" class="pagination-link has-background-grey-lighter has-text-grey" style="border: 0;" aria-label="Goto page before"><</a></li>
-                                    <li><a class="pagination-link is-current has-text-white" aria-label="Goto page 1">1</a></li>
-                                    <li><a href="#" class="pagination-link has-background-grey-lighter has-text-grey" style="border: 0;" aria-label="Page 2" aria-current="page">2</a></li>
-                                    <li><a href="#" class="pagination-link has-background-grey-lighter has-text-grey" style="border: 0;" aria-label="Goto page 3">3</a></li>
-                                    <li><span class="pagination-ellipsis">&hellip;</span></li>
-                                    <li><a href="#" class="pagination-link has-background-grey-lighter has-text-grey" style="border: 0;" aria-label="Goto page next">86</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

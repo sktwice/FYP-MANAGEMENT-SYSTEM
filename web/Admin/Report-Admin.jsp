@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <style>
+        </style>
     </head>
     <body>
         <div class="content-wrapper">
@@ -48,13 +50,13 @@
                                     <tbody id="tableBody">
                                         <c:forEach var="report" items="${listPastReport}">
                                             <tr>
-                                                <td class="has-text-centered"><c:out value="${report.studentName}" /></td> 
-                                                <td class="has-text-centered"><c:out value="${report.studentId}" /></td>
-                                                <td class="has-text-centered"><c:out value = "${report.session}"/></td>
-                                                <td class="has-text-centered"><c:out value = "${report.proTitle}"/></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student"><c:out value="${report.studentName}" /></td> 
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID"><c:out value="${report.studentId}" /></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester"><c:out value = "${report.session}"/></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic"><c:out value = "${report.proTitle}"/></td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
                                                 <div class="is-flex is-justify-content-center">
-                                                    <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}" class="button is-success is-outlined is-small mr-2">
+                                                    <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                                     <a class="button is-info is-outlined is-small" href="${pageContext.request.contextPath}/DownloadPastReportServlet?proId=${report.proId}">

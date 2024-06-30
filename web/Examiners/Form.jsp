@@ -33,16 +33,18 @@
                         <div class="p-3">
                             <div class="is-flex is-justify-content-space-between pb-2">
                                 <label class="has-text-weight-semibold has-text-grey-dark is-size-5">F7 – PROJECT FORMULATION PRESENTATION FORM</label>
-                                <a href="${pageContext.request.contextPath}/F7ListServlet">
-                                    <button class="button is-custom3"><span class="is-size-7">Open</span></button>
+                                <a class="button is-custom" href="${pageContext.request.contextPath}/F7ListServlet">
+                                    <span class="is-size-7 p-1">Open</span>
+                                    <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                                 </a>
                             </div>
                         </div>
                         <div class="p-3">
                             <div class="is-flex is-justify-content-space-between pb-2">
                                 <label class="has-text-weight-semibold has-text-grey-dark is-size-5">F8 – PROJECT FORMULATION REPORT EVALUATION FORM</label>
-                                <a href="${pageContext.request.contextPath}/StudentExReportServlet">
-                                    <button class="button is-custom3"><span class="is-size-7">Open</span></button>
+                                <a class="button is-custom" href="${pageContext.request.contextPath}/StudentExReportServlet">
+                                    <span class="is-size-7 p-1">Open</span>
+                                    <span class="is-size-7 fas fa-arrow-up-right-from-square"></span>
                                 </a>
                             </div>
                         </div>

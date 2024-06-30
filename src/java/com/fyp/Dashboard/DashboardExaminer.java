@@ -24,11 +24,17 @@ public class DashboardExaminer extends HttpServlet {
         int totalProject=dashboardDao.getTotalProject();
         int totalPastProject=dashboardDao.getTotalPastProject();
         int totalScope=dashboardDao.getTotalScope();
+        int totalLecturer=dashboardDao.getTotalLecturer();
+        int totalExaminer=dashboardDao.getTotalExaminer();
+        int totalSupervisor=dashboardDao.getTotalSupervisor();
 
         request.setAttribute("totalStudents", totalStudents);
         request.setAttribute("totalProject", totalProject);
         request.setAttribute("totalPastProject", totalPastProject);
         request.setAttribute("totalScope", totalScope);
+        request.setAttribute("totalLecturer", totalLecturer);
+        request.setAttribute("totalExaminer", totalExaminer);
+        request.setAttribute("totalSupervisor", totalSupervisor);
         System.out.println(totalStudents);
         request.getRequestDispatcher("/Examiners/Dashboard-Examiner.jsp").forward(request, response);
     }

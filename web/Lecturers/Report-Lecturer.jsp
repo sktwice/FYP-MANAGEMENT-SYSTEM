@@ -50,11 +50,13 @@
                                             <tr>
                                                 <td class="has-text-centered"><c:out value="${report.studentName}" /></td> 
                                                 <td class="has-text-centered"><c:out value="${report.studentId}" /></td>
-                                                <td class="has-text-centered"><c:out value = "${report.session}"/></td>
-                                                <td class="has-text-centered"><c:out value = "${report.proTitle}"/></td>
+                                                <td class="has-text-centered"><c:out value ="${report.session}"/></td>
+                                                <td class="has-text-centered"><c:out value ="${report.proTitle}"/></td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
                                                 <div class="is-flex is-justify-content-center">
-                                                    <button class="button is-success is-outlined is-small mr-2"><i class="fas fa-eye"></i></button>
+                                                    <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-2">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
                                                     <a class="button is-info is-outlined is-small" href="${pageContext.request.contextPath}/DownloadPastReportServlet?proId=${report.proId}">
                                                         <i class="fas fa-download"></i>
                                                     </a>

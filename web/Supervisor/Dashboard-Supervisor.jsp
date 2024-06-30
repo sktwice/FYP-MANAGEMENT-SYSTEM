@@ -13,12 +13,6 @@
             <jsp:include page="../supervisor-sidebar.jsp"></jsp:include>
             <div class="main-content">
                 <div class="column px-6 py-2" style="background-color:#FFFFFF;">
-                    <div class="py-1 px-5 is-flex is-justify-content-end is-align-items-center">
-                        <input class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                        <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
-                            <img src="">
-                        </span>
-                    </div>
                     <div class="columns m-0 p-0">
                         <div class="column is-8">
                             <div class="custom-border p-3 h-100 w-100">
@@ -68,124 +62,84 @@
                             </div>
                         </div>
                     </div>
-                    <div class="columns m-0 p-0">
-                        <div class="column is-8">
-                            <div class="custom-border p-3">
-                                <label class="has-text-weight-semibold has-text-grey">
-                                    Students Report Progress
-                                </label>
-                                <table>
-                                    <thead>
-                                        <tr style="border-bottom: 2px solid #abb1bf;">
-                                            <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">#</th>
-                                            <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Student Name</th>
-                                            <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Report's Title</th>
-                                            <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Progress</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered">01</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Student Name">Ali</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Report's Title">Topic 1</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Progress">40%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered">02</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Student Name">Ali</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Report's Title">Topic 1</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" data-label="Progress">40%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="column is-4">
-                            <div class="custom-border p-3 h-100 w-100">
-                                <label class="has-text-weight-semibold has-text-grey">
-                                    Statistics
-                                </label>
-                            </div>
-                        </div>
-                    </div>
                     <div class="column is-full">
-                        <div class="custom-border p-3 h-100 w-100">
-                            <label class="has-text-weight-semibold has-text-grey">
-                                Alerts and Reminder
-                            </label>
-                            <section class="section is-small"></section>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure style="">
+                                    <img src="${pageContext.request.contextPath}/assets/uitm_background.jpeg" style="height:12rem; width:100rem;">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-content">
+                                        <p class="title is-4 has-text-grey">Frequently Asked Questions (FAQs) for Lecturer</p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="1">
+                                        1.<label class=" hover-underline p-1"> I am thinking of terminating my supervisory role to a student. How do I go about it?</label>
+                                    </a>
+                                    <div class="grid__description px-6">
+                                        This is not encouraged. However, if you still insist, please refer to the Terms and Conditions in the Mutual Acceptance Form (F1).
+                                    </div>
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="2">
+                                        2.<label class=" hover-underline p-1"> What is the maximum number of students that I can supervise?</label>
+                                    </a>
+                                    <div class="grid__description px-6">
+                                        There is no limit on the number of students you can be supervised. However, it is discretionary to have a proper distribution of students among supervisors within a department.
+                                    </div>
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="3">
+                                        3.<label class=" hover-underline p-1"> What if my student is frequently absent without any valid reasons from the weekly consultation?</label>
+                                    </a>
+                                    <div class="grid__description px-6">
+                                        The Supervisor should consult with the Final Year Project Coordinator or Course Lecturer. However, an 80% attendance is required by the Academic Affairs Division for all courses.
+                                    </div>
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="4">
+                                        4.<label class=" hover-underline p-1"> Is it compulsory for me to attend the progress presentation?</label>
+                                    </a>
+                                    <div class="grid__description px-6">
+                                        It is strongly encouraged
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script>
-        const options = {
-            series: [{
-                    name: 'PRODUCT A',
-                    data: [44, 55, 41, 67, 22, 43]
-                }, {
-                    name: 'PRODUCT B',
-                    data: [13, 23, 20, 8, 13, 27]
-                }],
-            chart: {
-                type: 'bar',
-                height: 150,
-                stacked: true,
-                toolbar: {
-                    show: false
-                },
-                zoom: {
-                    enabled: true
-                }
-            },
-            responsive: [{
-                    breakpoint: 480,
-                    options: {
-                        legend: {
-                            position: 'bottom',
-                            offsetX: -10,
-                            offsetY: 0
-                        }
-                    }
-                }],
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    borderRadius: 10,
-                    borderRadiusApplication: 'end', // 'around', 'end'
-                    borderRadiusWhenStacked: 'last', // 'all', 'last'
-                    dataLabels: {
-                        total: {
-                            enabled: false,
-                            style: {
-                                fontSize: '13px',
-                                fontWeight: 900
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var options = {
+                    series: [${totalStudents}, ${totalLecturer}, ${totalSupervisor}, ${totalExaminer}],
+                    labels: ['Students', 'Lecturers', 'Supervisors', 'Examiners'],
+                    chart: {
+                        type: 'polarArea',
+                        height: '100%', // Set chart height to 100% of its container
+                    },
+                    stroke: {
+                        colors: ['#fff']
+                    },
+                    fill: {
+                        opacity: 0.8
+                    },
+                    legend: { // Set legend position to bottom globally
+                    },
+                    responsive: [{
+                        breakpoint: 400,
+                        options: {
+                            chart: {
+                                height: 300 // Adjust height for smaller screens if needed
+                            },
+                            legend: { // Ensure legend is at the bottom for smaller screens
                             }
                         }
-                    }
-                },
-            },
-            xaxis: {
-                type: 'datetime',
-                categories: ['01/01/2011 GMT', '01/02/2011 GMT', '01/03/2011 GMT', '01/04/2011 GMT',
-                    '01/05/2011 GMT', '01/06/2011 GMT'
-                ],
-            },
-            yaxis: {
-                show: false
-            },
-            legend: {
-                position: 'bottom'
-            },
-            fill: {
-                opacity: 1
-            }
-        };
+                    }]
+                };
 
-        const chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-    </script>
+                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            });
+        </script>                                    
+    </body>
 </html>

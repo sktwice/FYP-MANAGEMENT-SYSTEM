@@ -166,7 +166,7 @@ table td {
     table tr {
         border-bottom: 2px solid #ddd;
         display: block;
-        margin-bottom: .625em;
+        margin-bottom: 0;
         padding: 0;
     }
 
@@ -229,7 +229,7 @@ table td {
 
 .button.is-nav.is-outlined:hover,
 .button.is-nav.is-outlined.is-hovered,
-.button.is-custom.is-outlined:focus,
+.button.is-nav.is-outlined:focus,
 .button.is-nav.is-outlined.is-focused {
     background-color: #fff;
     border-color: #fff;
@@ -247,7 +247,7 @@ table td {
 .button.is-delete.is-outlined:focus,
 .button.is-delete.is-outlined.is-focused {
     background-color: #fff;
-    border-color: #f14668;
+    border-color: #fff;
     color: #f14668;
 }
 
@@ -302,7 +302,7 @@ table td {
 }
 
 .button.is-custom3:hover,
-.button.custom2.is-hovered {
+.button.custom3.is-hovered {
     background-color: #fff;
     border-color: #36B538;
     color: #36B538

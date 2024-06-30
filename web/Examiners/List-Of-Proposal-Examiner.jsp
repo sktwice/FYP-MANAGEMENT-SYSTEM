@@ -13,7 +13,8 @@
     <title>List Of Proposal</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="content-wrapper">
@@ -27,23 +28,7 @@
                         <p class="has-text-success is-size-7">More than 300+ students proposals </p>
                     </div>
                     <div class="" style="align-content:center;">
-                        <div class="dropdown is-hoverable" style="width: 120px;">
-                            <div class="dropdown-trigger" style="width: 120px;">
-                                <button class="button is-white" style="width: 120px;border: 0.9px solid;" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                    <span class=" is-size-7">Sort</span>
-                                    <span class="icon is-small">
-                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="dropdown-menu is-size-7 w-100" id="dropdown-menu1" role="menu">
-                                <div class="dropdown-content w-100">
-                                    <a href="#" class="dropdown-item is-size-7">Newest </a>
-                                    <a href="#" class="dropdown-item is-size-7">All </a>
-                                    <a href="#" class="dropdown-item is-size-7">Solved </a>
-                                </div>
-                            </div>
-                        </div>
+                        <input id="searchInput" class="px-4 py-3" type="text" placeholder="Search" style="width: 100%; border-radius: 6px; outline: none;">
                     </div>
                 </div>
                 <div class="p-3">
@@ -56,7 +41,7 @@
                             <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Action</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="scopeTableBody">
                         <tr class="mb-0 ">
                             <td class="mt-3 is-size-7 has-text-centered has-text-right-mobile has-text-weight-semibold has-text-grey" data-label="Topic">
                                 Android App Development
@@ -111,22 +96,6 @@
                         </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="p-3 is-flex is-justify-content-space-between">
-                    <label class="has-text-grey-light is-size-7">Showing data 1 to 8 of 256k entries</label>
-                    <div>
-                        <nav class="pagination is-small is-right" role="navigation" aria-label="pagination">
-                          <ul class="pagination-list">
-                            <li><a href="#" class="pagination-link has-background-grey-lighter has-text-black" style="border: 0;" aria-label="Goto page before"><</a></li>
-                            <li><a class="pagination-link is-current has-text-white" aria-label="Goto page 1">1</a></li>
-                            <li><a href="#" class="pagination-link has-background-grey-lighter has-text-black" style="border: 0;" aria-label="Page 2" aria-current="page">2</a></li>
-                            <li><a href="#" class="pagination-link has-background-grey-lighter has-text-black" style="border: 0;" aria-label="Goto page 3">3</a></li>
-                            <li><span class="pagination-ellipsis">&hellip;</span></li>
-                            <li><a href="#" class="pagination-link has-background-grey-lighter has-text-black" style="border: 0;" aria-label="Goto page next">86</a></li>
-                            <li><a href="#" class="pagination-link has-background-grey-lighter has-text-black" style="border: 0;" aria-label="Goto page before">></a></li>
-                          </ul>
-                        </nav>
-                    </div>
                 </div>
             </div>
         </div>

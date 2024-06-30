@@ -18,7 +18,7 @@
     <div class="content-wrapper">
         <jsp:include page="../admin-sidebar.jsp"></jsp:include>
         <div class="main-content">
-            <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
+            <div class="column h-100 px-4 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
                 <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
                     <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search"
                         style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">

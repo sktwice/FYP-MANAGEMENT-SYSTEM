@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <div class="content-wrapper">
@@ -72,39 +73,24 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="p-3 is-flex is-justify-content-space-between">
-                            <label class="has-text-grey-light is-size-7">Showing data 1 to 8 of 256k entries</label>
-                            <div>
-                                <nav class="pagination is-right is-small" role="navigation" aria-label="pagination">
-                                    <ul class="pagination-list">
-                                        <li><a href="#" class="pagination-link has-background-grey-lighter  has-text-black" style="border: 0;" aria-label="Goto page before"><</a></li>
-                                        <li><a class="pagination-link is-current" aria-label="Goto page 1">1</a></li>
-                                        <li><a href="#" class="pagination-link has-background-grey-lighter has-text-black" style="border: 0;" aria-label="Page 2" aria-current="page">2</a></li>
-                                        <li><a href="#" class="pagination-link has-background-grey-lighter  has-text-black" style="border: 0;" aria-label="Goto page 3">3</a></li>
-                                        <li><span class="pagination-ellipsis">&hellip;</span></li>
-                                        <li><a href="#" class="pagination-link has-background-grey-lighter  has-text-black" style="border: 0;" aria-label="Goto page next">86</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <script>
-        $(document).ready(function () {
-            $('#searchInput').on('input', function () {
-                var searchText = $(this).val().toLowerCase();
-                $('#scopeTableBody tr').each(function () {
-                    var text = $(this).text().toLowerCase();
-                    if (text.includes(searchText)) {
-                        $(this).show();
-                    } else {
-                        $(this).hide();
-                    }
+            $(document).ready(function () {
+                $('#searchInput').on('input', function () {
+                    var searchText = $(this).val().toLowerCase();
+                    $('#scopeTableBody tr').each(function () {
+                        var text = $(this).text().toLowerCase();
+                        if (text.includes(searchText)) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
                 });
             });
-        });
-    </script>
+        </script>
     </body>
 </html>

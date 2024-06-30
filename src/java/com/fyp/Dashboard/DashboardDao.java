@@ -17,6 +17,8 @@ public class DashboardDao {
     private static final String COUNT_PASTPROJECT_SQL = "SELECT COUNT(*) AS total_past FROM past_project";
     private static final String COUNT_SCOPE_SQL = "SELECT COUNT(*) AS total_scope FROM scope";
     private static final String COUNT_LECTURER_SQL = "SELECT COUNT(*) AS total_lecturer FROM lecturer";
+    private static final String COUNT_EXAMINER_SQL = "SELECT COUNT(*) AS total_examiner FROM lecturer WHERE position = 'Examiner' OR position = 'examiner'";
+    private static final String COUNT_SUPERVISOR_SQL = "SELECT COUNT(*) AS total_supervisor FROM lecturer WHERE position = 'Supervisor' OR position = 'supervisor'";
 
     public int getTotalStudents() {
         int totalStudents = 0;
@@ -105,6 +107,42 @@ public class DashboardDao {
         }
 
         return totalLecturer;
+    }
+    
+    public int getTotalExaminer() {
+        int totalExaminer = 0;
+
+        try (Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(COUNT_EXAMINER_SQL)) {
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                totalExaminer = rs.getInt("total_examiner");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return totalExaminer;
+    }
+    
+    public int getTotalSupervisor() {
+        int totalSupervisor = 0;
+
+        try (Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(COUNT_SUPERVISOR_SQL)) {
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                totalSupervisor = rs.getInt("total_supervisor");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return totalSupervisor;
     }
     
 }

@@ -52,8 +52,8 @@
                                                         <th
                                                             class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
                                                             Programme</th>
-                                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
-                                                            Action</th>
+                                                    <!--    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">
+                                                            Action</th> -->
                                                     </tr>
                                                 </thead>
                                                 <tbody id="studentTableBody">
@@ -78,12 +78,12 @@
                                                                 <c:out value="${student.sCourse}" />
                                                             </td>
 
-                                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"
+                                                        <!--    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"
                                                                 data-label="Action">
                                                                 <button class="button is-success is-outlined mr-2 is-small"><i class="fas fa-eye"></i></button>
                                                                 <button
                                                                     class="button is-info is-outlined is-small"><i class="fas fa-download"></i></button>
-                                                            </td>
+                                                            </td> -->
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

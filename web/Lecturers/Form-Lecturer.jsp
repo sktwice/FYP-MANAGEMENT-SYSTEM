@@ -20,9 +20,6 @@
                     <label class="has-text-weight-bold has-text-grey is-size-5">Forms</label>
                     <p class="has-text-grey-light is-size-7">More than 7 forms</p>
                 </div>
-                <button class="button is-custom" style="height:2rem;">
-                    <span class="is-size-7">Create</span>
-                </button>
                 </div>
             <div class="has-background-grey-lighter w-100 mb-4" style="border-radius: 6px;">
                 <div class="has-text-white is-size-7 has-text-weight-semibold p-3">Refer to the rubric below</div>

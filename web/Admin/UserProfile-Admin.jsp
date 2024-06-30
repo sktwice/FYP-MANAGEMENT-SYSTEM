@@ -73,16 +73,17 @@
                     <div class="container">
                         <h1 class="title has-text-grey"><%= ((Admin) request.getAttribute("admin")).getaName() %></h1>
                         <div class="column is-one-two">
-                            <figure class="image is-128x128">
-                                <img id="profile-img" src="<%= ((Admin) request.getAttribute("admin")).getaImage() %>" alt="Profile Picture">
+                            <figure class="image is-128x128" style="border-radius: 50%; background-color: black;">
+                                <img id="profile-img" src="<%= ((Admin) request.getAttribute("admin")).getaImage() %>" 
+                                     alt="" style="height: -webkit-fill-available !important; border-radius: 50%;">
                             </figure>
-                            <a id="remove-picture" href="#" class="has-text-danger hover-underline is-size-7 p-1">Remove picture</a>
-                            <div class="file is-small">
-                                <label class="file-label">
-                                    <input class="file-input" type="file" name="profile-picture" id="profile-picture">
-                                        <span class="button is-custom4 file-label">Upload picture</span>
-                                </label>
-                            </div>
+                                <a id="remove-picture" href="#" class="has-text-danger hover-underline is-size-7 p-1">Remove picture</a>
+                                <div class="file is-small">
+                                    <label class="file-label">
+                                        <input class="file-input" type="file" name="profile-picture" id="profile-picture">
+                                            <span class="button is-custom file-label">Upload picture</span>
+                                    </label>
+                                </div>
                         </div>
                         <div class="column">
                             <div class="tabs is-boxed">

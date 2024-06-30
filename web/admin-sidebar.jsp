@@ -153,7 +153,7 @@
 </div>
 
 <div class="navbar">
-    <button class="hamburger"><i class="icon-menu"></i></button>
+    <button class="hamburger"><i class="icon-menu" style="font-style: normal;"></i></button>
     <ul class="nav-list is-size-7">
         <li><a href="${pageContext.request.contextPath}/DashboardAdmin"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/AdminUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>

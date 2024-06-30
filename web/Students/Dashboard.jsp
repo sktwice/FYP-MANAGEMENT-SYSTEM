@@ -71,106 +71,106 @@
                                     </div>
                                 </div>
                                 <div class="content">
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="1">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="1">
                                         1.<label class=" hover-underline p-1"> What is the Final Year Project (FYP)?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The Final Year Project (FYP) is a project that needs to be undertaken by the final year student as a partial fulfillment of the requirements for the Computing Sciences bachelor degree.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="2">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="2">
                                         2.<label class=" hover-underline p-1"> What is the importance of the FYP?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The FYP is normally used by the bachelor students who have graduated to market themselves during their interviews. Most of the companies will refer to the graduate’s thesis (or FYP report) as a part of the evaluation criteria.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="3">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="3">
                                         3.<label class=" hover-underline p-1"> I am thinking of changing my supervisor. How do I go about it?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The changing of the supervisor is not encouraged. However, if you still insist on a change, please refer to the Terms and Conditions in the Mutual Acceptance Form (F1).
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="4">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="4">
                                         4.<label class=" hover-underline p-1"> I am thinking of changing the topic/title during CSP650. Will I be able to do so?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The changing of the topic/title is strongly discouraged as it may affect your overall project evaluation.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="5">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="5">
                                         5.<label class=" hover-underline p-1"> How do I get an ‘A’ grade for CSP650?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         You may get an ‘A’ grade if both the system/research/finding and report are good. For the system, it should be successfully implemented together with test data analysis to demonstrate its worth.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="6">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="6">
                                         6.<label class=" hover-underline p-1"> My project is still incomplete. Do I still need to present/exhibit during the Final Year Project Exhibition?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         You will still need to present or exhibit it, otherwise an ‘F’ grade will be given.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="7">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="7">
                                         7.<label class=" hover-underline p-1"> What does an Incomplete (TL) or Fail result mean?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         If the Supervisor and Examiner agree that your project is halfway through completion and can be submitted within a specific duration, an ‘Incomplete’ result is given. However, if there is no progress at all and if the Supervisor and Examiner foresee the problems in the project (e.g., student attitude, level of completeness) then a ‘Fail’ result is given.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="8">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="8">
                                         8.<label class=" hover-underline p-1"> Does the faculty provide any printing facilities for poster, pamphlets, etc.?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         Yes, the faculty will provide the printing facilities for poster, pamphlets, etc. However, you are free to seek printing facilities elsewhere at your own expense.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="9">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="9">
                                         9.<label class=" hover-underline p-1"> When is the FYP exhibition held?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         Normally, the FYP exhibition is held after the final examination.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="10">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="10">
                                         10.<label class=" hover-underline p-1"> What is the penalty for late submission of the final report draft?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The penalty imposed will affect your final grade.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="11">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="11">
                                         11.<label class=" hover-underline p-1"> You have to submit the whole report for the plagiarism checking.</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The changing of the supervisor is not encouraged. However, if you still insist on a change, please refer to the Terms and Conditions in the Mutual Acceptance Form (F1).
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="12">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="12">
                                         12.<label class=" hover-underline p-1"> What is the maximum percentage of the similarity index for plagiarism checking?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The maximum percentage of the similarity index for plagiarism checking is 30%.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="13">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="13">
                                         13.<label class=" hover-underline p-1"> When can the hardbound report be prepared?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         You can only submit the hardbound report once the amendments, based on the examiner’s comments, have been made, and it should be done after the examiner has signed the Confirmation of Correction Form (F12).
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="14">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="14">
                                         14.<label class=" hover-underline p-1"> What if I can not complete the correction required by the examiner?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The examiner has the right not to sign the Confirmation of Correction Form (F12) and your grade will be downgraded.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="15">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="15">
                                         15.<label class=" hover-underline p-1"> How many academic references should I include in the report?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The minimum number of academic references for the Proposal Report is 15 while that for the Final Year Report is 30.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="16">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="16">
                                         16.<label class=" hover-underline p-1"> What types of literature should be included in the references?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         It should consist of a mix of journal articles, conference proceedings, book chapters, technical report, white papers, etc. Academic references such as journal articles, conference proceedings, book chapters, etc. should contribute to at least half of the references.
                                     </div>
-                                    <a class="grid__item px-4 has-text-weight-semibold" tabindex="17">
+                                    <a class="grid__item px-4 has-text-grey has-text-weight-semibold" tabindex="17">
                                         17.<label class=" hover-underline p-1"> What are the minimum numbers of pages for the Proposal and Final Year Reports?</label>
                                     </a>
-                                    <div class="grid__description px-6 py-1">
+                                    <div class="grid__description px-6">
                                         The minimum number of pages for the Proposal report is 30 pages and for the Final Year Report, is 50 page
                                     </div>
                                 </div>
