@@ -78,8 +78,9 @@
                     <div class="container">
                         <h1 class="title has-text-grey" style="text-transform: uppercase;"><%= ((Student) request.getAttribute("Student")).getsName() %></h1>
                         <div class="column is-one-two">
-                            <figure class="image is-128x128">
-                                <img id="profile-img" src="<%= ((Student) request.getAttribute("Student")).getsImage() %>" alt="Profile Picture">
+                            <figure class="image is-128x128" style="border-radius: 50%; background-color: black;">
+                                <img id="profile-img" src="<%= ((Student) request.getAttribute("Student")).getsImage() %>" 
+                                     alt="" style="height: -webkit-fill-available !important; border-radius: 50%;">
                             </figure>
                             <a id="remove-picture" href="#" class="has-text-danger is-size-7 hover-underline p-2">Remove picture</a>
                             <div class="file is-small">

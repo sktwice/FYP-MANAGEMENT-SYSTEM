@@ -24,48 +24,48 @@
                                 <div class="columns m-0 p-0">
                                     <div class="column is-8">
                                         <div class="custom-border p-3 h-100 w-100">
-                                            <label class="has-text-weight-semibold has-text-grey">
+                                            <label class="has-text-weight-semibold has-text-grey p-2">
                                                 Today's Summary
                                             </label>
-                                            <div class="columns m-0 p-0">
-                                    <div class="column">
-                                        <div class="box custom-bg w-100 h-100">
-                                            <div class="is-size-5 fas fa-user-graduate has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">${totalStudents}</p>
-                                            <p class="has-text-grey is-size-7">Total Students</p>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="box custom-bg2 w-100 h-100">
-                                            <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">${totalProject}</p>
-                                            <p class="has-text-grey is-size-7">Ongoing Report</p>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="box custom-bg3 w-100 h-100">
-                                            <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">${totalPastProject}</p>
-                                            <p class="has-text-grey is-size-7">Past Report</p>
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="box custom-bg4 w-100 h-100">
-                                            <div class="is-size-5 fas fa-list-check has-text-grey"></div>
-                                            <p class="has-text-grey has-text-weight-semibold">${totalScope}</p>
-                                            <p class="has-text-grey is-size-7">Total Scope</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                            <div class="columns mt-4 m-0 p-1">
+                                                <div class="column">
+                                                    <div class="box custom-bg w-100 h-100">
+                                                        <div class="is-size-5 fas fa-user-graduate has-text-grey"></div>
+                                                        <p class="has-text-grey has-text-weight-semibold">${totalStudents}</p>
+                                                        <p class="has-text-grey is-size-7">Total Students</p>
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div class="box custom-bg2 w-100 h-100">
+                                                        <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
+                                                        <p class="has-text-grey has-text-weight-semibold">${totalProject}</p>
+                                                        <p class="has-text-grey is-size-7">Ongoing Report</p>
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div class="box custom-bg3 w-100 h-100">
+                                                        <div class="is-size-5 fas fa-book-open-reader has-text-grey"></div>
+                                                        <p class="has-text-grey has-text-weight-semibold">${totalPastProject}</p>
+                                                        <p class="has-text-grey is-size-7">Past Report</p>
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div class="box custom-bg4 w-100 h-100">
+                                                        <div class="is-size-5 fas fa-list-check has-text-grey"></div>
+                                                        <p class="has-text-grey has-text-weight-semibold">${totalScope}</p>
+                                                        <p class="has-text-grey is-size-7">Total Scope</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="column is-4">
                                         <div class="custom-border p-3">
-                                            <label class="has-text-weight-semibold has-text-grey">
-                                                Graph
+                                            <label class="has-text-weight-semibold has-text-grey p-2">
+                                                FYP Community
                                             </label>
                                             <div class="w-100 h-100">
-                                                <div id="chart"></div>
+                                                <div id="chart" class="mt-2"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                 <div class="card">
                                     <div class="card-image">
                                         <figure style="">
-                                            <img src="${pageContext.request.contextPath}/assets/uitm_background.jpeg" style="height:12rem; width:100rem;">
+                                            <img src="${pageContext.request.contextPath}/assets/uitm_background.jpeg" style="height:17rem; width:100rem;">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -124,7 +124,7 @@
                 labels: ['Students', 'Lecturers', 'Supervisors', 'Examiners'],
                 chart: {
                     type: 'polarArea',
-                    height: '100%', // Set chart height to 100% of its container
+                    height: '98%', // Set chart height to 100% of its container
                 },
                 stroke: {
                     colors: ['#fff']

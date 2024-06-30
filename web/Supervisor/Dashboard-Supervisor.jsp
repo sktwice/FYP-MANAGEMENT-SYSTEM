@@ -66,7 +66,7 @@
                         <div class="card">
                             <div class="card-image">
                                 <figure style="">
-                                    <img src="${pageContext.request.contextPath}/assets/uitm_background.jpeg" style="height:12rem; width:100rem;">
+                                    <img src="${pageContext.request.contextPath}/assets/uitm_background.jpeg" style="height:17rem; width:100rem;">
                                 </figure>
                             </div>
                             <div class="card-content">

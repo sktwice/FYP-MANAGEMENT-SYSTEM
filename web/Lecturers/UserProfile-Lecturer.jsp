@@ -72,9 +72,9 @@
                     <div class="container">
                         <h1 class="title has-text-grey" style="text-transform: uppercase"><%= ((Lecturer) request.getAttribute("Lecturer")).getlName() %></h1>
                         <div class="column is-one-two">
-                            <figure class="image is-128x128">
+                            <figure class="image is-128x128" style="border-radius: 50%; background-color: black;">
                                 <img id="profile-img" src="<%= ((Lecturer) request.getAttribute("Lecturer")).getiImage() %>" 
-                                     alt="Profile Picture"  style="height: -webkit-fill-available !important;">
+                                     alt="" style="height: -webkit-fill-available !important; border-radius: 50%;">
                             </figure>
                             <a id="remove-picture" href="#" class="has-text-danger hover-underline p-1 is-size-7">Remove picture</a>
                             <div class="file is-small">
