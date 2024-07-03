@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="content-wrapper">
 
 <div class="columns m-0 p-0 h-100">
     <div class="column p-6 is-justify-content-center" style="background-color:#FFFFFF; overflow-y: scroll;">
@@ -54,6 +55,6 @@
         </div>
     </div>
 </div>
-
+    </div>
 </body>
 </html>

@@ -145,7 +145,7 @@
         <li><a href="${pageContext.request.contextPath}/Students/Form-Student.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
         <!--<li><a href="Lecturer"><i class="fa fa-chalkboard-teacher mx-2"></i> Request</a></li>-->
         <li><a href="${pageContext.request.contextPath}/Students/Lecturer"><i class="fa fa-check mx-2"></i> Request</a></li>
-        <!--<<li><a href="${pageContext.request.contextPath}/Students/Proposal.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
+        <li><a href="${pageContext.request.contextPath}/StudentUploadServlet"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
         <!--<li><a href="Result-Student.jsp"><i class="fa fa-check mx-2"></i> Result</a></li>-->
         <li><a href="${pageContext.request.contextPath}/Students/ScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
@@ -161,7 +161,7 @@
         <li><a href="${pageContext.request.contextPath}/Students/Form-Student.jsp"><i class="fa fa-file-alt mx-2"></i> Form</a></li>
         <!--<li><a href="Lecturer"><i class="fa fa-chalkboard-teacher mx-2"></i> Request</a></li>-->
         <li><a href="${pageContext.request.contextPath}/Students/Lecturer""><i class="fa fa-check mx-2"></i> Request</a></li>
-        <!--<<li><a href="${pageContext.request.contextPath}/Students/Proposal.jsp"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
+        <li><a href="${pageContext.request.contextPath}/StudentUploadServlet"><i class="fa fa-file-signature mx-2"></i> Proposal</a></li>
         <!--<li><a href="Result-Student.jsp"><i class="fa fa-check mx-2"></i> Result</a></li>-->
         <li><a href="${pageContext.request.contextPath}/Students/ScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>

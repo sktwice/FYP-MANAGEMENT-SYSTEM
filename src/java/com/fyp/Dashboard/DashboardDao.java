@@ -16,7 +16,7 @@ public class DashboardDao {
     private static final String COUNT_PROJECT_SQL = "SELECT COUNT(*) AS total_project FROM project";
     private static final String COUNT_PASTPROJECT_SQL = "SELECT COUNT(*) AS total_past FROM past_project";
     private static final String COUNT_SCOPE_SQL = "SELECT COUNT(*) AS total_scope FROM scope";
-    private static final String COUNT_LECTURER_SQL = "SELECT COUNT(*) AS total_lecturer FROM lecturer";
+    private static final String COUNT_LECTURER_SQL = "SELECT COUNT(*) AS total_lecturer FROM teach";
     private static final String COUNT_EXAMINER_SQL = "SELECT COUNT(*) AS total_examiner FROM lecturer WHERE position = 'Examiner' OR position = 'examiner'";
     private static final String COUNT_SUPERVISOR_SQL = "SELECT COUNT(*) AS total_supervisor FROM lecturer WHERE position = 'Supervisor' OR position = 'supervisor'";
 

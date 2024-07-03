@@ -79,7 +79,7 @@
                         <h1 class="title has-text-grey" style="text-transform: uppercase;"><%= ((Student) request.getAttribute("Student")).getsName() %></h1>
                         <div class="column is-one-two">
                             <figure class="image is-128x128" style="border-radius: 50%; background-color: black;">
-                                <img id="profile-img" src="<%= ((Student) request.getAttribute("Student")).getsImage() %>" 
+                                <img id="profile-img" src="images/lecturers/<%= ((Student) request.getAttribute("Student")).getsImage() %>" 
                                      alt="" style="height: -webkit-fill-available !important; border-radius: 50%;">
                             </figure>
                             <a id="remove-picture" href="#" class="has-text-danger is-size-7 hover-underline p-2">Remove picture</a>
@@ -113,7 +113,7 @@
                                             <div class="field">
                                                 <label class="label has-text-grey">Phone Number</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="text" placeholder="Phone Number" value="<%= ((Student) request.getAttribute("Student")).getPhoneNum() %>">
+                                                    <input class="input custom-input2" type="text" placeholder="Phone Number" value="0<%= ((Student) request.getAttribute("Student")).getPhoneNum() %>">
                                                 </div>
                                             </div>
                                         </div>

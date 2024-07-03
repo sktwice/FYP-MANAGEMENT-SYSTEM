@@ -74,7 +74,7 @@
                         <h1 class="title has-text-grey"><%= ((Admin) request.getAttribute("admin")).getaName() %></h1>
                         <div class="column is-one-two">
                             <figure class="image is-128x128" style="border-radius: 50%; background-color: black;">
-                                <img id="profile-img" src="<%= ((Admin) request.getAttribute("admin")).getaImage() %>" 
+                                <img id="profile-img" src="images/lecturers/<%= ((Admin) request.getAttribute("admin")).getaImage() %>" 
                                      alt="" style="height: -webkit-fill-available !important; border-radius: 50%;">
                             </figure>
                                 <a id="remove-picture" href="#" class="has-text-danger hover-underline is-size-7 p-1">Remove picture</a>
@@ -108,7 +108,7 @@
                                             <div class="field">
                                                 <label class="label has-text-grey">Phone Number</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="text" placeholder="Phone Number" value="<%= ((Admin) request.getAttribute("admin")).getPhoneNum() %>">
+                                                    <input class="input custom-input2" type="text" placeholder="Phone Number" value="0<%= ((Admin) request.getAttribute("admin")).getPhoneNum() %>">
                                                 </div>
                                             </div>
                                         </div>

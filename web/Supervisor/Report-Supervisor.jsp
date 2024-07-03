@@ -57,14 +57,16 @@
                                                 data-label="Topic">${pastProject.proTitle}</td>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
                                                 <div class="is-flex is-justify-content-center">
-                                                    <button class="button is-success is-outlined is-small mr-2"><i class="fas fa-eye"></i></button>
-                                                    <a class="button is-info is-outlined is-small" href="${pageContext.request.contextPath}/DownloadPastReportServlet?proId=${pastProject.proId}">
+                                                    <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a class="button is-info is-outlined is-small" href="${pageContext.request.contextPath}/DownloadPastReportServlet?proId=${report.proId}">
                                                         <i class="fas fa-download"></i>
                                                     </a>
                                                 </div>
                                             </td>
 
-                                            <button class="button is-success is-outlined is-small mr-2"><i class="fas fa-eye"></i></button>
+                                            
                                         </tr>
                                     </c:forEach>
                                     </tbody>

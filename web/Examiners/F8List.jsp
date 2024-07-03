@@ -12,7 +12,7 @@
 </head>
 <body style="height:100%;">
     <div class="content-wrapper">
-        <jsp:include page="../lecturer-sidebar.jsp"></jsp:include> 
+        <jsp:include page="../examiner-sidebar.jsp"></jsp:include> 
         
         <div class="main-content">
             <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">

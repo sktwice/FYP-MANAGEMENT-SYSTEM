@@ -23,7 +23,7 @@ public class ProgressDao {
     private Connection jdbcConnection;
 
     
-    private static final String SELECT_REPORTS_SV_SQL ="SELECT s.student_id, s.s_name, p.pro_title, p.pro_url FROM student s JOIN project p ON s.student_id = p.student_id WHERE p.sv_Id = ?;";
+    private static final String SELECT_REPORTS_SV_SQL ="SELECT s.student_id, s.s_name, p.pro_title, p.pro_url, p.pro_ID FROM student s JOIN project p ON s.student_id = p.student_id WHERE p.sv_Id = ?;";
     private static final String SELECT_SV_NAME="select l.l_name from lecturer l join supervisor s on l.l_id=s.l_id where sv_id=?;";
     
     protected Connection getConnection() {
@@ -70,8 +70,9 @@ public class ProgressDao {
                 String studentName = resultSet.getString("s_name");
                 String projectTitle = resultSet.getString("pro_title");
                 String projectUrl = resultSet.getString("pro_url");
+                String proId = resultSet.getString("pro_ID");
 
-                StudentReport report = new StudentReport(studentId, studentName, projectTitle, projectUrl);
+                StudentReport report = new StudentReport(studentId, studentName, projectTitle, projectUrl, proId);
                 listReports.add(report);
             }
         } catch (SQLException e) {
@@ -120,12 +121,14 @@ public class ProgressDao {
         private String studentName;
         private String projectTitle;
         private String projectUrl;
+        private String proId;
 
-        public StudentReport(int studentId, String studentName, String projectTitle, String projectUrl) {
+        public StudentReport(int studentId, String studentName, String projectTitle, String projectUrl, String proId) {
             this.studentId = studentId;
             this.studentName = studentName;
             this.projectTitle = projectTitle;
             this.projectUrl = projectUrl;
+            this.proId = proId;
         }
 
         // Getters and Setters
@@ -160,6 +163,15 @@ public class ProgressDao {
         public void setProjectUrl(String projectUrl) {
             this.projectUrl = projectUrl;
         }
+
+        public String getProId() {
+            return proId;
+        }
+
+        public void setProId(String proId) {
+            this.proId = proId;
+        }
+        
     }
     
 }

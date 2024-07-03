@@ -11,42 +11,57 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
-
+import java.sql.SQLException;
 
 public class DownloadProposalServlet extends HttpServlet {
-    private PdfFileDao pdfFileDao = new PdfFileDao();
+    private static final long serialVersionUID = 1L;
+    private PdfFileDao pdfFileDao;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void init() {
+        pdfFileDao = new PdfFileDao();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
         int proposalId = Integer.parseInt(request.getParameter("proposalId"));
+
         Proposal proposal = pdfFileDao.getProposal(proposalId);
-        String filePath = getServletContext().getRealPath("") + File.separator + proposal.getPdfUrl();
-
-        // Set content type
-        response.setContentType("application/pdf");
-
-        // Set header for downloading the file
-        String headerKey = "Content-Disposition";
-        String headerValue = String.format("attachment; filename=\"%s\"", proposal.getPdfName());
-        response.setHeader(headerKey, headerValue);
-
-        // Copy file content to response output stream
-        try (InputStream inputStream = new FileInputStream(filePath);
-             OutputStream outputStream = response.getOutputStream()) {
-            byte[] buffer = new byte[4096];
-            int bytesRead = -1;
-            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, bytesRead);
+        if (proposal != null) {
+            String filePath = getServletContext().getRealPath("") + File.separator + proposal.getPdfUrl();
+            File downloadFile = new File(filePath);
+            
+            if (downloadFile.exists()) {
+                response.setContentType("application/pdf");
+                response.setContentLength((int) downloadFile.length());
+                response.setHeader("Content-Disposition", "attachment; filename=\"" + proposal.getPdfName() + "\"");
+                
+                try (FileInputStream inStream = new FileInputStream(downloadFile);
+                        OutputStream outStream = response.getOutputStream()) {
+                    byte[] buffer = new byte[4096];
+                    int bytesRead = -1;
+                    while ((bytesRead = inStream.read(buffer)) != -1) {
+                        outStream.write(buffer, 0, bytesRead);
+                    }
+                }
+            } else {
+                response.getWriter().println("File not found for the id: " + proposalId);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            response.getWriter().println("No proposal found for the id: " + proposalId);
         }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
         doGet(request, response);
+    }
+
+    @Override
+    public String getServletInfo() {
+        return "DownloadProposalServlet";
     }
 }

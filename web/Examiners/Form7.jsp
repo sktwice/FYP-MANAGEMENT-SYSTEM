@@ -12,7 +12,7 @@
     </head>
     <body style="height:100%;">
         <div class="content-wrapper">
-           <jsp:include page="../supervisor-sidebar.jsp"></jsp:include>
+           <jsp:include page="../examiner-sidebar.jsp"></jsp:include> 
             <div class="main-content">
                 <div class="column px-4 py-4" style="background-color:#FFFFFF; overflow-y: scroll;">
                     <div class="has-text-weight-semibold has-text-grey is-size-5 p-4" style="border-bottom: 1px solid #bdbdbd">

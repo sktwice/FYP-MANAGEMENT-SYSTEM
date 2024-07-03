@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="content-wrapper">
-            <jsp:include page="../supervisor-sidebar.jsp"></jsp:include>
+            <jsp:include page="../examiner-sidebar.jsp"></jsp:include> 
             <div class="main-content">
                 <div class="column px-4 py-4" style="background-color:#FFFFFF; overflow-y: scroll;">
                     
