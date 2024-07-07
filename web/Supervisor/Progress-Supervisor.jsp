@@ -32,11 +32,6 @@
                             <div class="column is-flex is-justify-content-end">
                                 <div class="p-1">
                                     <div class="is-size-7 has-text-link">@uitm.edu.my</div>
-                                    <div>
-                                        <i class="fas fa-linkedin"></i>
-                                        <i class="fas fa-instagram"></i>
-                                        <i class="fas fa-whatsapp"></i>
-                                    </div>
                                 </div>
                             </div>
                         </div>
