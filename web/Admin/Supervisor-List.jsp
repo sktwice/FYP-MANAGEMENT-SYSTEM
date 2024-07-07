@@ -26,7 +26,7 @@
                         <div class="custom-border p-6 w-100">
                             <div class="pb-4">
                                 <div>
-                                    <label class="has-text-weight-bold has-text-grey is-size-5">List of Examiner</label>
+                                    <label class="has-text-weight-bold has-text-grey is-size-5">List of Supervisor</label>
                                     <p class="has-text-grey-light is-size-7">More than ${listExaminer.size()} lecturers</p>
                             </div>
                             <div>
@@ -37,18 +37,18 @@
                                                 <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Name</th>
                                                 <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Staff ID</th>
                                                 <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Contact</th>
-                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Email</th>
-                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
+                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Status Account</th>
+                                                 <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="lecturer" items="${listExaminer}">
+                                            <c:forEach var="lecturer" items="${listSupervisor}">
                                                 <tr>
                                                     <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Name">
-                                                        <c:out value="${lecturer.lName}" />
+                                                        <c:out value="${lecturer.name}" />
                                                     </td>
                                                     <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Staff ID">
-                                                        <c:out value="${lecturer.lId}" />
+                                                        <c:out value="${lecturer.lecturerId}" />
                                                         <p class="has-text-grey-light" style="font-size: 0.5rem;">
                                                             <c:out value = "${lecturer.position}"/>
                                                         </p>
@@ -57,9 +57,9 @@
                                                         <c:out value = "${lecturer.email}"/>
                                                     </td>
                                                     <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email" style="word-break:break-all;">
-                                                        <c:out value = "${lecturer.email}"/>
+                                                        <c:out value = "${lecturer.status}"/>
                                                     </td>
-                                                      <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action" style="word-break:break-all;">
+                                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action" style="word-break:break-all;">
                                                        
                                                     </td>
                                                 </tr>

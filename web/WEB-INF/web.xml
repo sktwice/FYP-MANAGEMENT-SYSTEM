@@ -384,6 +384,14 @@
         <servlet-name>StudentUploadServlet</servlet-name>
         <servlet-class>com.fyp.Student.Upload.StudentUploadServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SupervisorListDao</servlet-name>
+        <servlet-class>com.fyp.Admin.SupervisorList.SupervisorListDao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListSupervisorRole</servlet-name>
+        <servlet-class>com.fyp.Admin.SupervisorList.ListSupervisorRole</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -763,6 +771,14 @@
     <servlet-mapping>
         <servlet-name>StudentUploadServlet</servlet-name>
         <url-pattern>/StudentUploadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupervisorListDao</servlet-name>
+        <url-pattern>/SupervisorListDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSupervisorRole</servlet-name>
+        <url-pattern>/ListSVRole</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>
