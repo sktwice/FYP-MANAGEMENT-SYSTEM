@@ -133,8 +133,19 @@
 
                             <div class="column is-full p-2">
                                 <label class="has-text-weight-semibold has-text-grey">Image</label>
-                                <div class="py-2">
-                                    <input type="file" name="l_image">
+                                <div class="py-1">
+                                    <div id="file-js-example" class="file has-name">
+                                        <label class="file-label">
+                                            <input class="file-input" type="file" name="l_image" />
+                                            <span class="file-cta" style="background-color: #3699FF; border: none;">
+                                                <span class="file-icon">
+                                                    <i class="fas fa-upload"></i>
+                                                </span>
+                                                <span class="file-label">Choose a file…</span>
+                                            </span>
+                                            <span class="file-name has-text-grey">No file uploaded</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
 
