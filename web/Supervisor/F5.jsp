@@ -25,37 +25,40 @@
                         <div class="p-1" id="table">
                             <table class="">
                                 <thead>
-                                <tr style="border-bottom: 2px solid #ddd;">
-
-                                    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Date Meet</th>
-                                    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Completed Activity</th>
-                                    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Next Activity</th>
-                                    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Approval</th>
-                                    <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Actions</th>
-                                </tr>
+                                    <tr style="border-bottom: 2px solid #ddd;">
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Date Meet</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Completed Activity</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Next Activity</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Approval</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Actions</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="form5" items="${form5List}">
-                                    <tr>
-
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.dateMeet}</td>
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.completeActivity}</td>
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.nextActivity}</td>
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.approval}</td>
-                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                            <button class="button is-info is-outlined is-small" onclick="openUpdateModal(${form5.formId}, '${form5.nextActivity}', '${form5.approval}')">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+                                    <c:forEach var="form5" items="${form5List}">
+                                        <tr>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.dateMeet}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.completeActivity}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.nextActivity}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">${form5.approval}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                                <button class="button is-info is-outlined is-small" onclick="openUpdateModal(${form5.formId}, '${form5.nextActivity}', '${form5.approval}')">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                             <br>
+                            <!-- Add the Back button here -->
+                            <a href="FormSVServlet" class="button is-custom2">
+                                Back
+                            </a>
                             <!-- Pagination or other elements can be added here if necessary -->
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -67,8 +70,9 @@
                     <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Update Form5</p>
                     <button class="delete" aria-label="close" onclick="closeUpdateModal()"></button>
                 </header>
+                <form id="updateForm" action="${pageContext.request.contextPath}/UpdateForm5Servlet" method="post">
                 <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
-                    <form id="updateForm" action="${pageContext.request.contextPath}/UpdateForm5Servlet" method="post">
+                    
                         <input type="hidden" name="formId" id="updateFormId">
                         <div class="field">
                             <label class="has-text-weight-semibold has-text-grey">Next Activity</label>
@@ -84,11 +88,12 @@
                                        style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                             </div>
                         </div>
-                    </form>
+                    
                 </section>
                 <footer class="modal-card-foot has-background-white is-flex is-justify-content-end">
-                    <button class="button is-success has-text-white" type="submit">Save changes</button>
-                </footer>        
+                    <button class="button is-custom3" type="submit">Save changes</button>
+                </footer> 
+                </form>        
             </div>
         </div>
     </div>

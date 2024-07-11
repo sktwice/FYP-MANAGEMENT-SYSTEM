@@ -11,29 +11,45 @@
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
     <style>
-        .custom-modal .modal-card {
-    background-color: white;
-    color: #333;
-    width: 80%; /* Adjust this value to make the modal wider or narrower */
-    max-width: none; /* Ensure the modal can grow beyond the default max-width */
-}
+        
+        .tabs {
+                margin-bottom: 1.5rem;
+                border-bottom-color: #dbdbdb !important;
+            }
+        .tabs ul li.is-active a {
+                border-color: #dbdbdb !important;
+                color: #000;
+                border-bottom-color: #dbdbdb !important
+            }
+        .tabs ul li a {
+            color: #000;
+            border-bottom-color: #dbdbdb !important
+        }
+            .tabs ul li a:hover {
+                background-color: #dbdbdb !important;
+                color: #000;
+            }
+            .tabs ul li.is-active.light-theme a {
+                color: #000;
+                border-bottom-color: #dbdbdb !important
+            }
 
-.custom-modal .modal-card-head,
-.custom-modal .modal-card-foot {
-    background-color: #f5f5f5;
-}
-
-.custom-modal .modal-card-title {
-    color: #333;
-}
-
-.custom-modal .modal-card-body {
-    background-color: white;
-}
-
-.custom-modal .modal-background {
-    background-color: rgba(10, 10, 10, 0.86);
-}
+            .theme-preview {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border-radius: 5px;
+                border: 2px solid transparent;
+                cursor: pointer;
+            }
+            .theme-preview.light {
+                background-color: #eee;
+            }
+            .tabs.is-boxed li.is-active a {
+            background-color: #ffffff;
+            border-color: #dbdbdb !important;
+            border-bottom-color: #fff !important;
+        }
 </style>
 </head>
 <body>
@@ -42,15 +58,19 @@
     <div class="main-content">
         <div class="column h-100 p-4" style="background-color:#FFFFFF; overflow-y: scroll;">
             <div class="custom-border p-6 w-100">
+                <div class="pb-4">
+                            <label class="has-text-weight-bold has-text-grey is-size-4 pb-5">Forms</label>
+                            <p class="has-text-white has-background-grey-light is-size-7 px-3 py-1" style="border-radius: 4px;">Final Year Project has more than 7 forms</p>
+                        </div>
                 <div class="container">
                     <div class="tabs is-boxed">
-                        <ul>
-                            <li data-target="tab-1"><a>Form 7-Formulation Presentation</a></li>
-                            <li data-target="tab-2"><a>Form 8-Evaluation Form</a></li>
+                        <ul style="border-bottom-color: #dbdbdb !important">
+                            <li data-target="tab-1" class="is-active is-size-7"><a class="p-3 has-text-weight-semibold has-text-grey">Form 7-Formulation Presentation</a></li>
+                            <li data-target="tab-2" class="is-size-7"><a class="p-3 has-text-weight-semibold has-text-grey">Form 8-Evaluation Form</a></li>
                         </ul>
                     </div>
 
-                    <div id="tab-1" class="tab-content is-hidden">
+                    <div id="tab-1" class="tab-content">
                         <div class="p-3">
                             <div class="p-1" id="table">
                                 <table class="">
@@ -61,25 +81,27 @@
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Project Title</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Report</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Supervisor Name</th>
-                                        <th class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">Action</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach var="report" items="${listReports}">
                                         <tr>
-                                            <td class="has-text-centered">${report.studentId}</td>
-                                            <td class="has-text-centered">${report.studentName}</td>
-                                            <td class="has-text-centered">${report.projectTitle}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID" style="align-content:center;">${report.studentId}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student" style="align-content:center;">${report.studentName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Project Title" style="align-content:center;">${report.projectTitle}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Report" style="align-content:center;">
                                                 <div class="is-flex is-justify-content-center">
                                                     <a href="${pageContext.request.contextPath}/ViewProjectServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                                 </div>
                                             </td>
-                                            <td class="has-text-centered">${report.supervisorName}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                                <button class="button is-small is-info" onclick="openModal(${report.formtId})">View Details</button>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Supervisor Name" style="align-content:center;">${report.supervisorName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action" style="align-content:center;">
+                                                <button class="button is-small is-info is-outlined" onclick="openModal(${report.formtId})">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -239,25 +261,27 @@
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Project Title</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Report</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Supervisor Name</th>
-                                        <th class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">Action</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach var="report" items="${listReportsF8}">
                                         <tr>
-                                            <td class="has-text-centered">${report.studentId}</td>
-                                            <td class="has-text-centered">${report.studentName}</td>
-                                            <td class="has-text-centered">${report.projectTitle}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID" style="align-content:center;">${report.studentId}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student" style="align-content:center;">${report.studentName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Project Title" style="align-content:center;">${report.projectTitle}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Report" style="align-content:center;">
                                                 <div class="is-flex is-justify-content-center">
                                                     <a href="${pageContext.request.contextPath}/ViewProjectServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                                 </div>
                                             </td>
-                                            <td class="has-text-centered">${report.supervisorName}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                                <button class="button is-small is-info" onclick="openModal2(${report.formtId})">View Details</button>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Supervisor Name" style="align-content:center;">${report.supervisorName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action" style="align-content:center;">
+                                                <button class="button is-info is-small is-outlined" onclick="openModal2(${report.formtId})">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                     </c:forEach>

@@ -15,6 +15,47 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
+        <style>
+            
+        .tabs {
+                margin-bottom: 1.5rem;
+                border-bottom-color: #dbdbdb !important;
+            }
+        .tabs ul li.is-active a {
+                border-color: #dbdbdb !important;
+                color: #000;
+                border-bottom-color: #dbdbdb !important
+            }
+        .tabs ul li a {
+            color: #000;
+            border-bottom-color: #dbdbdb !important
+        }
+            .tabs ul li a:hover {
+                background-color: #dbdbdb !important;
+                color: #000;
+            }
+            .tabs ul li.is-active.light-theme a {
+                color: #000;
+                border-bottom-color: #dbdbdb !important
+            }
+
+            .theme-preview {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border-radius: 5px;
+                border: 2px solid transparent;
+                cursor: pointer;
+            }
+            .theme-preview.light {
+                background-color: #eee;
+            }
+            .tabs.is-boxed li.is-active a {
+            background-color: #ffffff;
+            border-color: #dbdbdb !important;
+            border-bottom-color: #fff !important;
+        }
+        </style>
     </head>
     <body>
         <div class="content-wrapper">
@@ -22,15 +63,19 @@
                 <div class="main-content">
         <div class="column h-100 p-4" style="background-color:#FFFFFF; overflow-y: scroll;">
             <div class="custom-border p-6 w-100">
+                <div class="pb-4">
+                            <label class="has-text-weight-bold has-text-grey is-size-4 pb-5">Forms</label>
+                            <p class="has-text-white has-background-grey-light is-size-7 px-3 py-1" style="border-radius: 4px;">Final Year Project has more than 7 forms</p>
+                        </div>
                 <div class="container">
                     <div class="tabs is-boxed">
-                        <ul>
-                            <li data-target="tab-1"><a>Form 5-Formulation Presentation</a></li>
-                            <li data-target="tab-2"><a>Form 6-Evaluation Form</a></li>
+                        <ul style="border-bottom-color: #dbdbdb !important">
+                            <li data-target="tab-1" class="is-active is-size-7"><a class="p-3 has-text-weight-semibold has-text-grey">Form 5-Formulation Presentation</a></li>
+                            <li data-target="tab-2" class="is-size-7"><a class="p-3 has-text-weight-semibold has-text-grey">Form 6-Evaluation Form</a></li>
                         </ul>
                     </div>
 
-                    <div id="tab-1" class="tab-content is-hidden">
+                    <div id="tab-1" class="tab-content">
                         <div class="p-3">
                             <div class="is-flex is-justify-content-end is-align-items-center pb-4">
                     <!-- Modal Trigger Button -->
