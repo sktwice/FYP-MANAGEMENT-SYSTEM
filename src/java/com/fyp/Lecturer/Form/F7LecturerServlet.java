@@ -73,7 +73,7 @@ public class F7LecturerServlet extends HttpServlet {
             dao.insertForm7(form7);
 
             // Redirecting to success page
-            response.sendRedirect("Examiners/Form.jsp");
+            response.sendRedirect(request.getContextPath() + "/ListF7Servlet");
         } catch (SQLException ex) {
             ex.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database access error");

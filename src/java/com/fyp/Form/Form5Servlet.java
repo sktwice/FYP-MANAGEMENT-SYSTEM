@@ -1,6 +1,6 @@
 package com.fyp.Form;
 
-import com.fyp.model.bean.FormTeach;
+import com.fyp.Form.Form5Dao;
 import com.fyp.model.bean.Form5;
 import com.fyp.model.bean.Project;
 import jakarta.servlet.ServletException;
@@ -90,7 +90,7 @@ public class Form5Servlet extends HttpServlet {
     formDAO.insertForm5(form5);
 
     // Redirect back to doGet to refresh the page with updated data
-    response.sendRedirect(request.getContextPath() + "/Form5Servlet");
+    response.sendRedirect(request.getContextPath() + "/StudentFormServlet");
 }
     }
 }

@@ -64,11 +64,11 @@ public class AddPastReportServlet extends HttpServlet {
             System.out.println("session: " + session1);
 
             Part filePart = request.getPart("pdfFile");
-            String fileName = filePart.getSubmittedFileName();
+            String fileName = studentId + ".pdf";
             System.out.println("fileName: " + fileName);
 
             // Specify the directory to save the files
-            String uploadPath = getServletContext().getRealPath("") + File.separator + "pdf" + File.separator + "proposalSV";
+            String uploadPath = getServletContext().getRealPath("") + File.separator + "pdf" + File.separator + "pastReport";
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {
                 uploadDir.mkdirs();
@@ -85,7 +85,7 @@ public class AddPastReportServlet extends HttpServlet {
                 }
             }
 
-            String proPdf = "pdf/proposalSV/" + fileName; // Update this to your actual URL path
+            String proPdf = "pdf/pastReport/" + fileName; // Update this to your actual URL path
             
             PastProject pastReport = new PastProject(proId, lId, adminId, studentName, studentId, proTitle, session1, proPdf);
 

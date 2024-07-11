@@ -50,7 +50,7 @@ public class StudentUploadServlet extends HttpServlet {
         System.out.println("fileName: " + fileName);
 
         // Specify the directory to save the files
-        String uploadPath = getServletContext().getRealPath("") + File.separator + "pdf" + File.separator + "proposalSV";
+        String uploadPath = getServletContext().getRealPath("") + File.separator + "pdf" + File.separator + "proposalReport";
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
             uploadDir.mkdirs();
@@ -67,7 +67,7 @@ public class StudentUploadServlet extends HttpServlet {
             }
         }
 
-        String proPdf = "pdf/proposalSV/" + fileName; // Update this to your actual URL path
+        String proPdf = "pdf/proposalReport/" + fileName; // Update this to your actual URL path
 
         // Assume studentId is stored in session
         HttpSession session = request.getSession(false);

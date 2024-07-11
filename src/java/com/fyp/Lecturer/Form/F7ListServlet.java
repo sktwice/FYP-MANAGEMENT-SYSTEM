@@ -30,8 +30,8 @@ public class F7ListServlet extends HttpServlet {
         try {
             
             HttpSession session = request.getSession();
-            int teacherId = (int) session.getAttribute("t_id");
-            List<StudentReportDAO.StudentReport> listReports = studentReportDAO.listAllReports(teacherId);
+            int exId = (int) session.getAttribute("ex_id");
+            List<StudentReportDAO.StudentReport> listReports = studentReportDAO.listAllReportsEX(exId);
             request.setAttribute("listReports", listReports);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/Examiners/F7List.jsp");
             dispatcher.forward(request, response);

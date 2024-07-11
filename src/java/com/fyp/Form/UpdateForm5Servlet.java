@@ -34,6 +34,6 @@ public class UpdateForm5Servlet extends HttpServlet {
         Form5 form5 = new Form5(formId, null, null, nextActivity, approval);
         form5Dao.updateForm5(form5);
 
-        response.sendRedirect(request.getContextPath() +"/Supervisor/Form-Supervisor.jsp");
+        response.sendRedirect(request.getContextPath() +"/SupervisorProjectDetailsServlet");
     }
 }

@@ -16,7 +16,7 @@
             <div class="main-content">
                 <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
                     <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                        <input class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                        <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
                         <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
                             <img src="">
                         </span>
@@ -44,7 +44,7 @@
                                             <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tableBody">
                                         <c:forEach var="pastProject" items="${pastProjects}">
                                         <tr>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
@@ -57,10 +57,10 @@
                                                 data-label="Topic">${pastProject.proTitle}</td>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
                                                 <div class="is-flex is-justify-content-center">
-                                                    <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
+                                                    <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${pastProject.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a class="button is-info is-outlined is-small" href="${pageContext.request.contextPath}/DownloadPastReportServlet?proId=${report.proId}">
+                                                    <a class="button is-info is-outlined is-small" href="${pageContext.request.contextPath}/DownloadPastReportServlet?proId=${pastProject.proId}">
                                                         <i class="fas fa-download"></i>
                                                     </a>
                                                 </div>
@@ -77,5 +77,25 @@
                 </div>
             </div>
         </div>
+        
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function () {
+            var input = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#table tbody tr');
+
+            rows.forEach(function (row) {
+                var name = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+                var id = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                var position = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                var email = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+
+                if (name.includes(input) || id.includes(input) || position.includes(input) || email.includes(input)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
     </body>
 </html>

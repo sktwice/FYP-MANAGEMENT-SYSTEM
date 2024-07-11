@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.SQLException;
 
-@WebServlet("/viewPdf")
+
 public class ViewPdfServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private AddPastReportDAO PR;

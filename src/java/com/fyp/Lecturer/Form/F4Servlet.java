@@ -45,13 +45,13 @@ public class F4Servlet extends HttpServlet {
         }
 
         try {
-            int formtId = Integer.parseInt(request.getParameter("formtId"));
+            int formtId = Integer.parseInt(request.getParameter("formtId4"));
 
             // Getting form data from request
-            int design = Integer.parseInt(request.getParameter("data1"));
-            int description = Integer.parseInt(request.getParameter("data2"));
-            int model = Integer.parseInt(request.getParameter("data3"));
-            int total = Integer.parseInt(request.getParameter("equal"));
+            int design = Integer.parseInt(request.getParameter("hiddenResultA"));
+            int description = Integer.parseInt(request.getParameter("hiddenResultB"));
+            int model = Integer.parseInt(request.getParameter("hiddenResultC"));
+            int total = Integer.parseInt(request.getParameter("hiddenTotalResult"));
             
 
             // Setting other required fields
@@ -68,7 +68,7 @@ public class F4Servlet extends HttpServlet {
             dao.insertForm4(form4);
 
             // Redirecting to success page
-            response.sendRedirect("Lecturers/Form-Lecturer.jsp");
+            response.sendRedirect(request.getContextPath()+ "/LecturerFormServlet");
         } catch (SQLException ex) {
             ex.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database access error");

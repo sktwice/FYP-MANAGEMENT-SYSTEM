@@ -20,6 +20,7 @@ public class Form5Dao {
 
     private static final String SELECT_FORMS_BY_STUDENT_ID = "SELECT f.* FROM form5 f JOIN project p ON f.pro_ID = p.pro_ID WHERE p.student_id =?;";
     private static final String SELECT_FORM5_BY_FORM_ID = "SELECT * FROM form5 WHERE form_id = ? ORDER BY date_meet";
+    private static final String SELECT_FORM5_BY_PRO_ID = "SELECT * FROM form5 WHERE pro_ID = ? ORDER BY date_meet";
 
     private static final String SELECT_PROJECT_BY_STUDENT_ID = "SELECT * FROM project WHERE student_id = ?";
     private static final String SELECT_PROJECTS_BY_LECTURER_ID = "SELECT * FROM project WHERE sv_id = ?";
@@ -65,6 +66,27 @@ public class Form5Dao {
             preparedStatement.setInt(1, formId);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
+                String dateMeet = rs.getString("date_meet");
+                String completeActivity = rs.getString("completed_activity");
+                String nextActivity = rs.getString("next_activity");
+                String approval = rs.getString("approval");
+                Form5 form5 = new Form5(formId, dateMeet, completeActivity, nextActivity, approval);
+                form5List.add(form5);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return form5List;
+    }
+    
+    public List<Form5> getForm5ByProId(int proId) {
+        List<Form5> form5List = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FORM5_BY_PRO_ID)) {
+            preparedStatement.setInt(1, proId);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int formId = rs.getInt("formId");
                 String dateMeet = rs.getString("date_meet");
                 String completeActivity = rs.getString("completed_activity");
                 String nextActivity = rs.getString("next_activity");

@@ -237,18 +237,18 @@ table td {
 }
 
 .button.is-delete {
-    background-color: #f14668;
+    background-color: #fff;
     border-color: #fff;
-    color: #fff
+    color: #f14668;
 }
 
 .button.is-delete.is-outlined:hover,
 .button.is-delete.is-outlined.is-hovered,
 .button.is-delete.is-outlined:focus,
 .button.is-delete.is-outlined.is-focused {
-    background-color: #fff;
+    background-color: #f14668;
     border-color: #fff;
-    color: #f14668;
+    color: #fff
 }
 
 .button.is-custom {
@@ -359,29 +359,6 @@ table td {
     background-color: #fff;
     border-color: #fff;
     color: #35B638
-}
-
-.button.is-delete {
-    background-color: #fff;
-    border-color: #FF0000;
-    color: #FF0000;
-    padding: 5px 24px;
-}
-
-.button.is-delete:hover,
-.button.custom2.is-hovered {
-    background-color: #FF0000;
-    border-color: #FF0000;
-    color: #fff
-}
-
-.button.is-delete.is-outlined:hover,
-.button.is-delete.is-outlined.is-hovered,
-.button.is-delete.is-outlined:focus,
-.button.is-delete.is-outlined.is-focused {
-    background-color: #FF0000;
-    border-color: #FF0000;
-    color: #fff
 }
 
 .dropdown {

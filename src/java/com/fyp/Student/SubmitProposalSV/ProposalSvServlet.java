@@ -41,7 +41,7 @@ public class ProposalSvServlet extends HttpServlet {
             int svId = Integer.parseInt(request.getParameter("svId")); // Retrieve sv_id
 
             Part filePart = request.getPart("pdfFile");
-            String fileName = filePart.getSubmittedFileName();
+            String fileName = studentId + ".pdf"; // Rename the file using the student ID
 
             // Generate a random proposal ID
             Random rand = new Random();
