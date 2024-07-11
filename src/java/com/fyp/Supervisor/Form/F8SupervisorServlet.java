@@ -45,20 +45,19 @@ public class F8SupervisorServlet extends HttpServlet {
 
             // Generating a random formId
             
-            int formtId = Integer.parseInt(request.getParameter("formtId"));
-
+            int formtId2 = Integer.parseInt(request.getParameter("formtId2"));
             // Getting form data from request
             String handoverDate = request.getParameter("handoverDate");
-            int proBackground = Integer.parseInt(request.getParameter("data1"));
-            int objective = Integer.parseInt(request.getParameter("data2"));
-            int significance = Integer.parseInt(request.getParameter("data3"));
-            int literature = Integer.parseInt(request.getParameter("data4"));
-            int proMethodology = Integer.parseInt(request.getParameter("data5"));
-            int presentReport = Integer.parseInt(request.getParameter("data6"));
-            int progressEvaluate = Integer.parseInt(request.getParameter("data7"));
-            int total = Integer.parseInt(request.getParameter("equal"));
-            String comment = request.getParameter("comment");
-            String role = "lecturer";
+            int proBackground = Integer.parseInt(request.getParameter("dataF1"));
+            int objective = Integer.parseInt(request.getParameter("dataF2"));
+            int significance = Integer.parseInt(request.getParameter("dataF3"));
+            int literature = Integer.parseInt(request.getParameter("dataF4"));
+            int proMethodology = Integer.parseInt(request.getParameter("dataF5"));
+            int presentReport = Integer.parseInt(request.getParameter("dataF6"));
+            int progressEvaluate = Integer.parseInt(request.getParameter("dataF7"));
+            int total2 = Integer.parseInt(request.getParameter("equalF"));
+            String comment2 = request.getParameter("comment2");
+            String role="supervisor";
            
 
             // Setting other required fields
@@ -67,15 +66,15 @@ public class F8SupervisorServlet extends HttpServlet {
             String date = currentDate.toString();
 
             // Creating Form8 object
-            Form8Supervisor form8 = new Form8Supervisor(formtId,handoverDate, proBackground, objective, significance, literature, proMethodology, presentReport, progressEvaluate, total, comment, role, agreement, date);
+            Form8Supervisor form8 = new Form8Supervisor(formtId2,handoverDate, proBackground, objective, significance, literature, proMethodology, presentReport, progressEvaluate, total2, comment2, role, agreement, date);
             System.out.println(form8.getFormTId());
-            System.out.println(formtId);
+            System.out.println(formtId2);
             // Inserting Form8 object into database
             FormDAO dao = new FormDAO();
             dao.insertForm8Supervisor(form8);
 
             // Redirecting to success page
-            response.sendRedirect("Supervisor/Form-Supervisor.jsp");
+            response.sendRedirect(request.getContextPath()+ "/FormSVServlet");
         } catch (SQLException ex) {
             ex.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database access error");

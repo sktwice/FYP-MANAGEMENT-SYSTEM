@@ -52,7 +52,7 @@
                             </tbody>
                         </table>
                         <br>
-                        <a class="button is-custom2" href="${pageContext.request.contextPath}/Students/Form-Student.jsp">Cancel</a>
+                        <a class="button is-custom2" href="${pageContext.request.contextPath}/StudentFormServlet">Back</a>
                     </div>
                 </div>
             </div>

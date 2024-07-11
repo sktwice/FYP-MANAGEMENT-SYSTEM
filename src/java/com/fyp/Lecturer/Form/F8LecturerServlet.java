@@ -10,6 +10,7 @@ package com.fyp.Lecturer.Form;
 
 import com.fyp.Form.FormDAO;
 import com.fyp.Lecturer.Form.StudentDetailsDAO;
+import com.fyp.model.bean.Form8;
 import com.fyp.model.bean.Form8Lecturer;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -48,20 +49,19 @@ public class F8LecturerServlet extends HttpServlet {
 
             // Generating a random formId
             
-            int formtId = Integer.parseInt(request.getParameter("formtId"));
-
+            int formtId2 = Integer.parseInt(request.getParameter("formtId2"));
             // Getting form data from request
             String handoverDate = request.getParameter("handoverDate");
-            int proBackground = Integer.parseInt(request.getParameter("data1"));
-            int objective = Integer.parseInt(request.getParameter("data2"));
-            int significance = Integer.parseInt(request.getParameter("data3"));
-            int literature = Integer.parseInt(request.getParameter("data4"));
-            int proMethodology = Integer.parseInt(request.getParameter("data5"));
-            int presentReport = Integer.parseInt(request.getParameter("data6"));
-            int progressEvaluate = Integer.parseInt(request.getParameter("data7"));
-            int total = Integer.parseInt(request.getParameter("equal"));
-            String comment = request.getParameter("comment");
-            String role = "lecturer";
+            int proBackground = Integer.parseInt(request.getParameter("dataF1"));
+            int objective = Integer.parseInt(request.getParameter("dataF2"));
+            int significance = Integer.parseInt(request.getParameter("dataF3"));
+            int literature = Integer.parseInt(request.getParameter("dataF4"));
+            int proMethodology = Integer.parseInt(request.getParameter("dataF5"));
+            int presentReport = Integer.parseInt(request.getParameter("dataF6"));
+            int progressEvaluate = Integer.parseInt(request.getParameter("dataF7"));
+            int total2 = Integer.parseInt(request.getParameter("equalF"));
+            String comment2 = request.getParameter("comment2");
+            String role="examiner";
            
 
             // Setting other required fields
@@ -70,15 +70,15 @@ public class F8LecturerServlet extends HttpServlet {
             String date = currentDate.toString();
 
             // Creating Form8 object
-            Form8Lecturer form8l = new Form8Lecturer(formtId,handoverDate, proBackground, objective, significance, literature, proMethodology, presentReport, progressEvaluate, total, comment, role, agreement, date);
-            System.out.println(form8l.getFormTId());
-            System.out.println(formtId);
+            Form8Lecturer form81 = new Form8Lecturer(formtId2,handoverDate, proBackground, objective, significance, literature, proMethodology, presentReport, progressEvaluate, total2, comment2, role, agreement, date);
+            System.out.println(form81.getFormTId());
+            System.out.println(formtId2);
             // Inserting Form8 object into database
             FormDAO dao = new FormDAO();
-            dao.insertForm8Lecturer(form8l);
+            dao.insertForm8Lecturer(form81);
 
             // Redirecting to success page
-            response.sendRedirect("Lecturers/Form-Lecturer.jsp");
+            response.sendRedirect(request.getContextPath()+ "/LecturerFormServlet");
         } catch (SQLException ex) {
             ex.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database access error");

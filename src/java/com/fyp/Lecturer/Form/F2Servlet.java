@@ -61,7 +61,7 @@ public class F2Servlet extends HttpServlet {
             dao.insertForm2(form2);
 
             // Redirecting to success page
-            response.sendRedirect("Lecturers/Form-Lecturer.jsp");
+            response.sendRedirect(request.getContextPath()+ "/LecturerFormServlet");
         } catch (SQLException ex) {
             ex.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database access error");

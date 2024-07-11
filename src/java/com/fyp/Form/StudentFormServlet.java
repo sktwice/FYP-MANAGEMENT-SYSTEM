@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Form5Servlet extends HttpServlet {
+public class StudentFormServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private Form5Dao formDAO;
 
@@ -50,7 +50,7 @@ public class Form5Servlet extends HttpServlet {
             }
             request.setAttribute("form5List", form5List);
         }
-        request.getRequestDispatcher("Students/F5 – PROJECT IN-PROGRESS FORM.jsp").forward(request, response);
+        request.getRequestDispatcher("Students/Form-Student.jsp").forward(request, response);
     }
 
     @Override
@@ -90,7 +90,7 @@ public class Form5Servlet extends HttpServlet {
     formDAO.insertForm5(form5);
 
     // Redirect back to doGet to refresh the page with updated data
-    response.sendRedirect(request.getContextPath() + "/StudentFormServlet");
+    response.sendRedirect(request.getContextPath() + "/Form5Servlet");
 }
     }
 }

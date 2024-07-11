@@ -14,13 +14,13 @@ import java.io.OutputStream;
 import java.sql.SQLException;
 
 
-public class ViewPdfServlet extends HttpServlet {
+public class ViewProjectServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private AddPastReportDAO PR;
+    private PdfDao PR;
 
     @Override
     public void init() {
-        PR = new AddPastReportDAO();
+        PR = new PdfDao();
     }
 
     @Override
@@ -29,7 +29,7 @@ public class ViewPdfServlet extends HttpServlet {
         int proId = Integer.parseInt(request.getParameter("proId"));
 
         try {
-            String pdfPath = PR.getPdfPathById(proId);
+            String pdfPath = PR.getProjectPathById(proId);
             if (pdfPath != null) {
                 File pdfFile = new File(getServletContext().getRealPath("") + File.separator + pdfPath);
                 if (pdfFile.exists()) {

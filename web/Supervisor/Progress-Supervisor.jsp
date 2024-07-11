@@ -54,7 +54,7 @@
                                             <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Student Name">${report.studentName}</td>
                                             <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Report Name">${report.projectTitle}</td>
                                             <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Progress">
-                                                <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
+                                                <a href="${pageContext.request.contextPath}/ViewProjectServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                             </td>

@@ -140,7 +140,7 @@
         <li><a href="${pageContext.request.contextPath}/DashboardServlet"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/SupervisorUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/PastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
-        <li><a href="${pageContext.request.contextPath}/Supervisor/Form-Supervisor.jsp"><i class="fa fa-folder-open mx-2"></i> Forms</a></li>
+        <li><a href="${pageContext.request.contextPath}/FormSVServlet"><i class="fa fa-folder-open mx-2"></i> Forms</a></li>
         <li><a href="${pageContext.request.contextPath}/ProgressServlet"><i class="fa fa-qrcode mx-2"></i> Progress</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/ScopeSvServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/ViewProposalServlet"><i class="fa fa-bullseye mx-2"></i>Request</a></li>
@@ -154,7 +154,7 @@
         <li><a href="${pageContext.request.contextPath}/DashboardServlet"><i class="fa fa-home mx-2"></i> Dashboard</a></li>
         <li><a href="${pageContext.request.contextPath}/SupervisorUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/PastReportServlet"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
-        <li><a href="${pageContext.request.contextPath}/Supervisor/Form-Supervisor.jsp"><i class="fa fa-folder-open mx-2"></i> Forms</a></li>
+        <li><a href="${pageContext.request.contextPath}/FormSVServlet"><i class="fa fa-folder-open mx-2"></i> Forms</a></li>
         <li><a href="${pageContext.request.contextPath}/ProgressServlet><i class="fa fa-qrcode mx-2"></i> Progress</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/ScopeSvServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/Supervisor/ViewProposalServlet"><i class="fa fa-bullseye mx-2"></i>Request</a></li>
