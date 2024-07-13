@@ -672,15 +672,16 @@
 <!-- Modal Structure -->
 <div class="modal custom-modal" id="detailModal">
     <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">Project Details</p>
+    <div class="modal-card" style="width: 50%;">
+        <header class="modal-card-head has-background-white">
+            <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal()"></button>
         </header>
-        <section class="modal-card-body">
+        <form action="ListF7Servlet" method="post">
+        <section class="modal-card-body has-background-white">
             <!-- Content -->
             <div class="columns is-multiline">
-                <form action="ListF7Servlet" method="post">
+                
                     <input type="hidden" id="modalFormtId" name="formtId" value="">
                 <div class="column is-2" style="align-content: center">
                     <label class="has-text-weight-semibold has-text-grey">Presentation Date :</label>
@@ -820,31 +821,26 @@
                             </table>
                         </div>
                     </div>
-                    <div class="columns p-3">
-                        <div class="column" style="justify-content: flex-end; align-items: flex-end;">
-                            <div style="float: right;">
-                                <button type="submit" class="button is-small is-info">Submit</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                </form>     
+                     
             </div>
         </section>
-        <footer class="modal-card-foot">
-                <button class="button" onclick="closeModal()">Close</button>
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                <button type="submit" class="button is-custom3">Submit</button>
             </footer>
+            </form>
     </div>
 </div>
 
 <div class="modal custom-modal" id="detailModal2">
     <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">Project Details</p>
+    <div class="modal-card" style="width: 50%;">
+        <header class="modal-card-head has-background-white"style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
+            <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal2()"></button>
         </header>
-        <section class="modal-card-body">
+        <form action="F8Servlet" method="post">
+        <section class="modal-card-body has-background-white">
             <!-- Content -->
             <div class="columns is-multiline">
                 <form action="F8Servlet" method="post">
@@ -1060,20 +1056,14 @@
                             </table>
                         </div>
                     </div>
-                    <div class="columns p-3">
-                        <div class="column" style="justify-content: flex-end; align-items: flex-end;">
-                            <div style="float: right;">
-                                <button type="submit" class="button is-small is-info">Submit</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                </form>     
+                     
             </div>
         </section>
-        <footer class="modal-card-foot">
-                <button class="button" onclick="closeModal2()">Close</button>
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                <button type="submit" class="button is-custom3">Submit</button>
             </footer>
+            </form>
     </div>
 </div>
 

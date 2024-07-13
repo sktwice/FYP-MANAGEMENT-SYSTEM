@@ -30,9 +30,9 @@
                                 <input id="searchInput" class="px-4 py-3" type="text" placeholder="Search" style="width: 100%; border-radius: 6px; outline: none;">
                             </div>
                             <div class="column p-1" style="align-content:center;">
-                                <a class="button is-custom px-4 py-3 w-100" href="${pageContext.request.contextPath}/editScope">
+                                <button class="button is-custom px-4 py-3 w-100" style="height:2rem;" id="openModalButton">
                                     <span class="is-size-7">Add Scope</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -70,6 +70,42 @@
             </div>
         </div>
     </div>
+<div class="modal custom-modal" id="registerLecturerModal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
+                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Add New Scope</p>
+                    <button class="delete" aria-label="close" id="closeModalButton"></button>
+                </header>
+                <section class="modal-card-body has-background-white">
+                    <form action="insertScope" method="post">
+                            <div class="p-4">
+                                <input type="hidden" name="adminId" value="${sessionScope.admin_id }"/>
+                            <input type="hidden" name="lId" value="0" />
+                            <label class="has-text-weight-semibold has-text-grey">Scope</label>
+                            <div class="py-2">
+                                <input class="px-4 py-2" type="text" name="scopeName" placeholder="Scope Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                            </div>
+                            <label class="has-text-weight-semibold has-text-grey">Programme</label>
+                            <div class="py-2">
+                                <input class="px-4 py-2" type="text" name="program" placeholder="Programme" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                            </div>
+                            <label class="has-text-weight-semibold has-text-grey">Session</label>
+                            <div class="py-2">
+                                <input class="px-4 py-2" type="text" name="session" placeholder="Session" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                            </div>
+                        </div>
+                        <div class="is-flex is-justify-content-space-between p-4">
+                            <a class="button is-custom2" href="${pageContext.request.contextPath}/ListScopeServlet"><span class="has-text-weight-semibold is-size-7">Back</span></a>
+                            <button type="submit" class="button is-custom4">
+                                <span class="has-text-weight-semibold is-size-7">Save Changes</span>
+                            </button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>                                                          
+                                    
     <script>
         $(document).ready(function () {
             $('#searchInput').on('input', function () {
@@ -84,6 +120,24 @@
                 });
             });
         });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+                const openModalButton = document.getElementById('openModalButton');
+                const closeModalButton = document.getElementById('closeModalButton');
+                const modal = document.getElementById('registerLecturerModal');
+
+                openModalButton.addEventListener('click', () => {
+                    modal.classList.add('is-active');
+                });
+
+                closeModalButton.addEventListener('click', () => {
+                    modal.classList.remove('is-active');
+                });
+
+                modal.querySelector('.modal-background').addEventListener('click', () => {
+                    modal.classList.remove('is-active');
+                });
+            });
     </script>
 </body>
 </html>

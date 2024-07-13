@@ -28,11 +28,16 @@ public class LecturerListDAO {
     private static final String DELETE_PROJECT_SQL = "DELETE FROM project WHERE l_id = ?";
     private static final String UPDATE_LECT_SQL = "UPDATE lecturer SET position = ?, l_name = ?, email = ? WHERE l_id = ?";
     private static final String SELECT_ALL_FACULTY = "SELECT * FROM faculty";
-
+    private static final String SELECT_TEACHING_LEC = "SELECT l.l_name, l.l_id, r.status, r.role_id, l.email FROM lecturer l JOIN teach t ON l.l_id = t.l_id JOIN ROLE r ON l.l_id = r.l_id WHERE r.position = 'teaching';";
+    private static final String SELECT_SUPERVISOR_LEC = "SELECT l.l_name, l.l_id, r.status,r.role_id, l.email FROM lecturer l JOIN supervisor t ON l.l_id = t.l_id JOIN ROLE r ON l.l_id = r.l_id WHERE r.position = 'supervisor';";
+    private static final String SELECT_EXAMINER_LEC = "SELECT l.l_name, l.l_id,l.phone_num, r.status,r.role_id, l.email FROM lecturer l JOIN examiner t ON l.l_id = t.l_id JOIN ROLE r ON l.l_id = r.l_id WHERE r.position = 'examiner';";
+    private static final String UPDATE_ACTIVE = "UPDATE role SET status = 'Active' WHERE role_id = ?";
+    private static final String UPDATE_UNACTIVE = "UPDATE role SET status = 'Unactive' WHERE role_id = ?";
+    
     protected Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -55,6 +60,90 @@ public class LecturerListDAO {
         if (jdbcConnection != null && !jdbcConnection.isClosed()) {
             jdbcConnection.close();
         }
+    }
+    
+    public boolean updateRoleActive(int roleId) {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_ACTIVE)) {
+            preparedStatement.setInt(1, roleId);
+            System.out.println("Rows updated: " + roleId);
+            int rowsUpdated = preparedStatement.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean updateRoleUnActive(int roleId) {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_UNACTIVE)) {
+            preparedStatement.setInt(1, roleId);
+            System.out.println("Rows updated: " + roleId);
+            int rowsUpdated = preparedStatement.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public List<LecturerRole> teachingLecturer() {
+        List<LecturerRole> teaching = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_TEACHING_LEC)) {
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String lName=rs.getString("l_name");
+                int lId = rs.getInt("l_id");
+                String status = rs.getString("status");
+                String email = rs.getString("email");
+                int roleId = rs.getInt("role_id");
+                teaching.add(new LecturerRole(lName,lId,status,email, roleId));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return teaching;
+    }
+    
+    public List<LecturerRole> supervisorLecturer() {
+        List<LecturerRole> supervisor = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SUPERVISOR_LEC)) {
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String lName=rs.getString("l_name");
+                int lId = rs.getInt("l_id");
+                String status = rs.getString("status");
+                String email = rs.getString("email");
+                int roleId = rs.getInt("role_id");
+                supervisor.add(new LecturerRole(lName,lId,status,email,roleId));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return supervisor;
+    }
+    
+    public List<LecturerRole> examinerLecturer() {
+        List<LecturerRole> examiner = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_EXAMINER_LEC)) {
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String lName=rs.getString("l_name");
+                int lId = rs.getInt("l_id");
+                int phoneNum=rs.getInt("phone_num");
+                String status = rs.getString("status");
+                String email = rs.getString("email");
+                int roleId = rs.getInt("role_id");
+                examiner.add(new LecturerRole(lName,lId,phoneNum,status,email, roleId));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return examiner;
     }
 
     public List<Faculty> selectAllFaculties() {
@@ -258,4 +347,85 @@ public class LecturerListDAO {
             }
         }
     }
+    
+    public class LecturerRole {
+    private String lName;
+    private int lId;
+    private String status;
+    private String email;
+    private int roleId;
+    private int phoneNum;
+
+    // Constructor
+    public LecturerRole(String lName, int lId, String status, String email, int roleId) {
+        this.lName = lName;
+        this.lId = lId;
+        this.status = status;
+        this.email = email;
+        this.roleId = roleId;
+    }
+    
+    public LecturerRole(String lName, int lId,int phoneNum, String status, String email, int roleId) {
+        this.lName = lName;
+        this.lId = lId;
+        this.phoneNum = phoneNum;
+        this.status = status;
+        this.email = email;
+        this.roleId = roleId;
+    }
+
+    // Getters
+    public String getLName() {
+        return lName;
+    }
+
+    public int getLId() {
+        return lId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    // Setters
+    public void setLName(String lName) {
+        this.lName = lName;
+    }
+
+    public void setLId(int lId) {
+        this.lId = lId;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+        public int getRoleId() {
+            return roleId;
+        }
+
+        public void setRoleId(int roleId) {
+            this.roleId = roleId;
+        }
+
+        public int getPhoneNum() {
+            return phoneNum;
+        }
+
+        public void setPhoneNum(int phoneNum) {
+            this.phoneNum = phoneNum;
+        }
+        
+        
+
+}
+
 }

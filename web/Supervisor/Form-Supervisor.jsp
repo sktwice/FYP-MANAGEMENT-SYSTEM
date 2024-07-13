@@ -945,8 +945,8 @@
         </form>  
     </div>
 </div>  
-<div class="modal custom-modal" id="detailModal">
-    <div class="modal-background has-background-white"></div>
+<div class="modal" id="detailModal">
+    <div class="modal-background "></div>
     <div class="modal-card">
         <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
             <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>

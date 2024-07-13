@@ -28,7 +28,6 @@ public class SupervisorProjectDetailsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Get parameters from the request
-        int proId = Integer.parseInt(request.getParameter("proId"));
         int studentId = Integer.parseInt(request.getParameter("studentId"));
 
         List<Form5> forms = form5DAO.getFormsByStudentId(studentId);

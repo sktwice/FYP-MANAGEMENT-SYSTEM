@@ -27,11 +27,11 @@
                     <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                                 <div>
                                     <label class="has-text-weight-bold has-text-grey is-size-5">List of Examiner</label>
-                                    <p class="has-text-grey-light is-size-7">More than ${examiners.size()} lecturers</p>
+                                    <p class="has-text-grey-light is-size-7">More than ${examiner.size()} lecturers</p>
                                 </div>
-                                <a class="button is-custom4" style="height:2rem;" href="${pageContext.request.contextPath}/AssignExaminerServlet">
-                                <span class="is-size-7">Assign</span>
-                            </a>
+                                <button class="button is-custom" style="height:2rem;" id="openModalButton">
+                            <span class="is-size-7">Assign</span>
+                        </button>
                         </div>
                     <div class="pb-4">
                         <div>
@@ -46,16 +46,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="lecturer" items="${examiners}">
+                                        <c:forEach var="lecturer" items="${examiner}">
                                             <tr>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Name">
-                                                    <c:out value="${lecturer.lName}" />
+                                                    <c:out value="${lecturer.LName}" />
                                                 </td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Staff ID">
-                                                    <c:out value="${lecturer.lId}" />
+                                                    <c:out value="${lecturer.LId}" />
                                                 </td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Contact">
-                                                    <c:out value="${lecturer.phoneNum}" />
+                                                    <c:out value="0${lecturer.phoneNum}" />
                                                 </td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email">
                                                     <c:out value="${lecturer.email}" />
@@ -71,6 +71,57 @@
             </div>
         </div>
     </div>
+           <div class="modal custom-modal" id="registerLecturerModal">
+            <div class="modal-background"></div>
+            <div class="modal-card" style="width: 80%;">
+                <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
+                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Assign Examiner</p>
+                    <button class="delete" aria-label="close" id="closeModalButton"></button>
+                </header>
+                <section class="modal-card-body has-background-white">
+                        <input type="hidden" id="admin_id" name="admin_id" value="${sessionScope.admin_id}">
+                        
+                    <table class="">
+                        <thead>
+                            <tr class="" style="border-bottom: 2px solid #ddd;">
+                                <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Matric ID</th>
+                                <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Student Name</th>
+                                <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Project Title</th>
+                                <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Select Examiner</th>
+                                <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Action</th>
+                            </tr>
+                        </thead>
+                        <form action="${pageContext.request.contextPath}/UpdateExaminerServlet" method="post">
+                            <tbody>
+                                <c:forEach var="assign" items="${projectStudents}">
+                                    <tr>
+                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Matric ID">${assign.studentId}</td>
+                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Student Name">${assign.studentName}</td>
+                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Project Title">${assign.projectTitle}</td>
+                                        <td class="is-size-7 has-text-centered" data-label="Select Examiner">
+                                            <select name="examinerId" id="examinerId">
+                                                <option value="" disabled selected>Select Examiner</option>
+                                                <c:forEach var="examiner" items="${examiners}">
+                                                    <option value="${examiner.exId}">${examiner.LName}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </td>
+                                        <td class="is-size-7 has-text-centered" data-label="Action">
+                                            <button type="submit" class="button is-small is-info">Assign</button>
+                                            <input type="hidden" name="studentId" value="${assign.studentId}">
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </form>
+
+                    </table>
+
+                        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                        </footer>
+                </section>
+            </div>
+        </div>                    
     <script>
         document.getElementById('searchInput').addEventListener('input', function () {
             var input = this.value.toLowerCase();
@@ -89,6 +140,24 @@
                 }
             });
         });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+                const openModalButton = document.getElementById('openModalButton');
+                const closeModalButton = document.getElementById('closeModalButton');
+                const modal = document.getElementById('registerLecturerModal');
+
+                openModalButton.addEventListener('click', () => {
+                    modal.classList.add('is-active');
+                });
+
+                closeModalButton.addEventListener('click', () => {
+                    modal.classList.remove('is-active');
+                });
+
+                modal.querySelector('.modal-background').addEventListener('click', () => {
+                    modal.classList.remove('is-active');
+                });
+            });
     </script>
 </body>
 </html>

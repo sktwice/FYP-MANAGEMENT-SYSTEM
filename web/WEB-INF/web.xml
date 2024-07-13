@@ -385,12 +385,44 @@
         <servlet-class>com.fyp.Student.Upload.StudentUploadServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SupervisorListDao</servlet-name>
-        <servlet-class>com.fyp.Admin.SupervisorList.SupervisorListDao</servlet-class>
+        <servlet-name>ViewProposalPdfServlet</servlet-name>
+        <servlet-class>com.fyp.Download.ViewProposalPdfServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewProjectServlet</servlet-name>
+        <servlet-class>com.fyp.Download.ViewProjectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListF7Servlet</servlet-name>
+        <servlet-class>com.fyp.Examiner.form.ListF7Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FormSVServlet</servlet-name>
+        <servlet-class>com.fyp.Supervisor.Form.FormSVServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerFormServlet</servlet-name>
+        <servlet-class>com.fyp.Lecturer.Form.LecturerFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentFormServlet</servlet-name>
+        <servlet-class>com.fyp.Form.StudentFormServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListSupervisorRole</servlet-name>
         <servlet-class>com.fyp.Admin.SupervisorList.ListSupervisorRole</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateSupervisorStatus</servlet-name>
+        <servlet-class>com.fyp.Admin.SupervisorList.UpdateSupervisorStatus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateStatusServlet</servlet-name>
+        <servlet-class>com.fyp.Admin.LecturerList.UpdateStatusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerAddScope</servlet-name>
+        <servlet-class>com.fyp.Lecturer.Scope.LecturerAddScope</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
@@ -566,7 +598,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InsertScopeSupervisorServlet</servlet-name>
-        <url-pattern>/Supervisor/InsertScopeSupervisorServlet</url-pattern>
+        <url-pattern>/InsertScopeSupervisorServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DownloadServlet</servlet-name>
@@ -773,12 +805,44 @@
         <url-pattern>/StudentUploadServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SupervisorListDao</servlet-name>
-        <url-pattern>/SupervisorListDAO</url-pattern>
+        <servlet-name>ViewProposalPdfServlet</servlet-name>
+        <url-pattern>/ViewProposalPdfServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProjectServlet</servlet-name>
+        <url-pattern>/ViewProjectServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListF7Servlet</servlet-name>
+        <url-pattern>/ListF7Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FormSVServlet</servlet-name>
+        <url-pattern>/FormSVServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerFormServlet</servlet-name>
+        <url-pattern>/LecturerFormServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentFormServlet</servlet-name>
+        <url-pattern>/StudentFormServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListSupervisorRole</servlet-name>
-        <url-pattern>/ListSVRole</url-pattern>
+        <url-pattern>/ListSupervisorRole</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateSupervisorStatus</servlet-name>
+        <url-pattern>/UpdateSupervisorStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStatusServlet</servlet-name>
+        <url-pattern>/UpdateStatusServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerAddScope</servlet-name>
+        <url-pattern>/LecturerAddScope</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

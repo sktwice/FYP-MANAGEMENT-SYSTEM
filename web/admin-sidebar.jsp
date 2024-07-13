@@ -145,8 +145,6 @@
         <li><a href="${pageContext.request.contextPath}/AdminUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/ListPastReport"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/LecturerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
-        <li><a href="${pageContext.request.contextPath}/ExaminerListServlet"><i class="fa fa-graduation-cap mx-2"></i> Examiner</a></li>
-        <li><a href="${pageContext.request.contextPath}/Supervisor-List.jsp"><i class="fa fa-bullseye mx-2"></i> Supervisor</a></li>
         <li><a href="${pageContext.request.contextPath}/StudentListServlet"><i class="fa fa-user-graduate mx-2"></i> Student</a></li>
         <li><a href="${pageContext.request.contextPath}/ListScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="${pageContext.request.contextPath}/LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>
@@ -160,8 +158,6 @@
         <li><a href="${pageContext.request.contextPath}/AdminUserProfileServlet"><i class="fa fa-user mx-2"></i> Profile</a></li>
         <li><a href="${pageContext.request.contextPath}/ListPastReport"><i class="fa fa-folder-open mx-2"></i> Reports</a></li>
         <li><a href="${pageContext.request.contextPath}/LecturerListServlet"><i class="fa fa-chalkboard-teacher mx-2"></i> Lecturer</a></li>
-        <li><a href="${pageContext.request.contextPath}/ExaminerListServlet"><i class="fa fa-graduation-cap mx-2"></i> Examiner</a></li>
-        <li><a href="${pageContext.request.contextPath}/Supervisor-List.jsp"><i class="fa fa-bullseye mx-2"></i> Supervisor</a></li>
         <li><a href="${pageContext.request.contextPath}/StudentListServlet"><i class="fa fa-user-graduate mx-2"></i> Student</a></li>
         <li><a href="${pageContext.request.contextPath}/ListScopeServlet"><i class="fa fa-search mx-2"></i> Scope</a></li>
         <li><a href="../LoginID.jsp"><i class="fa fa-sign-out-alt mx-2"></i> Sign Out</a></li>

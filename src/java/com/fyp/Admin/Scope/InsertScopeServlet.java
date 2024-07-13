@@ -24,22 +24,13 @@ public class InsertScopeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-     {    
-    }
     }
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
-         Integer adminId = (Integer) session.getAttribute("admin_id");
-        
-          if (adminId == null) {
-            response.sendRedirect("ListScopeServlet");
-            return;
-        }
           
         try {
-        
+        int adminId = Integer.parseInt(request.getParameter("adminId"));
         int lId = Integer.parseInt(request.getParameter("lId"));
         String scopeName = request.getParameter("scopeName");
         String program = request.getParameter("program");

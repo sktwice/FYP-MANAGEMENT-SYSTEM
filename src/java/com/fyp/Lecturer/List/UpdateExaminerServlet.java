@@ -35,7 +35,7 @@ public class UpdateExaminerServlet extends HttpServlet {
         // You can redirect to an error page or display an error message
         if (success) {
             // Reload the page after update
-            response.sendRedirect(request.getContextPath() + "/AssignExaminerServlet");
+            response.sendRedirect(request.getContextPath() + "/ListExaminerServlet");
         } else {
             // Handle failure scenario (optional)
             // You can redirect to an error page or display an error message

@@ -125,7 +125,13 @@ public class LoginServlet extends HttpServlet {
                                 response.sendRedirect("TeachingExaminerPage.jsp");
                             } else if (hasActiveTeachingRole && hasActiveSupervisorRole) {
                                 response.sendRedirect("TeachingSupervisorPage.jsp");
-                            } else {
+                            } else if (hasActiveSupervisorRole) {
+                                String contextPath = request.getContextPath();
+                                response.sendRedirect(contextPath +"/DashboardServlet");
+                            } else if (hasActiveExaminerRole) {
+                                String contextPath = request.getContextPath();
+                                response.sendRedirect(contextPath +"/DashboardExaminer");
+                            } else if (hasActiveTeachingRole) {
                                 String contextPath = request.getContextPath();
                                 response.sendRedirect(contextPath +"/DashboardLecturer");
                             }

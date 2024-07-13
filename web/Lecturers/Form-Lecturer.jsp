@@ -11,29 +11,45 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
         <style>
-        .custom-modal .modal-card {
-    background-color: white;
-    color: #333;
-    width: 80%; /* Adjust this value to make the modal wider or narrower */
-    max-width: none; /* Ensure the modal can grow beyond the default max-width */
-}
+                
+        .tabs {
+                margin-bottom: 1.5rem;
+                border-bottom-color: #dbdbdb !important;
+            }
+        .tabs ul li.is-active a {
+                border-color: #dbdbdb !important;
+                color: #000;
+                border-bottom-color: #dbdbdb !important
+            }
+        .tabs ul li a {
+            color: #000;
+            border-bottom-color: #dbdbdb !important
+        }
+            .tabs ul li a:hover {
+                background-color: #dbdbdb !important;
+                color: #000;
+            }
+            .tabs ul li.is-active.light-theme a {
+                color: #000;
+                border-bottom-color: #dbdbdb !important
+            }
 
-.custom-modal .modal-card-head,
-.custom-modal .modal-card-foot {
-    background-color: #f5f5f5;
-}
-
-.custom-modal .modal-card-title {
-    color: #333;
-}
-
-.custom-modal .modal-card-body {
-    background-color: white;
-}
-
-.custom-modal .modal-background {
-    background-color: rgba(10, 10, 10, 0.86);
-}
+            .theme-preview {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border-radius: 5px;
+                border: 2px solid transparent;
+                cursor: pointer;
+            }
+            .theme-preview.light {
+                background-color: #eee;
+            }
+            .tabs.is-boxed li.is-active a {
+            background-color: #ffffff;
+            border-color: #dbdbdb !important;
+            border-bottom-color: #fff !important;
+        }
 </style>
     </head>
     <body>
@@ -44,14 +60,14 @@
                     <div class="custom-border p-6 w-100">
                         <div class="container">
                             <div class="tabs is-boxed">
-                            <ul>
-                                <li data-target="tab-1"><a>Form 2-Formulation Presentation</a></li>
-                                <li data-target="tab-2"><a>Form 3-Evaluation Form</a></li>
-                                <li data-target="tab-3"><a>Form 4-Formulation Presentation</a></li>
-                                <li data-target="tab-4"><a>Form 8-Evaluation Form</a></li>
+                            <ul style="border-bottom-color: #dbdbdb !important">
+                                <li data-target="tab-1" class="is-active is-size-7"><a class="p-3 has-text-weight-semibold has-text-grey">Form 2-Formulation Presentation</a></li>
+                                <li data-target="tab-2" class="is-size-7"><a class="p-3 has-text-weight-semibold has-text-grey">Form 3-Evaluation Form</a></li>
+                                <li data-target="tab-3" class="is-size-7"><a class="p-3 has-text-weight-semibold has-text-grey">Form 4-Formulation Presentation</a></li>
+                                <li data-target="tab-4" class="is-size-7"><a class="p-3 has-text-weight-semibold has-text-grey">Form 8-Evaluation Form</a></li>
                             </ul>
                             </div>
-                            <div id="tab-1" class="tab-content is-hidden">
+                            <div id="tab-1" class="tab-content">
                                 <div class="p-3">
                                     <div class="p-1" id="table">
                                 <table class="">
@@ -62,7 +78,7 @@
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Project Title</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Report</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Supervisor Name</th>
-                                        <th class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">Action</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -80,7 +96,7 @@
                                             </td>
                                             <td class="has-text-centered">${report.supervisorName}</td>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                                <button class="button is-small is-info" onclick="openModal(${report.formtId})">View Details</button>
+                                                <button class="button is-small is-info is-outlined"onclick="openModal(${report.formtId})"><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -181,7 +197,7 @@
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Project Title</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Report</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Supervisor Name</th>
-                                        <th class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">Action</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -199,7 +215,7 @@
                                             </td>
                                             <td class="has-text-centered">${report.supervisorName}</td>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                                <button class="button is-small is-info" onclick="openModal3(${report.formtId})">View Details</button>
+                                                <button class="button is-small is-info is-outlined" onclick="openModal3(${report.formtId})"><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -372,7 +388,7 @@
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Project Title</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Report</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Supervisor Name</th>
-                                        <th class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">Action</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -390,8 +406,9 @@
                                             </td>
                                             <td class="has-text-centered">${report.supervisorName}</td>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                                <button class="button is-small is-info" onclick="openModal4(${report.formtId})">View Details</button>
+                                                <button class="button is-small is-info is-outlined" onclick="openModal4(${report.formtId})"><i class="fas fa-edit"></i></button>
                                             </td>
+                                            
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -519,7 +536,7 @@
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Project Title</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Report</th>
                                         <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Supervisor Name</th>
-                                        <th class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">Action</th>
+                                        <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -537,7 +554,7 @@
                                             </td>
                                             <td class="has-text-centered">${report.supervisorName}</td>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
-                                                <button class="button is-small is-info" onclick="openModal2(${report.formtId})">View Details</button>
+                                                <button class="button is-small is-info is-outlined" onclick="openModal2(${report.formtId})"><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -927,14 +944,15 @@
 <div class="modal custom-modal" id="detailModal">
     <div class="modal-background"></div>
     <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">Project Details</p>
+        <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
+            <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal()"></button>
         </header>
-        <section class="modal-card-body">
+        <form action="${pageContext.request.contextPath}/F2Servlet" method="post">
+        <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <!-- Content -->
             <div class="columns is-multiline">
-                <form action="${pageContext.request.contextPath}/F2Servlet" method="post">
+                
                     <input type="hidden" id="modalFormtId" name="formtId" value="">
                 <div class="column is-12">
                     <div class="p-3">
@@ -1061,34 +1079,30 @@
                                     </table>
                         </div>
                     </div>
-                    <div class="columns p-3">
-                        <div class="column" style="justify-content: flex-end; align-items: flex-end;">
-                            <div style="float: right;">
-                                <button type="submit" class="button is-small is-info">Submit</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                </form>     
+                    
             </div>
         </section>
-        <footer class="modal-card-foot">
-                <button class="button" onclick="closeModal()">Close</button>
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4" style="border-top: #bdbdbd 1px solid;">
+                <button class="button is-custom2" onclick="closeModal()">Close</button>
+                <button type="submit" class="button is-custom3">Submit</button>
             </footer>
+        </form> 
     </div>
 </div>
 
 <div class="modal custom-modal" id="detailModal2">
     <div class="modal-background"></div>
     <div class="modal-card">
-        <header class="modal-card-head">
+        <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <p class="modal-card-title">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal2()"></button>
         </header>
-        <section class="modal-card-body">
+        <form action="F8LecturerServlet" method="post">
+        <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <!-- Content -->
             <div class="columns is-multiline">
-                <form action="F8LecturerServlet" method="post">
+                
                     <input type="hidden" id="modalFormtId2" name="formtId2" value="">
                  <div class="column is-2" style="align-content: center">
                                     <label class="has-text-weight-semibold has-text-grey">Handover Date :</label>
@@ -1304,7 +1318,7 @@
                     <div class="columns p-3">
                         <div class="column" style="justify-content: flex-end; align-items: flex-end;">
                             <div style="float: right;">
-                                <button type="submit" class="button is-small is-info">Submit</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -1312,23 +1326,26 @@
                 </form>     
             </div>
         </section>
-        <footer class="modal-card-foot">
-                <button class="button" onclick="closeModal2()">Close</button>
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4" style="border-top: #bdbdbd 1px solid;">
+                <button class="button is-custom2" onclick="closeModal2()">Close</button>
+                <button type="submit" class="button is-custom3">Submit</button>
             </footer>
+        </form> 
     </div>
 </div>
                     
 <div class="modal custom-modal" id="detailModal3">
     <div class="modal-background"></div>
     <div class="modal-card">
-        <header class="modal-card-head">
+        <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <p class="modal-card-title">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal3()"></button>
         </header>
-        <section class="modal-card-body">
+        <form action="${pageContext.request.contextPath}/F3Servlet" method="post">
+        <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <!-- Content -->
             <div class="columns is-multiline">
-                <form action="${pageContext.request.contextPath}/F3Servlet" method="post">
+                
                     <input type="hidden" id="modalFormtId3" name="formtId3" value="">
                 <div class="column is-12">
                     <div class="p-3">
@@ -1432,31 +1449,34 @@
                     <div class="columns p-3">
                         <div class="column" style="justify-content: flex-end; align-items: flex-end;">
                             <div style="float: right;">
-                                <button type="submit" class="button is-small is-info">Submit</button>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-                </form>     
+                   
             </div>
         </section>
-        <footer class="modal-card-foot">
-                <button class="button" onclick="closeModal3()">Close</button>
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4" style="border-top: #bdbdbd 1px solid;">
+                <button class="button is-custom2" onclick="closeModal3()">Close</button>
+                <button type="submit" class="button is-custom3">Submit</button>
             </footer>
+        </form>  
     </div>
 </div> 
                     
 <div class="modal custom-modal" id="detailModal4">
     <div class="modal-background"></div>
     <div class="modal-card">
-        <header class="modal-card-head">
+        <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <p class="modal-card-title">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal4()"></button>
         </header>
-        <section class="modal-card-body">
+        <form action="${pageContext.request.contextPath}/F4Servlet" method="post">
+        <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <!-- Content -->
             <div class="columns is-multiline">
-                <form action="${pageContext.request.contextPath}/F4Servlet" method="post">
+               
                     <input type="hidden" id="modalFormtId4" name="formtId4" value="">
                 <div class="column is-12">
                     <div class="p-3">
@@ -1556,20 +1576,15 @@
                             </table>
                         </div>
                     </div>
-                    <div class="columns p-3">
-                        <div class="column" style="justify-content: flex-end; align-items: flex-end;">
-                            <div style="float: right;">
-                                <button type="submit" class="button is-small is-info">Submit</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                </form>     
+                     
             </div>
         </section>
-        <footer class="modal-card-foot">
-                <button class="button" onclick="closeModal4()">Close</button>
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4" style="border-top: #bdbdbd 1px solid;">
+             <button class="button is-custom2" onclick="closeModal4()">Close</button>   
+             <button type="submit" class="button is-custom3">Submit</button>
             </footer>
+        </form>
     </div>
 </div>              
                     

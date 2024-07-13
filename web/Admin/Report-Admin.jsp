@@ -31,9 +31,9 @@
                                     <label class="has-text-weight-bold has-text-grey is-size-5">Past Reports</label>
                                     <p class="has-text-grey-light is-size-7">More than ${listPastReport.size()} students' past reports</p>
                                 </div>
-                                <a class="button is-custom4" style="height:2rem;" href="${pageContext.request.contextPath}/addForm">
-                                <span class="is-size-7">New Report</span>
-                            </a>
+                                <button class="button is-custom4" style="height:2rem;" id="openModalButton">
+                                    <span class="is-size-7">New Report</span>
+                                </button>
                         </div>
                         <div>
                             <div class="p-1" id="table">
@@ -74,6 +74,57 @@
                 </div>
             </div>
         </div>
+<div class="modal custom-modal" id="registerLecturerModal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
+                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Register Lecturer</p>
+                    <button class="delete" aria-label="close" id="closeModalButton"></button>
+                </header>
+                <section class="modal-card-body has-background-white">
+                    <form action="AddPastReportServlet" method="post" enctype="multipart/form-data">
+                        <div class="p-4">
+                            <input type="hidden" id="admin_id" name="admin_id" value="${sessionScope.admin_id}"/>
+                            <input type="hidden" name="l_id" value="0" />
+
+                            <label class="has-text-weight-semibold has-text-grey">Student Name</label>
+                            <div class="py-2">
+                                <input class="custom-input px-4 py-2" type="text" name="stu_name" placeholder="Student Name">
+                            </div>
+                            <label class="has-text-weight-semibold has-text-grey">Student ID</label>
+                            <div class="py-2">
+                                <input class="custom-input px-4 py-2" type="text" name="student_id" placeholder="Student ID">
+                            </div>  
+                            <label class="has-text-weight-semibold has-text-grey">Project Title</label>
+                            <div class="py-2">
+                                <input class="custom-input px-4 py-2" type="text" name="pro_title" placeholder="Project Title">
+                            </div>
+                            <label class="has-text-weight-semibold has-text-grey">Semester</label>
+                            <div class="py-2">
+                                <input class="custom-input px-4 py-2" type="text"name="session" placeholder="Semester">
+                            </div>
+                            <div class="pt-3">
+                                <div id="file-js-example" class="file has-name">
+                                    <label class="file-label">
+                                        <input class="file-input" type="file" name="pdfFile" />
+                                        <span class="file-cta" style="background-color: #3699FF; border: none;">
+                                            <span class="file-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                            <span class="file-label">Choose a file…</span>
+                                        </span>
+                                        <span class="file-name has-text-grey">No file uploaded</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                                <button class="button is-success has-text-white" type="submit">Submit</button>
+                            </footer>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>                                
         <script>
             document.getElementById('searchInput').addEventListener('keyup', function() {
               var input = document.getElementById('searchInput');
@@ -93,6 +144,24 @@
                   tr[i].style.display = 'none';
                 }
               }
+            });
+            
+            document.addEventListener('DOMContentLoaded', () => {
+                const openModalButton = document.getElementById('openModalButton');
+                const closeModalButton = document.getElementById('closeModalButton');
+                const modal = document.getElementById('registerLecturerModal');
+
+                openModalButton.addEventListener('click', () => {
+                    modal.classList.add('is-active');
+                });
+
+                closeModalButton.addEventListener('click', () => {
+                    modal.classList.remove('is-active');
+                });
+
+                modal.querySelector('.modal-background').addEventListener('click', () => {
+                    modal.classList.remove('is-active');
+                });
             });
           </script>
     </body>
