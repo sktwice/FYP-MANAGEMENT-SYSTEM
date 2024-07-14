@@ -58,6 +58,10 @@
             <div class="main-content">
                 <div class="column h-100 p-6" style="background-color:#FFFFFF; overflow-y: scroll;">
                     <div class="custom-border p-6 w-100">
+                        <div class="pb-4">
+                            <label class="has-text-weight-bold has-text-grey is-size-4 pb-5">Forms</label>
+                            <p class="has-text-white has-background-grey-light is-size-7 px-3 py-1" style="border-radius: 4px;">Final Year Project has more than 7 forms</p>
+                        </div>
                         <div class="container">
                             <div class="tabs is-boxed">
                             <ul style="border-bottom-color: #dbdbdb !important">
@@ -84,18 +88,18 @@
                                     <tbody>
                                     <c:forEach var="report" items="${listReports}">
                                         <tr>
-                                            <td class="has-text-centered">${report.studentId}</td>
-                                            <td class="has-text-centered">${report.studentName}</td>
-                                            <td class="has-text-centered">${report.projectTitle}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID" style="align-content:center;">${report.studentId}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student" style="align-content:center;">${report.studentName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Project Title" style="align-content:center;">${report.projectTitle}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Report" style="align-content:center;">
                                                 <div class="is-flex is-justify-content-center">
                                                     <a href="${pageContext.request.contextPath}/ViewProjectServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                                 </div>
                                             </td>
-                                            <td class="has-text-centered">${report.supervisorName}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Supervisor Name" style="align-content:center;">${report.supervisorName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action" style="align-content:center;">
                                                 <button class="button is-small is-info is-outlined"onclick="openModal(${report.formtId})"><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
@@ -203,18 +207,18 @@
                                     <tbody>
                                     <c:forEach var="report" items="${listReportsF3}">
                                         <tr>
-                                            <td class="has-text-centered">${report.studentId}</td>
-                                            <td class="has-text-centered">${report.studentName}</td>
-                                            <td class="has-text-centered">${report.projectTitle}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID" style="align-content:center;">${report.studentId}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student" style="align-content:center;">${report.studentName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Project Title" style="align-content:center;">${report.projectTitle}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Report" style="align-content:center;">
                                                 <div class="is-flex is-justify-content-center">
                                                     <a href="${pageContext.request.contextPath}/ViewProjectServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                                 </div>
                                             </td>
-                                            <td class="has-text-centered">${report.supervisorName}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Supervisor Name" style="align-content:center;">${report.supervisorName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action" style="align-content:center;">
                                                 <button class="button is-small is-info is-outlined" onclick="openModal3(${report.formtId})"><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
@@ -394,18 +398,18 @@
                                     <tbody>
                                     <c:forEach var="report" items="${listReportsF4}">
                                         <tr>
-                                            <td class="has-text-centered">${report.studentId}</td>
-                                            <td class="has-text-centered">${report.studentName}</td>
-                                            <td class="has-text-centered">${report.projectTitle}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID" style="align-content:center;">${report.studentId}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student" style="align-content:center;">${report.studentName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Project Title" style="align-content:center;">${report.projectTitle}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Report" style="align-content:center;"">
                                                 <div class="is-flex is-justify-content-center">
                                                     <a href="${pageContext.request.contextPath}/ViewProjectServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                                 </div>
                                             </td>
-                                            <td class="has-text-centered">${report.supervisorName}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Supervisor Name" style="align-content:center;">${report.supervisorName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action" style="align-content:center;">
                                                 <button class="button is-small is-info is-outlined" onclick="openModal4(${report.formtId})"><i class="fas fa-edit"></i></button>
                                             </td>
                                             
@@ -542,18 +546,18 @@
                                     <tbody>
                                     <c:forEach var="report" items="${listReportsF8}">
                                         <tr>
-                                            <td class="has-text-centered">${report.studentId}</td>
-                                            <td class="has-text-centered">${report.studentName}</td>
-                                            <td class="has-text-centered">${report.projectTitle}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Matric ID" style="align-content:center;">${report.studentId}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Student" style="align-content:center;">${report.studentName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Project Title" style="align-content:center;">${report.projectTitle}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Report" style="align-content:center;">
                                                 <div class="is-flex is-justify-content-center">
                                                     <a href="${pageContext.request.contextPath}/ViewProjectServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                                 </div>
                                             </td>
-                                            <td class="has-text-centered">${report.supervisorName}</td>
-                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Supervisor Name" style="align-content:center;">${report.supervisorName}</td>
+                                            <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action" style="align-content:center;">
                                                 <button class="button is-small is-info is-outlined" onclick="openModal2(${report.formtId})"><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
@@ -941,9 +945,9 @@
             </div>
         </div>
       <!-- Modal Structure -->
-<div class="modal custom-modal" id="detailModal">
+<div class="modal" id="detailModal">
     <div class="modal-background"></div>
-    <div class="modal-card">
+    <div class="modal-card" style="width:80%;">
         <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal()"></button>
@@ -1083,7 +1087,7 @@
                     
             </div>
         </section>
-        <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4" style="border-top: #bdbdbd 1px solid;">
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
                 <button class="button is-custom2" onclick="closeModal()">Close</button>
                 <button type="submit" class="button is-custom3">Submit</button>
             </footer>
@@ -1091,11 +1095,11 @@
     </div>
 </div>
 
-<div class="modal custom-modal" id="detailModal2">
+<div class="modal" id="detailModal2">
     <div class="modal-background"></div>
-    <div class="modal-card">
+    <div class="modal-card" style="aidth:80%;">
         <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
-            <p class="modal-card-title">Project Details</p>
+            <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal2()"></button>
         </header>
         <form action="F8LecturerServlet" method="post">
@@ -1315,18 +1319,10 @@
                             </table>
                         </div>
                     </div>
-                    <div class="columns p-3">
-                        <div class="column" style="justify-content: flex-end; align-items: flex-end;">
-                            <div style="float: right;">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </form>     
+                </div>    
             </div>
         </section>
-        <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4" style="border-top: #bdbdbd 1px solid;">
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
                 <button class="button is-custom2" onclick="closeModal2()">Close</button>
                 <button type="submit" class="button is-custom3">Submit</button>
             </footer>
@@ -1334,11 +1330,11 @@
     </div>
 </div>
                     
-<div class="modal custom-modal" id="detailModal3">
+<div class="modal" id="detailModal3">
     <div class="modal-background"></div>
-    <div class="modal-card">
+    <div class="modal-card" style="width:80%">
         <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
-            <p class="modal-card-title">Project Details</p>
+            <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal3()"></button>
         </header>
         <form action="${pageContext.request.contextPath}/F3Servlet" method="post">
@@ -1446,18 +1442,11 @@
                             </table>
                         </div>
                     </div>
-                    <div class="columns p-3">
-                        <div class="column" style="justify-content: flex-end; align-items: flex-end;">
-                            <div style="float: right;">
-                                
-                            </div>
-                        </div>
-                    </div>
                 </div>
                    
             </div>
         </section>
-        <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4" style="border-top: #bdbdbd 1px solid;">
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
                 <button class="button is-custom2" onclick="closeModal3()">Close</button>
                 <button type="submit" class="button is-custom3">Submit</button>
             </footer>
@@ -1465,11 +1454,11 @@
     </div>
 </div> 
                     
-<div class="modal custom-modal" id="detailModal4">
+<div class="modal" id="detailModal4">
     <div class="modal-background"></div>
-    <div class="modal-card">
+    <div class="modal-card" style="width:80%;">
         <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
-            <p class="modal-card-title">Project Details</p>
+            <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal4()"></button>
         </header>
         <form action="${pageContext.request.contextPath}/F4Servlet" method="post">
@@ -1580,7 +1569,7 @@
                      
             </div>
         </section>
-        <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4" style="border-top: #bdbdbd 1px solid;">
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
              <button class="button is-custom2" onclick="closeModal4()">Close</button>   
              <button type="submit" class="button is-custom3">Submit</button>
             </footer>

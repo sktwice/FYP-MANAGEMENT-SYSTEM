@@ -22,13 +22,13 @@
         <div class="main-content">
             <div class="column h-100 px-6 py-6" style="background-color: #FFFFFF;">
                 <div class="pt-5">
-                    <div class="custom-border p-3 pt-4">
+                    <div class="custom-border p-6">
                         <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                             <div>
-                                <label class="pl-5 has-text-weight-bold has-text-grey is-size-5">My Proposal</label>
+                                <label class="has-text-weight-bold has-text-grey is-size-5">My Proposal</label>
                             </div>
                         </div>
-                        <div class="columns is-vcentered pl-4 is-mobile">
+                        <div class="columns is-vcentered is-mobile m-0">
                             <div class="column is-narrow">
                                 <figure class="image is-48x48">
                                     <img id="profile-img" src="images/lecturers/<%= ((Student) request.getAttribute("Student")).getsImage() %>" 
@@ -36,10 +36,10 @@
                                 </figure>
                             </div>
                             <div class="column">
-                                <span class="is-size-6 has-text-weight-semibold has-text-grey"><%= ((Student) request.getAttribute("Student")).getsName() %></span>
+                                <span class="is-size-6 has-text-weight-semibold has-text-grey" style="text-transform: uppercase;"><%= ((Student) request.getAttribute("Student")).getsName() %></span>
                             </div>
                             <div class="column is-narrow">
-                                <button id="uploadBtn" class="button is-small is-link">Upload</button>
+                                <button id="uploadBtn" class="button is-custom4 is-small">Upload</button>
                             </div>
                         </div>
                     </div>
@@ -52,28 +52,38 @@
     <div id="uploadModal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Upload Proposal</p>
+            <header class="modal-card-head has-background-white">
+                <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Upload Proposal</p>
                 <button class="delete" aria-label="close" onclick="toggleModal('uploadModal')"></button>
             </header>
-            <section class="modal-card-body">
-                <form action="StudentUploadServlet" method="post" enctype="multipart/form-data">
+            <form action="StudentUploadServlet" method="post" enctype="multipart/form-data">
+            <section class="modal-card-body has-background-white">
                     <div class="field">
-                        <label class="label">Select Proposal PDF:</label>
-                        <div class="control">
-                            <input type="file" name="pdfFile" class="input" required>
+                        <label class="has-text-weight-semibold has-text-grey">Select Proposal PDF:</label>
+                        <div id="file-js-example" class="file has-name is-info is-small">
+                            <label class="file-label">
+                              <input class="file-input" type="file" name="pdfFile" />
+                              <span class="file-cta">
+                                <span class="file-icon has-text-white">
+                                  <i class="fas fa-upload"></i>
+                                </span>
+                                <span class="file-label has-text-white"> Choose a file… </span>
+                              </span>
+                              <span class="file-name"> No file uploaded </span>
+                            </label>
                         </div>
                     </div>
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button type="submit" class="button is-link">Upload File</button>
-                        </div>
-                        <div class="control">
-                            <button type="button" class="button" onclick="toggleModal('uploadModal')">Cancel</button>
-                        </div>
-                    </div>
-                </form>
             </section>
+                <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-5 w-100" 
+                        style="border-top-color: #bdbdbd 1px solid;">
+                    <div class="control">
+                            <button type="button" class="button is-custom2" onclick="toggleModal('uploadModal')">Cancel</button>
+                        </div>
+                    <div class="control">
+                            <button type="submit" class="button is-custom3">Upload File</button>
+                        </div>
+                </footer>
+                </form>
         </div>
     </div>
 
@@ -87,6 +97,15 @@
         document.getElementById('uploadBtn').addEventListener('click', function() {
             toggleModal('uploadModal');
         });
+    </script>
+    <script>
+          const fileInput = document.querySelector("#file-js-example input[type=file]");
+            fileInput.onchange = () => {
+              if (fileInput.files.length > 0) {
+                const fileName = document.querySelector("#file-js-example .file-name");
+                fileName.textContent = fileInput.files[0].name;
+              }
+            };
     </script>
 </body>
 </html>

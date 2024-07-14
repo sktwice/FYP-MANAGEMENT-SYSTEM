@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
             .grid-container {
                 display: grid;
@@ -138,10 +139,13 @@
                                                         data-email="${lecturer.email}">
                                                     <span class="fas fa-edit has-text-success is-size-7"></span>
                                                 </button>
-                                                <a href="${pageContext.request.contextPath}/UpdateStatusServlet?roleId=${lecturer.roleId}&status=${lecturer.status}"
-                                                        class="button is-danger is-outlined">
-                                                         <i class="fas fa-trash has-text-danger is-size-7"></i>
-                                                     </a>
+                                                <a href="javascript:void(0);" 
+                                                class="button is-danger is-outlined"
+                                                data-role-id="${lecturer.roleId}"
+                                                data-status="${lecturer.status}"
+                                                onclick="updateStatus(this)">
+                                                <i class="fas fa-trash has-text-danger is-size-7"></i>
+                                             </a>
 
                                             </td>
                                         </tr>
@@ -194,10 +198,13 @@
                                                         data-email="${lecturer.email}">
                                                     <span class="fas fa-edit has-text-success is-size-7"></span>
                                                 </button>
-                                                <a href="${pageContext.request.contextPath}/UpdateStatusServlet?roleId=${lecturer.roleId}&status=${lecturer.status}"
-                                                        class="button is-danger is-outlined">
-                                                         <i class="fas fa-trash has-text-danger is-size-7"></i>
-                                                     </a>
+                                                <a href="javascript:void(0);" 
+                                                class="button is-danger is-outlined"
+                                                data-role-id="${lecturer.roleId}"
+                                                data-status="${lecturer.status}"
+                                                onclick="updateStatus(this)">
+                                                <i class="fas fa-trash has-text-danger is-size-7"></i>
+                                             </a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -249,10 +256,13 @@
                                                         data-email="${lecturer.email}">
                                                     <span class="fas fa-edit has-text-success is-size-7"></span>
                                                 </button>
-                                                    <a href="${pageContext.request.contextPath}/UpdateStatusServlet?roleId=${lecturer.roleId}&status=${lecturer.status}"
-                                                        class="button is-danger is-outlined">
-                                                         <i class="fas fa-trash has-text-danger is-size-7"></i>
-                                                     </a>
+                                                    <a href="javascript:void(0);" 
+                                                class="button is-danger is-outlined"
+                                                data-role-id="${lecturer.roleId}"
+                                                data-status="${lecturer.status}"
+                                                onclick="updateStatus(this)">
+                                                <i class="fas fa-trash has-text-danger is-size-7"></i>
+                                             </a>
 
                                             </td>
                                         </tr>
@@ -527,6 +537,46 @@ document.querySelectorAll('.edit-button').forEach(button => {
         editLecturer(id, name, position, email);
     });
 });
+
+function updateStatus(element) {    // Retrieve the data attributes from the clicked element
+    var roleId = element.getAttribute('data-role-id');
+    var status = element.getAttribute('data-status');
+    
+
+    // Construct the URL for the status update
+    var url = "${pageContext.request.contextPath}/UpdateStatusServlet?roleId=" + encodeURIComponent(roleId) + "&status=" + encodeURIComponent(status);
+    
+    // Display the SweetAlert2 confirmation dialog
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, update it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // If confirmed, navigate to the constructed URL
+            
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "OK"
+            }).then(() => {
+                // Navigate to the constructed URL after confirmation
+                window.location.href = url;
+            });
+            
+        }
+    });
+}
+
+
+
 </script>
 
 

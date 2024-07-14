@@ -28,25 +28,6 @@
                                 <div class="column is-third p-1">
                                     <input id="searchInput" class="px-4 py-3" type="text" placeholder="Search" style="width: 100%; border-radius: 6px; outline: none;">
                                 </div>
-                                <div class="column p-1" style="align-content:center;">
-                                    <div class="dropdown is-hoverable w-100">
-                                        <div class="dropdown-trigger w-100">
-                                            <button class="button is-white w-100" style="border: 0.9px solid;" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                                <span class=" is-size-7">Sort</span>
-                                                <span class="icon is-small">
-                                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <div class="dropdown-menu is-size-7 w-100" id="dropdown-menu1" role="menu">
-                                            <div class="dropdown-content w-100">
-                                                <a href="#" class="dropdown-item is-size-7"> Newest </a>
-                                                <a href="#" class="dropdown-item is-size-7"> All </a>
-                                                <a href="#" class="dropdown-item is-size-7"> Solved </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="p-3">

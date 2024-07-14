@@ -79,8 +79,9 @@
                     <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Register Lecturer</p>
                     <button class="delete" aria-label="close" id="closeModalButton"></button>
                 </header>
+                <form action="LecturerPastReportServlet" method="post" enctype="multipart/form-data">
                 <section class="modal-card-body has-background-white">
-                    <form action="LecturerPastReportServlet" method="post" enctype="multipart/form-data">
+                    
                         <div class="p-4">
                             <input type="hidden" id="admin_id" name="admin_id" value="0"/>
                             <input type="hidden" name="l_id" value="${sessionScope.lecturer_id}" />
@@ -115,12 +116,14 @@
                                     </label>
                                 </div>
                             </div>
-                            <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
-                                <button class="button is-success has-text-white" type="submit">Submit</button>
-                            </footer>
+                            
                         </div>
-                    </form>
+                    
                 </section>
+                <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                    <button class="button is-custom3" type="submit">Submit</button>
+                </footer>
+                </form>
             </div>
         </div>
         <script>

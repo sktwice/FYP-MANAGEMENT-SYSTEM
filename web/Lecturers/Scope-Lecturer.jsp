@@ -29,7 +29,7 @@
                             <input id="searchInput" class="px-4 py-3" type="text" placeholder="Student ID" style="width: 100%; border-radius: 6px; outline: none;">
                         </div>
                         <div class="column p-1" style="align-content:center;">
-                            <button class="button is-custom px-4 py-3 w-100" style="height:2rem;" id="openModalButton">
+                            <button class="button is-custom w-100 p-3" id="openModalButton">
                                     <span class="is-size-7">Add Scope</span>
                                 </button>
                         </div>
@@ -73,32 +73,34 @@
                     <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Add New Scope</p>
                     <button class="delete" aria-label="close" id="closeModalButton"></button>
                 </header>
-                <section class="modal-card-body has-background-white">
-                    <form action="${pageContext.request.contextPath}/LecturerAddScope" method="post">
-                            <div class="p-4">
-                                <input type="hidden" name="adminId" value="0"/>
-                            <input type="hidden" name="lId" value="${sessionScope.lecturer_id }" />
-                            <label class="has-text-weight-semibold has-text-grey">Scope</label>
-                            <div class="py-2">
-                                <input class="px-4 py-2" type="text" name="scopeName" placeholder="Scope Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                <form action="${pageContext.request.contextPath}/LecturerAddScope" method="post">
+                    <section class="modal-card-body has-background-white">
+
+                                <div class="p-4">
+                                    <input type="hidden" name="adminId" value="0"/>
+                                <input type="hidden" name="lId" value="${sessionScope.lecturer_id }" />
+                                <label class="has-text-weight-semibold has-text-grey">Scope</label>
+                                <div class="py-2">
+                                    <input class="px-4 py-2" type="text" name="scopeName" placeholder="Scope Name" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                                </div>
+                                <label class="has-text-weight-semibold has-text-grey">Programme</label>
+                                <div class="py-2">
+                                    <input class="px-4 py-2" type="text" name="program" placeholder="Programme" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                                </div>
+                                <label class="has-text-weight-semibold has-text-grey">Session</label>
+                                <div class="py-2">
+                                    <input class="px-4 py-2" type="text" name="session" placeholder="Session" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                                </div>
                             </div>
-                            <label class="has-text-weight-semibold has-text-grey">Programme</label>
-                            <div class="py-2">
-                                <input class="px-4 py-2" type="text" name="program" placeholder="Programme" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            </div>
-                            <label class="has-text-weight-semibold has-text-grey">Session</label>
-                            <div class="py-2">
-                                <input class="px-4 py-2" type="text" name="session" placeholder="Session" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            </div>
-                        </div>
-                        <div class="is-flex is-justify-content-space-between p-4">
-                            <a class="button is-custom2" href="${pageContext.request.contextPath}/ListScopeServlet"><span class="has-text-weight-semibold is-size-7">Back</span></a>
-                            <button type="submit" class="button is-custom4">
-                                <span class="has-text-weight-semibold is-size-7">Save Changes</span>
-                            </button>
-                        </div>
-                    </form>
-                </section>
+
+
+                    </section>
+                    <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
+                            <a class="button is-custom2" href="${pageContext.request.contextPath}/ListScopeServlet">Back</a>
+                            <button type="submit" class="button is-custom3">Save Changes
+                            </button>       
+                    </footer>            
+                </form>
             </div>
         </div>                             
     <script>

@@ -80,11 +80,12 @@
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
-                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Register Lecturer</p>
+                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">New Past Report</p>
                     <button class="delete" aria-label="close" id="closeModalButton"></button>
                 </header>
+                <form action="${pageContext.request.contextPath}/LecturerPastReportServlet" method="post" enctype="multipart/form-data">
                 <section class="modal-card-body has-background-white">
-                    <form action="${pageContext.request.contextPath}/LecturerPastReportServlet" method="post" enctype="multipart/form-data">
+                    
                         <div class="p-4">
                             <input type="hidden" id="admin_id" name="admin_id" value="0"/>
                             <input type="hidden" name="l_id" value="${sessionScope.lecturer_id}" />
@@ -119,15 +120,23 @@
                                     </label>
                                 </div>
                             </div>
-                            <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                        </div>
+                </section>
+                            <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
                                 <button class="button is-success has-text-white" type="submit">Submit</button>
                             </footer>
-                        </div>
-                    </form>
-                </section>
+                </form>
             </div>
         </div>        
-        
+    <script>
+    const fileInput = document.querySelector("#file-js-example input[type=file]");
+    fileInput.onchange = () => {
+      if (fileInput.files.length > 0) {
+        const fileName = document.querySelector("#file-js-example .file-name");
+        fileName.textContent = fileInput.files[0].name;
+      }
+    };
+  </script>
     <script>
         document.getElementById('searchInput').addEventListener('input', function () {
             var input = this.value.toLowerCase();

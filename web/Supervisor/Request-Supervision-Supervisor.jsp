@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
+<style>
+        .modal-body ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
 <body>
     <div class="content-wrapper">
         <jsp:include page="../supervisor-sidebar.jsp"></jsp:include>
@@ -86,17 +92,17 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p class="m-0 is-size-5">EXPECTATION OF STUDENT FROM THE SUPERVISOR & CO-SUPERVISOR</p>
-                                                        <ol class="p-4 m-0">
-                                                            <li class="has-text-justified">The supervisor should meet the student on a weekly basis at a mutually agreed day and time suitable to both parties. Any meeting changes should be communicated in advance to the student to facilitate re-scheduling.</li>
-                                                            <li class="has-text-justified">The supervisor should advise, guide, and assess the student’s proposal/project work throughout the duration of the project formulation/project course.</li>
-                                                            <li class="has-text-justified">The supervisor should motivate and encourage the student’s initiative in taking responsibility for his/her own project through to completion.</li>
-                                                            <li class="has-text-justified">The supervisor should regularly update the student on his/her performance. A weak or non-compliant performance from the student should be communicated to the course lecturer and/or project coordinator for further action.</li>
-                                                            <li class="has-text-justified">The supervisor reserves the right under special circumstances to discontinue his/her supervisory role with the student after the project formulation phase. This matter should be communicated to the project coordinator for further action.</li>
-                                                            <li class="has-text-justified">At all times, mutual respect and courtesy should be observed between the supervisor and the student.</li>
-                                                        </ol>
-                                                        <p class="">I hereby understand the above mentioned Terms and Conditions.</p>
-                                                        <p class="m-0">I hereby agree to supervise the above mentioned student.</p>
+                                                        <p class="has-text-weight-semibold has-text-grey is-size-6 p-3">EXPECTATION OF STUDENT FROM THE SUPERVISOR & CO-SUPERVISOR</p>
+                                                        <ul>
+                                                            <li class="has-text-weight-normal has-text-grey is-size-6">The supervisor should meet the student on a weekly basis at a mutually agreed day and time suitable to both parties. Any meeting changes should be communicated in advance to the student to facilitate re-scheduling.</li>
+                                                            <li class="has-text-weight-normal has-text-grey is-size-6">The supervisor should advise, guide, and assess the student’s proposal/project work throughout the duration of the project formulation/project course.</li>
+                                                            <li class="has-text-weight-normal has-text-grey is-size-6">The supervisor should motivate and encourage the student’s initiative in taking responsibility for his/her own project through to completion.</li>
+                                                            <li class="has-text-weight-normal has-text-grey is-size-6">The supervisor should regularly update the student on his/her performance. A weak or non-compliant performance from the student should be communicated to the course lecturer and/or project coordinator for further action.</li>
+                                                            <li class="has-text-weight-normal has-text-grey is-size-6">The supervisor reserves the right under special circumstances to discontinue his/her supervisory role with the student after the project formulation phase. This matter should be communicated to the project coordinator for further action.</li>
+                                                            <li class="has-text-weight-normal has-text-grey is-size-6">At all times, mutual respect and courtesy should be observed between the supervisor and the student.</li>
+                                                        </ul>
+                                                        <p class="has-text-weight-normal has-text-grey is-size-6">I hereby understand the above mentioned Terms and Conditions.</p>
+                                                        <p class="has-text-weight-normal has-text-grey is-size-6">I hereby agree to supervise the student.</p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <form action="<%= request.getContextPath() %>/AcceptProposalServlet" method="post">

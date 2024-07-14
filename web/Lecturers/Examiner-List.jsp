@@ -57,7 +57,7 @@
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Contact">
                                                     <c:out value="0${lecturer.phoneNum}" />
                                                 </td>
-                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email">
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email" style='word-break: break-word'>
                                                     <c:out value="${lecturer.email}" />
                                                 </td>
                                             </tr>
@@ -78,6 +78,7 @@
                     <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Assign Examiner</p>
                     <button class="delete" aria-label="close" id="closeModalButton"></button>
                 </header>
+                <form action="${pageContext.request.contextPath}/UpdateExaminerServlet" method="post">
                 <section class="modal-card-body has-background-white">
                         <input type="hidden" id="admin_id" name="admin_id" value="${sessionScope.admin_id}">
                         
@@ -91,7 +92,7 @@
                                 <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Action</th>
                             </tr>
                         </thead>
-                        <form action="${pageContext.request.contextPath}/UpdateExaminerServlet" method="post">
+                        
                             <tbody>
                                 <c:forEach var="assign" items="${projectStudents}">
                                     <tr>
@@ -113,13 +114,15 @@
                                     </tr>
                                 </c:forEach>
                             </tbody>
-                        </form>
+                        
 
                     </table>
 
-                        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
-                        </footer>
+                        
                 </section>
+                            <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                        </footer>
+                            </form>
             </div>
         </div>                    
     <script>
