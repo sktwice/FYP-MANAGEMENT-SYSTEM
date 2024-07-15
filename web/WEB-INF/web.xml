@@ -424,6 +424,10 @@
         <servlet-name>LecturerAddScope</servlet-name>
         <servlet-class>com.fyp.Lecturer.Scope.LecturerAddScope</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>F6StudentServlet</servlet-name>
+        <servlet-class>com.fyp.Student.Upload.F6StudentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -843,6 +847,10 @@
     <servlet-mapping>
         <servlet-name>LecturerAddScope</servlet-name>
         <url-pattern>/LecturerAddScope</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>F6StudentServlet</servlet-name>
+        <url-pattern>/F6StudentServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

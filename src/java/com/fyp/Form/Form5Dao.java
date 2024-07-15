@@ -21,7 +21,8 @@ public class Form5Dao {
     private static final String SELECT_FORMS_BY_STUDENT_ID = "SELECT f.* FROM form5 f JOIN project p ON f.pro_ID = p.pro_ID WHERE p.student_id =?;";
     private static final String SELECT_FORM5_BY_FORM_ID = "SELECT * FROM form5 WHERE form_id = ? ORDER BY date_meet";
     private static final String SELECT_FORM5_BY_PRO_ID = "SELECT * FROM form5 WHERE pro_ID = ? ORDER BY date_meet";
-
+    private static final String SELECT_STUDENT_FORM = "SELECT COUNT(*) FROM project WHERE student_id = ?";
+    private static final String SELECT_STUDENT_FORM6 = "SELECT COUNT(*) FROM form6 f6 JOIN formTeach ft ON f6.formt_id = ft.formt_id WHERE ft.student_id = ?";
     private static final String SELECT_PROJECT_BY_STUDENT_ID = "SELECT * FROM project WHERE student_id = ?";
     private static final String SELECT_PROJECTS_BY_LECTURER_ID = "SELECT * FROM project WHERE sv_id = ?";
     private static final String INSERT_FORM_SQL = "INSERT INTO form (form_id, student_id, l_id, pro_id) VALUES (?, ?, ?, ?)";
@@ -40,6 +41,38 @@ public class Form5Dao {
             e.printStackTrace();
         }
         return connection;
+    }
+    
+    public boolean studentHasProject(int studentId) {
+        boolean hasProject = false;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_STUDENT_FORM);) {
+            preparedStatement.setInt(1, studentId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                hasProject = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error executing SQL query");
+        }
+        return hasProject;
+    }
+    
+    public boolean studentHasForm6(int studentId) {
+        boolean hasForm6 = false;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_STUDENT_FORM6);) {
+            preparedStatement.setInt(1, studentId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                hasForm6 = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error executing SQL query");
+        }
+        return hasForm6;
     }
 
     public List<Form5> getFormsByStudentId(int studentId) {

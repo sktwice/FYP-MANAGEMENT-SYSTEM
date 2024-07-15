@@ -29,6 +29,7 @@ public class FormDAO {
     private static final String INSERT_FORM8_SQL = "INSERT INTO form8 (formt_id, handover_date, pro_background, objective, significance, literature, pro_methodology, present_report, progress_evaluate, total, comment, role, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String INSERT_FORM8L_SQL = "INSERT INTO form8lecturer (formt_id, handover_date, pro_background, objective, significance, literature, pro_methodology, present_report, progress_evaluate, total, comment, role, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String INSERT_FORM8L_SQS = "INSERT INTO form8supervisor (formt_id, handover_date, pro_background, objective, significance, literature, pro_methodology, present_report, progress_evaluate, total, comment, role, agreement, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String UPDATE_FORM6_SQL = "UPDATE form6 SET similarity_index = ?, sv_approval = ?, date_approve = ?  WHERE formt_id = ?";
     
     public FormDAO() {}
 
@@ -43,6 +44,30 @@ public class FormDAO {
             e.printStackTrace();
         }
         return connection;
+    }
+    
+    public void updateForm6(Form6 form6) {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_FORM6_SQL)) {
+           System.out.println("Updating Form6:");
+        System.out.println("Next Activity: " + form6.getSimilarityIndex());
+        System.out.println("Approval: " + form6.getSvApproval());
+        System.out.println("Date Approval: " + form6.getDateApprove());
+        System.out.println("Form ID: " + form6.getFormTId());
+
+        preparedStatement.setInt(1, form6.getSimilarityIndex());
+        preparedStatement.setString(2, form6.getSvApproval());
+        preparedStatement.setString(3, form6.getDateApprove());
+        preparedStatement.setInt(4, form6.getFormTId());
+
+        // Print the statement to check values
+        System.out.println("Executing update: " + preparedStatement);
+
+        preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
      //Method to insert Form2
@@ -128,7 +153,7 @@ public class FormDAO {
         String sql = "INSERT INTO form6 (form_id, submit_date, stu_approval, similarity_index, sv_approval, sv_date, date_approve) VALUES (?, ?, ?, ?, ?, ?, ?);";
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, form6.getFormId());
+            preparedStatement.setInt(1, form6.getFormTId());
             preparedStatement.setString(2, form6.getSumbitDate());
             preparedStatement.setString(3, form6.getStuApproval());
             preparedStatement.setInt(4, form6.getSimilarityIndex());

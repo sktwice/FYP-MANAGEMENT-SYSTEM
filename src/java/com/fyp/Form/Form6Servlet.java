@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.fyp.model.bean.Form6;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,25 +21,14 @@ public class Form6Servlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            int formId = Integer.parseInt(request.getParameter("formId"));
-            int studentId = Integer.parseInt(request.getParameter("studentId"));
-            int lId = Integer.parseInt(request.getParameter("lId"));
-            int proId = Integer.parseInt(request.getParameter("proId"));
-            String submitDate = request.getParameter("submitDate");
-            String stuApproval = request.getParameter("stuApproval");
-            int similarityIndex = Integer.parseInt(request.getParameter("similarityIndex"));
-            String svApproval = request.getParameter("svApproval");
-            String svDate = request.getParameter("svDate");
-            String dateApprove = request.getParameter("dateApprove");
-            
-            Form6 form6 = new Form6(formId, studentId, lId, proId, submitDate, stuApproval, similarityIndex, svApproval, svDate, dateApprove);
-            FormDAO dao = new FormDAO();
-            dao.insertForm6(form6);
-            
-            response.sendRedirect("success.jsp");
-        } catch (SQLException ex) {
-            Logger.getLogger(Form6Servlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        int formtId = Integer.parseInt(request.getParameter("formtId6"));
+        int similarityIndex = Integer.parseInt(request.getParameter("index"));
+        String svApproval = request.getParameter("approval");
+        LocalDate currentDate = LocalDate.now();
+        String dateApprove = currentDate.toString();
+        Form6 form6 = new Form6(formtId,similarityIndex, svApproval, dateApprove);
+        FormDAO dao = new FormDAO();
+        dao.updateForm6(form6);
+        response.sendRedirect(request.getContextPath()+ "/FormSVServlet");
     }
 }

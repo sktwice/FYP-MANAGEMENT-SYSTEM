@@ -14,16 +14,24 @@ public class FormTeach {
     private int tId;
     private int proId;
     
+    
     public FormTeach(int formtId, int studentId, int tId, int proId){
         this.formtId=formtId;
         this.studentId=studentId;
         this.tId=tId;
         this.proId=proId;
     }
-    
     public FormTeach(int formtId){
         this.formtId=formtId;
     }
+    
+    public FormTeach(){
+    }
+
+    public FormTeach(int formtId, int studentId) {
+        this.formtId=formtId;
+        this.studentId=studentId;
+    }    
 
     public int getFormTId() {
         return formtId;

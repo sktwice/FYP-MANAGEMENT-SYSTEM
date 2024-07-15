@@ -8,9 +8,9 @@ package com.fyp.model.bean;
  *
  * @author User
  */
-public class Form6 extends Form {
+public class Form6 extends FormTeach {
     
-    private String sumbitDate;
+    private String submitDate;
     private String stuApproval;
     private int similarityIndex;
     private String svApproval;
@@ -18,13 +18,26 @@ public class Form6 extends Form {
     private String dateApprove; 
     
     
-    public Form6(int formId, int studentId, int lId, int proId, 
+    public Form6(int formtId, 
             String submitDate, String stuApproval, int similarityIndex, String svApproval, String svDate, String dateApproval) {
-        super(formId, studentId, lId, proId);
+        super(formtId);
+    }
+
+    public Form6(int formtId, String submitDate, String stuApproval) {
+        super(formtId);
+        this.submitDate=submitDate;
+        this.stuApproval=stuApproval;
+    } 
+    
+    public Form6(int formtId,int similarityIndex, String svApproval, String dateApprove) {
+        super(formtId);
+        this.similarityIndex=similarityIndex;
+        this.svApproval=svApproval;
+        this.dateApprove=dateApprove;
     }
 
     public String getSumbitDate() {
-        return sumbitDate;
+        return submitDate;
     }
 
     public String getStuApproval() {
@@ -47,8 +60,8 @@ public class Form6 extends Form {
         return dateApprove;
     }
 
-    public void setSumbitDate(String sumbitDate) {
-        this.sumbitDate = sumbitDate;
+    public void setSumbitDate(String submitDate) {
+        this.submitDate = submitDate;
     }
 
     public void setStuApproval(String stuApproval) {

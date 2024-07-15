@@ -62,6 +62,16 @@ public class StudentReportDAO {
     "WHERE f.t_Id = ? AND fe.formt_id IS NULL;";
     
     private static final String SELECT_REPORTS_SV_SQL ="SELECT s.student_id, s.s_name, p.pro_title, f.formt_id FROM student s JOIN project p ON s.student_id = p.student_id JOIN formTeach f ON p.student_id = f.student_id WHERE f.sv_Id = ?;";
+    private static final String SELECT_REPORTSF6_SV_SQL =
+    "SELECT s.student_id, s.s_name, p.pro_title, p.pro_url, p.pro_ID, l.l_name AS supervisor_name, f.formt_id " +
+    "FROM student s " +
+    "JOIN project p ON s.student_id = p.student_id " +
+    "JOIN formTeach f ON p.student_id = f.student_id " +
+    "LEFT JOIN form7 fe ON f.formt_id = fe.formt_id " +
+    "JOIN supervisor sv ON p.sv_id = sv.sv_id " +
+    "JOIN lecturer l ON sv.l_id = l.l_id " +
+    "WHERE f.sv_Id = ? AND fe.formt_id IS NULL;";
+    
     private static final String SELECT_REPORTSF7_SV_SQL =
     "SELECT s.student_id, s.s_name, p.pro_title, p.pro_url, p.pro_ID, l.l_name AS supervisor_name, f.formt_id " +
     "FROM student s " +
@@ -308,6 +318,32 @@ public class StudentReportDAO {
             printSQLException(e);
         }
         return listReports;
+    }
+    
+    public List<StudentReport> listAllReportsF6Sv(int svId) throws SQLException {
+        List<StudentReport> listReportsF6 = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_REPORTSF6_SV_SQL)) {
+            preparedStatement.setInt(1, svId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int studentId = resultSet.getInt("student_id");
+                String studentName = resultSet.getString("s_name");
+                String projectTitle = resultSet.getString("pro_title");
+                String projectUrl = resultSet.getString("pro_url");
+                int proId = resultSet.getInt("pro_ID");
+                String supervisorName = resultSet.getString("supervisor_name");
+                int formtId = resultSet.getInt("formt_id");
+
+                StudentReport report = new StudentReport(studentId, studentName, projectTitle, projectUrl, supervisorName, proId, formtId);
+                listReportsF6.add(report);
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return listReportsF6;
     }
     
     public List<StudentReport> listAllReportsF8SV(int svId) throws SQLException {

@@ -39,7 +39,9 @@ public class StudentFormServlet extends HttpServlet {
 
         int studentId = (int) session.getAttribute("student_id");
         System.out.println("DEBUG: Student ID: " + studentId); // Debug statement to print student_id
+        boolean hasForm6 = formDAO.studentHasForm6(studentId);
 
+        if(formDAO.studentHasProject(studentId)&& !hasForm6){
         List<Form5> forms = formDAO.getFormsByStudentId(studentId);
         if (forms.isEmpty()) {
             request.setAttribute("message", "No forms found for the student ID: " + studentId);
@@ -51,6 +53,22 @@ public class StudentFormServlet extends HttpServlet {
             request.setAttribute("form5List", form5List);
         }
         request.getRequestDispatcher("Students/Form-Student.jsp").forward(request, response);
+        }else if(formDAO.studentHasProject(studentId)&&formDAO.studentHasForm6(studentId)){
+            List<Form5> forms = formDAO.getFormsByStudentId(studentId);
+            if (forms.isEmpty()) {
+                request.setAttribute("message", "No forms found for the student ID: " + studentId);
+            } else {
+                List<Form5> form5List = new ArrayList<>();
+                for (Form5 form : forms) {
+                    form5List.addAll(formDAO.getForm5ByFormId(form.getFormId()));
+                }
+                request.setAttribute("form5List", form5List);
+            }
+            request.getRequestDispatcher("Students/Form-StudentUpload.jsp").forward(request, response);
+        }
+        else{
+            request.getRequestDispatcher("Students/Form-StudentNoSv.jsp").forward(request, response);
+        }
     }
 
     @Override

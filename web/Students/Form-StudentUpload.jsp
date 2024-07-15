@@ -119,17 +119,14 @@
                             <div class="columns is-vcentered is-mobile m-0">
                                 <div class="column">
                                     <span class="is-size-6 has-text-weight-semibold has-text-grey" style="text-transform: uppercase;">
-                                        This form is for student to give permission to their supervisor to check their proposal report
+                                        You already upload and approved this form!!!
                                     </span>
                                     <!-- New sentence added here -->
                                     <div>
                                     <span class="is-size-6 has-text-weight-normal has-text-grey">
-                                        This is for final proposal report. Make sure contact your supervisor before send it.
+                                        For any changes please refer to your supervisor back.
                                     </span>
                                     </div>
-                                </div>
-                                <div class="column is-narrow">
-                                    <button id="uploadBtn" class="button is-custom4 is-small">Upload</button>
                                 </div>
                             </div>
                     </div>
@@ -219,77 +216,7 @@
     </div>
     <button class="modal-close is-large" aria-label="close" onclick="toggleModal('addForm5Modal')"></button>
 </div>
-                
-     <div id="uploadModal" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head has-background-white">
-                <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Upload Proposal</p>
-                <button class="delete" aria-label="close" onclick="toggleModal('uploadModal')"></button>
-            </header>
-            <form id="uploadForm" action="${pageContext.request.contextPath}/F6StudentServlet" method="post" enctype="multipart/form-data">
-            <section class="modal-card-body has-background-white">
-                    <div class="field">
-                        <label class="has-text-weight-semibold has-text-grey">Select Proposal PDF:</label>
-                        <div id="file-js-example" class="file has-name is-info is-small">
-                            <label class="file-label">
-                              <input class="file-input" type="file" name="pdfFile" />
-                              <span class="file-cta">
-                                <span class="file-icon has-text-white">
-                                  <i class="fas fa-upload"></i>
-                                </span>
-                                <span class="file-label has-text-white"> Choose a file… </span>
-                              </span>
-                              <span class="file-name"> No file uploaded </span>
-                            </label>
-                        </div>
-                    </div>
-            </section>
-                <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-5 w-100" 
-                        style="border-top-color: #bdbdbd 1px solid;">
-                    <div class="control">
-                            <button type="button" class="button is-custom2" onclick="toggleModal('uploadModal')">Cancel</button>
-                        </div>
-                    <div class="control">
-                            <a href="javascript:void(0);" class="button is-custom3" onclick="confirmUpload(event)">Upload File</a>
-                        </div>
-                </footer>
-                </form>
-        </div>
-    </div>
-                <script>
-                           function confirmUpload(event) {
-                            event.preventDefault(); // Prevent the default form submission
 
-                            // Display the SweetAlert2 confirmation dialog
-                            Swal.fire({
-                                title: "Are you sure?",
-                                text: "Do you want to approve this?",
-                                icon: "warning",
-                                showCancelButton: true,
-                                confirmButtonColor: "#3085d6",
-                                cancelButtonColor: "#d33",
-                                confirmButtonText: "Yes, approve!"
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    // If confirmed, show success message and submit the form
-                                    Swal.fire({
-                                        title: "Approved!",
-                                        text: "The form has been approved.",
-                                        icon: "success",
-                                        confirmButtonColor: "#3085d6",
-                                        cancelButtonColor: "#d33",
-                                        confirmButtonText: "OK"
-                                    }).then(() => {
-                                        // Find the form and submit it
-                                        var form = document.getElementById('uploadForm');
-                                        if (form) {
-                                            form.submit();
-                                        }
-                                    });
-                                }
-                            });
-                        } 
-                </script>           
+                        
     </body>
 </html>

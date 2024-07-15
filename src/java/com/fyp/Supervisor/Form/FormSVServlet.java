@@ -41,9 +41,11 @@ public class FormSVServlet extends HttpServlet {
             HttpSession session = request.getSession();
             int svId = (int) session.getAttribute("sv_id");
             List<StudentReportDAO.StudentReport> listReports = studentReportDao.listAllReportsF7Sv(svId);
+            List<StudentReportDAO.StudentReport> listReportsF6 = studentReportDao.listAllReportsF6Sv(svId);
             List<StudentReportDAO.StudentReport> listReportsF8 = studentReportDao.listAllReportsF8SV(svId);
             List<StudentReportDAO.StudentReport> listReportsF5 = studentReportDao.listAllF5(svId);
             request.setAttribute("listReports", listReports);
+            request.setAttribute("listReportsF6", listReportsF6);
             request.setAttribute("listReportsF8", listReportsF8);
             request.setAttribute("listReportsF5", listReportsF5);
 

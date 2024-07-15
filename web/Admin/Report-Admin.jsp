@@ -10,6 +10,8 @@
         <title>Report</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
         <style>
         </style>
@@ -30,10 +32,10 @@
                                 <div>
                                     <label class="has-text-weight-bold has-text-grey is-size-5">Past Reports</label>
                                     <p class="has-text-grey-light is-size-7">More than ${listPastReport.size()} students' past reports</p>
-                                </div>
-                                <button class="button is-custom4" style="height:2rem;" id="openModalButton">
-                                    <span class="is-size-7">New Report</span>
-                                </button>
+                            </div>
+                            <button class="button is-custom4" style="height:2rem;" id="openModalButton">
+                                <span class="is-size-7">New Report</span>
+                            </button>
                         </div>
                         <div>
                             <div class="p-1" id="table">
@@ -55,15 +57,15 @@
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Semester"><c:out value = "${report.session}"/></td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Topic"><c:out value = "${report.proTitle}"/></td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
-                                                <div class="is-flex is-justify-content-center">
-                                                    <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                    <a class="button is-info is-outlined is-small" href="${pageContext.request.contextPath}/DownloadPastReportServlet?proId=${report.proId}">
-                                                        <i class="fas fa-download"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
+                                                    <div class="is-flex is-justify-content-center">
+                                                        <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                        <a class="button is-info is-outlined is-small" href="${pageContext.request.contextPath}/DownloadPastReportServlet?proId=${report.proId}">
+                                                            <i class="fas fa-download"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
@@ -74,7 +76,7 @@
                 </div>
             </div>
         </div>
-<div class="modal custom-modal" id="registerLecturerModal">
+        <div class="modal custom-modal" id="registerLecturerModal">
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
@@ -82,7 +84,7 @@
                     <button class="delete" aria-label="close" id="closeModalButton"></button>
                 </header>
                 <section class="modal-card-body has-background-white">
-                    <form action="AddPastReportServlet" method="post" enctype="multipart/form-data">
+                    <form id="addReportForm" action="AddPastReportServlet" method="post" enctype="multipart/form-data">
                         <div class="p-4">
                             <input type="hidden" id="admin_id" name="admin_id" value="${sessionScope.admin_id}"/>
                             <input type="hidden" name="l_id" value="0" />
@@ -118,7 +120,7 @@
                                 </div>
                             </div>
                             <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
-                                <button class="button is-success has-text-white" type="submit">Submit</button>
+                                <button class="button is-success has-text-white" type="button" id="submitButton">Submit</button>
                             </footer>
                         </div>
                     </form>
@@ -126,26 +128,26 @@
             </div>
         </div>                                
         <script>
-            document.getElementById('searchInput').addEventListener('keyup', function() {
-              var input = document.getElementById('searchInput');
-              var filter = input.value.toLowerCase();
-              var tableBody = document.getElementById('tableBody');
-              var tr = tableBody.getElementsByTagName('tr');
+            document.getElementById('searchInput').addEventListener('keyup', function () {
+                var input = document.getElementById('searchInput');
+                var filter = input.value.toLowerCase();
+                var tableBody = document.getElementById('tableBody');
+                var tr = tableBody.getElementsByTagName('tr');
 
-              for (var i = 0; i < tr.length; i++) {
-                var td = tr[i].getElementsByTagName('td');
-                var textValue = '';
-                for (var j = 0; j < td.length; j++) {
-                  textValue += td[j].textContent || td[j].innerText;
+                for (var i = 0; i < tr.length; i++) {
+                    var td = tr[i].getElementsByTagName('td');
+                    var textValue = '';
+                    for (var j = 0; j < td.length; j++) {
+                        textValue += td[j].textContent || td[j].innerText;
+                    }
+                    if (textValue.toLowerCase().indexOf(filter) > -1) {
+                        tr[i].style.display = '';
+                    } else {
+                        tr[i].style.display = 'none';
+                    }
                 }
-                if (textValue.toLowerCase().indexOf(filter) > -1) {
-                  tr[i].style.display = '';
-                } else {
-                  tr[i].style.display = 'none';
-                }
-              }
             });
-            
+
             document.addEventListener('DOMContentLoaded', () => {
                 const openModalButton = document.getElementById('openModalButton');
                 const closeModalButton = document.getElementById('closeModalButton');
@@ -162,7 +164,41 @@
                 modal.querySelector('.modal-background').addEventListener('click', () => {
                     modal.classList.remove('is-active');
                 });
+
+                // Adding event listener for SweetAlert2
+                document.getElementById('submitButton').addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent the default form submission
+
+                    // Display the SweetAlert2 confirmation dialog
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "Do you want to add this Past Report?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, add!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // If confirmed, show success message and submit the form
+                            Swal.fire({
+                                title: "Added!",
+                                text: "The Report has been added.",
+                                icon: "success",
+                                confirmButtonColor: "#3085d6",
+                                cancelButtonColor: "#d33",
+                                confirmButtonText: "OK"
+                            }).then(() => {
+                                // Find the form and submit it
+                                var form = document.getElementById('addReportForm');
+                                if (form) {
+                                    form.submit();
+                                }
+                            });
+                        }
+                    });
+                });
             });
-          </script>
+        </script>
     </body>
 </html>

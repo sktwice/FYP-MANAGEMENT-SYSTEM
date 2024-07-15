@@ -109,7 +109,32 @@
                             </div>
                             <div id="tab-2" class="tab-content is-hidden">
                                 <div class="p-3">
-                                    
+                                    <div class="p-1" id="table">
+                                <table class="">
+                                    <thead>
+                                        <tr style="border-bottom: 2px solid #ddd;">
+                                            <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Matric ID</th>
+                                            <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Student</th>
+                                            <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Project Title</th>
+                                            <th class="has-text-grey-light has-text-weight-semibold is-size-7 has-text-centered">Action</th>
+                                        </tr>
+                                        </thead>
+                                    <tbody>
+                                        <c:forEach var="report" items="${listReportsF6}">
+                                            <tr>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="align-content:center;" data-label="Matric ID">${report.studentId}</td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="align-content:center;" data-label="Student">${report.studentName}</td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="align-content:center;" data-label="Project Title">${report.projectTitle}</td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="align-content:center;" data-label="Action">
+                                                    <button class="button is-small is-info is-outlined" onclick="openModal6(${report.formtId})">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                </table>
+                            </div>
                                 </div>
                             </div>
                             <div id="tab-3" class="tab-content is-hidden">
@@ -708,6 +733,54 @@
             </div>
         </div>
       <!-- Modal Structure -->
+      <div class="modal custom-modal" id="detailModal6">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
+            <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
+            <button class="delete" aria-label="close" onclick="closeModal6()"></button>
+        </header>
+        <form id="updateF6" action="Form6Servlet" method="post">
+        <section class="modal-card-body has-background-white">
+            <!-- Content -->
+            <div class="columns is-multiline m-0">
+                
+                    <input type="hidden" id="modalFormtId6" name="formtId6" value="" required>
+                       <div class="column is-full p-0" style="align-content: center">
+                            <label class="has-text-weight-semibold has-text-grey">Similarity index :</label>
+                        </div>
+                        <div class="column is-full p-0">
+                            <div class="py-2">
+                                <input class="px-4 py-2" name="index" id="index" type="input" placeholder="number in percentage" 
+                                       style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;" required>
+                            </div>
+                        </div>
+                        <div class="column is-full p-0" style="align-content: center">
+                            <label class="has-text-weight-semibold has-text-grey">Approval:</label>
+                        </div>
+                        <div class="column is-full p-0">
+                            <div class="py-2">
+                                <label class="px-4 py-2">
+                                    <input type="radio" name="approval" value="approved" required
+                                           style="margin-right: 8px;"> Approve
+                                </label>
+                                <label class="px-4 py-2">
+                                    <input type="radio" name="approval" value="not approved" required
+                                           style="margin-right: 8px;"> Not Approve
+                                </label>
+                            </div>
+                        </div>
+
+                    
+            </div>
+        </section>
+        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+            <button class="button is-custom2" onclick="closeModal6()">Close</button>
+            <button type="submit" class="button is-custom3">Submit</button>
+        </footer>
+        </form>  
+    </div>
+</div>       
       
       <div class="modal custom-modal" id="detailModal2">
     <div class="modal-background"></div>
@@ -720,220 +793,7 @@
         <section class="modal-card-body has-background-white">
             <!-- Content -->
             <div class="columns is-multiline m-0">
-                
-                    <input type="hidden" id="modalFormtId2" name="formtId2" value="" required>
-                       <div class="column is-full p-0" style="align-content: center">
-                            <label class="has-text-weight-semibold has-text-grey">Handover Date :</label>
-                        </div>
-                        <div class="column is-full p-0">
-                            <div class="py-2">
-                                <input class="px-4 py-2" name="handoverDate" id="handoverDate" type="date" placeholder="" 
-                                       style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;" required>
-                            </div>
-                        </div>
-                        <div class="column is-full p-0" style="align-content: center">
-                            <label class="has-text-weight-semibold has-text-grey">Comment:</label>
-                        </div>
-                        <div class="column is-full p-0">
-                            <div class="py-2">
-                                <input class="px-4 py-2" type="text" placeholder="Your comment" name="comment2" id="comment2" required
-                                       style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            </div>
-                        </div>
-                    
-                    <div class="">
-                        <div class="is-flex is-justify-content-space-between py-4">
-                            <table class="">
-                                <thead>
-                                    <tr>
-                                        <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Assessment Criteria</th>
-                                        <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Weight (W)</th>
-                                        <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Score (s) [1-10]</th>
-                                        <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Marks (W*S)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="p-5" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7 has-text-grey">1. Project Background and Problem</p>
-                                            <p class="is-size-7 has-text-grey">(Appropriate working title, clear problem statement, well-defined project scope.)</p>
-                                        </td>
-                                        <td class="has-text-centered has-text-grey has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wFT1">3</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="ft1" class="form-control" name="ft1" onchange="getDataFT1()" required>
-                                                <option hidden>Score</option>        
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueFT1" id="valueFT1" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="dataF1" id="dataF1" required>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">2. Objectives</p>
-                                            <p class="is-size-7">(Clear, measurable and achievable.)</p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wFT2">2</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="ft2" class="form-control" name="ft2" onchange="getDataFT2()">
-                                                <option hidden>Score</option>        
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueFT2" id="valueFT2" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="dataF2" id="dataF2" required>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">3. Significance of the Study</p>
-                                            <p class="is-size-7">(Relevant to the community and practitioners.)</p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wFT3">1</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="ft3" class="form-control" name="ft3" onchange="getDataFT3()" required>
-                                                <option hidden>Score</option>        
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueFT3" id="valueFT3" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="dataF3" id="dataF3" required>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">4. Literature Review</p>
-                                            <p class="is-size-7">(Able to identify, collect, summarize and analyze relevant and latest issues of subject matter.)</p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wFT4">5</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="ft4" class="form-control" name="ft4" onchange="getDataFT4()" required>
-                                                <option hidden>Score</option>        
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueFT4" id="valueFT4" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="dataF4" id="dataF4">
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">5. Project Methodology</p>
-                                            <p class="is-size-7">(Appropriate approach, methods, sources and deliverable in accomplishing the project.)</p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wFT5">6</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="ft5" class="form-control" name="ft5" onchange="getDataFT5()">
-                                                <option hidden>Score</option>        
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueFT5" id="valueFT5" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="dataF5" id="dataF5" required>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">6. Presentation of the Report</p>
-                                            <p class="is-size-7">(Follow the given guidelines, consistency of the contents, clarity, and language of the report, contain valid references and citations.)</p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wFT6">3</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="ft6" class="form-control" name="ft6" onchange="getDataFT6()">
-                                                <option hidden>Score</option>        
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" anme="valueFT6" id="valueFT6" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="dataF6" id="dataF6" required>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">7. Progress Evaluation</p>
-                                            <p class="is-size-7">(This may include supervisory meetings (Project In-Progress Form- F3), supervisory independency, responsibilities, commitment, maturity, etc.) </p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wFT7">2</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="ft7" class="form-control" name="ft7" onchange="getDataFT7()">
-                                                <option hidden>Score</option>        
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueFT7" id="valueFT7" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="dataF7" id="dataF7" required>
-                                    </tr> 
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">Total Marks</p>
-                                        </td>
-                                        <td class="has-text-centered has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;"></td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;"></td>
-                                        <td class="has-text-centered has-text-weight-bold" data-label="Marks (W*S)" id="totalFMarks" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="equalF" id="equalF" required>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            
                     
                    
             </div>
@@ -1369,6 +1229,11 @@
             document.getElementById("detailModal").classList.add("is-active");
             document.getElementById("modalFormtId").value = formtId; // Set formtId to hidden input
         }
+     
+    function openModal6(formtId) {
+            document.getElementById("detailModal6").classList.add("is-active");
+            document.getElementById("modalFormtId6").value = formtId; // Set formtId to hidden input
+        }
         
     function openModal2(formtId) {
             document.getElementById("detailModal2").classList.add("is-active");
@@ -1384,6 +1249,10 @@
     // Function to close the modal
     function closeModal() {
         document.getElementById("detailModal").classList.remove("is-active");
+    }
+    
+    function closeModal6() {
+        document.getElementById("detailModal6").classList.remove("is-active");
     }
     
     function closeModal2() {
