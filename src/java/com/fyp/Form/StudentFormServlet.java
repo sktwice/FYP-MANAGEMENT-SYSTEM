@@ -2,6 +2,7 @@ package com.fyp.Form;
 
 import com.fyp.Form.Form5Dao;
 import com.fyp.model.bean.Form5;
+import com.fyp.model.bean.Form6;
 import com.fyp.model.bean.Project;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -63,7 +64,10 @@ public class StudentFormServlet extends HttpServlet {
                     form5List.addAll(formDAO.getForm5ByFormId(form.getFormId()));
                 }
                 request.setAttribute("form5List", form5List);
+                
             }
+            Form6 form6 = formDAO.selectForm6ByStudentId(studentId);
+                request.setAttribute("form6", form6);
             request.getRequestDispatcher("Students/Form-StudentUpload.jsp").forward(request, response);
         }
         else{

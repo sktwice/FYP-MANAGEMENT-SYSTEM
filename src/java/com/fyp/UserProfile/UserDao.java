@@ -18,7 +18,8 @@ public class UserDao {
     private static final String SELECT_LECTURER_BY_ID = "SELECT * FROM lecturer WHERE l_id = ?";
     private static final String SELECT_STUDENT_BY_ID = "SELECT * FROM student WHERE student_id = ?";
     private static final String UPDATE_PROFILE_ADMIN = "UPDATE admin SET a_image = ?, a_name = ?, phone_num = ?, email = ? WHERE admin_id = ?";
-
+    private static final String SELECT_FORM6 = "SELECT form6. * FROM form6 JOIN formTeach ON form6.formt_id = formTeach.formt_id WHERE formTeach.student_id = ?;";
+    
     protected Connection getConnection() throws SQLException {
         Connection connection = null;
         try {
@@ -29,6 +30,22 @@ public class UserDao {
             throw new SQLException("Error loading JDBC driver", e);
         }
         return connection;
+    }
+    
+    public boolean studentHasForm6(int studentId) {
+        boolean hasForm6 = false;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FORM6);) {
+            preparedStatement.setInt(1, studentId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                hasForm6 = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error executing SQL query");
+        }
+        return hasForm6;
     }
 
     public Admin selectAdmin(int adminId) {

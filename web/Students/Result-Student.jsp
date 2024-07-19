@@ -22,85 +22,89 @@
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../css/style.css">
         <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .marks-section {
-            margin-bottom: 20px;
-        }
-        .marks-section h2, .marks-section p {
-            margin: 5px 0;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-    </style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            .marks-section {
+                margin-bottom: 20px;
+            }
+            .marks-section h2, .marks-section p {
+                margin: 5px 0;
+            }
+            #result {
+                margin-top: 20px;
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
         <div class="content-wrapper">
             <jsp:include page="../student-sidebar.jsp"></jsp:include>
-            <div class="main-content">
-            <div class="column h-100 px-4 py-2" style="background-color: #FFFFFF; overflow-y: scroll;">
-                <div class="custom-border p-6 pt-4 w-100">
-                    <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
-                        <div>
-                            <div class="columns is-vcentered is-multiline is-mobile">
-                                <!-- Profile Image -->
-                                <div class="column is-narrow">
-                                    <figure class="image is-128x128" style="border-radius: 50%; background-color: black;">
-                                <img id="profile-img" src="../images/lecturers/<%= ((Lecturer) request.getAttribute("lecturer")).getiImage() %>" 
-                                     alt="" style="height: -webkit-fill-available !important; border-radius: 50%;">
-                            </figure>
-                                </div>
-                                <!-- Profile Information -->
-                                <div class="column">
-                                    <h1 class="title has-text-grey is-size-3"><%= ((Lecturer) request.getAttribute("lecturer")).getlName() %><span class="tag is-warning">Supervisor</span></h1>
-                                    <p class="subtitle has-text-grey">College of Computing, Informatics and Mathematics</p>
-                                    <p class=""><span class="icon has-text-info"><i class="fas fa-users"></i></span><strong class="has-text-grey">12</strong> students</p>
-                                </div>
-                                <!-- Contact Information -->
-                                <div class="column is-narrow profile-info is-justify-content-end">
-                                    <p class="subtitle is-size-6 is-justify-content-end"><%= ((Lecturer) request.getAttribute("lecturer")).getEmail() %></p>
+                <div class="main-content">
+                    <div class="column h-100 px-4 py-2" style="background-color: #FFFFFF; overflow-y: scroll;">
+                        <div class="custom-border p-6 pt-4 w-100">
+                            <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
+                                <div>
+                                    <div class="columns is-vcentered is-multiline is-mobile">
+                                        <!-- Profile Image -->
+                                        <div class="column is-narrow">
+                                            <figure class="image is-128x128" style="border-radius: 50%; background-color: black;">
+                                                <img id="profile-img" src="../images/lecturers/<%= ((Lecturer) request.getAttribute("lecturer")).getiImage() %>" 
+                                                 alt="" style="height: -webkit-fill-available !important; border-radius: 50%;">
+                                        </figure>
+                                    </div>
+                                    <!-- Profile Information -->
+                                    <div class="column">
+                                        <h1 class=" has-text-grey is-size-3 has-text-weight-bold"><%= ((Lecturer) request.getAttribute("lecturer")).getlName() %>    <span class="tag is-warning">Supervisor</span></h1>
+                                        <p class=" has-text-grey">College of Computing, Informatics and Mathematics</p>
+                                        <p class=" is-size-6 has-text-grey pb-3"><%= ((Lecturer) request.getAttribute("lecturer")).getEmail() %></p>
+                                        <p class=""><span class="icon has-text-info"><i class="fas fa-users"></i></span><strong class="has-text-grey">12</strong> students</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>              
-                <div class="pt-5">
-                    <div class="custom-border p-3 pt-4 w-100">
-                        <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
+                    </div>    
+
+                    <div class="pt-5">
+                        <div class="custom-border p-5 w-100">
+                            <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
+                                <div>
+                                    <label class="has-text-weight-semibold has-text-grey-dark is-size-5">Marks Summary </label>
+                                </div>
+                            </div>
                             <div>
-                                <label class="pl-5 has-text-weight-bold has-text-grey is-size-5">Marks</label>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="marks-section">
-                                <h2>Lecturer</h2>
-                                <p id="lecturerMarks">Marks: </p>
-                            </div>
-
-                            <div class="marks-section">
-                                <h2>Supervisor</h2>
-                                <p id="supervisorMarks">Marks: </p>
-                            </div>
-
-                            <div class="marks-section">
-                                <h2>Examiner</h2>
-                                <p id="examinerMarks">Marks: </p>
-                            </div>
-
-                            <div class="marks-section">
-                                <h2>Total Marks</h2>
-                                <p id="totalMarks">Total Marks: </p>
+                                <div class="p-1" id="table">
+                                    <table class="">
+                                        <thead>
+                                            <tr style="border-bottom: 2px solid #ddd;">
+                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Lecturer</th>
+                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Supervisor</th>
+                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Examiner</th>
+                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Total Marks</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableBody">
+                                        <c:forEach>
+                                            <tr>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
+                                                    id="lecturerMarks"></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
+                                                    id="supervisorMarks"></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
+                                                    id="examinerMarks"></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
+                                                    id="totalMarks"></td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
                 </div> 
-            </div> 
             </div> 
             <script>
                 // Function to calculate and update marks
@@ -134,16 +138,15 @@
                     var totalMarks = lecturerMarks + supervisorMarks + examinerMarks;
 
                     // Update HTML elements with calculated marks
-                    document.getElementById('lecturerMarks').innerText = "Marks: " + lecturerMarks.toFixed(2)+"%";
-                    document.getElementById('supervisorMarks').innerText = "Marks: " + supervisorMarks.toFixed(2)+"%";
-                    document.getElementById('examinerMarks').innerText = "Marks: " + examinerMarks.toFixed(2)+"%";
-                    document.getElementById('totalMarks').innerText = "Total Marks: " + totalMarks.toFixed(2)+"%";
+                    document.getElementById('lecturerMarks').innerText =  lecturerMarks.toFixed(2) + "%";
+                    document.getElementById('supervisorMarks').innerText = supervisorMarks.toFixed(2) + "%";
+                    document.getElementById('examinerMarks').innerText =  examinerMarks.toFixed(2) + "%";
+                    document.getElementById('totalMarks').innerText =  totalMarks.toFixed(2) + "%";
                 }
 
                 // Call the function to calculate marks when the page loads
                 calculateMarks();
             </script>
-            </div>
+        </div>
     </body>
 </html>
-

@@ -116,6 +116,7 @@
                                             <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Matric ID</th>
                                             <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Student</th>
                                             <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Project Title</th>
+                                            <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Report</th>
                                             <th class="has-text-grey-light has-text-weight-semibold is-size-7 has-text-centered">Action</th>
                                         </tr>
                                         </thead>
@@ -125,6 +126,11 @@
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="align-content:center;" data-label="Matric ID">${report.studentId}</td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="align-content:center;" data-label="Student">${report.studentName}</td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="align-content:center;" data-label="Project Title">${report.projectTitle}</td>
+                                                <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Progress">
+                                                <a href="${pageContext.request.contextPath}/ViewProjectServlet?proId=${report.proId}"  target="_blank" class="button is-success is-outlined is-small mr-1">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                            </td>
                                                 <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="align-content:center;" data-label="Action">
                                                     <button class="button is-small is-info is-outlined" onclick="openModal6(${report.formtId})">
                                                         <i class="fas fa-edit"></i>

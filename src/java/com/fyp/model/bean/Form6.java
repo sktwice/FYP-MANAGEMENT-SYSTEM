@@ -19,8 +19,14 @@ public class Form6 extends FormTeach {
     
     
     public Form6(int formtId, 
-            String submitDate, String stuApproval, int similarityIndex, String svApproval, String svDate, String dateApproval) {
+            String submitDate, String stuApproval, int similarityIndex, String svApproval, String svDate, String dateApprove) {
         super(formtId);
+        this.submitDate=submitDate;
+        this.stuApproval=stuApproval;
+        this.similarityIndex=similarityIndex;
+        this.svApproval=svApproval;
+        this.svDate=svDate;
+        this.dateApprove=dateApprove;
     }
 
     public Form6(int formtId, String submitDate, String stuApproval) {

@@ -428,6 +428,10 @@
         <servlet-name>F6StudentServlet</servlet-name>
         <servlet-class>com.fyp.Student.Upload.F6StudentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteForm6Servlet</servlet-name>
+        <servlet-class>com.fyp.Student.SubmitProposalSV.DeleteForm6Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -851,6 +855,10 @@
     <servlet-mapping>
         <servlet-name>F6StudentServlet</servlet-name>
         <url-pattern>/F6StudentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteForm6Servlet</servlet-name>
+        <url-pattern>/DeleteForm6Servlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

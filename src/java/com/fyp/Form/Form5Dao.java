@@ -2,6 +2,7 @@ package com.fyp.Form;
 
 import com.fyp.model.bean.Form;
 import com.fyp.model.bean.Form5;
+import com.fyp.model.bean.Form6;
 import com.fyp.model.bean.FormTeach;
 import com.fyp.model.bean.Project;
 
@@ -21,6 +22,7 @@ public class Form5Dao {
     private static final String SELECT_FORMS_BY_STUDENT_ID = "SELECT f.* FROM form5 f JOIN project p ON f.pro_ID = p.pro_ID WHERE p.student_id =?;";
     private static final String SELECT_FORM5_BY_FORM_ID = "SELECT * FROM form5 WHERE form_id = ? ORDER BY date_meet";
     private static final String SELECT_FORM5_BY_PRO_ID = "SELECT * FROM form5 WHERE pro_ID = ? ORDER BY date_meet";
+    private static final String SELECT_FORM6 = "SELECT form6. * FROM form6 JOIN formTeach ON form6.formt_id = formTeach.formt_id WHERE formTeach.student_id = ?;";
     private static final String SELECT_STUDENT_FORM = "SELECT COUNT(*) FROM project WHERE student_id = ?";
     private static final String SELECT_STUDENT_FORM6 = "SELECT COUNT(*) FROM form6 f6 JOIN formTeach ft ON f6.formt_id = ft.formt_id WHERE ft.student_id = ?";
     private static final String SELECT_PROJECT_BY_STUDENT_ID = "SELECT * FROM project WHERE student_id = ?";
@@ -41,6 +43,35 @@ public class Form5Dao {
             e.printStackTrace();
         }
         return connection;
+    }
+    
+    public Form6 selectForm6ByStudentId(int studentId) {
+        Form6 form6 = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FORM6)) {
+            preparedStatement.setInt(1, studentId);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int formtId = rs.getInt("formt_id");
+                String submitDate = rs.getString("submit_date");
+                String stuApproval = rs.getString("stu_approval");
+                int similarityIndex = rs.getInt("similarity_index");
+                String svApproval = rs.getString("sv_approval");
+                String svDate = rs.getString("sv_date");
+                String dateApprove = rs.getString("date_approve");
+                
+                System.out.println(formtId);
+                System.out.println(similarityIndex);
+                System.out.println(dateApprove);
+                System.out.println(stuApproval);
+
+                form6 = new Form6(formtId, submitDate, stuApproval, similarityIndex, svApproval, svDate, dateApprove);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return form6;
     }
     
     public boolean studentHasProject(int studentId) {

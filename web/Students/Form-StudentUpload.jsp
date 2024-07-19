@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.fyp.model.bean.Form6" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -116,20 +117,70 @@
 
                     <div id="tab-2" class="tab-content is-hidden">
                         <div class="p-3">
-                            <div class="columns is-vcentered is-mobile m-0">
-                                <div class="column">
-                                    <span class="is-size-6 has-text-weight-semibold has-text-grey" style="text-transform: uppercase;">
-                                        You already upload and approved this form!!!
-                                    </span>
-                                    <!-- New sentence added here -->
-                                    <div>
-                                    <span class="is-size-6 has-text-weight-normal has-text-grey">
-                                        For any changes please refer to your supervisor back.
-                                    </span>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
+    <div class="columns is-vcentered is-mobile m-0">
+        <div class="column">
+            <span class="is-size-6 has-text-weight-semibold has-text-grey" style="text-transform: uppercase;">
+                You already upload and approved this form!!!
+            </span>
+            <!-- New sentence added here -->
+            <div>
+                <span class="is-size-6 has-text-weight-normal has-text-grey">
+                    For any changes please refer to your supervisor back.
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- Table added here -->
+<div class="columns is-vcentered is-mobile m-0">
+    <div class="column">
+        <c:if test="${not empty form6}">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th class="has-text-grey">Result</th>
+                        <th class="has-text-grey">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:choose>
+                        <c:when test="${form6.similarityIndex == 0 || form6.similarityIndex == null}">
+                            <tr>
+                                <td class="has-text-grey">Waiting for your supervisor to check</td>
+                                <td class="has-text-grey">-</td>
+                            </tr>
+                        </c:when>
+                        <c:when test="${form6.similarityIndex <= 30}">
+                            <tr>
+                                <td class="has-text-grey">${form6.similarityIndex}%</td>
+                                <td class="has-text-grey">Success!!! Your report is well approved</td>
+                            </tr>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                                <td class="has-text-grey">${form6.similarityIndex}%</td>
+                                <td class="has-text-grey">
+                                    <button class="button is-warning">Redo</button>
+                                </td>
+                            </tr>
+                        </c:otherwise>
+                    </c:choose>
+                </tbody>
+            </table>
+            <p class="has-text-weight-bold mt-4">
+                IMPORTANCE!!!<br>
+                If your similarity is more than 30%, you need to click redo. It will delete your past report, and you need to resend the latest one based on the pop-up instruction.<br>
+                If your similarity is less than 30%, that means your report is clean to go and approved by your supervisor.<br>
+                For any information, please refer to your supervisor.
+            </p>
+        </c:if>
+        <c:if test="${empty form6}">
+            <p>No Form6 data available for the given student ID.</p>
+        </c:if>
+    </div>
+</div>
+
+</div>
+
                 </div>
                 
             </div>
@@ -182,7 +233,44 @@
                 fileName.textContent = fileInput.files[0].name;
               }
             };
+            
     </script>    
+    
+<script>
+    function toggleModal(modalId) {
+        var modal = document.getElementById(modalId);
+        modal.classList.toggle('is-active');
+    }
+
+    function submitRedoForm() {
+        document.getElementById('redoForm').submit();
+    }
+
+    function acceptRedo() {
+        Swal.fire({
+            title: 'Accepted!',
+            text: 'You have accepted the redo instructions.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                submitRedoForm(); // Submit the form after confirmation
+                toggleModal('redoModal'); // Close the modal
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.button.is-warning').forEach(button => {
+            button.addEventListener('click', function() {
+                toggleModal('redoModal');
+            });
+        });
+    });
+</script>
+
+
+
     <!-- Modal for Adding Form5 -->
 <div id="addForm5Modal" class="modal">
     <div class="modal-background"></div>
@@ -216,6 +304,36 @@
     </div>
     <button class="modal-close is-large" aria-label="close" onclick="toggleModal('addForm5Modal')"></button>
 </div>
+<!-- Redo Modal -->
+<div id="redoModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <h1 class="title is-4 has-text-centered has-text-grey">Redo Required</h1>
+            <div class="content">
+                <p class="has-text-centered">Please review the following instructions for redoing your report:</p>
+                <ul>
+                    <li>1. Recheck your report to avoid it reach more than 30% </li>
+                    <li>2. Verify the accuracy of your data.</li>
+                    <li>3. Follow the guidelines strictly.</li>
+                </ul>
+                <form id="redoForm" action="${pageContext.request.contextPath}/DeleteForm6Servlet" method="post">
+                    <input type="hidden" name="formtId" value="<%= ((Form6) request.getAttribute("form6")).getFormTId() %>">
+                </form>
+                <div class="field is-grouped is-grouped-centered mt-4">
+                    <div class="control">
+                        <button type="button" class="button is-success" onclick="acceptRedo()">Accept</button>
+                    </div>
+                    <div class="control">
+                        <button type="button" class="button is-danger" onclick="toggleModal('redoModal')">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" onclick="toggleModal('redoModal')"></button>
+</div>
+
 
                         
     </body>

@@ -48,6 +48,9 @@
         </div> 
     </div>
 
+    <!-- Hidden field to store the hasForm6 value -->
+    <input type="hidden" id="hasForm6" value="<%= request.getAttribute("hasForm6") %>" />
+
     <!-- Modal for File Upload -->
     <div id="uploadModal" class="modal">
         <div class="modal-background"></div>
@@ -95,17 +98,22 @@
 
         // Show modal when upload button is clicked
         document.getElementById('uploadBtn').addEventListener('click', function() {
-            toggleModal('uploadModal');
+            var hasForm6 = document.getElementById('hasForm6').value === 'true';
+            if (hasForm6) {
+                alert("This function is closed because you already sent your report to be checked by your supervisor. Please refer to your supervisor.");
+            } else {
+                toggleModal('uploadModal');
+            }
         });
-    </script>
-    <script>
-          const fileInput = document.querySelector("#file-js-example input[type=file]");
-            fileInput.onchange = () => {
-              if (fileInput.files.length > 0) {
+
+        // Update file name display when file is selected
+        const fileInput = document.querySelector("#file-js-example input[type=file]");
+        fileInput.onchange = () => {
+            if (fileInput.files.length > 0) {
                 const fileName = document.querySelector("#file-js-example .file-name");
                 fileName.textContent = fileInput.files[0].name;
-              }
-            };
+            }
+        };
     </script>
 </body>
 </html>

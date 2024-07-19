@@ -21,6 +21,7 @@ public class PdfFileDao {
     private static final String UPDATE_PROPOSAL_STATUS_SQL = "UPDATE proposal SET status = 'accepted' WHERE proposal_id = ?";
     private static final String UPDATE_PROPOSAL_STATUS_SQL_REJECT = "UPDATE proposal SET status = 'rejected' WHERE proposal_id = ?";
     private static final String DELETE_PROPOSAL_SQL = "DELETE FROM proposal WHERE proposal_id = ?";
+    private static final String DELETE_FORM6_SQL = "DELETE FROM form6 WHERE formt_id = ?";
 
     protected Connection getConnection() throws SQLException {
         Connection connection = null;
@@ -87,6 +88,17 @@ public class PdfFileDao {
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PROPOSAL_SQL)) {
             preparedStatement.setInt(1, proposalId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("Error deleting proposal", e);
+        }
+    }
+    
+    public void deleteForm6(int formtId) throws SQLException {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_FORM6_SQL)) {
+            preparedStatement.setInt(1, formtId);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
