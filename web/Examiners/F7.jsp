@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../css/style.css">
         <title>F7 – PROJECT FORMULATION PRESENTATION FORM</title>
@@ -367,12 +369,21 @@
                         </table>
                         <div class="is-flex is-justify-content-space-between p-4">
                             <a class="button is-custom2" href="Form.jsp"><span class="has-text-weight-semibold is-size-7">Back</span></a>
-                            <a class="button is-custom4" href="Form.jsp"><span class="has-text-weight-semibold is-size-7">Save Changes</span></a>
+                            <a class="button is-custom4" href="Form.jsp" onclick="showSaveMessage(event)"> <span class="has-text-weight-semibold is-size-7">Save Changes</span> </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+            
+            <script>
+    function showSaveMessage(event) {
+        event.preventDefault(); // Prevent the default action of the link
+        alert('Changes have been saved');
+        window.location.href = 'Form.jsp'; // Redirect to the Form.jsp page after the alert
+    }
+</script>
+
     </body>
 </html>
 
