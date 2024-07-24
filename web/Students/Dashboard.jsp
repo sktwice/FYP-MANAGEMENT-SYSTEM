@@ -16,21 +16,33 @@
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     </head>
+    <style>
+        .card2-image {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            margin-left: 240px;
+        }
+        .card2-image img {
+        max-height: 100%; /* Ensure image does not exceed container height */
+        max-width: 100%;
+    }
+    </style>
     <body>
         <div class="content-wrapper">
             <jsp:include page="../student-sidebar.jsp"></jsp:include>
-            <div class="main-content">
-                <div class="py-1 px-5 is-flex is-justify-content-end is-align-items-center">
-                    <input class="px-4 mx-4 my-1" type="text" placeholder="Search here..." style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                    <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
-                        <img src="">
-                    </span>
-                </div>
-                <div class="columns is-multiline m-0 p-0">
-                    <div class="column is-one-quarter">
-                        <div class="box custom-bg w-100 h-100">
-                            <div class="is-size-4 fas fa-user-graduate has-text-grey"></div>
-                            <p class="has-text-grey has-text-weight-semibold is-size-5">${totalStudents}</p>
+                <div class="main-content">
+                    <div class="py-1 px-5 is-flex is-justify-content-end is-align-items-center">
+                        <input class="px-4 mx-4 my-1" type="text" placeholder="Search here..." style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                        <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
+                            <img src="">
+                        </span>
+                    </div>
+                    <div class="columns is-multiline m-0 p-0">
+                        <div class="column is-one-quarter">
+                            <div class="box custom-bg w-100 h-100">
+                                <div class="is-size-4 fas fa-user-graduate has-text-grey"></div>
+                                <p class="has-text-grey has-text-weight-semibold is-size-5">${totalStudents}</p>
                             <p class="has-text-grey is-size-6">Total Students</p>
                         </div>
                     </div>
@@ -54,6 +66,13 @@
                             <p class="has-text-grey has-text-weight-semibold is-size-5">${totalProject}</p>
                             <p class="has-text-grey is-size-6">Total Reports</p>
                         </div>
+                    </div>
+                </div>
+                <div class="columns is-multiline m-0 p-0">
+                    <div class="card2-image ">
+                        <figure style="">
+                            <img src="${pageContext.request.contextPath}/assets/userManual.jpeg" style="height:40rem; width:60rem;">
+                        </figure>
                     </div>
                 </div>
                 <div class="columns m-0 p-0">
