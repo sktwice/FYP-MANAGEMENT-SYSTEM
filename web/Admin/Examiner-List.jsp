@@ -14,21 +14,27 @@
     </head>
     <body>
         <div class="content-wrapper">
-            <jsp:include page="../admin-sidebar.jsp"></jsp:include>
+            <jsp:include page="../lecturer-sidebar.jsp"></jsp:include>
                 <div class="main-content">
-                    <div class="column h-100 px-4 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
-                        <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                            <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
-                                <img src="">
-                            </span>
-                        </div>
+                    <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
                         <div class="custom-border p-6 w-100">
-                            <div class="pb-4">
+                            <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                                 <div>
                                     <label class="has-text-weight-bold has-text-grey is-size-5">List of Examiner</label>
-                                    <p class="has-text-grey-light is-size-7">More than ${listExaminer.size()} lecturers</p>
+                                    <p class="has-text-grey-light is-size-7">More than ${examiner.size()} lecturers</p>
                             </div>
+                               <div class="columns m-0 p-0" style="width:28%;">
+                                <div class="column is-two-thirds p-1">
+                                    <input id="searchInput" class="px-4 py-3" type="text" placeholder="Search" style="width: 100%; border-radius: 6px; outline: none;">
+                                </div>
+                                <div class="column p-1" style="align-content:center;">
+                                     <button class="button is-custom4" style="height:2.6rem;" id="openModalButton">
+                                <span class="is-size-7 has-text-weight-semibold">Assign</span>
+                            </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-4">
                             <div>
                                 <div class="p-1" id="table">
                                     <table class="">
@@ -38,29 +44,22 @@
                                                 <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Staff ID</th>
                                                 <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Contact</th>
                                                 <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Email</th>
-                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="lecturer" items="${listExaminer}">
+                                            <c:forEach var="lecturer" items="${examiner}">
                                                 <tr>
                                                     <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Name">
-                                                        <c:out value="${lecturer.lName}" />
+                                                        <c:out value="${lecturer.LName}" />
                                                     </td>
                                                     <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Staff ID">
-                                                        <c:out value="${lecturer.lId}" />
-                                                        <p class="has-text-grey-light" style="font-size: 0.5rem;">
-                                                            <c:out value = "${lecturer.position}"/>
-                                                        </p>
+                                                        <c:out value="${lecturer.LId}" />
                                                     </td>
-                                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Contact" style="word-break:break-all;">
-                                                        <c:out value = "${lecturer.email}"/>
+                                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Contact">
+                                                        <c:out value="0${lecturer.phoneNum}" />
                                                     </td>
-                                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email" style="word-break:break-all;">
-                                                        <c:out value = "${lecturer.email}"/>
-                                                    </td>
-                                                      <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Action" style="word-break:break-all;">
-                                                       
+                                                    <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" data-label="Email" style='word-break: break-word'>
+                                                        <c:out value="${lecturer.email}" />
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -73,6 +72,60 @@
                 </div>
             </div>
         </div>
+        <div class="modal custom-modal" id="registerLecturerModal">
+            <div class="modal-background"></div>
+            <div class="modal-card" style="width: 80%;">
+                <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
+                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Assign Examiner</p>
+                    <button class="delete" aria-label="close" id="closeModalButton"></button>
+                </header>
+                <form action="${pageContext.request.contextPath}/UpdateExaminerServlet" method="post">
+                    <section class="modal-card-body has-background-white">
+                        <input type="hidden" id="admin_id" name="admin_id" value="${sessionScope.admin_id}">
+
+                        <table class="">
+                            <thead>
+                                <tr class="" style="border-bottom: 2px solid #ddd;">
+                                    <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Matric ID</th>
+                                    <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Student Name</th>
+                                    <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Project Title</th>
+                                    <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Select Examiner</th>
+                                    <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <c:forEach var="assign" items="${projectStudents}">
+                                    <tr>
+                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold p-4" data-label="Matric ID">${assign.studentId}</td>
+                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold p-4" data-label="Student Name">${assign.studentName}</td>
+                                        <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold p-4" data-label="Project Title">${assign.projectTitle}</td>
+                                        <td class="is-size-7 has-text-centered" data-label="Select Examiner">
+                                            <select name="examinerId" id="examinerId" class="px-4 py-2" style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none; color: grey;">
+                                                <option value="" disabled selected>Select Examiner</option>
+                                                <c:forEach var="examiner" items="${examiners}">
+                                                    <option value="${examiner.exId}">${examiner.LName}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </td>
+                                        <td class="is-size-7 has-text-centered" data-label="Action">
+                                            <button type="submit" class="button is-size-7 is-custom4">Assign</button>
+                                            <input type="hidden" name="studentId" value="${assign.studentId}">
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+
+
+                        </table>
+
+
+                    </section>
+                    <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                    </footer>
+                </form>
+            </div>
+        </div>                    
         <script>
             document.getElementById('searchInput').addEventListener('input', function () {
                 var input = this.value.toLowerCase();
@@ -89,6 +142,24 @@
                     } else {
                         row.style.display = 'none';
                     }
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const openModalButton = document.getElementById('openModalButton');
+                const closeModalButton = document.getElementById('closeModalButton');
+                const modal = document.getElementById('registerLecturerModal');
+
+                openModalButton.addEventListener('click', () => {
+                    modal.classList.add('is-active');
+                });
+
+                closeModalButton.addEventListener('click', () => {
+                    modal.classList.remove('is-active');
+                });
+
+                modal.querySelector('.modal-background').addEventListener('click', () => {
+                    modal.classList.remove('is-active');
                 });
             });
         </script>

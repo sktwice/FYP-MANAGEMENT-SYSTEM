@@ -2,6 +2,7 @@ package com.fyp.UserProfile;
 
 import com.fyp.model.bean.Lecturer;
 import com.fyp.model.bean.Admin;
+import com.fyp.model.bean.Login;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -26,10 +27,13 @@ public class AdminUserProfileServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         int adminId = (int) session.getAttribute("admin_id");
+        int loginId=(int) session.getAttribute("login_id");
+        Login login=userDao.selectLogin(loginId);
         Admin existingAdmin = userDao.selectAdmin(adminId);
 
         if (existingAdmin != null) {
             request.setAttribute("admin", existingAdmin);
+            request.setAttribute("login", login);
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("Admin/UserProfile-Admin.jsp");

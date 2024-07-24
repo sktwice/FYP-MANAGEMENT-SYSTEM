@@ -34,18 +34,18 @@
                             <table class="">
                                 <thead>
                                     <tr class="" style="border-bottom: 2px solid #ddd;">
-                                        <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Topic</th>
-                                        <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Programme</th>
-                                        <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Session Date</th>
-                                        <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold">Total Students</th>
+                                        <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold pb-4">Topic</th>
+                                        <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold pb-4">Programme</th>
+                                        <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold pb-4">Session Date</th>
+                                        <th class="has-text-grey-light is-size-7 has-text-centered has-text-weight-semibold pb-4">Total Students</th>
                                     </tr>
                                 </thead>
                                 <tbody id="scopeTableBody">
                                     <c:forEach var="scope" items="${scopes}">
                                         <tr>
-                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Topic">${scope.scopeName}</td>
-                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Programme">${scope.program}</td>
-                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold" data-label="Session Date">${scope.session}</td>
+                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold p-4" data-label="Topic">${scope.scopeName}</td>
+                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold p-4" data-label="Programme">${scope.program}</td>
+                                            <td class="is-size-7 has-text-centered has-text-right-mobile has-text-grey has-text-weight-semibold p-4" data-label="Session Date">${scope.session}</td>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
                                             <c:out value="${scopeStudentCount[scope.scopeId]}" />
                                         </td>

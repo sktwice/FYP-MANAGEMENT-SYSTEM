@@ -60,7 +60,7 @@
                                         <h1 class=" has-text-grey is-size-3 has-text-weight-bold"><%= ((Lecturer) request.getAttribute("lecturer")).getlName() %>    <span class="tag is-warning">Supervisor</span></h1>
                                         <p class=" has-text-grey">College of Computing, Informatics and Mathematics</p>
                                         <p class=" is-size-6 has-text-grey pb-3"><%= ((Lecturer) request.getAttribute("lecturer")).getEmail() %></p>
-                                        <p class=""><span class="icon has-text-info"><i class="fas fa-users"></i></span><strong class="has-text-grey">12</strong> students</p>
+                                        <p class=" is-size-6 has-text-grey pb-3">0<%= ((Lecturer) request.getAttribute("lecturer")).getPhoneNum() %></p>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                         <div class="custom-border p-5 w-100">
                             <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
                                 <div>
-                                    <label class="has-text-weight-semibold has-text-grey-dark is-size-5">Marks Summary </label>
+                                    <label class="has-text-weight-semibold has-text-grey-dark is-size-5">Carry Marks </label>
                                 </div>
                             </div>
                             <div>
@@ -79,25 +79,37 @@
                                     <table class="">
                                         <thead>
                                             <tr style="border-bottom: 2px solid #ddd;">
-                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Lecturer</th>
-                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Supervisor</th>
-                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Examiner</th>
-                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Total Marks</th>
+                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Form</th>
+                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Mark</th>
+                                                <th class="has-text-grey-light has-text-weight-semibold has-text-centered is-size-7">Weightage</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tableBody">
-                                        <c:forEach>
                                             <tr>
-                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
-                                                    id="lecturerMarks"></td>
-                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
-                                                    id="supervisorMarks"></td>
-                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
-                                                    id="examinerMarks"></td>
-                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile"
-                                                    id="totalMarks"></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">Form 2</td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="form2T"></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="form2W"></td>
                                             </tr>
-                                        </c:forEach>
+                                            <tr>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">Form 3</td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="form3T"></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="form3W"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">Form 4</td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="form4T"></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="form4W"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">Form 8</td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="form8T"></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="form8W"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">Total</td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="TotalT"></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile" id="TotalW"></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -130,18 +142,34 @@
                     var form8lecMarks = (total.total8lec / 220) * 10;
                     var form8svMarks = (total.total8sv / 220) * 10;
                     var form8exMarks = (total.total8ex / 220) * 5;
+                    
+                    var form2= <%= ((Total) request.getAttribute("total")).getTotal2() %>;
+                    var form3= <%= ((Total) request.getAttribute("total")).getTotal3() %>;
+                    var form4= <%= ((Total) request.getAttribute("total")).getTotal4() %>;
+                    var form8lec= total.total8lec;
+                    var form8sv= total.total8sv;
+                    var form8ex= total.total8ex;
+                    var f8Total= form8lec;
+                    var f8Marks= form8lecMarks;
+                    var totalT= form2 + form3 + form4 + f8Total;
+                    var totalW= form2Marks + form3Marks + form4Marks + f8Marks;
 
                     // Calculate sum for each category
-                    var lecturerMarks = form2Marks + form3Marks + form4Marks + form8lecMarks;
-                    var supervisorMarks = form7svMarks + form8svMarks;
-                    var examinerMarks = form7exMarks + form8exMarks;
-                    var totalMarks = lecturerMarks + supervisorMarks + examinerMarks;
+                    
 
                     // Update HTML elements with calculated marks
-                    document.getElementById('lecturerMarks').innerText =  lecturerMarks.toFixed(2) + "%";
-                    document.getElementById('supervisorMarks').innerText = supervisorMarks.toFixed(2) + "%";
-                    document.getElementById('examinerMarks').innerText =  examinerMarks.toFixed(2) + "%";
-                    document.getElementById('totalMarks').innerText =  totalMarks.toFixed(2) + "%";
+                    
+                    
+                    document.getElementById('form2T').innerText =  form2.toFixed(2);
+                    document.getElementById('form2W').innerText =  form2Marks.toFixed(2) + "%";
+                    document.getElementById('form3T').innerText =  form3.toFixed(2);
+                    document.getElementById('form3W').innerText =  form3Marks.toFixed(2) + "%";
+                    document.getElementById('form4T').innerText =  form4.toFixed(2);
+                    document.getElementById('form4W').innerText =  form4Marks.toFixed(2) + "%";
+                    document.getElementById('form8T').innerText =  f8Total.toFixed(2);
+                    document.getElementById('form8W').innerText =  f8Marks.toFixed(2) + "%";
+                    document.getElementById('TotalT').innerText =  totalT.toFixed(2);
+                    document.getElementById('TotalW').innerText =  totalW.toFixed(2) + "%";
                 }
 
                 // Call the function to calculate marks when the page loads

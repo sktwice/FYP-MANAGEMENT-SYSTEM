@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="com.fyp.model.bean.Lecturer" %>
+<%@page import="com.fyp.model.bean.Login"%>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
     <head>
@@ -8,6 +9,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Lecturer Profile</title>
         <style>
             .custom-input2 {
@@ -130,21 +133,24 @@
                                 </form>
                             </div>
                             <div id="password-tab" class="tab-content hidden">
-                                <form>
+                                <form id="passwordForm" action="UpdatePasswordLecturer" method="post">
+                                    <input type="hidden" name="loginId" id="loginId" value="<%= ((Login) request.getAttribute("login")).getLoginId() %>" />
+                                    <input type="hidden" id="storedPassword" value="<%= ((Login) request.getAttribute("login")).getPassword() %>" />
+
                                     <div class="columns">
                                         <div class="column is-one-third">
                                             <div class="field">
                                                 <label class="label has-text-grey">Current Password</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="password" placeholder="Current Password">
+                                                    <input class="input custom-input2" type="password" name="currentPassword" id="currentPassword" placeholder="Current Password">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="column is-one-third">
                                             <div class="field">
-                                                <label class="label has-text-grey">New password</label>
+                                                <label class="label has-text-grey">New Password</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="password" placeholder="New password">
+                                                    <input class="input custom-input2" type="password" name="newPassword" id="newPassword" placeholder="New Password">
                                                 </div>
                                             </div>
                                         </div>
@@ -154,14 +160,14 @@
                                             <div class="field">
                                                 <label class="label has-text-grey">Confirm New Password</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="password" placeholder="Confirm New Password">
+                                                    <input class="input custom-input2" type="password" id="confirmPassword" placeholder="Confirm New Password">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
-                                            <button class="button is-custom4">Update Password</button>
+                                            <button type="button" id="updatePasswordBtn" class="button is-custom4">Update Password</button>
                                         </div>
                                     </div>
                                 </form>
@@ -198,6 +204,72 @@
                     const targetTab = tab.getAttribute('data-tab');
                     document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
                     document.getElementById(targetTab).classList.remove('hidden');
+                });
+            });
+        </script>
+        
+        <script>
+            document.getElementById('updatePasswordBtn').addEventListener('click', function() {
+                var currentPassword = document.getElementById('currentPassword').value;
+                var newPassword = document.getElementById('newPassword').value;
+                var confirmPassword = document.getElementById('confirmPassword').value;
+                var storedPassword = document.getElementById('storedPassword').value;
+
+                if (currentPassword === "") {
+                    Swal.fire({
+                        title: "Error",
+                        text: "Current password cannot be empty",
+                        icon: "error",
+                        confirmButtonColor: "#3085d6",
+                        confirmButtonText: "OK"
+                    });
+                    return;
+                }
+
+                if (currentPassword !== storedPassword) {
+                    Swal.fire({
+                        title: "Error",
+                        text: "Current password is incorrect",
+                        icon: "error",
+                        confirmButtonColor: "#3085d6",
+                        confirmButtonText: "OK"
+                    });
+                    return;
+                }
+
+                if (newPassword === "" || confirmPassword === "") {
+                    Swal.fire({
+                        title: "Error",
+                        text: "New password and confirm password cannot be empty",
+                        icon: "error",
+                        confirmButtonColor: "#3085d6",
+                        confirmButtonText: "OK"
+                    });
+                    return;
+                }
+
+                if (newPassword !== confirmPassword) {
+                    Swal.fire({
+                        title: "Error",
+                        text: "New password and confirm password do not match",
+                        icon: "error",
+                        confirmButtonColor: "#3085d6",
+                        confirmButtonText: "OK"
+                    });
+                    return;
+                }
+
+                Swal.fire({
+                    title: "Success",
+                    text: "Password updated successfully",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "OK"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit the form if all validations pass
+                        document.getElementById('passwordForm').submit();
+                    }
                 });
             });
         </script>

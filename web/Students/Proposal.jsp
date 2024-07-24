@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Proposal
-    Created on : May 2, 2024, 6:16:35 PM
-    Author     : User
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="com.fyp.model.bean.Student" %>
 <!DOCTYPE html>
@@ -15,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="content-wrapper">
@@ -22,7 +18,7 @@
         <div class="main-content">
             <div class="column h-100 px-6 py-6" style="background-color: #FFFFFF;">
                 <div class="pt-5">
-                    <div class="custom-border p-6">
+                    <div class="custom-border p-5">
                         <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                             <div>
                                 <label class="has-text-weight-bold has-text-grey is-size-5">My Proposal</label>
@@ -39,7 +35,7 @@
                                 <span class="is-size-6 has-text-weight-semibold has-text-grey" style="text-transform: uppercase;"><%= ((Student) request.getAttribute("Student")).getsName() %></span>
                             </div>
                             <div class="column is-narrow">
-                                <button id="uploadBtn" class="button is-custom4 is-small">Upload</button>
+                                <button id="uploadBtn" class="button is-custom4 is-size-7">Upload</button>
                             </div>
                         </div>
                     </div>
@@ -48,8 +44,9 @@
         </div> 
     </div>
 
-    <!-- Hidden field to store the hasForm6 value -->
+    <!-- Hidden fields to store the hasForm6 and hasProject values -->
     <input type="hidden" id="hasForm6" value="<%= request.getAttribute("hasForm6") %>" />
+    <input type="hidden" id="hasProject" value="<%= request.getAttribute("hasProject") %>" />
 
     <!-- Modal for File Upload -->
     <div id="uploadModal" class="modal">
@@ -91,6 +88,7 @@
     </div>
 
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
         function toggleModal(modalId) {
             var modal = document.getElementById(modalId);
             modal.classList.toggle('is-active');
@@ -99,10 +97,26 @@
         // Show modal when upload button is clicked
         document.getElementById('uploadBtn').addEventListener('click', function() {
             var hasForm6 = document.getElementById('hasForm6').value === 'true';
+            var hasProject = document.getElementById('hasProject').value === 'true';
+
             if (hasForm6) {
-                alert("This function is closed because you already sent your report to be checked by your supervisor. Please refer to your supervisor.");
-            } else {
+                Swal.fire({
+                    title: "Function Closed",
+                    text: "This function is closed because you already sent your report to be checked by your supervisor. Please refer to your supervisor.",
+                    icon: "warning",
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "OK"
+                });
+            } else if (hasProject) {
                 toggleModal('uploadModal');
+            } else {
+                Swal.fire({
+                    title: "Function Closed",
+                    text: "Please find a supervisor first.",
+                    icon: "warning",
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "OK"
+                });
             }
         });
 
@@ -114,6 +128,15 @@
                 fileName.textContent = fileInput.files[0].name;
             }
         };
+
+        // Close modal when the close button is clicked
+        document.querySelectorAll('.modal .delete, .modal-background').forEach(function(element) {
+            element.addEventListener('click', function() {
+                element.closest('.modal').classList.remove('is-active');
+            });
+        });
+    });
     </script>
+
 </body>
 </html>

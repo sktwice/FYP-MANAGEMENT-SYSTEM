@@ -21,18 +21,17 @@
         <jsp:include page="../student-sidebar.jsp"></jsp:include>
         <div class="main-content">
             <div class="column h-100 px-4 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
-                <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                    <input class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                    <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
-                        <img src="">
-                    </span>
-                </div>
                 <div class="custom-border p-6 w-100">
                     <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                         <div>
                             <label class="has-text-weight-bold has-text-grey is-size-5">List Of Lecturers</label>
                             <p class="has-text-grey-light is-size-7">More than 400+ Lecturers</p>
                         </div>
+                        
+                <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
+                   <input id="searchInput" class="px-4 m-1" type="text" placeholder="Search"
+                           style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                </div>
                     </div>
                     <div>
                         <div class="p-1" id="table">
@@ -55,7 +54,7 @@
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"><c:out value="${lecturer.email}" /></td>
                                             <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
                                                 <div class="is-flex is-justify-content-center">
-                                                    <a class="button is-custom3 is-small" href="${pageContext.request.contextPath}/ProposalSvServlet?lecturerId=${lecturer.lId}&svId=${lecturer.svId}">Submit Proposal</a>
+                                                    <a class="button is-custom4 is-small" href="${pageContext.request.contextPath}/ProposalSvServlet?lecturerId=${lecturer.lId}&svId=${lecturer.svId}">Submit Proposal</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -68,5 +67,26 @@
             </div>
         </div>
     </div>
+           <script>
+            document.getElementById('searchInput').addEventListener('keyup', function() {
+              var input = document.getElementById('searchInput');
+              var filter = input.value.toLowerCase();
+              var tableBody = document.getElementById('tableBody');
+              var tr = tableBody.getElementsByTagName('tr');
+
+              for (var i = 0; i < tr.length; i++) {
+                var td = tr[i].getElementsByTagName('td');
+                var textValue = '';
+                for (var j = 0; j < td.length; j++) {
+                  textValue += td[j].textContent || td[j].innerText;
+                }
+                if (textValue.toLowerCase().indexOf(filter) > -1) {
+                  tr[i].style.display = '';
+                } else {
+                  tr[i].style.display = 'none';
+                }
+              }
+            });
+          </script>
 </body>
 </html>

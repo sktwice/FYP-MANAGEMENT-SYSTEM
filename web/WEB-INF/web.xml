@@ -432,6 +432,18 @@
         <servlet-name>DeleteForm6Servlet</servlet-name>
         <servlet-class>com.fyp.Student.SubmitProposalSV.DeleteForm6Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdatePasswordServlet</servlet-name>
+        <servlet-class>com.fyp.UserProfile.UpdatePasswordServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePasswordLecturer</servlet-name>
+        <servlet-class>com.fyp.UserProfile.UpdatePasswordLecturer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdatePasswordExaminer</servlet-name>
+        <servlet-class>com.fyp.UserProfile.UpdatePasswordExaminer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard_LecturerServlet</servlet-name>
         <url-pattern>/Dashboard_LecturerServlet</url-pattern>
@@ -859,6 +871,18 @@
     <servlet-mapping>
         <servlet-name>DeleteForm6Servlet</servlet-name>
         <url-pattern>/DeleteForm6Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePasswordServlet</servlet-name>
+        <url-pattern>/UpdatePasswordServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePasswordLecturer</servlet-name>
+        <url-pattern>/UpdatePasswordLecturer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePasswordExaminer</servlet-name>
+        <url-pattern>/UpdatePasswordExaminer</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>LoginID.jsp</welcome-file>

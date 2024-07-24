@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         
         .tabs {
@@ -670,167 +671,165 @@
 </div>
 
 <!-- Modal Structure -->
-<div class="modal custom-modal" id="detailModal">
-    <div class="modal-background"></div>
-    <div class="modal-card" style="width: 50%;">
-        <header class="modal-card-head has-background-white">
-            <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
-            <button class="delete" aria-label="close" onclick="closeModal()"></button>
-        </header>
-        <form action="ListF7Servlet" method="post">
-        <section class="modal-card-body has-background-white">
-            <!-- Content -->
-            <div class="columns is-multiline">
-                
-                    <input type="hidden" id="modalFormtId" name="formtId" value="">
-                <div class="column is-2" style="align-content: center">
-                    <label class="has-text-weight-semibold has-text-grey">Presentation Date :</label>
-                </div>
-                <div class="column is-10">
-                    <div class="py-2">
-                        <input class="px-4 py-2" name="presentDate" id="presentDate" type="date" placeholder="" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                    </div>
-                </div>
-                <div class="column is-2" style="align-content: center">
-                    <label class="has-text-weight-semibold has-text-grey">Comment:</label>
-                </div>
-                <div class="column is-10">
-                    <div class="py-2">
-                        <input class="px-4 py-2" type="text" placeholder="Your comment" name="comment" id="comment" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                    </div>
-                </div>
-                <div class="column is-12">
-                    <div class="p-3">
-                        <div class="is-flex is-justify-content-space-between py-4">
-                            <table class="">
-                                <thead>
-                                <tr>
-                                    <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Assessment Criteria</th>
-                                    <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Weight (W)</th>
-                                    <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Score (s) [1-10] (refer to F7 rubric)</th>
-                                    <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Marks (W*S)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">1. Depth of Knowledge</p>
-                                            <p class="is-size-7 has-text-grey-dark">(Possess a clear understanding and able to explain the subject matter.)</p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT1">3</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="t1" class="form-control" name="t1" onchange="getDataT1()">
-                                                <option hidden>Score</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueT1" id="valueT1" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="data1" id="data1">
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">2. Overall Organization of the Project Presentation</p>
-                                            <p class="is-size-7 has-text-grey-dark">(Exhibit/Present the project in a clear, engaging and appropriate form.)</p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT2">2</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="t2" class="form-control" name="t2" onchange="getDataT2()">
-                                                <option hidden>Score</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueT2" id="valueT2" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="data2" id="data2">
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">3. Use Quality of Presentation Materials</p>
-                                            <p class="is-size-7 has-text-grey-dark">(Use several materials or media in presenting the project.)</p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT3">2</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="t3" class="form-control" name="t3" onchange="getDataT3()">
-                                                <option hidden>Score</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueT3" id="valueT3" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="data3" id="data3">
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">4. Delivery Skills</p>
-                                            <p class="is-size-7 has-text-grey-dark">(Proper language used, speak clearly, loudly and at appropriate pace, effective eye contact and presentable attitude.) </p>
-                                        </td>
-                                        <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT4">3</td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
-                                            <select id="t4" class="form-control" name="t4" onchange="getDataT4()">
-                                                <option hidden>Score</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </td>
-                                        <td class="has-text-centered" data-label="Marks (W*S)" name="valueT4" id="valueT4" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="data4" id="data4">
-                                    </tr>
-                                    <tr>
-                                        <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
-                                            <p class="has-text-weight-semibold is-size-7">Total Marks</p>
-                                        </td>
-                                        <td class="has-text-centered has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;"></td>
-                                        <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;"></td>
-                                        <td class="has-text-centered has-text-weight-bold" data-label="Marks (W*S)" id="totalMarks" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
-                                        <input type="hidden" name="equal" id="equal">
-                                    </tr>
-                                </tbody>
-                            </table>
+    <div class="modal custom-modal" id="detailModal">
+        <div class="modal-background"></div>
+        <div class="modal-card" style="width: 50%;">
+            <header class="modal-card-head has-background-white">
+                <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
+                <button class="delete" aria-label="close" onclick="closeModal()"></button>
+            </header>
+            <form id="addReportForm" action="ListF7Servlet" method="post">
+                <section class="modal-card-body has-background-white">
+                    <!-- Content -->
+                    <div class="columns is-multiline">
+                        <input type="hidden" id="modalFormtId" name="formtId" value="">
+                        <div class="column is-2" style="align-content: center">
+                            <label class="has-text-weight-semibold has-text-grey">Presentation Date :</label>
+                        </div>
+                        <div class="column is-10">
+                            <div class="py-2">
+                                <input class="px-4 py-2" name="presentDate" id="presentDate" type="date" placeholder="" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                            </div>
+                        </div>
+                        <div class="column is-2" style="align-content: center">
+                            <label class="has-text-weight-semibold has-text-grey">Comment:</label>
+                        </div>
+                        <div class="column is-10">
+                            <div class="py-2">
+                                <input class="px-4 py-2" type="text" placeholder="Your comment" name="comment" id="comment" style="width: 100%; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
+                            </div>
+                        </div>
+                        <div class="column is-12">
+                            <div class="p-3">
+                                <div class="is-flex is-justify-content-space-between py-4">
+                                    <table class="">
+                                        <thead>
+                                            <tr>
+                                                <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Assessment Criteria</th>
+                                                <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Weight (W)</th>
+                                                <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Score (s) [1-10] (refer to F7 rubric)</th>
+                                                <th class="has-text-grey-dark has-text-weight-bold has-text-centered" style="border: 1px solid #dbdbdb;">Marks (W*S)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                                    <p class="has-text-weight-semibold is-size-7">1. Depth of Knowledge</p>
+                                                    <p class="is-size-7 has-text-grey-dark">(Possess a clear understanding and able to explain the subject matter.)</p>
+                                                </td>
+                                                <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT1">3</td>
+                                                <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
+                                                    <select id="t1" class="form-control" name="t1" onchange="getDataT1()">
+                                                        <option hidden>Score</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </td>
+                                                <td class="has-text-centered" data-label="Marks (W*S)" name="valueT1" id="valueT1" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                                <input type="hidden" name="data1" id="data1">
+                                            </tr>
+                                            <tr>
+                                                <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                                    <p class="has-text-weight-semibold is-size-7">2. Overall Organization of the Project Presentation</p>
+                                                    <p class="is-size-7 has-text-grey-dark">(Exhibit/Present the project in a clear, engaging and appropriate form.)</p>
+                                                </td>
+                                                <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT2">2</td>
+                                                <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
+                                                    <select id="t2" class="form-control" name="t2" onchange="getDataT2()">
+                                                        <option hidden>Score</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </td>
+                                                <td class="has-text-centered" data-label="Marks (W*S)" name="valueT2" id="valueT2" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                                <input type="hidden" name="data2" id="data2">
+                                            </tr>
+                                            <tr>
+                                                <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                                    <p class="has-text-weight-semibold is-size-7">3. Use Quality of Presentation Materials</p>
+                                                    <p class="is-size-7 has-text-grey-dark">(Use several materials or media in presenting the project.)</p>
+                                                </td>
+                                                <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT3">2</td>
+                                                <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
+                                                    <select id="t3" class="form-control" name="t3" onchange="getDataT3()">
+                                                        <option hidden>Score</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </td>
+                                                <td class="has-text-centered" data-label="Marks (W*S)" name="valueT3" id="valueT3" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                                <input type="hidden" name="data3" id="data3">
+                                            </tr>
+                                            <tr>
+                                                <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                                    <p class="has-text-weight-semibold is-size-7">4. Delivery Skills</p>
+                                                    <p class="is-size-7 has-text-grey-dark">(Proper language used, speak clearly, loudly and at appropriate pace, effective eye contact and presentable attitude.) </p>
+                                                </td>
+                                                <td class="has-text-grey has-text-weight-semibold has-text-centered" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;" id="wT4">3</td>
+                                                <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;">
+                                                    <select id="t4" class="form-control" name="t4" onchange="getDataT4()">
+                                                        <option hidden>Score</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </td>
+                                                <td class="has-text-centered" data-label="Marks (W*S)" name="valueT4" id="valueT4" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                                <input type="hidden" name="data4" id="data4">
+                                            </tr>
+                                            <tr>
+                                                <td class="p-5 has-text-grey" data-label="Assessment Criteria" style="border: 1px solid #dbdbdb;">
+                                                    <p class="has-text-weight-semibold is-size-7">Total Marks</p>
+                                                </td>
+                                                <td class="has-text-centered has-text-weight-bold" data-label="Weight (W)" style="border: 1px solid #dbdbdb; align-content:center;"></td>
+                                                <td class="has-text-centered" data-label="Score (s) [1-10]" style="border: 1px solid #dbdbdb; align-content:center;"></td>
+                                                <td class="has-text-centered has-text-weight-bold" data-label="Marks (W*S)" id="totalMarks" style="border: 1px solid #dbdbdb; align-content:center;">0</td>
+                                                <input type="hidden" name="equal" id="equal">
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                     
-            </div>
-        </section>
-        <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
-                <button type="submit" class="button is-custom3">Submit</button>
-            </footer>
+                </section>
+                <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                    <button type="button" id="submitBtn" class="button is-custom3">Submit</button>
+                </footer>
             </form>
+        </div>
     </div>
-</div>
 
 <div class="modal custom-modal" id="detailModal2">
     <div class="modal-background"></div>
@@ -839,11 +838,10 @@
             <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal2()"></button>
         </header>
-        <form action="F8Servlet" method="post">
+        <form id="addReportForm2"  action="F8Servlet" method="post">
         <section class="modal-card-body has-background-white">
             <!-- Content -->
             <div class="columns is-multiline">
-                <form action="F8Servlet" method="post">
                     <input type="hidden" id="modalFormtId2" name="formtId2" value="">
                  <div class="column is-2" style="align-content: center">
                                     <label class="has-text-weight-semibold has-text-grey">Handover Date :</label>
@@ -1061,7 +1059,7 @@
             </div>
         </section>
         <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
-                <button type="submit" class="button is-custom3">Submit</button>
+                <button type="submit" id="submitBtn2" class="button is-custom3">Submit</button>
             </footer>
             </form>
     </div>
@@ -1232,6 +1230,71 @@
         document.getElementById("equalF").value=totalFMarks;
     }
 </script>
+<script>
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do you want to submit this mark?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    text: "The mark has been submited.",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('addReportForm');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+    
+    </script>
+    
+    <script>
+        document.getElementById('submitBtn2').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do you want to submit this mark?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    text: "The mark has been submited.",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('addReportForm2');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+    </script>
 </div>
 </body>
 </html>

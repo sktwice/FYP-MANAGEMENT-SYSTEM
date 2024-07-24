@@ -34,7 +34,7 @@ public class StudentFormServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("student_id") == null) {
-            response.sendRedirect("../LoginID.jsp"); // Redirect to login if session is invalid
+            response.sendRedirect("/LoginID.jsp"); // Redirect to login if session is invalid
             return;
         }
 

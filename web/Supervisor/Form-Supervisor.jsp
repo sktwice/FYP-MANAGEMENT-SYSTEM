@@ -11,6 +11,8 @@
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
         <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <style>
         .tabs {
                 margin-bottom: 1.5rem;
@@ -50,6 +52,27 @@
             border-color: #dbdbdb !important;
             border-bottom-color: #fff !important;
         }
+        .custom-swal-popup {
+                width: 400px !important;
+                height: 250px !important;
+            }
+            .custom-icon {
+                width: 50px;
+                height: 65px;
+            }
+            .custom-swal-content {
+                font-size: 10px !important;
+                margin-bottom: 10px !important;
+            }
+            .custom-swal-button{
+                background-color: #384D6C;
+                border-color: #fff;
+                color: #fff;
+                font-size: 10px;
+            }
+            .is-size-20 {
+                font-size: 0.5rem !important; /* Adjust the font size for the text */
+            }
     </style>
     </head>
     <body>
@@ -782,7 +805,7 @@
         </section>
         <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
             <button class="button is-custom2" onclick="closeModal6()">Close</button>
-            <button type="submit" class="button is-custom3">Submit</button>
+            <button id="submitBtn6" type="submit" class="button is-custom3">Submit</button>
         </footer>
         </form>  
     </div>
@@ -818,7 +841,7 @@
             <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal()"></button>
         </header>
-        <form action="F7Servlet" method="post">
+        <form id="addReportForm7" action="F7Servlet" method="post">
         <section class="modal-card-body has-background-white">
             <!-- Content -->
             <div class="columns is-multiline m-0">
@@ -966,7 +989,7 @@
         </section>
         <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
                 <button class="button is-custom2" onclick="closeModal()">Close</button>
-                <button type="submit" class="button is-custom3">Submit</button>
+                <button id="submitBtn7" type="submit" class="button is-custom3">Submit</button>
             </footer>
         </form>  
     </div>
@@ -980,7 +1003,7 @@
             <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal2()"></button>
         </header>
-        <form action="F8SupervisorServlet" method="post">
+        <form id="addReportForm8" action="F8SupervisorServlet" method="post">
         <section class="modal-card-body has-background-white">
             <!-- Content -->
             <div class="columns is-multiline m-0">
@@ -1203,7 +1226,7 @@
         </section>
         <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4" style="border-top: #bdbdbd 1px solid;">
             <button class="button is-custom2" onclick="closeModal2()">Close</button>
-            <button type="submit" class="button is-custom3">Submit</button>
+            <button id="submitBtn8" type="submit" class="button is-custom3">Submit</button>
         </footer>
         </form> 
     </div>
@@ -1390,6 +1413,182 @@
         document.getElementById("totalFMarks").textContent = totalFMarks;
         document.getElementById("equalF").value=totalFMarks;
     }   
-      </script>     
+      </script>
+      <script>
+    document.getElementById('submitBtn5').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!",
+            customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-6',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+
+                    }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK",
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-6',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+
+                    }
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('addReportForm5');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+    </script>
+    <script>
+    document.getElementById('submitBtn6').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!",
+            customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-6',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+
+                    }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK",
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-6',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+
+                    }
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('updateF6');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+    </script>
+    <script>
+    document.getElementById('submitBtn7').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!",
+            customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-6',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+
+                    }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK",
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-6',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+
+                    }
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('addReportForm7');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+    </script>
+    <script>
+    document.getElementById('submitBtn8').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!",
+            customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-6',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+
+                    }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK",
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-6',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+
+                    }
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+    </script>
     </body>
 </html>

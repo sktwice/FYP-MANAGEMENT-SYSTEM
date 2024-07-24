@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Report</title>
+        <title>Reports</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
@@ -17,22 +17,24 @@
             <jsp:include page="../lecturer-sidebar.jsp"></jsp:include>
             <div class="main-content">
                 <div class="column h-100 px-6 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
-                    <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                        <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                        <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
-                            <img src="">
-                        </span>
-                    </div>
                     <div class="custom-border p-6 w-100">
                         <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                             <div>
                                 <label class="has-text-weight-bold has-text-grey is-size-5">Past Reports</label>
                                 <p class="has-text-grey-light is-size-7">More than ${listPastReport.size()} students' past reports</p>
                             </div>
-                            <button class="button is-custom4" style="height:2rem;" id="openModalButton">
-                                <span class="is-size-7">New Report</span>
-                            </button>
+                            <div class="columns m-0 p-0" style="width:28%;">
+                                <div class="column is-two-thirds p-1">
+                                    <input id="searchInput" class="px-4 py-3" type="text" placeholder="Search" style="width: 100%; border-radius: 6px; outline: none;">
+                                </div>
+                                <div class="column p-1" style="align-content:center;">
+                                    <button class="button is-custom4 px-4 py-3 w-90" style="height:2.6rem;" id="openModalButton">
+                                        <span class="is-size-7 has-text-weight-semibold">New Report</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+                             
                         <div>
                             <div class="p-1" id="table">
                                 <table class="">
@@ -48,11 +50,11 @@
                                     <tbody id="tableBody">
                                         <c:forEach var="report" items="${listPastReport}">
                                             <tr>
-                                                <td class="has-text-centered"><c:out value="${report.studentName}" /></td> 
-                                                <td class="has-text-centered"><c:out value="${report.studentId}" /></td>
-                                                <td class="has-text-centered"><c:out value="${report.session}"/></td>
-                                                <td class="has-text-centered"><c:out value="${report.proTitle}"/></td>
-                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile">
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"><c:out value="${report.studentName}" /></td> 
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"><c:out value="${report.studentId}" /></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"><c:out value="${report.session}"/></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4"><c:out value="${report.proTitle}"/></td>
+                                                <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
                                                     <div class="is-flex is-justify-content-center">
                                                         <a href="${pageContext.request.contextPath}/ViewPdfServlet?proId=${report.proId}" target="_blank" class="button is-success is-outlined is-small mr-1">
                                                             <i class="fas fa-eye"></i>
@@ -88,23 +90,23 @@
 
                             <label class="has-text-weight-semibold has-text-grey">Student Name</label>
                             <div class="py-2">
-                                <input class="custom-input px-4 py-2" type="text" name="stu_name" placeholder="Student Name">
+                                <input class="custom-input px-4 py-2 has-text-grey" type="text" name="stu_name" placeholder="Student Name">
                             </div>
                             <label class="has-text-weight-semibold has-text-grey">Student ID</label>
                             <div class="py-2">
-                                <input class="custom-input px-4 py-2" type="text" name="student_id" placeholder="Student ID">
+                                <input class="custom-input px-4 py-2 has-text-grey" type="text" name="student_id" placeholder="Student ID">
                             </div>  
                             <label class="has-text-weight-semibold has-text-grey">Project Title</label>
                             <div class="py-2">
-                                <input class="custom-input px-4 py-2" type="text" name="pro_title" placeholder="Project Title">
+                                <input class="custom-input px-4 py-2 has-text-grey" type="text" name="pro_title" placeholder="Project Title">
                             </div>
                             <label class="has-text-weight-semibold has-text-grey">Semester</label>
                             <div class="py-2">
-                                <input class="custom-input px-4 py-2" type="text" name="session" placeholder="Semester">
+                                <input class="custom-input px-4 py-2 has-text-grey" type="text" name="session" placeholder="Semester">
                             </div>
                             <div class="pt-3">
                                 <div id="file-js-example" class="file has-name">
-                                    <label class="file-label">
+                                    <label class="file-label is-size-7">
                                         <input class="file-input" type="file" name="pdfFile" />
                                         <span class="file-cta" style="background-color: #3699FF; border: none;">
                                             <span class="file-icon">
@@ -121,7 +123,7 @@
                     
                 </section>
                 <footer class="modal-card-foot has-background-white is-flex is-justify-content-end p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
-                    <button class="button is-custom3" type="submit">Submit</button>
+                    <button class="button is-custom3 is-size-7" type="submit">Submit</button>
                 </footer>
                 </form>
             </div>

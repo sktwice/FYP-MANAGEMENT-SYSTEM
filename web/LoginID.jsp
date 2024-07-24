@@ -13,6 +13,8 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .login-container {
             display: flex;
@@ -109,6 +111,24 @@
                 border-radius: 10px;
             }
         }
+        .custom-swal-popup {
+                width: 400px !important;
+                height: 250px !important;
+            }
+            .custom-icon {
+                width: 50px;
+                height: 65px;
+            }
+            .custom-swal-content {
+                font-size: 10px !important;
+                margin-bottom: 10px !important;
+            }
+            .custom-swal-button{
+                background-color: #384D6C;
+                border-color: #fff;
+                color: #fff;
+                font-size: 10px;
+            }
     </style>
 </head>
 <body>
@@ -139,10 +159,21 @@
                         </div>
                     </form>
                     <% 
-                        String error = request.getParameter("error");
-                        if ("invalid".equals(error)) {
+                        String error = (String) request.getAttribute("errorMessage");
+                        if (error != null) {
                     %>
-                        <p class="has-text-danger has-text-centered">Invalid username or password. Please try again.</p>
+                    <script>
+                        Swal.fire({
+                            title: '<%= error %>',
+                            icon: 'error',
+                            confirmButtonText: 'OK',
+                            customClass: {
+                                popup: 'custom-swal-popup',
+                                title: 'is-size-6',
+                                confirmButton: 'custom-swal-button'
+                            }
+                        });
+                    </script>
                     <% 
                         }
                     %>
@@ -151,4 +182,5 @@
         </div>
     </div>
 </body>
+
 </html>

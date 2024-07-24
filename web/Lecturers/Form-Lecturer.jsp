@@ -10,6 +10,7 @@
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <style>
                 
         .tabs {
@@ -952,7 +953,7 @@
             <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal()"></button>
         </header>
-        <form action="${pageContext.request.contextPath}/F2Servlet" method="post">
+        <form id="addReportForm" action="${pageContext.request.contextPath}/F2Servlet" method="post">
         <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <!-- Content -->
             <div class="columns is-multiline">
@@ -1089,7 +1090,7 @@
         </section>
         <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
                 <button class="button is-custom2" onclick="closeModal()">Close</button>
-                <button type="submit" class="button is-custom3">Submit</button>
+                <button id="submitBtn" type="submit" class="button is-custom3">Submit</button>
             </footer>
         </form> 
     </div>
@@ -1102,7 +1103,7 @@
             <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal2()"></button>
         </header>
-        <form action="F8LecturerServlet" method="post">
+        <form id="addReportForm2" action="F8LecturerServlet" method="post">
         <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <!-- Content -->
             <div class="columns is-multiline">
@@ -1324,7 +1325,7 @@
         </section>
         <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
                 <button class="button is-custom2" onclick="closeModal2()">Close</button>
-                <button type="submit" class="button is-custom3">Submit</button>
+                <button id="submitBtn2" type="submit" class="button is-custom3">Submit</button>
             </footer>
         </form> 
     </div>
@@ -1337,7 +1338,7 @@
             <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal3()"></button>
         </header>
-        <form action="${pageContext.request.contextPath}/F3Servlet" method="post">
+        <form id="addReportForm3" action="${pageContext.request.contextPath}/F3Servlet" method="post">
         <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <!-- Content -->
             <div class="columns is-multiline">
@@ -1448,7 +1449,7 @@
         </section>
         <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
                 <button class="button is-custom2" onclick="closeModal3()">Close</button>
-                <button type="submit" class="button is-custom3">Submit</button>
+                <button id="submitBtn3" type="submit" class="button is-custom3">Submit</button>
             </footer>
         </form>  
     </div>
@@ -1461,7 +1462,7 @@
             <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Project Details</p>
             <button class="delete" aria-label="close" onclick="closeModal4()"></button>
         </header>
-        <form action="${pageContext.request.contextPath}/F4Servlet" method="post">
+        <form id="addReportForm4" action="${pageContext.request.contextPath}/F4Servlet" method="post">
         <section class="modal-card-body has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;"">
             <!-- Content -->
             <div class="columns is-multiline">
@@ -1571,7 +1572,7 @@
         </section>
         <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4" style="border-top: #bdbdbd 1px solid;">
              <button class="button is-custom2" onclick="closeModal4()">Close</button>   
-             <button type="submit" class="button is-custom3">Submit</button>
+             <button id="submitBtn4" type="submit" class="button is-custom3">Submit</button>
             </footer>
         </form>
     </div>
@@ -1820,6 +1821,133 @@
         document.getElementById("totalResult").textContent = totalResult;
         document.getElementById("hiddenTotalResult").value = totalResult;
     }
-      </script>     
+      </script> 
+      <script>
+          document.getElementById('submitBtn').addEventListener('click', function() {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do you want to submit this mark?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    text: "The mark has been submited.",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('addReportForm');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+    </script>
+    <script>
+    document.getElementById('submitBtn2').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do you want to submit this mark?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    text: "The mark has been submited.",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('addReportForm2');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+    </script>
+    <script>
+    document.getElementById('submitBtn3').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do you want to submit this mark?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    text: "The mark has been submited.",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('addReportForm3');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+    </script>
+    <script>
+    document.getElementById('submitBtn4').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do you want to submit this mark?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, show success message and submit the form
+                Swal.fire({
+                    title: "Added!",
+                    text: "The mark has been submited.",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    // Find the form by id and submit it
+                    var form = document.getElementById('addReportForm4');
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
+    });
+      </script>  
     </body>
 </html>

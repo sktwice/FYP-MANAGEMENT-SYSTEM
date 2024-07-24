@@ -10,6 +10,7 @@ import com.fyp.model.bean.Supervisor;
 import com.fyp.model.bean.Teach;
 import com.fyp.model.user.AdminDAO;
 import com.fyp.model.user.StudentDAO;
+import jakarta.servlet.RequestDispatcher;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -157,7 +158,9 @@ public class LoginServlet extends HttpServlet {
                     }
                 }
             } else {
-                response.sendRedirect("login.jsp?error=Invalid username or password");
+                request.setAttribute("errorMessage", "Username or password is incorrect.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("LoginID.jsp");
+                dispatcher.forward(request, response);
             }
         } catch (SQLException | ClassNotFoundException e) {
             throw new ServletException(e);

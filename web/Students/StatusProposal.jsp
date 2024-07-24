@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Proposal</title>
+    <title>Proposal Status</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
@@ -80,7 +80,7 @@
                                                 <c:when test="${proposal.status eq 'rejected'}">
                                                     <form id="acceptForm_${proposal.proposalId}" method="post" action="${pageContext.request.contextPath}/DeleteProposalServlet" onsubmit="return confirmAction('${proposal.status}', '${proposal.proposalId}')">
                                                         <input type="hidden" name="proposalId" value="${proposal.proposalId}">
-                                                        <button class="button is-custom3 is-small" type="submit">Accept</button>
+                                                        <button class="button is-custom3 is-size-7" type="submit">Accept</button>
                                                     </form>
                                                 </c:when>
                                             </c:choose>
@@ -120,8 +120,8 @@
             <div class="modal-footer">
                 <form id="acceptForm" method="post" action="../AgreementServlet">
                     <input type="hidden" id="proposalIdInput" name="proposalId" value="">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="agreeToTerms()">Agree</button>
+                    <button type="button" class="button is-custom3 data-dismiss="modal">Cancel</button>
+                    <button type="button" class="button is-custom4" onclick="agreeToTerms()">Agree</button>
                 </form>
             </div>
         </div>

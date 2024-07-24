@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.fyp.model.bean.Admin"%>
+<%@page import="com.fyp.model.bean.Login"%>
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
     <head>
@@ -9,6 +10,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>User Profile</title>
         <style>
             .custom-input2 {
@@ -63,6 +66,24 @@
             .theme-preview.light {
                 background-color: #eee;
             }
+            .custom-swal-popup {
+                width: 400px !important;
+                height: 250px !important;
+            }
+            .custom-icon {
+                width: 50px;
+                height: 65px;
+            }
+            .custom-swal-content {
+                font-size: 10px !important;
+                margin-bottom: 10px !important;
+            }
+            .custom-swal-button{
+                background-color: #384D6C;
+                border-color: #fff;
+                color: #fff;
+                font-size: 10px;
+            }
         </style>
     </head>
     <body data-theme="light">
@@ -77,11 +98,11 @@
                                 <img id="profile-img" src="images/lecturers/<%= ((Admin) request.getAttribute("admin")).getaImage() %>" 
                                      alt="" style="height: -webkit-fill-available !important; border-radius: 50%;">
                             </figure>
-                                <a id="remove-picture" href="#" class="has-text-danger hover-underline is-size-7 p-1">Remove picture</a>
+                                <a id="remove-picture" href="#" class="has-text-danger hover-underline is-size-6 p-1">Remove picture</a>
                                 <div class="file is-small">
                                     <label class="file-label">
                                         <input class="file-input" type="file" name="profile-picture" id="profile-picture">
-                                            <span class="button is-custom file-label">Upload picture</span>
+                                            <span class="button is-custom4 file-label">Upload picture</span>
                                     </label>
                                 </div>
                         </div>
@@ -100,7 +121,7 @@
                                                 <input type="hidden" name="id" value="<%= ((Admin) request.getAttribute("admin")).getAdminId() %>" />
                                                 <label class="label has-text-grey">Name</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="text" placeholder="Name" value="<%= ((Admin) request.getAttribute("admin")).getaName() %>">
+                                                    <input class="input custom-input2 has-text-grey" type="text" placeholder="Name" value="<%= ((Admin) request.getAttribute("admin")).getaName() %>">
                                                 </div>
                                             </div>
                                         </div>
@@ -108,7 +129,7 @@
                                             <div class="field">
                                                 <label class="label has-text-grey">Phone Number</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="text" placeholder="Phone Number" value="0<%= ((Admin) request.getAttribute("admin")).getPhoneNum() %>">
+                                                    <input class="input custom-input2 has-text-grey" type="text" placeholder="Phone Number" value="0<%= ((Admin) request.getAttribute("admin")).getPhoneNum() %>">
                                                 </div>
                                             </div>
                                         </div>
@@ -118,7 +139,7 @@
                                             <div class="field">
                                                 <label class="label has-text-grey">Email Address</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="text" placeholder="Email Address" value="<%= ((Admin) request.getAttribute("admin")).getEmail() %>">
+                                                    <input class="input custom-input2 has-text-grey" type="text" placeholder="Email Address" value="<%= ((Admin) request.getAttribute("admin")).getEmail() %>">
                                                 </div>
                                             </div>
                                         </div>
@@ -131,21 +152,24 @@
                                 </form>
                             </div>
                             <div id="password-tab" class="tab-content hidden">
-                                <form>
+                                <form id="passwordForm" action="UpdatePasswordServlet" method="post">
+                                    <input type="hidden" name="loginId" id="loginId" value="<%= ((Admin) request.getAttribute("admin")).getLoginId() %>" />
+                                    <input type="hidden" id="storedPassword" value="<%= ((Login) request.getAttribute("login")).getPassword() %>" />
+
                                     <div class="columns">
                                         <div class="column is-one-third">
                                             <div class="field">
                                                 <label class="label has-text-grey">Current Password</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="password" placeholder="Current Password">
+                                                    <input class="input custom-input2" type="password" name="currentPassword" id="currentPassword" placeholder="Current Password">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="column is-one-third">
                                             <div class="field">
-                                                <label class="label has-text-grey">New password</label>
+                                                <label class="label has-text-grey">New Password</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="password" placeholder="New password">
+                                                    <input class="input custom-input2" type="password" name="newPassword" id="newPassword" placeholder="New Password">
                                                 </div>
                                             </div>
                                         </div>
@@ -155,14 +179,14 @@
                                             <div class="field">
                                                 <label class="label has-text-grey">Confirm New Password</label>
                                                 <div class="control">
-                                                    <input class="input custom-input2" type="password" placeholder="Confirm New Password">
+                                                    <input class="input custom-input2" type="password" id="confirmPassword" placeholder="Confirm New Password">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="control">
-                                            <button class="button is-custom4">Update Password</button>
+                                            <button type="button" id="updatePasswordBtn" class="button is-custom4">Update Password</button>
                                         </div>
                                     </div>
                                 </form>
@@ -201,6 +225,96 @@
                     document.getElementById(targetTab).classList.remove('hidden');
                 });
             });
+        </script>
+        <script>
+            document.getElementById('updatePasswordBtn').addEventListener('click', function() {
+    var currentPassword = document.getElementById('currentPassword').value;
+    var newPassword = document.getElementById('newPassword').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+    var storedPassword = document.getElementById('storedPassword').value;
+
+    if (currentPassword === "") {
+        Swal.fire({
+            title: "Cannot be empty",
+            icon: "error",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            customClass: {
+                popup: 'custom-swal-popup',
+                title: 'is-size-6',
+                confirmButton: 'custom-swal-button'
+            }
+        });
+        return;
+    }
+
+    if (currentPassword !== storedPassword) {
+        Swal.fire({
+            title: "Current password is incorrect",
+            icon: "error",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            customClass: {
+                popup: 'custom-swal-popup',
+                title: 'is-size-6',
+                confirmButton: 'custom-swal-button',
+                cancelButton: 'custom-swal-button'
+            }
+        });
+        return;
+    }
+
+    if (newPassword === "" || confirmPassword === "") {
+        Swal.fire({
+            title: "Cannot be empty",
+            icon: "error",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            customClass: {
+                popup: 'custom-swal-popup',
+                title: 'is-size-6',
+                confirmButton: 'custom-swal-button',
+                cancelButton: 'custom-swal-button'
+            }
+        });
+        return;
+    }
+
+    if (newPassword !== confirmPassword) {
+        Swal.fire({
+            title: "Do not match",
+            icon: "error",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            customClass: {
+                popup: 'custom-swal-popup',
+                title: 'is-size-6',
+                confirmButton: 'custom-swal-button',
+                cancelButton: 'custom-swal-button'
+            }
+        });
+        return;
+    }
+
+    Swal.fire({
+        title: "Password updated successfully",
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "OK",
+        customClass: {
+            popup: 'custom-swal-popup',
+            title: 'is-size-6',
+            confirmButton: 'custom-swal-button',
+            cancelButton: 'custom-swal-button'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Submit the form if all validations pass
+            document.getElementById('passwordForm').submit();
+        }
+    });
+});
+
         </script>
     </body>
 </html>

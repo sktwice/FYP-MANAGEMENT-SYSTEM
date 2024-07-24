@@ -21,21 +21,22 @@
             <jsp:include page="../admin-sidebar.jsp"></jsp:include>
                 <div class="main-content">
                     <div class="column h-100 px-4 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
-                        <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                            <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search" style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            <span class="has-background-black" style="border-radius: 100%; width: 40px; height: 40px;">
-                                <img src="">
-                            </span>
-                        </div>
                         <div class="custom-border p-6 w-100">
                             <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                                 <div>
                                     <label class="has-text-weight-bold has-text-grey is-size-5">Past Reports</label>
                                     <p class="has-text-grey-light is-size-7">More than ${listPastReport.size()} students' past reports</p>
                             </div>
-                            <button class="button is-custom4" style="height:2rem;" id="openModalButton">
-                                <span class="is-size-7">New Report</span>
-                            </button>
+                            <div class="columns m-0 p-0" style="width:28%;">
+                                <div class="column is-two-thirds p-1">
+                                    <input id="searchInput" class="px-4 py-3" type="text" placeholder="Search" style="width: 100%; border-radius: 6px; outline: none;">
+                                </div>
+                                <div class="column p-1" style="align-content:center;">
+                                    <button class="button is-custom4 px-4 py-3 w-90" style="height:2.6rem;" id="openModalButton">
+                                        <span class="is-size-7 has-text-weight-semibold">New Report</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <div class="p-1" id="table">
@@ -78,9 +79,9 @@
         </div>
         <div class="modal custom-modal" id="registerLecturerModal">
             <div class="modal-background"></div>
-            <div class="modal-card">
-                <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
-                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Register Lecturer</p>
+            <div class="modal-card" style="border-radius: 5px;">
+                <header class="modal-card-head has-background-white" style="box-shadow: 1px 1px 1px 1px #dbdbdb;">
+                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Add New Past Report</p>
                     <button class="delete" aria-label="close" id="closeModalButton"></button>
                 </header>
                 <section class="modal-card-body has-background-white">
@@ -119,8 +120,8 @@
                                     </label>
                                 </div>
                             </div>
-                            <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
-                                <button class="button is-success has-text-white" type="button" id="submitButton">Submit</button>
+                            <footer class="modal-card-foot has-background-white is-justify-content-end p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                                <button class="button is-custom" type="button" id="submitButton">Submit</button>
                             </footer>
                         </div>
                     </form>

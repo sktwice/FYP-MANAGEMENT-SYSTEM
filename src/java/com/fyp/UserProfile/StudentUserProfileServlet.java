@@ -6,6 +6,7 @@ package com.fyp.UserProfile;
 
 import com.fyp.model.bean.Lecturer;
 import com.fyp.model.bean.Admin;
+import com.fyp.model.bean.Login;
 import com.fyp.model.bean.Student;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -33,10 +34,13 @@ public class StudentUserProfileServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         int studentId = (int) session.getAttribute("student_id");
+        int loginId=(int) session.getAttribute("login_id");
+        Login login=userDao.selectLogin(loginId);
         Student existingStudent = userDao.selectStudent(studentId);
 
         if (existingStudent != null) {
             request.setAttribute("Student", existingStudent);
+            request.setAttribute("login", login);
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("Students/UserProfile-Student.jsp");

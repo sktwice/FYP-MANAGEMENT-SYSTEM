@@ -32,10 +32,12 @@ public class StudentUploadServlet extends HttpServlet {
         int studentId = (int) session.getAttribute("student_id");
         Student existingStudent = userDao.selectStudent(studentId);
         boolean hasForm6 = userDao.studentHasForm6(studentId);
+        boolean hasProject = userDao.studentHasProject(studentId);
 
         if (existingStudent != null) {
             request.setAttribute("Student", existingStudent);
             request.setAttribute("hasForm6", hasForm6);
+            request.setAttribute("hasProject", hasProject);
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("Students/Proposal.jsp");

@@ -6,6 +6,7 @@ package com.fyp.UserProfile;
 
 import com.fyp.model.bean.Lecturer;
 import com.fyp.model.bean.Admin;
+import com.fyp.model.bean.Login;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -35,9 +36,12 @@ public class ExaminerUserProfileServlet extends HttpServlet {
 
         int lId = (int) session.getAttribute("lecturer_id");
         Lecturer existingLecturer = userDao.selectLecturer(lId);
+        int loginId=(int) session.getAttribute("login_id");
+        Login login=userDao.selectLogin(loginId);
 
         if (existingLecturer != null) {
             request.setAttribute("Lecturer", existingLecturer);
+            request.setAttribute("login", login);
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("Examiners/UserProfile-Examiner.jsp");

@@ -1,6 +1,7 @@
 package com.fyp.UserProfile;
 import com.fyp.model.bean.Admin;
 import com.fyp.model.bean.Lecturer;
+import com.fyp.model.bean.Login;
 import com.fyp.model.bean.Student;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,10 +16,13 @@ public class UserDao {
     private String jdbcPassword = "";
 
     private static final String SELECT_ADMIN_BY_ID = "SELECT * FROM admin WHERE admin_id = ?";
+    private static final String SELECT_PASSWORD = "SELECT * FROM login WHERE login_id = ?";
     private static final String SELECT_LECTURER_BY_ID = "SELECT * FROM lecturer WHERE l_id = ?";
     private static final String SELECT_STUDENT_BY_ID = "SELECT * FROM student WHERE student_id = ?";
+    private static final String UPDATE_PASSWORD = "UPDATE login SET password=? where login_id=?";
     private static final String UPDATE_PROFILE_ADMIN = "UPDATE admin SET a_image = ?, a_name = ?, phone_num = ?, email = ? WHERE admin_id = ?";
     private static final String SELECT_FORM6 = "SELECT form6. * FROM form6 JOIN formTeach ON form6.formt_id = formTeach.formt_id WHERE formTeach.student_id = ?;";
+    private static final String HAS_PROJECT = "SELECT * from project where student_id=?";
     
     protected Connection getConnection() throws SQLException {
         Connection connection = null;
@@ -30,6 +34,21 @@ public class UserDao {
             throw new SQLException("Error loading JDBC driver", e);
         }
         return connection;
+    }
+    
+    public void updatePassword(String newPassword,int loginId) {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PASSWORD)) {
+
+        preparedStatement.setString(1, newPassword);
+        preparedStatement.setInt(2, loginId);
+
+
+        preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     
     public boolean studentHasForm6(int studentId) {
@@ -47,7 +66,24 @@ public class UserDao {
         }
         return hasForm6;
     }
+    
+    public boolean studentHasProject(int studentId) {
+        boolean hasProject = false;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(HAS_PROJECT);) {
+            preparedStatement.setInt(1, studentId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                hasProject = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error executing SQL query");
+        }
+        return hasProject;
+    }
 
+    
     public Admin selectAdmin(int adminId) {
         Admin admin = null;
         try (Connection connection = getConnection();
@@ -68,6 +104,23 @@ public class UserDao {
         return admin;
     }
     
+    public Login selectLogin(int loginId) {
+        Login login = null;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PASSWORD)) {
+            preparedStatement.setInt(1, loginId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String category = rs.getString("category");
+                login = new Login(loginId, username, password, category);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return login;
+    }
     public Lecturer selectLecturer(int lId) {
         Lecturer lecturer = null;
         try (Connection connection = getConnection();

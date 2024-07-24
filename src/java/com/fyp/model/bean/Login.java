@@ -21,6 +21,13 @@ public class Login {
         this.password=password;
         this.category=category;
     }
+    
+    public Login(int loginId, String username, String password, String category) {
+        this.loginId=loginId;
+        this.username=username;
+        this.password=password;
+        this.category=category;
+    }
     public Login(){}
 
     public int getLoginId() {

@@ -58,33 +58,43 @@
                 border-color: #dbdbdb !important;
                 border-bottom-color: #fff !important;
             }
+            .custom-swal-popup {
+                width: 300px !important;
+                height: 250px !important;
+            }
+            .custom-icon {
+                width: 50px;
+                height: 65px;
+            }
+            .custom-swal-button{
+                background-color: #384D6C;
+                border-color: #fff;
+                color: #fff;
+                font-size: 10px;
+            }
         </style>
     </head>
-
     <body>
         <div class="content-wrapper">
             <jsp:include page="../admin-sidebar.jsp"></jsp:include>
                 <div class="main-content">
                     <div class="column h-100 px-4 py-3" style="background-color:#FFFFFF; overflow-y: scroll;">
-                        <div class="pb-3 is-flex is-justify-content-end is-align-items-center">
-                            <input id="searchInput" class="px-4 mx-4 my-1" type="text" placeholder="Search"
-                                   style="width: 18rem; border-radius: 6px; border-width: 1px;border-color: #bdbdbd; outline: none;">
-                            <span class="has-background-black"
-                                  style="border-radius: 100%; width: 40px; height: 40px;">
-                                <img src="">
-                            </span>
-                        </div>
-
                         <div class="custom-border p-6 w-100">
                             <div class="is-flex is-justify-content-space-between is-align-items-center pb-4">
                                 <div>
                                     <label class="has-text-weight-bold has-text-grey is-size-5">List of Lecturers</label>
                                     <p class="has-text-grey-light is-size-7">More than ${lecturers.size()} lecturers</p>
                             </div>
-                            <button class="button is-custom" style="height:2rem;" id="openModalButton">
-                                <span class="is-size-7">Add Lecturer</span>
-                            </button>
-
+                            <div class="columns m-0 p-0" style="width:28%;">
+                                <div class="column is-two-thirds p-1">
+                                    <input id="searchInput" class="px-4 py-3" type="text" placeholder="Search" style="width: 100%; border-radius: 6px; outline: none;">
+                                </div>
+                                <div class="column p-1" style="align-content:center;">
+                                    <button class="button is-custom4 px-4 py-3 w-90" style="height:2.6rem;"id="openModalButton">
+                                        <span class="is-size-7 has-text-weight-semibold">New Lecturer</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="container">
                             <div class="tabs is-boxed">
@@ -120,19 +130,19 @@
                                             <tbody id="tableBody">
                                                 <c:forEach var="lecturer" items="${teaching}">
                                                     <tr>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="word-break: break-word;">
                                                             <c:out value="${lecturer.LName}" />
                                                         </td>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="word-break: break-word;">
                                                             <c:out value="${lecturer.LId}" />
                                                         </td>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="word-break: break-word;">
                                                             <c:out value="${lecturer.status}" />
                                                         </td>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4" style="word-break: break-word;">
                                                             <c:out value="${lecturer.email}" />
                                                         </td>
-                                                        <td class="has-text-centered">
+                                                        <td class="has-text-grey has-text-weight-semibold is-size-7 has-text-centered has-text-right-mobile p-4">
                                                             <button class="button is-success is-outlined edit-button" 
                                                                     data-id="${lecturer.LId}" 
                                                                     data-name="${lecturer.LName}" 
@@ -144,7 +154,7 @@
                                                                data-role-id="${lecturer.roleId}"
                                                                data-status="${lecturer.status}"
                                                                onclick="updateStatus(this)">
-                                                                <i class="fas fa-trash has-text-danger is-size-7"></i>
+                                                                <i class="fa-solid fa-rotate is-size-7"></i>
                                                             </a>
 
                                                         </td>
@@ -179,19 +189,19 @@
                                             <tbody id="tableBody">
                                                 <c:forEach var="lecturer" items="${examiner}">
                                                     <tr>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7" style="word-break: break-word;">
                                                             <c:out value="${lecturer.LName}" />
                                                         </td>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7" style="word-break: break-word;">
                                                             <c:out value="${lecturer.LId}" />
                                                         </td>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7" style="word-break: break-word;">
                                                             <c:out value="${lecturer.status}" />
                                                         </td>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7" style="word-break: break-word;">
                                                             <c:out value="${lecturer.email}" />
                                                         </td>
-                                                        <td class="has-text-centered">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7">
                                                             <button class="button is-success is-outlined edit-button" 
                                                                     data-id="${lecturer.LId}" 
                                                                     data-name="${lecturer.LName}" 
@@ -203,7 +213,7 @@
                                                                data-role-id="${lecturer.roleId}"
                                                                data-status="${lecturer.status}"
                                                                onclick="updateStatus(this)">
-                                                                <i class="fas fa-trash has-text-danger is-size-7"></i>
+                                                                <i class="fa-solid fa-rotate is-size-7"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -237,19 +247,19 @@
                                             <tbody id="tableBody">
                                                 <c:forEach var="lecturer" items="${supervisor}">
                                                     <tr>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7" style="word-break: break-word;">
                                                             <c:out value="${lecturer.LName}" />
                                                         </td>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7" style="word-break: break-word;">
                                                             <c:out value="${lecturer.LId}" />
                                                         </td>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7" style="word-break: break-word;">
                                                             <c:out value="${lecturer.status}" />
                                                         </td>
-                                                        <td class="has-text-centered" style="word-break: break-word;">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7" style="word-break: break-word;">
                                                             <c:out value="${lecturer.email}" />
                                                         </td>
-                                                        <td class="has-text-centered">
+                                                        <td class="has-text-grey has-text-weight-semibold has-text-centered is-size-7">
                                                             <button class="button is-success is-outlined edit-button" 
                                                                     data-id="${lecturer.LId}" 
                                                                     data-name="${lecturer.LName}" 
@@ -261,7 +271,7 @@
                                                                data-role-id="${lecturer.roleId}"
                                                                data-status="${lecturer.status}"
                                                                onclick="updateStatus(this)">
-                                                                <i class="fas fa-trash has-text-danger is-size-7"></i>
+                                                                <i class="fa-solid fa-rotate is-size-7"></i>
                                                             </a>
 
                                                         </td>
@@ -290,200 +300,208 @@
                     <form id="editLecturerForm" action="${pageContext.request.contextPath}/editLecturer" method="post">
                         <input type="hidden" id="lecturerId" name="lId">
                         <div class="field">
-                            <label class=" has-text-weight-semibold has-text-grey">Name</label>
+                            <label class=" has-text-weight-semibold has-text-grey-dark">Name</label>
                             <div class="control">
-                                <input class="px-4 py-2" type="text" id="lecturerName" name="lName" 
+                                <input class="px-4 py-2 has-text-grey" type="text" id="lecturerName" name="lName" 
                                        style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input class="px-4 py-2" type="hidden" id="lecturerPosition" name="position" value=" null"
+                                <input class="px-4 py-2 has-text-grey" type="hidden" id="lecturerPosition" name="position" value=" null"
                                        style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                             </div>
                         </div>
                         <div class=" has-text-weight-semibold has-text-grey">
-                            <label class=" has-text-weight-semibold has-text-grey">Email</label>
+                            <label class=" has-text-weight-semibold has-text-grey-dark">Email</label>
                             <div class="control">
-                                <input class="px-4 py-2" type="email" id="lecturerEmail" name="email"
+                                <input class="px-4 py-2 has-text-grey" type="email" id="lecturerEmail" name="email"
                                        style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                             </div>
                         </div>
                     </form>
                 </section>
                 <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between">
-                    <button class="button is-danger has-text-white" onclick="closeModal()">Cancel</button>
-                    <button class="button is-success has-text-white" onclick="saveChanges()">Save changes</button>
+                    <button class="button is-custom2 is-size-7" onclick="closeModal()">Cancel</button>
+                    <button class="button is-custom3 is-size-7" onclick="saveChanges()">Save changes</button>
                 </footer>
             </div>
         </div>
         <!-- Modal -->
         <div class="modal custom-modal" id="registerLecturerModal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
-            <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Register Lecturer</p>
-            <button class="delete" aria-label="close" id="closeModalButton"></button>
-        </header>
-        <section class="modal-card-body has-background-white">
-            <form id="registerLecturerForm" class="columns m-0 p-0 is-multiline" action="${pageContext.request.contextPath}/AddLecturer" method="post" enctype="multipart/form-data">
-                <input type="hidden" id="admin_id" name="admin_id" value="${sessionScope.admin_id}">
+            <div class="modal-background"></div>
+            <div class="modal-card" style="border-radius: 5px;">
+                <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
+                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Lecturer Registration</p>
+                    <button class="delete" aria-label="close" id="closeModalButton"></button>
+                </header>
+                <section class="modal-card-body has-background-white">
+                    <form id="registerLecturerForm" class="columns m-0 p-0 is-multiline" action="${pageContext.request.contextPath}/AddLecturer" method="post" enctype="multipart/form-data">
+                        <input type="hidden" id="admin_id" name="admin_id" value="${sessionScope.admin_id}">
 
-                <!-- Added Radio Button Section -->
-                <div class="column is-full p-2">
-                    <label class="has-text-weight-semibold has-text-grey">Do this lecturer teach CSP600?</label>
-                    <div class="">
-                        <label class="radio has-text-grey">
-                            <input type="radio" name="teaches_csp600" value="yes" required>
-                            Yes
-                        </label>
-                        <label class="radio has-text-grey">
-                            <input type="radio" name="teaches_csp600" value="no" required>
-                            No
-                        </label>
-                    </div>
-                </div>
-                <!-- End of Radio Button Section -->
-
-                <div class="column is-half p-2">
-                    <label for="username" class="has-text-weight-semibold has-text-grey">Username:</label>
-                    <div class="">
-                        <input class="px-4 py-2" type="text" id="username" name="username" placeholder="Username" required 
-                               style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                    </div>
-                </div>
-
-                <div class="column is-half p-2">
-                    <label for="password" class="has-text-weight-semibold has-text-grey">Password:</label>
-                    <div class="">
-                        <input class="px-4 py-2" type="password" id="password" name="password" placeholder="Password" required 
-                               style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                    </div>
-                </div>
-
-                <div class="column is-half p-2">
-                    <label for="l_name" class="has-text-weight-semibold has-text-grey">Lecturer Name:</label>
-                    <div class="">
-                        <input class="px-4 py-2" type="text" id="l_name" name="l_name" placeholder="Full Name" required 
-                               style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                    </div>
-                </div>
-
-                <div class="column is-half p-2">
-                    <label for="l_course" class="has-text-weight-semibold has-text-grey">Lecturer Course:</label>
-                    <div class="py-2">
-                        <select id="l_course" name="l_course" class="px-4 py-2" type="text" required 
-                                style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                            <option value="">Select Course</option>
-                            <c:forEach var="course" items="${courseList}">
-                                <option value="${course}">${course}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="column is-half p-2">
-                    <label for="position" class="has-text-weight-semibold has-text-grey">Position:</label>
-                    <div class="">
-                        <select id="position" name="position" class="p-2" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                            <option value="">Select Position</option>
-                            <option value="N/A">N/A</option>
-                            <option value="Supervisor">Supervisor</option>
-                            <option value="Examiner">Examiner</option>
-                            <option value="Both">Both</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="column is-half p-2">
-                    <label for="f_id" class="has-text-weight-semibold has-text-grey">Faculty:</label>
-                    <div class="">
-                        <select id="f_id" name="f_id" class="p-2 dropdown" required 
-                                style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                            <option value="">Select Faculty</option>
-                            <c:forEach var="faculty" items="${facultyList}">
-                                <option value="${faculty.fId}">${faculty.fName} :- ${faculty.fCourse}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="column is-half p-2">
-                    <label for="phone_num" class="has-text-weight-semibold has-text-grey">Phone Number:</label>
-                    <div class="">
-                        <input class="px-4 py-2" type="text" id="phone_num" name="phone_num" placeholder="e.g: 0112345678" required 
-                               style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                    </div>
-                </div>
-
-                <div class="column is-half p-2">
-                    <label for="email" class="has-text-weight-semibold has-text-grey">Email:</label>
-                    <div class="">
-                        <input class="px-4 py-2" type="email" id="email" name="email" placeholder="@email.com" required 
-                               style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
-                    </div>
-                </div>
-
-                <div class="column is-full p-2">
-                    <label class="has-text-weight-semibold has-text-grey">Image</label>
-                    <div class="py-1">
-                        <div id="file-js-example" class="file has-name">
-                            <label class="file-label">
-                                <input class="file-input" type="file" name="l_image" />
-                                <span class="file-cta" style="background-color: #3699FF; border: none;">
-                                    <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                    </span>
-                                    <span class="file-label">Choose a file?</span>
-                                </span>
-                                <span class="file-name has-text-grey">No file uploaded</span>
-                            </label>
+                        <!-- Added Radio Button Section -->
+                        <div class="column is-full p-2">
+                            <label class="has-text-weight-semibold has-text-grey">Does this lecturer teach CSP600?</label>
+                            <div class="">
+                                <label class="radio has-text-grey">
+                                    <input type="radio" name="teaches_csp600" value="yes" required>
+                                    Yes
+                                </label>
+                                <label class="radio has-text-grey">
+                                    <input type="radio" name="teaches_csp600" value="no" required>
+                                    No
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        <!-- End of Radio Button Section -->
 
-                <footer class="modal-card-foot has-background-white is-flex is-justify-content-space-between p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
-                    <a href="javascript:void(0);" class="button is-success has-text-white" onclick="confirmRegister(event)">Register</a>
-                </footer>
-            </form>
-        </section>
-    </div>
-</div>
+                        <div class="column is-half p-2">
+                            <label for="username" class="has-text-weight-semibold has-text-grey">Username</label>
+                            <div class="">
+                                <input class="px-4 py-2 has-text-grey" type="text" id="username" name="username" placeholder="Username" required 
+                                       style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                            </div>
+                        </div>
+
+                        <div class="column is-half p-2">
+                            <label for="password" class="has-text-weight-semibold has-text-grey">Password</label>
+                            <div class="">
+                                <input class="px-4 py-2 has-text-grey" type="password" id="password" name="password" placeholder="Password" required 
+                                       style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                            </div>
+                        </div>
+
+                        <div class="column is-half p-2">
+                            <label for="l_name" class="has-text-weight-semibold has-text-grey">Lecturer Name</label>
+                            <div class="">
+                                <input class="px-4 py-2 has-text-grey" type="text" id="l_name" name="l_name" placeholder="Full Name" required 
+                                       style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                            </div>
+                        </div>
+
+                        <div class="column is-half p-2">
+                            <label for="l_course" class="has-text-weight-semibold has-text-grey">Lecturer Course</label>
+                            <div class="py-2">
+                                <select id="l_course" name="l_course" class="px-4 py-2" type="text" required 
+                                        style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none; color: grey;">
+                                    <option value="">Select Course</option>
+                                    <c:forEach var="course" items="${courseList}">
+                                        <option value="${course}">${course}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="column is-half p-2">
+                            <label for="position" class="has-text-weight-semibold has-text-grey">Position</label>
+                            <div class="">
+                                <select id="position" name="position" class="p-2" required style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none; color: grey;">
+                                    <option value="">Select Position</option>
+                                    <option value="N/A">N/A</option>
+                                    <option value="Supervisor">Supervisor</option>
+                                    <option value="Examiner">Examiner</option>
+                                    <option value="Both">Both</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="column is-half p-2">
+                            <label for="f_id" class="has-text-weight-semibold has-text-grey">Faculty</label>
+                            <div class="">
+                                <select id="f_id" name="f_id" class="p-2 dropdown" required 
+                                        style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none; color: grey;">
+                                    <option value="">Select Faculty</option>
+                                    <c:forEach var="faculty" items="${facultyList}">
+                                        <option value="${faculty.fId}">${faculty.fName} :- ${faculty.fCourse}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="column is-half p-2">
+                            <label for="phone_num" class="has-text-weight-semibold has-text-grey">Phone Number</label>
+                            <div class="">
+                                <input class="px-4 py-2" type="text" id="phone_num" name="phone_num" placeholder="e.g: 0112345678" required 
+                                       style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none; color: grey;">
+                            </div>
+                        </div>
+
+                        <div class="column is-half p-2">
+                            <label for="email" class="has-text-weight-semibold has-text-grey">Email</label>
+                            <div class="">
+                                <input class="px-4 py-2" type="email" id="email" name="email" placeholder="@email.com" required 
+                                       style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none; color: grey;">
+                            </div>
+                        </div>
+
+                        <div class="column is-full p-2">
+                            <label class="has-text-weight-semibold has-text-grey">Image</label>
+                            <div class="py-1">
+                                <div id="file-js-example" class="file has-name">
+                                    <label class="file-label">
+                                        <input class="file-input" type="file" name="l_image" />
+                                        <span class="file-cta" style="background-color: #3699FF; border: none;">
+                                            <span class="file-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                            <span class="file-label">Choose a file?</span>
+                                        </span>
+                                        <span class="file-name has-text-grey">No file uploaded</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="modal-card-foot has-background-white is-justify-content-end p-4 w-100" style="border-top-color: #bdbdbd 1px solid;">
+                            <a href="javascript:void(0);" class="button is-custom" onclick="confirmRegister(event)">Register</a>
+                        </footer>
+                    </form>
+                </section>
+            </div>
+        </div>
 
 
         <script>
             function confirmRegister(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Display the SweetAlert2 confirmation dialog
-    Swal.fire({
-        title: "Are you sure?",
-        text: "Do you want to register this lecturer?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, register!"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // If confirmed, show success message and submit the form
-            Swal.fire({
-                title: "Registered!",
-                text: "The lecturer has been registered.",
-                icon: "success",
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "OK"
-            }).then(() => {
-                // Find the form and submit it
-                var form = document.getElementById('registerLecturerForm');
-                if (form) {
-                    form.submit();
-                }
-            });
-        }
-    });
-}
+                event.preventDefault();
+                Swal.fire({
+                    title: "Are you sure?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Register",
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-7',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // If confirmed, show success message and submit the form
+                        Swal.fire({
+                            title: "Registered!",
+                            icon: "success",
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "OK",
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-7',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+                    }
+                        }).then(() => {
+                            // Find the form and submit it
+                            var form = document.getElementById('registerLecturerForm');
+                            if (form) {
+                                form.submit();
+                            }
+                        });
+                    }
+                });
+            }
 
         </script>
 
@@ -565,7 +583,7 @@
                 openModal();
             }
 
-       // Event listener for edit buttons
+            // Event listener for edit buttons
             document.querySelectorAll('.edit-button').forEach(button => {
                 button.addEventListener('click', function () {
                     const id = this.getAttribute('data-id');
@@ -586,24 +604,34 @@
 
                 // Display the SweetAlert2 confirmation dialog
                 Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
+                    title: "This action cannot be undone. Are you sure?",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, update it!"
+                    confirmButtonText: "Yes",
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-7',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+                    }
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // If confirmed, navigate to the constructed URL
 
                         Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
+                            title: "Successfully Deleted!",
                             icon: "success",
                             confirmButtonColor: "#3085d6",
                             cancelButtonColor: "#d33",
-                            confirmButtonText: "OK"
+                            confirmButtonText: "OK",
+                            customClass: {
+                                popup: 'custom-swal-popup',
+                                title: 'is-size-7',
+                                confirmButton: 'custom-swal-button',
+                                cancelButton: 'custom-swal-button'
+                            }
                         }).then(() => {
                             // Navigate to the constructed URL after confirmation
                             window.location.href = url;

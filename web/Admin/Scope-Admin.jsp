@@ -8,13 +8,29 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Title</title>
+        <title>Scopes</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
         <script src="https://kit.fontawesome.com/d21aa4c3aa.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
+    <style>
+        .custom-swal-popup {
+            width: 300px !important;
+            height: 250px !important;
+        }
+        .custom-icon {
+            width: 50px;
+            height: 65px;
+        }
+        .custom-swal-button{
+            background-color: #384D6C;
+            border-color: #fff;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
     <body>
         <div class="content-wrapper">
             <jsp:include page="../admin-sidebar.jsp"></jsp:include>
@@ -24,15 +40,15 @@
                             <div class="is-flex is-justify-content-space-between is-align-items-center pb-2">
                                 <div>
                                     <label class="has-text-weight-bold has-text-grey is-size-5">FYP Scope</label>
-                                    <p class="has-text-success is-size-7">Available topics</p>
+                                    <p class="has-text-grey-light is-size-7">Available topics</p>
                                 </div>
-                                <div class="columns m-0 p-0" style="width:55%;">
+                                <div class="columns m-0 p-0" style="width:28%;">
                                     <div class="column is-two-thirds p-1">
                                         <input id="searchInput" class="px-4 py-3" type="text" placeholder="Search" style="width: 100%; border-radius: 6px; outline: none;">
                                     </div>
                                     <div class="column p-1" style="align-content:center;">
-                                        <button class="button is-custom px-4 py-3 w-100" style="height:2rem;" id="openModalButton">
-                                            <span class="is-size-7">Add Scope</span>
+                                        <button class="button is-custom4 px-4 py-3 w-90" style="height:2.6rem;" id="openModalButton">
+                                            <span class="is-size-7 has-text-weight-semibold">New Scope</span>
                                         </button>
                                     </div>
                                 </div>
@@ -75,7 +91,7 @@
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head has-background-white" style="box-shadow: 0px 1px 1px 1px #dbdbdb;">
-                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">Add New Scope</p>
+                    <p class="modal-card-title has-text-weight-semibold has-text-grey-dark">New Scope</p>
                     <button class="delete" aria-label="close" id="closeModalButton"></button>
                 </header>
                 <section class="modal-card-body has-background-white">
@@ -85,15 +101,15 @@
                             <input type="hidden" name="lId" value="0" />
                             <label class="has-text-weight-semibold has-text-grey">Scope</label>
                             <div class="py-2">
-                                <input class="px-4 py-2" type="text" name="scopeName" placeholder="Scope Name" style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                                <input class="px-4 py-2 has-text-grey" type="text" name="scopeName" placeholder="Scope Name" style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                             </div>
                             <label class="has-text-weight-semibold has-text-grey">Programme</label>
                             <div class="py-2">
-                                <input class="px-4 py-2" type="text" name="program" placeholder="Programme" style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                                <input class="px-4 py-2 has-text-grey" type="text" name="program" placeholder="Programme" style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                             </div>
                             <label class="has-text-weight-semibold has-text-grey">Session</label>
                             <div class="py-2">
-                                <input class="px-4 py-2" type="text" name="session" placeholder="Session" style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
+                                <input class="px-4 py-2 has-text-grey" type="text" name="session" placeholder="Session" style="width: 100%; border-radius: 6px; border-width: 1px; border-color: #bdbdbd; outline: none;">
                             </div>
                         </div>
                         <div class="is-flex is-justify-content-space-between p-4">
@@ -141,40 +157,50 @@
                     modal.classList.remove('is-active');
                 });
             });
-            
-            
-            function confirmAddScope(event) {
-        event.preventDefault(); // Prevent the default form submission
 
-        // Display the SweetAlert2 confirmation dialog
-        Swal.fire({
-            title: "Are you sure?",
-            text: "Do you want to add this scope?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, add!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // If confirmed, show success message and submit the form
+
+            function confirmAddScope(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Display the SweetAlert2 confirmation dialog
                 Swal.fire({
-                    title: "Added!",
-                    text: "The scope has been added.",
-                    icon: "success",
+                    title: "Are you sure?",
+                    icon: "warning",
+                    showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: "OK"
-                }).then(() => {
-                    // Find the form and submit it
-                    var form = document.getElementById('addScopeForm');
-                    if (form) {
-                        form.submit();
+                    confirmButtonText: "Yes",
+                    customClass: {
+                        popup: 'custom-swal-popup',
+                        title: 'is-size-6',
+                        confirmButton: 'custom-swal-button',
+                        cancelButton: 'custom-swal-button'
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // If confirmed, show success message and submit the form
+                        Swal.fire({
+                            title: "The scope has been added.",
+                            icon: "success",
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "OK",
+                            customClass: {
+                                popup: 'custom-swal-popup',
+                                title: 'is-size-6',
+                                confirmButton: 'custom-swal-button',
+                                cancelButton: 'custom-swal-button'
+                            }
+                        }).then(() => {
+                            // Find the form and submit it
+                            var form = document.getElementById('addScopeForm');
+                            if (form) {
+                                form.submit();
+                            }
+                        });
                     }
                 });
             }
-        });
-    }
         </script>
     </body>
 </html>
